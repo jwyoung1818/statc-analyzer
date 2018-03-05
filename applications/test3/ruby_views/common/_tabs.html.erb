@@ -1,0 +1,12 @@
+ tabs.each do |tab| 
+ link_to l(tab[:label]), (tab[:url] || { :tab => tab[:name] }),
+                                    :id => "tab-#{tab[:name]}",
+                                    :class => (tab[:name] != selected_tab ? nil : 'selected'),
+                                    :onclick => tab[:partial] ? "showTab('#{tab[:name]}', this.href); this.blur(); return false;" : nil 
+ end 
+ tabs.each do |tab| 
+ content_tag('div', render(:partial => tab[:partial], :locals => {:tab => tab} ),
+                       :id => "tab-content-#{tab[:name]}",
+                       :style => (tab[:name] != selected_tab ? 'display:none' : nil),
+                       :class => 'tab-content') if tab[:partial] 
+ end 

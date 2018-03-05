@@ -1,0 +1,740 @@
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 2
+		 6: CONSTANT def_%v_4 
+		 7: %v_4->each def_%v_3 %v_4[2.6,] %self[2.0,] 	 SYMBOL:	 ARGS:%v_4,
+CLOSURE BEGIN: i[] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_i 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 3
+		 6: (User) def_%cl_1_3 
+		 7: %cl_1_3->all def_%cl_1_4 %cl_1_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_PASS def_users %cl_1_4[2.7,] 
+		 9: Line Number 4
+		 10: (User) def_%cl_1_5 
+		 11: %cl_1_5->getAll def_%cl_1_6 %cl_1_5[2.10,] i[2.2,] 	 SYMBOL:	 ARGS:i,
+		 12: RETURN %cl_1_6[2.11,] %self[2.0,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: i[2.2,] users[2.8,] 
+		 8: Line Number 6
+		 9: COPY TYPE_StringLiteral "index" def_%v_5 
+		 10: %self->render def_%v_6 %self[2.0,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: Line Number 7
+		 12: users->reload def_%v_7 users[2.7,] 	 SYMBOL:	 ARGS:
+		 13: Line Number 8
+		 14: COPY TYPE_StringLiteral "Do nothing with user" def_%v_8 
+		 15: %self->puts def_%v_9 %self[2.0,2.10,] %v_8[2.14,] 	 SYMBOL:	 ARGS:%v_8,
+		 16: Line Number 9
+		 17: users->reload def_%v_10 users[2.7,2.12,] 	 SYMBOL:	 ARGS:
+		 18: RETURN %v_10[2.17,] %self[2.0,2.10,2.15,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 2
+		 6: CONSTANT def_%v_4 
+		 7: %v_4->each def_%v_3 %v_4[2.6,] %self[2.0,] 	 SYMBOL:	 ARGS:%v_4,
+CLOSURE BEGIN: i[] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_i 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 3
+		 6: (User) def_%cl_1_3 
+		 7: %cl_1_3->all def_%cl_1_4 %cl_1_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_PASS def_users %cl_1_4[2.7,] 
+		 9: Line Number 4
+		 10: (User) def_%cl_1_5 
+		 11: %cl_1_5->getAll def_%cl_1_6 %cl_1_5[2.10,] i[2.2,] 	 SYMBOL:	 ARGS:i,
+		 12: RETURN %cl_1_6[2.11,] %self[2.0,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: i[2.2,] users[2.8,] 
+		 8: Line Number 6
+		 9: COPY TYPE_StringLiteral "index" def_%v_5 
+		 10: %self->render def_%v_6 %self[2.0,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: Line Number 7
+		 12: (User) def_%v_7 
+		 13: %v_7->all def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: %v_8->limit def_%v_9 %v_8[2.13,] 	 SYMBOL:	 ARGS:Fixnum,
+		 15: Line Number 8
+		 16: users->each def_%v_10 users[2.7,] %self[2.0,2.10,] 	 SYMBOL:	 ARGS:users,
+CLOSURE BEGIN: %self[2.0,2.10,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: RECEIVEARG def_user 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 9
+		 1: COPY TYPE_StringLiteral "user" def_%cl_2_3 
+		 2: %self->partial def_%cl_2_4 %self[2.0,] %cl_2_3[3.1,] 	 SYMBOL:	 ARGS:%cl_2_3,
+		 3: %self->render def_%cl_2_5 %self[3.2,2.0,] %cl_2_4[3.2,] 	 SYMBOL:	 ARGS:%cl_2_4,
+		 4: Line Number 10
+		 5: (User) def_%cl_2_6 
+		 6: %cl_2_6->all def_%cl_2_7 %cl_2_6[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_2_7->limit def_%cl_2_8 %cl_2_7[3.6,] 	 SYMBOL:	 ARGS:Fixnum,
+		 8: Line Number 11
+		 9: COPY TYPE_StringLiteral "blog" def_%cl_2_9 
+		 10: %self->partial def_%cl_2_10 %self[3.2,3.3,2.0,] %cl_2_9[3.9,] 	 SYMBOL:	 ARGS:%cl_2_9,
+		 11: %self->render def_%cl_2_11 %self[3.2,3.3,3.10,2.0,] %cl_2_10[3.10,] 	 SYMBOL:	 ARGS:%cl_2_10,
+		 12: Line Number 13
+		 13: (Test) def_%cl_2_12 
+		 14: (Blog) def_%cl_2_13 
+		 15: %cl_2_13->end def_%cl_2_14 %cl_2_13[3.14,] 	 SYMBOL:	 ARGS:
+		 16: RETURN %cl_2_14[3.15,] %self[3.2,3.3,3.10,3.11,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_15 
+		 1: def_%cl_2_16 %cl_2_15[4.0,] 
+		 2: RETURN %cl_2_16[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 17: Line Number 15
+		 18: (User) def_%v_11 
+		 19: %v_11->exists? def_%v_12 %v_11[2.18,] 	 SYMBOL:	 ARGS:
+		 20: Line Number 16
+		 21: %self->etid def_%v_13 %self[2.0,2.10,] 	 SYMBOL:	 ARGS:
+		 22: %self->rendering def_%v_14 %self[2.0,2.10,2.21,] %v_13[2.21,] 	 SYMBOL:	 ARGS:%v_13,
+		 23: %self->Start def_%v_15 %self[2.0,2.10,2.21,2.22,] %v_14[2.22,] 	 SYMBOL:	 ARGS:%v_14,
+		 24: Line Number 17
+		 25: COPY TYPE_StringLiteral "blog1" def_%v_16 
+		 26: %self->partial def_%v_17 %self[2.0,2.10,2.21,2.22,2.23,] %v_16[2.25,] 	 SYMBOL:	 ARGS:%v_16,
+		 27: %self->render def_%v_18 %self[2.0,2.10,2.21,2.22,2.23,2.26,] %v_17[2.26,] 	 SYMBOL:	 ARGS:%v_17,
+		 28: Line Number 19
+		 29: (Test) def_%v_19 
+		 30: %self->Line def_%v_20 %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,] 	 SYMBOL:	 ARGS:Fixnum,
+		 31: Line Number 20
+		 32: users->reload def_%v_21 users[2.7,2.16,] 	 SYMBOL:	 ARGS:
+		 33: Line Number 21
+		 34: COPY TYPE_StringLiteral "Do nothing with user" def_%v_22 
+		 35: %self->puts def_%v_23 %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,2.30,] %v_22[2.34,] 	 SYMBOL:	 ARGS:%v_22,
+		 36: Line Number 22
+		 37: users->reload def_%v_24 users[2.7,2.16,2.32,] 	 SYMBOL:	 ARGS:
+		 38: RETURN %v_24[2.37,] %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,2.30,2.35,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = test instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 25
+		 6: COPY TYPE_StringLiteral "Rendering index" def_%v_3 
+		 7: %self->puts def_%v_4 %self[2.0,] %v_3[2.6,] 	 SYMBOL:	 ARGS:%v_3,
+		 8: Line Number 26
+		 9: COPY TYPE_StringLiteral "index" def_%v_5 
+		 10: %self->render def_%v_6 %self[2.0,2.7,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: Line Number 27
+		 12: (User) def_%v_7 
+		 13: %v_7->all def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: %v_8->limit def_%v_9 %v_8[2.13,] 	 SYMBOL:	 ARGS:Fixnum,
+		 15: Line Number 28
+		 16: %self->users def_%v_10 %self[2.0,2.7,2.10,] 	 SYMBOL:	 ARGS:
+		 17: %v_10->each def_%v_11 %v_10[2.16,] %self[2.0,2.7,2.10,2.16,] 	 SYMBOL:	 ARGS:%v_10,
+CLOSURE BEGIN: %self[2.0,2.7,2.10,2.16,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_user 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 29
+		 1: COPY TYPE_StringLiteral "user" def_%cl_1_3 
+		 2: %self->partial def_%cl_1_4 %self[2.0,] %cl_1_3[3.1,] 	 SYMBOL:	 ARGS:%cl_1_3,
+		 3: %self->render def_%cl_1_5 %self[3.2,2.0,] %cl_1_4[3.2,] 	 SYMBOL:	 ARGS:%cl_1_4,
+		 4: Line Number 30
+		 5: (User) def_%cl_1_6 
+		 6: %cl_1_6->all def_%cl_1_7 %cl_1_6[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_1_7->limit def_%cl_1_8 %cl_1_7[3.6,] 	 SYMBOL:	 ARGS:Fixnum,
+		 8: Line Number 31
+		 9: COPY TYPE_StringLiteral "blog" def_%cl_1_9 
+		 10: %self->partial def_%cl_1_10 %self[3.2,3.3,2.0,] %cl_1_9[3.9,] 	 SYMBOL:	 ARGS:%cl_1_9,
+		 11: %self->render def_%cl_1_11 %self[3.2,3.3,3.10,2.0,] %cl_1_10[3.10,] 	 SYMBOL:	 ARGS:%cl_1_10,
+		 12: Line Number 33
+		 13: (Test) def_%cl_1_12 
+		 14: (Blog) def_%cl_1_13 
+		 15: %cl_1_13->end def_%cl_1_14 %cl_1_13[3.14,] 	 SYMBOL:	 ARGS:
+		 16: RETURN %cl_1_14[3.15,] %self[3.2,3.3,3.10,3.11,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_15 
+		 1: def_%cl_1_16 %cl_1_15[4.0,] 
+		 2: RETURN %cl_1_16[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 18: Line Number 35
+		 19: (User) def_%v_12 
+		 20: %v_12->exists? def_%v_13 %v_12[2.19,] 	 SYMBOL:	 ARGS:
+		 21: Line Number 36
+		 22: %self->etid def_%v_14 %self[2.0,2.7,2.10,2.16,] 	 SYMBOL:	 ARGS:
+		 23: %self->rendering def_%v_15 %self[2.0,2.7,2.10,2.16,2.22,] %v_14[2.22,] 	 SYMBOL:	 ARGS:%v_14,
+		 24: %self->Start def_%v_16 %self[2.0,2.7,2.10,2.16,2.22,2.23,] %v_15[2.23,] 	 SYMBOL:	 ARGS:%v_15,
+		 25: Line Number 37
+		 26: COPY TYPE_StringLiteral "blog1" def_%v_17 
+		 27: %self->partial def_%v_18 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,] %v_17[2.26,] 	 SYMBOL:	 ARGS:%v_17,
+		 28: %self->render def_%v_19 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,] %v_18[2.27,] 	 SYMBOL:	 ARGS:%v_18,
+		 29: Line Number 39
+		 30: (Test) def_%v_20 
+		 31: %self->Line def_%v_21 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,] 	 SYMBOL:	 ARGS:Fixnum,
+		 32: Line Number 40
+		 33: COPY TYPE_StringLiteral " finishing index" def_%v_22 
+		 34: %self->puts def_%v_23 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,2.31,] %v_22[2.33,] 	 SYMBOL:	 ARGS:%v_22,
+		 35: RETURN %v_23[2.34,] %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,2.31,2.34,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 2
+		 6: CONSTANT def_%v_4 
+		 7: %v_4->each def_%v_3 %v_4[2.6,] %self[2.0,] 	 SYMBOL:	 ARGS:%v_4,
+CLOSURE BEGIN: i[] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_i 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 3
+		 6: (User) def_%cl_1_3 
+		 7: %cl_1_3->all def_%cl_1_4 %cl_1_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_PASS def_users %cl_1_4[2.7,] 
+		 9: Line Number 4
+		 10: (User) def_%cl_1_5 
+		 11: %cl_1_5->getAll def_%cl_1_6 %cl_1_5[2.10,] i[2.2,] 	 SYMBOL:	 ARGS:i,
+		 12: RETURN %cl_1_6[2.11,] %self[2.0,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: i[2.2,] users[2.8,] 
+		 8: Line Number 6
+		 9: COPY TYPE_StringLiteral "index" def_%v_5 
+		 10: %self->render def_%v_6 %self[2.0,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: Line Number 7
+		 12: (User) def_%v_7 
+		 13: %v_7->all def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: %v_8->limit def_%v_9 %v_8[2.13,] 	 SYMBOL:	 ARGS:Fixnum,
+		 15: Line Number 8
+		 16: users->each def_%v_10 users[2.7,] %self[2.0,2.10,] 	 SYMBOL:	 ARGS:users,
+CLOSURE BEGIN: %self[2.0,2.10,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: RECEIVEARG def_user 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 9
+		 1: COPY TYPE_StringLiteral "user" def_%cl_2_3 
+		 2: %self->partial def_%cl_2_4 %self[2.0,] %cl_2_3[3.1,] 	 SYMBOL:	 ARGS:%cl_2_3,
+		 3: %self->render def_%cl_2_5 %self[3.2,2.0,] %cl_2_4[3.2,] 	 SYMBOL:	 ARGS:%cl_2_4,
+		 4: Line Number 10
+		 5: (User) def_%cl_2_6 
+		 6: %cl_2_6->all def_%cl_2_7 %cl_2_6[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_2_7->limit def_%cl_2_8 %cl_2_7[3.6,] 	 SYMBOL:	 ARGS:Fixnum,
+		 8: Line Number 11
+		 9: COPY TYPE_StringLiteral "blog" def_%cl_2_9 
+		 10: %self->partial def_%cl_2_10 %self[3.2,3.3,2.0,] %cl_2_9[3.9,] 	 SYMBOL:	 ARGS:%cl_2_9,
+		 11: %self->render def_%cl_2_11 %self[3.2,3.3,3.10,2.0,] %cl_2_10[3.10,] 	 SYMBOL:	 ARGS:%cl_2_10,
+		 12: Line Number 13
+		 13: (Test) def_%cl_2_12 
+		 14: (Blog) def_%cl_2_13 
+		 15: %cl_2_13->end def_%cl_2_14 %cl_2_13[3.14,] 	 SYMBOL:	 ARGS:
+		 16: RETURN %cl_2_14[3.15,] %self[3.2,3.3,3.10,3.11,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_15 
+		 1: def_%cl_2_16 %cl_2_15[4.0,] 
+		 2: RETURN %cl_2_16[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 17: Line Number 15
+		 18: (User) def_%v_11 
+		 19: %v_11->exists? def_%v_12 %v_11[2.18,] 	 SYMBOL:	 ARGS:
+		 20: Line Number 16
+		 21: %self->etid def_%v_13 %self[2.0,2.10,] 	 SYMBOL:	 ARGS:
+		 22: %self->rendering def_%v_14 %self[2.0,2.10,2.21,] %v_13[2.21,] 	 SYMBOL:	 ARGS:%v_13,
+		 23: %self->Start def_%v_15 %self[2.0,2.10,2.21,2.22,] %v_14[2.22,] 	 SYMBOL:	 ARGS:%v_14,
+		 24: Line Number 17
+		 25: COPY TYPE_StringLiteral "blog1" def_%v_16 
+		 26: %self->partial def_%v_17 %self[2.0,2.10,2.21,2.22,2.23,] %v_16[2.25,] 	 SYMBOL:	 ARGS:%v_16,
+		 27: %self->render def_%v_18 %self[2.0,2.10,2.21,2.22,2.23,2.26,] %v_17[2.26,] 	 SYMBOL:	 ARGS:%v_17,
+		 28: Line Number 19
+		 29: (Test) def_%v_19 
+		 30: %self->Line def_%v_20 %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,] 	 SYMBOL:	 ARGS:Fixnum,
+		 31: Line Number 20
+		 32: %self->content_tag def_%v_21 %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,2.30,] 	 SYMBOL:div,	 ARGS:Symbol,
+		 33: Line Number 21
+		 34: users->reload def_%v_22 users[2.7,2.16,] 	 SYMBOL:	 ARGS:
+		 35: Line Number 22
+		 36: COPY TYPE_StringLiteral "Do nothing with user" def_%v_23 
+		 37: %self->puts def_%v_24 %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,2.30,2.32,] %v_23[2.36,] 	 SYMBOL:	 ARGS:%v_23,
+		 38: Line Number 23
+		 39: users->reload def_%v_25 users[2.7,2.16,2.34,] 	 SYMBOL:	 ARGS:
+		 40: RETURN %v_25[2.39,] %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,2.30,2.32,2.37,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = test instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 26
+		 6: COPY TYPE_StringLiteral "Rendering index" def_%v_3 
+		 7: %self->puts def_%v_4 %self[2.0,] %v_3[2.6,] 	 SYMBOL:	 ARGS:%v_3,
+		 8: Line Number 27
+		 9: COPY TYPE_StringLiteral "index" def_%v_5 
+		 10: %self->render def_%v_6 %self[2.0,2.7,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: Line Number 28
+		 12: (User) def_%v_7 
+		 13: %v_7->all def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: %v_8->limit def_%v_9 %v_8[2.13,] 	 SYMBOL:	 ARGS:Fixnum,
+		 15: Line Number 29
+		 16: %self->users def_%v_10 %self[2.0,2.7,2.10,] 	 SYMBOL:	 ARGS:
+		 17: %v_10->each def_%v_11 %v_10[2.16,] %self[2.0,2.7,2.10,2.16,] 	 SYMBOL:	 ARGS:%v_10,
+CLOSURE BEGIN: %self[2.0,2.7,2.10,2.16,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_user 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 30
+		 1: COPY TYPE_StringLiteral "user" def_%cl_1_3 
+		 2: %self->partial def_%cl_1_4 %self[2.0,] %cl_1_3[3.1,] 	 SYMBOL:	 ARGS:%cl_1_3,
+		 3: %self->render def_%cl_1_5 %self[3.2,2.0,] %cl_1_4[3.2,] 	 SYMBOL:	 ARGS:%cl_1_4,
+		 4: Line Number 31
+		 5: (User) def_%cl_1_6 
+		 6: %cl_1_6->all def_%cl_1_7 %cl_1_6[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_1_7->limit def_%cl_1_8 %cl_1_7[3.6,] 	 SYMBOL:	 ARGS:Fixnum,
+		 8: Line Number 32
+		 9: COPY TYPE_StringLiteral "blog" def_%cl_1_9 
+		 10: %self->partial def_%cl_1_10 %self[3.2,3.3,2.0,] %cl_1_9[3.9,] 	 SYMBOL:	 ARGS:%cl_1_9,
+		 11: %self->render def_%cl_1_11 %self[3.2,3.3,3.10,2.0,] %cl_1_10[3.10,] 	 SYMBOL:	 ARGS:%cl_1_10,
+		 12: Line Number 34
+		 13: (Test) def_%cl_1_12 
+		 14: (Blog) def_%cl_1_13 
+		 15: %cl_1_13->end def_%cl_1_14 %cl_1_13[3.14,] 	 SYMBOL:	 ARGS:
+		 16: RETURN %cl_1_14[3.15,] %self[3.2,3.3,3.10,3.11,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_15 
+		 1: def_%cl_1_16 %cl_1_15[4.0,] 
+		 2: RETURN %cl_1_16[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 18: Line Number 36
+		 19: (User) def_%v_12 
+		 20: %v_12->exists? def_%v_13 %v_12[2.19,] 	 SYMBOL:	 ARGS:
+		 21: Line Number 37
+		 22: %self->etid def_%v_14 %self[2.0,2.7,2.10,2.16,] 	 SYMBOL:	 ARGS:
+		 23: %self->rendering def_%v_15 %self[2.0,2.7,2.10,2.16,2.22,] %v_14[2.22,] 	 SYMBOL:	 ARGS:%v_14,
+		 24: %self->Start def_%v_16 %self[2.0,2.7,2.10,2.16,2.22,2.23,] %v_15[2.23,] 	 SYMBOL:	 ARGS:%v_15,
+		 25: Line Number 38
+		 26: COPY TYPE_StringLiteral "blog1" def_%v_17 
+		 27: %self->partial def_%v_18 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,] %v_17[2.26,] 	 SYMBOL:	 ARGS:%v_17,
+		 28: %self->render def_%v_19 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,] %v_18[2.27,] 	 SYMBOL:	 ARGS:%v_18,
+		 29: Line Number 40
+		 30: (Test) def_%v_20 
+		 31: %self->Line def_%v_21 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,] 	 SYMBOL:	 ARGS:Fixnum,
+		 32: Line Number 41
+		 33: %self->content_tag def_%v_22 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,2.31,] 	 SYMBOL:div,	 ARGS:Symbol,
+		 34: Line Number 42
+		 35: COPY TYPE_StringLiteral " finishing index" def_%v_23 
+		 36: %self->puts def_%v_24 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,2.31,2.33,] %v_23[2.35,] 	 SYMBOL:	 ARGS:%v_23,
+		 37: RETURN %v_24[2.36,] %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,2.31,2.33,2.36,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 2
+		 6: CONSTANT def_%v_4 
+		 7: %v_4->each def_%v_3 %v_4[2.6,] %self[2.0,] 	 SYMBOL:	 ARGS:%v_4,
+CLOSURE BEGIN: i[] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_i 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 3
+		 6: (User) def_%cl_1_3 
+		 7: %cl_1_3->all def_%cl_1_4 %cl_1_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_PASS def_users %cl_1_4[2.7,] 
+		 9: Line Number 4
+		 10: (User) def_%cl_1_5 
+		 11: %cl_1_5->getAll def_%cl_1_6 %cl_1_5[2.10,] i[2.2,] 	 SYMBOL:	 ARGS:i,
+		 12: RETURN %cl_1_6[2.11,] %self[2.0,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: i[2.2,] users[2.8,] 
+		 8: Line Number 6
+		 9: COPY TYPE_StringLiteral "index" def_%v_5 
+		 10: %self->render def_%v_6 %self[2.0,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: Line Number 7
+		 12: (User) def_%v_7 
+		 13: %v_7->all def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: %v_8->limit def_%v_9 %v_8[2.13,] 	 SYMBOL:	 ARGS:Fixnum,
+		 15: Line Number 8
+		 16: users->each def_%v_10 users[2.7,] %self[2.0,2.10,] 	 SYMBOL:	 ARGS:users,
+CLOSURE BEGIN: %self[2.0,2.10,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: RECEIVEARG def_user 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 9
+		 1: COPY TYPE_StringLiteral "user" def_%cl_2_3 
+		 2: %self->partial def_%cl_2_4 %self[2.0,] %cl_2_3[3.1,] 	 SYMBOL:	 ARGS:%cl_2_3,
+		 3: %self->render def_%cl_2_5 %self[3.2,2.0,] %cl_2_4[3.2,] 	 SYMBOL:	 ARGS:%cl_2_4,
+		 4: Line Number 10
+		 5: (User) def_%cl_2_6 
+		 6: %cl_2_6->all def_%cl_2_7 %cl_2_6[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_2_7->limit def_%cl_2_8 %cl_2_7[3.6,] 	 SYMBOL:	 ARGS:Fixnum,
+		 8: Line Number 11
+		 9: COPY TYPE_StringLiteral "blog" def_%cl_2_9 
+		 10: %self->partial def_%cl_2_10 %self[3.2,3.3,2.0,] %cl_2_9[3.9,] 	 SYMBOL:	 ARGS:%cl_2_9,
+		 11: %self->render def_%cl_2_11 %self[3.2,3.3,3.10,2.0,] %cl_2_10[3.10,] 	 SYMBOL:	 ARGS:%cl_2_10,
+		 12: Line Number 13
+		 13: (Test) def_%cl_2_12 
+		 14: (Blog) def_%cl_2_13 
+		 15: %cl_2_13->end def_%cl_2_14 %cl_2_13[3.14,] 	 SYMBOL:	 ARGS:
+		 16: Line Number 14
+		 17: %self->content_tag def_%cl_2_15 %self[3.2,3.3,3.10,3.11,2.0,] 	 SYMBOL:div,	 ARGS:Symbol,
+		 18: RETURN %cl_2_15[3.17,] %self[3.2,3.3,3.10,3.11,3.17,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_16 
+		 1: def_%cl_2_17 %cl_2_16[4.0,] 
+		 2: RETURN %cl_2_17[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 17: Line Number 16
+		 18: (User) def_%v_11 
+		 19: %v_11->exists? def_%v_12 %v_11[2.18,] 	 SYMBOL:	 ARGS:
+		 20: Line Number 17
+		 21: %self->etid def_%v_13 %self[2.0,2.10,] 	 SYMBOL:	 ARGS:
+		 22: %self->rendering def_%v_14 %self[2.0,2.10,2.21,] %v_13[2.21,] 	 SYMBOL:	 ARGS:%v_13,
+		 23: %self->Start def_%v_15 %self[2.0,2.10,2.21,2.22,] %v_14[2.22,] 	 SYMBOL:	 ARGS:%v_14,
+		 24: Line Number 18
+		 25: COPY TYPE_StringLiteral "blog1" def_%v_16 
+		 26: %self->partial def_%v_17 %self[2.0,2.10,2.21,2.22,2.23,] %v_16[2.25,] 	 SYMBOL:	 ARGS:%v_16,
+		 27: %self->render def_%v_18 %self[2.0,2.10,2.21,2.22,2.23,2.26,] %v_17[2.26,] 	 SYMBOL:	 ARGS:%v_17,
+		 28: Line Number 20
+		 29: (Test) def_%v_19 
+		 30: %self->Line def_%v_20 %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,] 	 SYMBOL:	 ARGS:Fixnum,
+		 31: Line Number 21
+		 32: users->reload def_%v_21 users[2.7,2.16,] 	 SYMBOL:	 ARGS:
+		 33: Line Number 22
+		 34: COPY TYPE_StringLiteral "Do nothing with user" def_%v_22 
+		 35: %self->puts def_%v_23 %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,2.30,] %v_22[2.34,] 	 SYMBOL:	 ARGS:%v_22,
+		 36: Line Number 23
+		 37: users->reload def_%v_24 users[2.7,2.16,2.32,] 	 SYMBOL:	 ARGS:
+		 38: RETURN %v_24[2.37,] %self[2.0,2.10,2.21,2.22,2.23,2.26,2.27,2.30,2.35,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = test instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 26
+		 6: COPY TYPE_StringLiteral "Rendering index" def_%v_3 
+		 7: %self->puts def_%v_4 %self[2.0,] %v_3[2.6,] 	 SYMBOL:	 ARGS:%v_3,
+		 8: Line Number 27
+		 9: COPY TYPE_StringLiteral "index" def_%v_5 
+		 10: %self->render def_%v_6 %self[2.0,2.7,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: Line Number 28
+		 12: (User) def_%v_7 
+		 13: %v_7->all def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: %v_8->limit def_%v_9 %v_8[2.13,] 	 SYMBOL:	 ARGS:Fixnum,
+		 15: Line Number 29
+		 16: %self->users def_%v_10 %self[2.0,2.7,2.10,] 	 SYMBOL:	 ARGS:
+		 17: %v_10->each def_%v_11 %v_10[2.16,] %self[2.0,2.7,2.10,2.16,] 	 SYMBOL:	 ARGS:%v_10,
+CLOSURE BEGIN: %self[2.0,2.7,2.10,2.16,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_user 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 30
+		 1: COPY TYPE_StringLiteral "user" def_%cl_1_3 
+		 2: %self->partial def_%cl_1_4 %self[2.0,] %cl_1_3[3.1,] 	 SYMBOL:	 ARGS:%cl_1_3,
+		 3: %self->render def_%cl_1_5 %self[3.2,2.0,] %cl_1_4[3.2,] 	 SYMBOL:	 ARGS:%cl_1_4,
+		 4: Line Number 31
+		 5: (User) def_%cl_1_6 
+		 6: %cl_1_6->all def_%cl_1_7 %cl_1_6[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_1_7->limit def_%cl_1_8 %cl_1_7[3.6,] 	 SYMBOL:	 ARGS:Fixnum,
+		 8: Line Number 32
+		 9: COPY TYPE_StringLiteral "blog" def_%cl_1_9 
+		 10: %self->partial def_%cl_1_10 %self[3.2,3.3,2.0,] %cl_1_9[3.9,] 	 SYMBOL:	 ARGS:%cl_1_9,
+		 11: %self->render def_%cl_1_11 %self[3.2,3.3,3.10,2.0,] %cl_1_10[3.10,] 	 SYMBOL:	 ARGS:%cl_1_10,
+		 12: Line Number 34
+		 13: (Test) def_%cl_1_12 
+		 14: (Blog) def_%cl_1_13 
+		 15: %cl_1_13->end def_%cl_1_14 %cl_1_13[3.14,] 	 SYMBOL:	 ARGS:
+		 16: Line Number 35
+		 17: %self->content_tag def_%cl_1_15 %self[3.2,3.3,3.10,3.11,2.0,] 	 SYMBOL:div,	 ARGS:Symbol,
+		 18: RETURN %cl_1_15[3.17,] %self[3.2,3.3,3.10,3.11,3.17,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_16 
+		 1: def_%cl_1_17 %cl_1_16[4.0,] 
+		 2: RETURN %cl_1_17[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 18: Line Number 37
+		 19: (User) def_%v_12 
+		 20: %v_12->exists? def_%v_13 %v_12[2.19,] 	 SYMBOL:	 ARGS:
+		 21: Line Number 38
+		 22: %self->etid def_%v_14 %self[2.0,2.7,2.10,2.16,] 	 SYMBOL:	 ARGS:
+		 23: %self->rendering def_%v_15 %self[2.0,2.7,2.10,2.16,2.22,] %v_14[2.22,] 	 SYMBOL:	 ARGS:%v_14,
+		 24: %self->Start def_%v_16 %self[2.0,2.7,2.10,2.16,2.22,2.23,] %v_15[2.23,] 	 SYMBOL:	 ARGS:%v_15,
+		 25: Line Number 39
+		 26: COPY TYPE_StringLiteral "blog1" def_%v_17 
+		 27: %self->partial def_%v_18 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,] %v_17[2.26,] 	 SYMBOL:	 ARGS:%v_17,
+		 28: %self->render def_%v_19 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,] %v_18[2.27,] 	 SYMBOL:	 ARGS:%v_18,
+		 29: Line Number 41
+		 30: (Test) def_%v_20 
+		 31: %self->Line def_%v_21 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,] 	 SYMBOL:	 ARGS:Fixnum,
+		 32: Line Number 42
+		 33: COPY TYPE_StringLiteral " finishing index" def_%v_22 
+		 34: %self->puts def_%v_23 %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,2.31,] %v_22[2.33,] 	 SYMBOL:	 ARGS:%v_22,
+		 35: RETURN %v_23[2.34,] %self[2.0,2.7,2.10,2.16,2.22,2.23,2.24,2.27,2.28,2.31,2.34,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+

@@ -1,0 +1,1031 @@
+SET IRMethod, name = render_blocks instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_blocks 
+		 6: RECEIVEARG def_user 
+		 7: RECEIVECONSTARG def_options 
+		 8: options[2.7,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_3 
+		 1: COPY TYPE_PASS def_options %v_3[3.0,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 22
+		 1: COPY TYPE_StringLiteral "" def_%v_4 
+		 2: %v_4->html_safe def_%v_5 %v_4[4.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_PASS def_s %v_5[4.2,] 
+		 4: Line Number 24
+		 5: blocks->present? def_%v_6 blocks[2.5,] 	 SYMBOL:	 ARGS:
+		 6: BRANCH %v_6[4.5,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: Line Number 25
+		 1: blocks->each def_%v_7 blocks[2.5,] %self[2.0,] 	 SYMBOL:	 ARGS:blocks,
+CLOSURE BEGIN: %self[2.0,] block[] user[2.6,] s[4.3,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_block 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 26
+		 1: %self->render_block def_%cl_1_3 %self[2.0,] block[2.2,] user[] 	 SYMBOL:	 ARGS:block,user,
+		 2: %cl_1_3->to_s def_%cl_1_4 %cl_1_3[3.1,] 	 SYMBOL:	 ARGS:
+		 3: s-><< def_%cl_1_5 s[] %cl_1_4[3.2,] 	 SYMBOL:	 ARGS:%cl_1_4,
+		 4: RETURN %cl_1_5[3.3,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_6 
+		 1: def_%cl_1_7 %cl_1_6[4.0,] 
+		 2: RETURN %cl_1_7[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_7 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 29
+		 1: RETURN s[4.3,] %self[2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_block instanceMethod = true
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_user 
+		 7: Line Number 34
+		 8: %self->render_block_content def_%v_3 %self[2.0,] block[2.5,] user[2.6,] 	 SYMBOL:	 ARGS:block,user,
+		 9: COPY TYPE_PASS def_content %v_3[2.8,] 
+		 10: Line Number 35
+		 11: %v_3->present? def_%v_4 %v_3[2.8,] 	 SYMBOL:	 ARGS:
+		 12: BRANCH %v_4[2.11,] 
+BB 3
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 36
+		 1: COPY TYPE_StringLiteral "span" def_%v_5 
+		 2: COPY TYPE_StringLiteral "" def_%v_6 
+		 3: COPY TYPE_StringLiteral "sort-handle" def_%v_7 
+		 4: %self->l def_%v_8 %self[2.0,] 	 SYMBOL:button_move,	 ARGS:Symbol,
+		 5: HASH-class-title- def_%v_9 %v_7[3.3,] %v_8[3.4,] 
+		 6: %self->content_tag def_%v_10 %self[3.4,2.0,] %v_5[3.1,] %v_6[3.2,] %v_9[3.5,] 	 SYMBOL:	 ARGS:%v_5,%v_6,%v_9,
+		 7: COPY TYPE_PASS def_handle %v_10[3.6,] 
+		 8: Line Number 37
+		 9: %self->l def_%v_11 %self[3.4,3.6,2.0,] 	 SYMBOL:button_delete,	 ARGS:Symbol,
+		 10: COPY TYPE_StringLiteral "remove_block" def_%v_12 
+		 11: HASH-action-block- def_%v_13 %v_12[3.10,] block[2.5,] 
+		 12: COPY TYPE_StringLiteral "post" def_%v_14 
+		 13: COPY TYPE_StringLiteral "icon-only icon-close" def_%v_15 
+		 14: %self->l def_%v_16 %self[3.4,3.6,3.9,2.0,] 	 SYMBOL:button_delete,	 ARGS:Symbol,
+		 15: HASH-remote-method-class-title- def_%v_17 %v_14[3.12,] %v_15[3.13,] %v_16[3.14,] 
+		 16: %self->link_to def_%v_18 %self[3.4,3.6,3.9,3.14,2.0,] %v_11[3.9,] %v_13[3.11,] %v_17[3.15,] 	 SYMBOL:	 ARGS:%v_11,%v_13,%v_17,
+		 17: COPY TYPE_PASS def_close %v_18[3.16,] 
+		 18: Line Number 41
+		 19: COPY TYPE_StringLiteral "div" def_%v_19 
+		 20: handle->+ def_%v_20 handle[3.7,] %v_18[3.16,] 	 SYMBOL:	 ARGS:close,
+		 21: COPY TYPE_StringLiteral "contextual" def_%v_21 
+		 22: HASH-class- def_%v_22 %v_21[3.21,] 
+		 23: %self->content_tag def_%v_23 %self[3.4,3.6,3.9,3.14,3.16,2.0,] %v_19[3.19,] %v_20[3.20,] %v_22[3.22,] 	 SYMBOL:	 ARGS:%v_19,%v_20,%v_22,
+		 24: %v_23->+ def_%v_24 %v_23[3.23,] content[2.9,] 	 SYMBOL:	 ARGS:content,
+		 25: COPY TYPE_PASS def_content %v_24[3.24,] 
+		 26: Line Number 43
+		 27: COPY TYPE_StringLiteral "div" def_%v_25 
+		 28: COPY TYPE_StringLiteral "mypage-box" def_%v_26 
+		 29: COPY TYPE_StringLiteral "block-" def_%v_27 
+		 30: BUILDSTRING def_%v_28 %v_27[3.29,] block[2.5,] 
+		 31: HASH-class-id- def_%v_29 %v_26[3.28,] %v_28[3.30,] 
+		 32: %self->content_tag def_%v_30 %self[3.4,3.6,3.9,3.14,3.16,3.23,2.0,] %v_25[3.27,] %v_24[3.24,] %v_29[3.31,] 	 SYMBOL:	 ARGS:%v_25,content,%v_29,
+		 33: RETURN %v_30[3.32,] %self[3.4,3.6,3.9,3.14,3.16,3.23,3.32,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_block_content instanceMethod = true
+BB 1
+	outgoing: 22 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_user 
+		 7: Line Number 49
+		 8: (Redmine) def_%v_3 
+		 9: (inherit MyPage) def_%v_4 %v_3[2.8,] 
+		 10: %v_4[2.9,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %v_3->const_missing def_%v_4 %v_3[2.8,] 	 SYMBOL:MyPage,	 ARGS:Symbol,
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: %v_4->find_block def_%v_5 %v_4[3.0,2.9,] block[2.5,] 	 SYMBOL:	 ARGS:block,
+		 1: COPY TYPE_PASS def_block_definition %v_5[4.0,] 
+		 2: BRANCH %v_5[4.0,] 
+BB 5
+	outgoing: 8 20 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_6 
+		 1: Line Number 54
+		 2: user->pref def_%v_17 user[2.6,] 	 SYMBOL:	 ARGS:
+		 3: %v_17->my_page_settings def_%v_18 %v_17[5.2,] block[2.5,] 	 SYMBOL:	 ARGS:block,
+		 4: COPY TYPE_PASS def_settings %v_18[5.3,] 
+		 5: Line Number 55
+		 6: block_definition->[] def_%v_19 block_definition[4.1,] 	 SYMBOL:partial,	 ARGS:Symbol,
+		 7: COPY TYPE_PASS def_partial %v_19[5.6,] 
+		 8: BRANCH %v_19[5.6,] 
+BB 6
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: Line Number 50
+		 1: (Rails) def_%v_7 
+		 2: %v_7->logger def_%v_8 %v_7[6.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_StringLiteral "Unknown block "" def_%v_9 
+		 4: COPY TYPE_StringLiteral "" found in " def_%v_10 
+		 5: user->login def_%v_11 user[2.6,] 	 SYMBOL:	 ARGS:
+		 6: COPY TYPE_StringLiteral " (id=" def_%v_12 
+		 7: user->id def_%v_13 user[6.5,2.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_StringLiteral ") preferences" def_%v_14 
+		 9: BUILDSTRING def_%v_15 %v_9[6.3,] block[2.5,] %v_10[6.4,] %v_11[6.5,] %v_12[6.6,] %v_13[6.7,] %v_14[6.8,] 
+		 10: %v_8->warn def_%v_16 %v_8[6.2,] %v_15[6.9,] 	 SYMBOL:	 ARGS:%v_15,
+		 11: Line Number 51
+		 12: RETURN %self[2.0,] 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: Line Number 56
+		 1: GLOBALVAR $! def_%v_20 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: 
+		 1: Line Number 57
+		 2: HASH-user-settings-block- def_%v_23 user[2.6,] settings[5.4,] block[2.5,] 
+		 3: HASH-partial-locals- def_%v_24 partial[5.7,] %v_23[10.2,] 
+		 4: %self->render def_%v_25 %self[2.0,] %v_24[10.3,] 	 SYMBOL:	 ARGS:%v_24,
+		 5: COPY TYPE_PASS def_%v_22 %v_25[10.4,] 
+		 6: %v_20[8.1,] 
+BB 11
+	outgoing: 21 
+	datadep: 
+	instructions:
+		 0: 
+BB 12
+	outgoing: 13 14 18 
+	datadep: 
+	instructions:
+		 0: def_%v_26 
+		 1: (ActionView) def_%v_27 
+		 2: (inherit MissingTemplate) def_%v_28 %v_27[12.1,] 
+		 3: %v_28[12.2,] 
+BB 13
+	outgoing: 14 18 
+	datadep: 
+	instructions:
+		 0: %v_27->const_missing def_%v_28 %v_27[12.1,] 	 SYMBOL:MissingTemplate,	 ARGS:Symbol,
+BB 14
+	outgoing: 15 16 18 
+	datadep: 
+	instructions:
+		 0: def_%v_29 %v_28[13.0,12.2,] %v_26[12.0,] 
+		 1: BRANCH %v_29[14.0,] 
+BB 15
+	outgoing: 18 22 
+	datadep: 
+	instructions:
+		 0: %v_26[12.0,] 
+BB 16
+	outgoing: 17 18 
+	datadep: 
+	instructions:
+		 0: Line Number 59
+		 1: (Rails) def_%v_30 
+		 2: %v_30->logger def_%v_31 %v_30[16.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_StringLiteral "Partial "" def_%v_32 
+		 4: COPY TYPE_StringLiteral "" missing for block "" def_%v_33 
+		 5: COPY TYPE_StringLiteral "" found in " def_%v_34 
+		 6: user->login def_%v_35 user[2.6,] 	 SYMBOL:	 ARGS:
+		 7: COPY TYPE_StringLiteral " (id=" def_%v_36 
+		 8: user->id def_%v_37 user[16.6,2.6,] 	 SYMBOL:	 ARGS:
+		 9: COPY TYPE_StringLiteral ") preferences" def_%v_38 
+		 10: BUILDSTRING def_%v_39 %v_32[16.3,] partial[5.7,] %v_33[16.4,] block[2.5,] %v_34[16.5,] %v_35[16.6,] %v_36[16.7,] %v_37[16.8,] %v_38[16.9,] 
+		 11: %v_31->warn def_%v_40 %v_31[16.2,] %v_39[16.10,] 	 SYMBOL:	 ARGS:%v_39,
+		 12: Line Number 60
+		 13: COPY TYPE_Nil def_%v_41 
+		 14: %v_20[8.1,] 
+BB 17
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: RETURN %v_41[16.13,] %self[2.0,] 
+BB 18
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: def_%v_42 
+		 1: def_%v_43 %v_42[18.0,] %v_20[8.1,] 
+		 2: %v_42[18.0,] 
+BB 20
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: Line Number 63
+		 1: COPY TYPE_StringLiteral "render_" def_%v_44 
+		 2: block_definition->[] def_%v_45 block_definition[4.1,] 	 SYMBOL:name,	 ARGS:Symbol,
+		 3: COPY TYPE_StringLiteral "_block" def_%v_46 
+		 4: BUILDSTRING def_%v_47 %v_44[20.1,] %v_45[20.2,] %v_46[20.3,] 
+		 5: %self->send def_%v_48 %self[2.0,] %v_47[20.4,] block[2.5,] settings[5.4,] 	 SYMBOL:	 ARGS:%v_47,block,settings,
+		 6: RETURN %v_48[20.5,] %self[20.5,2.0,] 
+BB 21
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: RETURN %v_22[10.5,] %self[2.0,] 
+BB 22
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = block_select_tag instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_user 
+		 6: Line Number 69
+		 7: user->pref def_%v_3 user[2.5,] 	 SYMBOL:	 ARGS:
+		 8: %v_3->my_page_layout def_%v_4 %v_3[2.7,] 	 SYMBOL:	 ARGS:
+		 9: %v_4->values def_%v_5 %v_4[2.8,] 	 SYMBOL:	 ARGS:
+		 10: %v_5->flatten def_%v_6 %v_5[2.9,] 	 SYMBOL:	 ARGS:
+		 11: COPY TYPE_PASS def_blocks_in_use %v_6[2.10,] 
+		 12: Line Number 70
+		 13: COPY TYPE_StringLiteral "option" def_%v_7 
+		 14: %self->content_tag def_%v_8 %self[2.0,] %v_7[2.13,] 	 SYMBOL:	 ARGS:%v_7,
+		 15: COPY TYPE_PASS def_options %v_8[2.14,] 
+		 16: Line Number 71
+		 17: (Redmine) def_%v_9 
+		 18: (inherit MyPage) def_%v_10 %v_9[2.17,] 
+		 19: %v_10[2.18,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %v_9->const_missing def_%v_10 %v_9[2.17,] 	 SYMBOL:MyPage,	 ARGS:Symbol,
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %v_10->block_options def_%v_11 %v_10[3.0,2.18,] blocks_in_use[2.11,] 	 SYMBOL:	 ARGS:blocks_in_use,
+		 1: %v_11->each def_%v_12 %v_11[4.0,] %self[2.0,] 	 SYMBOL:	 ARGS:%v_11,
+CLOSURE BEGIN: block[] %self[2.0,] label[] options[2.15,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_label 
+		 3: RECEIVEARG def_block 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 72
+		 1: COPY TYPE_StringLiteral "option" def_%cl_1_3 
+		 2: block->blank? def_%cl_1_4 block[2.3,] 	 SYMBOL:	 ARGS:
+		 3: HASH-value-disabled- def_%cl_1_5 block[3.2,2.3,] %cl_1_4[3.2,] 
+		 4: %self->content_tag def_%cl_1_6 %self[2.0,] %cl_1_3[3.1,] label[2.2,] %cl_1_5[3.3,] 	 SYMBOL:	 ARGS:%cl_1_3,label,%cl_1_5,
+		 5: options-><< def_%cl_1_7 options[] %cl_1_6[3.4,] 	 SYMBOL:	 ARGS:%cl_1_6,
+		 6: RETURN %cl_1_7[3.5,] %self[3.4,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_8 
+		 1: def_%cl_1_9 %cl_1_8[4.0,] 
+		 2: RETURN %cl_1_9[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: block[2.3,] 
+		 2: Line Number 74
+		 3: COPY TYPE_StringLiteral "block" def_%v_13 
+		 4: COPY TYPE_StringLiteral "block-select" def_%v_14 
+		 5: COPY TYPE_StringLiteral "$('#block-form').submit();" def_%v_15 
+		 6: HASH-id-onchange- def_%v_16 %v_14[4.4,] %v_15[4.5,] 
+		 7: %self->select_tag def_%v_17 %self[2.0,] %v_13[4.3,] options[2.15,] %v_16[4.6,] 	 SYMBOL:	 ARGS:%v_13,options,%v_16,
+		 8: RETURN %v_17[4.7,] %self[4.7,2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_calendar_block instanceMethod = true
+BB 1
+	outgoing: 7 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 78
+		 8: (Redmine) def_%v_3 
+		 9: (inherit Helpers) def_%v_4 %v_3[2.8,] 
+		 10: %v_4[2.9,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %v_3->const_missing def_%v_4 %v_3[2.8,] 	 SYMBOL:Helpers,	 ARGS:Symbol,
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: (inherit Calendar) def_%v_5 %v_4[3.0,2.9,] 
+		 1: %v_5[4.0,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: %v_4->const_missing def_%v_5 %v_4[3.0,2.9,] 	 SYMBOL:Calendar,	 ARGS:Symbol,
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: (User) def_%v_6 
+		 1: %v_6->current def_%v_7 %v_6[6.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_7->today def_%v_8 %v_7[6.1,] 	 SYMBOL:	 ARGS:
+		 3: %self->current_language def_%v_9 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 4: %v_5->new def_%v_10 %v_5[5.0,4.0,] %v_8[6.2,] %v_9[6.3,] 	 SYMBOL:week,	 ARGS:%v_8,%v_9,Symbol,
+		 5: COPY TYPE_PASS def_calendar %v_10[6.4,] 
+		 6: Line Number 79
+		 7: (Issue) def_%v_11 
+		 8: %v_11->visible def_%v_12 %v_11[6.7,] 	 SYMBOL:	 ARGS:
+		 9: (User) def_%v_13 
+		 10: %v_13->current def_%v_14 %v_13[6.9,] 	 SYMBOL:	 ARGS:
+		 11: %v_14->projects def_%v_15 %v_14[6.10,] 	 SYMBOL:	 ARGS:
+		 12: %v_15->pluck def_%v_16 %v_15[6.11,] 	 SYMBOL:id,	 ARGS:Symbol,
+		 13: HASH-project_id- def_%v_17 %v_16[6.12,] 
+		 14: %v_12->where def_%v_18 %v_12[6.8,] %v_17[6.13,] 	 SYMBOL:	 ARGS:%v_17,
+		 15: COPY TYPE_StringLiteral "(start_date>=? and start_date<=?) or (due_date>=? and due_date<=?)" def_%v_19 
+		 16: calendar->startdt def_%v_20 calendar[6.5,] 	 SYMBOL:	 ARGS:
+		 17: calendar->enddt def_%v_21 calendar[6.5,6.16,] 	 SYMBOL:	 ARGS:
+		 18: calendar->startdt def_%v_22 calendar[6.5,6.16,6.17,] 	 SYMBOL:	 ARGS:
+		 19: calendar->enddt def_%v_23 calendar[6.5,6.16,6.17,6.18,] 	 SYMBOL:	 ARGS:
+		 20: %v_18->where def_%v_24 %v_18[6.14,] %v_19[6.15,] %v_20[6.16,] %v_21[6.17,] %v_22[6.18,] %v_23[6.19,] 	 SYMBOL:	 ARGS:%v_19,%v_20,%v_21,%v_22,%v_23,
+		 21: %v_24->includes def_%v_25 %v_24[6.20,] 	 SYMBOL:project,tracker,priority,assigned_to,	 ARGS:Symbol,Symbol,Symbol,Symbol,
+		 22: %v_25->references def_%v_26 %v_25[6.21,] 	 SYMBOL:project,tracker,priority,assigned_to,	 ARGS:Symbol,Symbol,Symbol,Symbol,
+		 23: %v_26->to_a def_%v_27 %v_26[6.22,] 	 SYMBOL:	 ARGS:
+		 24: ATTRASSIGN calendar->events %v_27[6.23,] 
+		 25: Line Number 86
+		 26: COPY TYPE_StringLiteral "my/blocks/calendar" def_%v_28 
+		 27: HASH-calendar-block- def_%v_29 calendar[6.5,6.16,6.17,6.18,6.19,6.24,] block[2.5,] 
+		 28: HASH-partial-locals- def_%v_30 %v_28[6.26,] %v_29[6.27,] 
+		 29: %self->render def_%v_31 %self[6.3,2.0,] %v_30[6.28,] 	 SYMBOL:	 ARGS:%v_30,
+		 30: RETURN %v_31[6.29,] %self[6.3,6.29,2.0,] 
+BB 7
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_documents_block instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 90
+		 8: (Document) def_%v_3 
+		 9: %v_3->visible def_%v_4 %v_3[2.8,] 	 SYMBOL:	 ARGS:
+		 10: (Document) def_%v_5 
+		 11: %v_5->table_name def_%v_6 %v_5[2.10,] 	 SYMBOL:	 ARGS:
+		 12: COPY TYPE_StringLiteral ".created_on DESC" def_%v_7 
+		 13: BUILDSTRING def_%v_8 %v_6[2.11,] %v_7[2.12,] 
+		 14: %v_4->order def_%v_9 %v_4[2.9,] %v_8[2.13,] 	 SYMBOL:	 ARGS:%v_8,
+		 15: %v_9->limit def_%v_10 %v_9[2.14,] 	 SYMBOL:	 ARGS:Fixnum,
+		 16: %v_10->to_a def_%v_11 %v_10[2.15,] 	 SYMBOL:	 ARGS:
+		 17: COPY TYPE_PASS def_documents %v_11[2.16,] 
+		 18: Line Number 92
+		 19: COPY TYPE_StringLiteral "my/blocks/documents" def_%v_12 
+		 20: HASH-block-documents- def_%v_13 block[2.5,] %v_11[2.16,] 
+		 21: HASH-partial-locals- def_%v_14 %v_12[2.19,] %v_13[2.20,] 
+		 22: %self->render def_%v_15 %self[2.0,] %v_14[2.21,] 	 SYMBOL:	 ARGS:%v_14,
+		 23: RETURN %v_15[2.22,] %self[2.0,2.22,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_issuesassignedtome_block instanceMethod = true
+BB 1
+	outgoing: 7 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 96
+		 8: (IssueQuery) def_%v_3 
+		 9: %self->l def_%v_4 %self[2.0,] 	 SYMBOL:label_assigned_to_me_issues,	 ARGS:Symbol,
+		 10: (User) def_%v_5 
+		 11: %v_5->current def_%v_6 %v_5[2.10,] 	 SYMBOL:	 ARGS:
+		 12: HASH-name-user- def_%v_7 %v_4[2.9,] %v_6[2.11,] 
+		 13: %v_3->new def_%v_8 %v_3[2.8,] %v_7[2.12,] 	 SYMBOL:	 ARGS:%v_7,
+		 14: COPY TYPE_PASS def_query %v_8[2.13,] 
+		 15: Line Number 97
+		 16: COPY TYPE_StringLiteral "assigned_to_id" def_%v_9 
+		 17: COPY TYPE_StringLiteral "=" def_%v_10 
+		 18: COPY TYPE_StringLiteral "me" def_%v_11 
+		 19: COPY TYPE_Array def_%v_12 %v_11[2.18,] 
+		 20: %v_8->add_filter def_%v_13 %v_8[2.13,] %v_9[2.16,] %v_10[2.17,] %v_12[2.19,] 	 SYMBOL:	 ARGS:%v_9,%v_10,%v_12,
+		 21: Line Number 98
+		 22: settings->[] def_%v_14 settings[2.6,] 	 SYMBOL:columns,	 ARGS:Symbol,
+		 23: %v_14->presence def_%v_15 %v_14[2.22,] 	 SYMBOL:	 ARGS:
+		 24: BRANCH %v_15[2.23,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "project" def_%v_16 
+		 1: COPY TYPE_StringLiteral "tracker" def_%v_17 
+		 2: COPY TYPE_StringLiteral "status" def_%v_18 
+		 3: COPY TYPE_StringLiteral "subject" def_%v_19 
+		 4: COPY TYPE_Array def_%v_20 %v_16[3.0,] %v_17[3.1,] %v_18[3.2,] %v_19[3.3,] 
+		 5: COPY TYPE_PASS def_%v_15 %v_20[3.4,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN query->column_names %v_15[3.5,2.23,] 
+		 1: Line Number 99
+		 2: settings->[] def_%v_21 settings[2.6,] 	 SYMBOL:sort,	 ARGS:Symbol,
+		 3: %v_21->presence def_%v_22 %v_21[4.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %v_22[4.3,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "priority" def_%v_23 
+		 1: COPY TYPE_StringLiteral "desc" def_%v_24 
+		 2: COPY TYPE_Array def_%v_25 %v_23[5.0,] %v_24[5.1,] 
+		 3: COPY TYPE_StringLiteral "updated_on" def_%v_26 
+		 4: COPY TYPE_StringLiteral "desc" def_%v_27 
+		 5: COPY TYPE_Array def_%v_28 %v_26[5.3,] %v_27[5.4,] 
+		 6: COPY TYPE_Array def_%v_29 %v_25[5.2,] %v_28[5.5,] 
+		 7: COPY TYPE_PASS def_%v_22 %v_29[5.6,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN query->sort_criteria %v_22[5.7,4.3,] 
+		 1: Line Number 100
+		 2: HASH-limit- def_%v_30 
+		 3: query->issues def_%v_31 query[6.0,4.0,2.14,] %v_30[6.2,] 	 SYMBOL:	 ARGS:%v_30,
+		 4: COPY TYPE_PASS def_issues %v_31[6.3,] 
+		 5: Line Number 102
+		 6: COPY TYPE_StringLiteral "my/blocks/issues" def_%v_32 
+		 7: HASH-query-issues-block- def_%v_33 query[6.0,6.3,4.0,2.14,] %v_31[6.3,] block[2.5,] 
+		 8: HASH-partial-locals- def_%v_34 %v_32[6.6,] %v_33[6.7,] 
+		 9: %self->render def_%v_35 %self[2.0,] %v_34[6.8,] 	 SYMBOL:	 ARGS:%v_34,
+		 10: RETURN %v_35[6.9,] %self[6.9,2.0,] 
+BB 7
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_issuesreportedbyme_block instanceMethod = true
+BB 1
+	outgoing: 7 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 106
+		 8: (IssueQuery) def_%v_3 
+		 9: %self->l def_%v_4 %self[2.0,] 	 SYMBOL:label_reported_issues,	 ARGS:Symbol,
+		 10: (User) def_%v_5 
+		 11: %v_5->current def_%v_6 %v_5[2.10,] 	 SYMBOL:	 ARGS:
+		 12: HASH-name-user- def_%v_7 %v_4[2.9,] %v_6[2.11,] 
+		 13: %v_3->new def_%v_8 %v_3[2.8,] %v_7[2.12,] 	 SYMBOL:	 ARGS:%v_7,
+		 14: COPY TYPE_PASS def_query %v_8[2.13,] 
+		 15: Line Number 107
+		 16: COPY TYPE_StringLiteral "author_id" def_%v_9 
+		 17: COPY TYPE_StringLiteral "=" def_%v_10 
+		 18: COPY TYPE_StringLiteral "me" def_%v_11 
+		 19: COPY TYPE_Array def_%v_12 %v_11[2.18,] 
+		 20: %v_8->add_filter def_%v_13 %v_8[2.13,] %v_9[2.16,] %v_10[2.17,] %v_12[2.19,] 	 SYMBOL:	 ARGS:%v_9,%v_10,%v_12,
+		 21: Line Number 108
+		 22: settings->[] def_%v_14 settings[2.6,] 	 SYMBOL:columns,	 ARGS:Symbol,
+		 23: %v_14->presence def_%v_15 %v_14[2.22,] 	 SYMBOL:	 ARGS:
+		 24: BRANCH %v_15[2.23,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "project" def_%v_16 
+		 1: COPY TYPE_StringLiteral "tracker" def_%v_17 
+		 2: COPY TYPE_StringLiteral "status" def_%v_18 
+		 3: COPY TYPE_StringLiteral "subject" def_%v_19 
+		 4: COPY TYPE_Array def_%v_20 %v_16[3.0,] %v_17[3.1,] %v_18[3.2,] %v_19[3.3,] 
+		 5: COPY TYPE_PASS def_%v_15 %v_20[3.4,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN query->column_names %v_15[3.5,2.23,] 
+		 1: Line Number 109
+		 2: settings->[] def_%v_21 settings[2.6,] 	 SYMBOL:sort,	 ARGS:Symbol,
+		 3: %v_21->presence def_%v_22 %v_21[4.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %v_22[4.3,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "updated_on" def_%v_23 
+		 1: COPY TYPE_StringLiteral "desc" def_%v_24 
+		 2: COPY TYPE_Array def_%v_25 %v_23[5.0,] %v_24[5.1,] 
+		 3: COPY TYPE_Array def_%v_26 %v_25[5.2,] 
+		 4: COPY TYPE_PASS def_%v_22 %v_26[5.3,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN query->sort_criteria %v_22[5.4,4.3,] 
+		 1: Line Number 110
+		 2: HASH-limit- def_%v_27 
+		 3: query->issues def_%v_28 query[6.0,4.0,2.14,] %v_27[6.2,] 	 SYMBOL:	 ARGS:%v_27,
+		 4: COPY TYPE_PASS def_issues %v_28[6.3,] 
+		 5: Line Number 112
+		 6: COPY TYPE_StringLiteral "my/blocks/issues" def_%v_29 
+		 7: HASH-query-issues-block- def_%v_30 query[6.0,6.3,4.0,2.14,] %v_28[6.3,] block[2.5,] 
+		 8: HASH-partial-locals- def_%v_31 %v_29[6.6,] %v_30[6.7,] 
+		 9: %self->render def_%v_32 %self[2.0,] %v_31[6.8,] 	 SYMBOL:	 ARGS:%v_31,
+		 10: RETURN %v_32[6.9,] %self[6.9,2.0,] 
+BB 7
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_issueswatched_block instanceMethod = true
+BB 1
+	outgoing: 7 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 116
+		 8: (IssueQuery) def_%v_3 
+		 9: %self->l def_%v_4 %self[2.0,] 	 SYMBOL:label_watched_issues,	 ARGS:Symbol,
+		 10: (User) def_%v_5 
+		 11: %v_5->current def_%v_6 %v_5[2.10,] 	 SYMBOL:	 ARGS:
+		 12: HASH-name-user- def_%v_7 %v_4[2.9,] %v_6[2.11,] 
+		 13: %v_3->new def_%v_8 %v_3[2.8,] %v_7[2.12,] 	 SYMBOL:	 ARGS:%v_7,
+		 14: COPY TYPE_PASS def_query %v_8[2.13,] 
+		 15: Line Number 117
+		 16: COPY TYPE_StringLiteral "watcher_id" def_%v_9 
+		 17: COPY TYPE_StringLiteral "=" def_%v_10 
+		 18: COPY TYPE_StringLiteral "me" def_%v_11 
+		 19: COPY TYPE_Array def_%v_12 %v_11[2.18,] 
+		 20: %v_8->add_filter def_%v_13 %v_8[2.13,] %v_9[2.16,] %v_10[2.17,] %v_12[2.19,] 	 SYMBOL:	 ARGS:%v_9,%v_10,%v_12,
+		 21: Line Number 118
+		 22: settings->[] def_%v_14 settings[2.6,] 	 SYMBOL:columns,	 ARGS:Symbol,
+		 23: %v_14->presence def_%v_15 %v_14[2.22,] 	 SYMBOL:	 ARGS:
+		 24: BRANCH %v_15[2.23,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "project" def_%v_16 
+		 1: COPY TYPE_StringLiteral "tracker" def_%v_17 
+		 2: COPY TYPE_StringLiteral "status" def_%v_18 
+		 3: COPY TYPE_StringLiteral "subject" def_%v_19 
+		 4: COPY TYPE_Array def_%v_20 %v_16[3.0,] %v_17[3.1,] %v_18[3.2,] %v_19[3.3,] 
+		 5: COPY TYPE_PASS def_%v_15 %v_20[3.4,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN query->column_names %v_15[3.5,2.23,] 
+		 1: Line Number 119
+		 2: settings->[] def_%v_21 settings[2.6,] 	 SYMBOL:sort,	 ARGS:Symbol,
+		 3: %v_21->presence def_%v_22 %v_21[4.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %v_22[4.3,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "updated_on" def_%v_23 
+		 1: COPY TYPE_StringLiteral "desc" def_%v_24 
+		 2: COPY TYPE_Array def_%v_25 %v_23[5.0,] %v_24[5.1,] 
+		 3: COPY TYPE_Array def_%v_26 %v_25[5.2,] 
+		 4: COPY TYPE_PASS def_%v_22 %v_26[5.3,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN query->sort_criteria %v_22[5.4,4.3,] 
+		 1: Line Number 120
+		 2: HASH-limit- def_%v_27 
+		 3: query->issues def_%v_28 query[6.0,4.0,2.14,] %v_27[6.2,] 	 SYMBOL:	 ARGS:%v_27,
+		 4: COPY TYPE_PASS def_issues %v_28[6.3,] 
+		 5: Line Number 122
+		 6: COPY TYPE_StringLiteral "my/blocks/issues" def_%v_29 
+		 7: HASH-query-issues-block- def_%v_30 query[6.0,6.3,4.0,2.14,] %v_28[6.3,] block[2.5,] 
+		 8: HASH-partial-locals- def_%v_31 %v_29[6.6,] %v_30[6.7,] 
+		 9: %self->render def_%v_32 %self[2.0,] %v_31[6.8,] 	 SYMBOL:	 ARGS:%v_31,
+		 10: RETURN %v_32[6.9,] %self[6.9,2.0,] 
+BB 7
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_issuequery_block instanceMethod = true
+BB 1
+	outgoing: 12 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 10 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 126
+		 8: (IssueQuery) def_%v_3 
+		 9: %v_3->visible def_%v_4 %v_3[2.8,] 	 SYMBOL:	 ARGS:
+		 10: settings->[] def_%v_5 settings[2.6,] 	 SYMBOL:query_id,	 ARGS:Symbol,
+		 11: %v_4->find_by_id def_%v_6 %v_4[2.9,] %v_5[2.10,] 	 SYMBOL:	 ARGS:%v_5,
+		 12: COPY TYPE_PASS def_query %v_6[2.11,] 
+		 13: Line Number 128
+		 14: BRANCH %v_6[2.11,] 
+BB 3
+	outgoing: 4 5 
+	datadep: 
+	instructions:
+		 0: Line Number 129
+		 1: settings->[] def_%v_7 settings[2.6,] 	 SYMBOL:columns,	 ARGS:Symbol,
+		 2: %v_7->present? def_%v_8 %v_7[3.1,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %v_8[3.2,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: settings->[] def_%v_9 settings[2.6,] 	 SYMBOL:columns,	 ARGS:Symbol,
+		 1: ATTRASSIGN query->column_names %v_9[4.0,] 
+		 2: 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_9 
+BB 6
+	outgoing: 7 8 
+	datadep: 
+	instructions:
+		 0: Line Number 130
+		 1: settings->[] def_%v_10 settings[2.6,] 	 SYMBOL:sort,	 ARGS:Symbol,
+		 2: %v_10->present? def_%v_11 %v_10[6.1,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %v_11[6.2,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: settings->[] def_%v_12 settings[2.6,] 	 SYMBOL:sort,	 ARGS:Symbol,
+		 1: ATTRASSIGN query->sort_criteria %v_12[7.0,] 
+		 2: 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_12 
+BB 9
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: Line Number 131
+		 1: HASH-limit- def_%v_13 
+		 2: query->issues def_%v_14 query[7.1,4.1,2.12,] %v_13[9.1,] 	 SYMBOL:	 ARGS:%v_13,
+		 3: COPY TYPE_PASS def_issues %v_14[9.2,] 
+		 4: Line Number 132
+		 5: COPY TYPE_StringLiteral "my/blocks/issues" def_%v_15 
+		 6: HASH-query-issues-block-settings- def_%v_16 query[9.2,7.1,4.1,2.12,] %v_14[9.2,] block[2.5,] settings[2.6,] 
+		 7: HASH-partial-locals- def_%v_17 %v_15[9.5,] %v_16[9.6,] 
+		 8: %self->render def_%v_18 %self[2.0,] %v_17[9.7,] 	 SYMBOL:	 ARGS:%v_17,
+		 9: RETURN %v_18[9.8,] %self[9.8,2.0,] 
+BB 10
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: Line Number 134
+		 1: (IssueQuery) def_%v_19 
+		 2: %v_19->visible def_%v_20 %v_19[10.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_20->sorted def_%v_21 %v_20[10.2,] 	 SYMBOL:	 ARGS:
+		 4: COPY TYPE_PASS def_queries %v_21[10.3,] 
+		 5: Line Number 135
+		 6: COPY TYPE_StringLiteral "my/blocks/issue_query_selection" def_%v_22 
+		 7: HASH-queries-block-settings- def_%v_23 %v_21[10.3,] block[2.5,] settings[2.6,] 
+		 8: HASH-partial-locals- def_%v_24 %v_22[10.6,] %v_23[10.7,] 
+		 9: %self->render def_%v_25 %self[2.0,] %v_24[10.8,] 	 SYMBOL:	 ARGS:%v_24,
+		 10: RETURN %v_25[10.9,] %self[10.9,2.0,] 
+BB 12
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_news_block instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 140
+		 8: (News) def_%v_3 
+		 9: %v_3->visible def_%v_4 %v_3[2.8,] 	 SYMBOL:	 ARGS:
+		 10: (User) def_%v_5 
+		 11: %v_5->current def_%v_6 %v_5[2.10,] 	 SYMBOL:	 ARGS:
+		 12: %v_6->projects def_%v_7 %v_6[2.11,] 	 SYMBOL:	 ARGS:
+		 13: %v_7->pluck def_%v_8 %v_7[2.12,] 	 SYMBOL:id,	 ARGS:Symbol,
+		 14: HASH-project_id- def_%v_9 %v_8[2.13,] 
+		 15: %v_4->where def_%v_10 %v_4[2.9,] %v_9[2.14,] 	 SYMBOL:	 ARGS:%v_9,
+		 16: %v_10->limit def_%v_11 %v_10[2.15,] 	 SYMBOL:	 ARGS:Fixnum,
+		 17: %v_11->includes def_%v_12 %v_11[2.16,] 	 SYMBOL:project,author,	 ARGS:Symbol,Symbol,
+		 18: %v_12->references def_%v_13 %v_12[2.17,] 	 SYMBOL:project,author,	 ARGS:Symbol,Symbol,
+		 19: Line Number 145
+		 20: (News) def_%v_14 
+		 21: %v_14->table_name def_%v_15 %v_14[2.20,] 	 SYMBOL:	 ARGS:
+		 22: COPY TYPE_StringLiteral ".created_on DESC" def_%v_16 
+		 23: BUILDSTRING def_%v_17 %v_15[2.21,] %v_16[2.22,] 
+		 24: %v_13->order def_%v_18 %v_13[2.18,] %v_17[2.23,] 	 SYMBOL:	 ARGS:%v_17,
+		 25: %v_18->to_a def_%v_19 %v_18[2.24,] 	 SYMBOL:	 ARGS:
+		 26: COPY TYPE_PASS def_news %v_19[2.25,] 
+		 27: Line Number 148
+		 28: COPY TYPE_StringLiteral "my/blocks/news" def_%v_20 
+		 29: HASH-block-news- def_%v_21 block[2.5,] %v_19[2.25,] 
+		 30: HASH-partial-locals- def_%v_22 %v_20[2.28,] %v_21[2.29,] 
+		 31: %self->render def_%v_23 %self[2.0,] %v_22[2.30,] 	 SYMBOL:	 ARGS:%v_22,
+		 32: RETURN %v_23[2.31,] %self[2.0,2.31,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_timelog_block instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 152
+		 8: settings->[] def_%v_3 settings[2.6,] 	 SYMBOL:days,	 ARGS:Symbol,
+		 9: %v_3->to_i def_%v_4 %v_3[2.8,] 	 SYMBOL:	 ARGS:
+		 10: COPY TYPE_PASS def_days %v_4[2.9,] 
+		 11: Line Number 153
+		 12: %v_4->< def_%v_5 %v_4[2.9,] 	 SYMBOL:	 ARGS:Fixnum,
+		 13: BRANCH %v_5[2.12,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: days->> def_%v_6 days[2.10,] 	 SYMBOL:	 ARGS:Fixnum,
+		 1: COPY TYPE_PASS def_%v_5 %v_6[3.0,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_5[3.1,2.12,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Fixnum def_days 
+		 1: COPY TYPE_Fixnum def_%v_7 
+		 2: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_7 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 155
+		 1: (TimeEntry) def_%v_8 
+		 2: Line Number 156
+		 3: (TimeEntry) def_%v_9 
+		 4: %v_9->table_name def_%v_10 %v_9[7.3,] 	 SYMBOL:	 ARGS:
+		 5: COPY TYPE_StringLiteral ".user_id = ? AND " def_%v_11 
+		 6: (TimeEntry) def_%v_12 
+		 7: %v_12->table_name def_%v_13 %v_12[7.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_StringLiteral ".spent_on BETWEEN ? AND ?" def_%v_14 
+		 9: BUILDSTRING def_%v_15 %v_10[7.4,] %v_11[7.5,] %v_13[7.7,] %v_14[7.8,] 
+		 10: (User) def_%v_16 
+		 11: %v_16->current def_%v_17 %v_16[7.10,] 	 SYMBOL:	 ARGS:
+		 12: %v_17->id def_%v_18 %v_17[7.11,] 	 SYMBOL:	 ARGS:
+		 13: (User) def_%v_19 
+		 14: %v_19->current def_%v_20 %v_19[7.13,] 	 SYMBOL:	 ARGS:
+		 15: %v_20->today def_%v_21 %v_20[7.14,] 	 SYMBOL:	 ARGS:
+		 16: days->- def_%v_22 days[5.0,2.10,] 	 SYMBOL:	 ARGS:Fixnum,
+		 17: %v_21->- def_%v_23 %v_21[7.15,] %v_22[7.16,] 	 SYMBOL:	 ARGS:%v_22,
+		 18: (User) def_%v_24 
+		 19: %v_24->current def_%v_25 %v_24[7.18,] 	 SYMBOL:	 ARGS:
+		 20: %v_25->today def_%v_26 %v_25[7.19,] 	 SYMBOL:	 ARGS:
+		 21: %v_8->where def_%v_27 %v_8[7.1,] %v_15[7.9,] %v_18[7.12,] %v_23[7.17,] %v_26[7.20,] 	 SYMBOL:	 ARGS:%v_15,%v_18,%v_23,%v_26,
+		 22: %v_27->joins def_%v_28 %v_27[7.21,] 	 SYMBOL:activity,project,	 ARGS:Symbol,Symbol,
+		 23: COPY TYPE_Array def_%v_29 
+		 24: HASH-issue- def_%v_30 %v_29[7.23,] 
+		 25: %v_28->references def_%v_31 %v_28[7.22,] %v_30[7.24,] 	 SYMBOL:	 ARGS:%v_30,
+		 26: COPY TYPE_Array def_%v_32 
+		 27: HASH-issue- def_%v_33 %v_32[7.26,] 
+		 28: %v_31->includes def_%v_34 %v_31[7.25,] %v_33[7.27,] 	 SYMBOL:	 ARGS:%v_33,
+		 29: Line Number 160
+		 30: (TimeEntry) def_%v_35 
+		 31: %v_35->table_name def_%v_36 %v_35[7.30,] 	 SYMBOL:	 ARGS:
+		 32: COPY TYPE_StringLiteral ".spent_on DESC, " def_%v_37 
+		 33: (Project) def_%v_38 
+		 34: %v_38->table_name def_%v_39 %v_38[7.33,] 	 SYMBOL:	 ARGS:
+		 35: COPY TYPE_StringLiteral ".name ASC, " def_%v_40 
+		 36: (Tracker) def_%v_41 
+		 37: %v_41->table_name def_%v_42 %v_41[7.36,] 	 SYMBOL:	 ARGS:
+		 38: COPY TYPE_StringLiteral ".position ASC, " def_%v_43 
+		 39: (Issue) def_%v_44 
+		 40: %v_44->table_name def_%v_45 %v_44[7.39,] 	 SYMBOL:	 ARGS:
+		 41: COPY TYPE_StringLiteral ".id ASC" def_%v_46 
+		 42: BUILDSTRING def_%v_47 %v_36[7.31,] %v_37[7.32,] %v_39[7.34,] %v_40[7.35,] %v_42[7.37,] %v_43[7.38,] %v_45[7.40,] %v_46[7.41,] 
+		 43: %v_34->order def_%v_48 %v_34[7.28,] %v_47[7.42,] 	 SYMBOL:	 ARGS:%v_47,
+		 44: %v_48->to_a def_%v_49 %v_48[7.43,] 	 SYMBOL:	 ARGS:
+		 45: COPY TYPE_PASS def_entries %v_49[7.44,] 
+		 46: Line Number 162
+		 47: %v_49->group_by def_%v_50 %v_49[7.44,] 	 SYMBOL:spent_on,	 ARGS:
+		 48: COPY TYPE_PASS def_entries_by_day %v_50[7.47,] 
+		 49: Line Number 164
+		 50: COPY TYPE_StringLiteral "my/blocks/timelog" def_%v_51 
+		 51: HASH-block-entries-entries_by_day-days- def_%v_52 block[2.5,] entries[7.45,] %v_50[7.47,] days[7.16,5.0,2.10,] 
+		 52: HASH-partial-locals- def_%v_53 %v_51[7.50,] %v_52[7.51,] 
+		 53: %self->render def_%v_54 %self[2.0,] %v_53[7.52,] 	 SYMBOL:	 ARGS:%v_53,
+		 54: RETURN %v_54[7.53,] %self[7.53,2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+

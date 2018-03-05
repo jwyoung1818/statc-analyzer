@@ -1,0 +1,6 @@
+ render :partial => 'queries/query_form' 
+ query_params = request.query_parameters 
+ link_to(l(:label_details), _time_entries_path(@project, nil, :params => query_params),
+                                       :class => (action_name == 'index' ? 'selected' : nil)) 
+ link_to(l(:label_report), _report_time_entries_path(@project, nil, :params => query_params),
+                                       :class => (action_name == 'report' ? 'selected' : nil)) 

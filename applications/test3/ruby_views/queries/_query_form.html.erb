@@ -1,0 +1,37 @@
+ hidden_field_tag 'set_filter', '1' 
+ hidden_field_tag 'type', @query.type, :disabled => true, :id => 'query_type' 
+ query_hidden_sort_tag(@query) 
+ @query.new_record? ? "" : "collapsed" 
+ l(:label_filter_plural) 
+ @query.new_record? ? "" : "display: none;" 
+ render :partial => 'queries/filters', :locals => {:query => @query} 
+ l(:label_options) 
+ l(:field_column_names) 
+ render_query_columns_selection(@query) 
+ if @query.groupable_columns.any? 
+ l(:field_group_by) 
+ group_by_column_select_tag(@query) 
+ end 
+ if @query.available_block_columns.any? 
+ l(:button_show) 
+ available_block_columns_tags(@query) 
+ end 
+ if @query.available_totalable_columns.any? 
+ l(:label_total_plural) 
+ available_totalable_columns_tags(@query) 
+ end 
+ link_to_function l(:button_apply), '$("#query_form").submit()', :class => 'icon icon-checked' 
+ link_to l(:button_clear), { :set_filter => 1, :sort => '', :project_id => @project }, :class => 'icon icon-reload'  
+ if @query.new_record? 
+ if User.current.allowed_to?(:save_queries, @project, :global => true) 
+ link_to_function l(:button_save),
+                           "$('#query_type').prop('disabled',false);$('#query_form').attr('action', '#{ @project ? new_project_query_path(@project) : new_query_path }').submit()",
+                           :class => 'icon icon-save' 
+ end 
+ else 
+ if @query.editable_by?(User.current) 
+ link_to l(:button_edit), edit_query_path(@query), :class => 'icon icon-edit' 
+ delete_link query_path(@query) 
+ end 
+ end 
+ error_messages_for @query 

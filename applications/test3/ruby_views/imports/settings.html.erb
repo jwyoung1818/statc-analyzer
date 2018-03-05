@@ -1,0 +1,18 @@
+ l(:label_import_issues) 
+ form_tag(import_settings_path(@import), :id => "import-form") do 
+ l(:label_options) 
+ l(:label_fields_separator) 
+ select_tag 'import_settings[separator]',
+            options_for_select([[l(:label_comma_char), ','], [l(:label_semi_colon_char), ';']], @import.settings['separator']) 
+ l(:label_fields_wrapper) 
+ select_tag 'import_settings[wrapper]',
+          options_for_select([[l(:label_quote_char), "'"], [l(:label_double_quote_char), '"']], @import.settings['wrapper']) 
+ l(:label_encoding) 
+ select_tag 'import_settings[encoding]', options_for_select(Setting::ENCODINGS, @import.settings['encoding']) 
+ l(:setting_date_format) 
+ select_tag 'import_settings[date_format]', options_for_select(date_format_options, @import.settings['date_format']) 
+ submit_tag l(:label_next).html_safe + " &#187;".html_safe, :name => nil 
+ end 
+ content_for :sidebar do 
+ render :partial => 'issues/sidebar' 
+ end 

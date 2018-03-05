@@ -1,0 +1,25 @@
+ if User.current.allowed_to?(:manage_repository, @project) 
+ link_to l(:label_repository_new), new_project_repository_path(@project), :class => 'icon icon-add' 
+ end 
+ if @project.repositories.any? 
+ l(:field_identifier) 
+ l(:field_repository_is_default) 
+ l(:label_scm) 
+ l(:label_repository) 
+ @project.repositories.sort.each do |repository| 
+ link_to repository.identifier,
+            {:controller => 'repositories', :action => 'show',:id => @project, :repository_id => repository.identifier_param} if repository.identifier.present? 
+ checked_image repository.is_default? 
+ repository.scm_name 
+ repository.url 
+ if User.current.allowed_to?(:manage_repository, @project) 
+ link_to(l(:label_user_plural), committers_repository_path(repository),
+             :class => 'icon icon-user') 
+ link_to(l(:button_edit), edit_repository_path(repository),
+             :class => 'icon icon-edit') 
+ delete_link repository_path(repository) 
+ end 
+ end 
+ else 
+ l(:label_no_data) 
+ end 

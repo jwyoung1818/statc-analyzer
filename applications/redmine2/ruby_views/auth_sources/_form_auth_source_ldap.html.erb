@@ -1,0 +1,20 @@
+ error_messages_for 'auth_source' 
+ f.text_field :name, :required => true 
+ f.text_field :host, :required => true 
+ f.text_field :port, :required => true, :size => 6 
+ f.check_box :tls, :no_label => true 
+ f.text_field :account 
+ f.password_field :account_password, :label => :field_password,
+           :name => 'dummy_password',
+           :value => ((@auth_source.new_record? || @auth_source.account_password.blank?) ? '' : ('x'*15)),
+           :onfocus => "this.value=''; this.name='auth_source[account_password]';",
+           :onchange => "this.name='auth_source[account_password]';" 
+ f.text_field :base_dn, :required => true, :size => 60 
+ f.text_area :filter, :size => 60, :label => :field_auth_source_ldap_filter 
+ f.text_field :timeout, :size => 4 
+ f.check_box :onthefly_register, :label => :field_onthefly 
+l(:label_attribute_plural)
+ f.text_field :attr_login, :required => true, :size => 20 
+ f.text_field :attr_firstname, :size => 20 
+ f.text_field :attr_lastname, :size => 20 
+ f.text_field :attr_mail, :size => 20 

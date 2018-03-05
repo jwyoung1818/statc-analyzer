@@ -1,0 +1,10 @@
+ link_to("#{issue.tracker.name} ##{issue.id}: #{issue.subject}", issue_url) 
+ render_email_issue_attributes(issue, users.first, true) 
+ textilizable(issue, :description, :only_path => false) 
+ if issue.attachments.any? 
+ l(:label_attachment_plural) 
+ issue.attachments.each do |attachment| 
+ link_to_attachment attachment, :download => true, :only_path => false 
+ number_to_human_size(attachment.filesize) 
+ end 
+ end 

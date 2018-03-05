@@ -1,0 +1,11 @@
+ link_to l(:label_user_new), new_group_users_path(@group), :remote => true, :class => "icon icon-add" 
+ if @group.users.any? 
+ l(:label_user) 
+ @group.users.sort.each do |user| 
+ user.id 
+ link_to_user user 
+ delete_link group_user_path(@group, :user_id => user), :remote => true 
+ end 
+ else 
+ l(:label_no_data) 
+ end 

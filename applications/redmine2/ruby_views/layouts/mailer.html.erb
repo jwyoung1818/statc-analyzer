@@ -1,0 +1,7 @@
+ if Setting.emails_header.present? 
+ Redmine::WikiFormatting.to_html(Setting.text_formatting, Setting.emails_header).html_safe 
+ end 
+ yield 
+ if Setting.emails_footer.present? 
+ Redmine::WikiFormatting.to_html(Setting.text_formatting, Setting.emails_footer).html_safe 
+ end 

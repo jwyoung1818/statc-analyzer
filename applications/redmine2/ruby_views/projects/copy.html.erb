@@ -1,0 +1,36 @@
+l(:label_project_new)
+ labelled_form_for @project, :url => { :action => "copy" } do |f| 
+ render :partial => 'form', :locals => { :f => f } 
+ l(:button_copy) 
+ check_box_tag 'only[]', 'members', true, :id => nil 
+ l(:label_member_plural) 
+ @source_project.members.count 
+ check_box_tag 'only[]', 'versions', true, :id => nil 
+ l(:label_version_plural) 
+ @source_project.versions.count 
+ check_box_tag 'only[]', 'issue_categories', true, :id => nil 
+ l(:label_issue_category_plural) 
+ @source_project.issue_categories.count 
+ check_box_tag 'only[]', 'issues', true, :id => nil 
+ l(:label_issue_plural) 
+ @source_project.issues.count 
+ check_box_tag 'only[]', 'queries', true, :id => nil 
+ l(:label_query_plural) 
+ @source_project.queries.count 
+ check_box_tag 'only[]', 'boards', true, :id => nil 
+ l(:label_board_plural) 
+ @source_project.boards.count 
+ check_box_tag 'only[]', 'wiki', true, :id => nil 
+ l(:label_wiki_page_plural) 
+ @source_project.wiki.nil? ? 0 : @source_project.wiki.pages.count 
+ hidden_field_tag 'only[]', '' 
+ check_box_tag 'notifications', 1, params[:notifications] 
+ l(:label_project_copy_notifications) 
+ @project.tracker_ids.each do |tracker_id| 
+ hidden_field_tag 'project[tracker_ids][]', tracker_id 
+ end 
+ @project.issue_custom_field_ids.each do |issue_custom_field_id| 
+ hidden_field_tag 'project[issue_custom_field_ids][]', issue_custom_field_id 
+ end 
+ submit_tag l(:button_copy) 
+ end 

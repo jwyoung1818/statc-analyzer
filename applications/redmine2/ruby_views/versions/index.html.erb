@@ -1,0 +1,60 @@
+ link_to(l(:label_version_new), new_project_version_path(@project),
+              :class => 'icon icon-add') if User.current.allowed_to?(:manage_versions, @project) 
+l(:label_roadmap)
+ if @versions.empty? 
+ l(:label_no_data) 
+ else 
+ @versions.each do |version| 
+ version.css_classes 
+ if User.current.allowed_to?(:manage_versions, version.project) 
+ link_to l(:button_edit), edit_version_path(version), :title => l(:button_edit), :class => 'icon-only icon-edit' 
+ end 
+ link_to_version version, :name => version_anchor(version) 
+ render :partial => 'versions/overview', :locals => {:version => version} 
+ render(:partial => "wiki/content",
+               :locals => {:content => version.wiki_page.content}) if version.wiki_page 
+ if (issues = @issues_by_version[version]) && issues.size > 0 
+ form_tag({}, :data => {:cm_url => issues_context_menu_path}) do 
+ l(:label_related_issues) 
+ issues.each do |issue| 
+ check_box_tag 'ids[]', issue.id, false, :id => nil 
+ link_to_issue(issue, :project => (@project != issue.project)) 
+ end 
+ end 
+ end 
+ call_hook :view_projects_roadmap_version_bottom, :version => version 
+ end 
+ end 
+ content_for :sidebar do 
+ form_tag({}, :method => :get) do 
+ l(:label_roadmap) 
+ @trackers.each do |tracker| 
+ check_box_tag("tracker_ids[]", tracker.id,
+                        (@selected_tracker_ids.include? tracker.id.to_s),
+                        :id => nil) 
+ tracker.name 
+ end 
+ check_box_tag "completed", 1, params[:completed] 
+ l(:label_show_completed_versions) 
+ if @project.descendants.active.any? 
+ hidden_field_tag 'with_subprojects', 0, :id => nil 
+ check_box_tag 'with_subprojects', 1, @with_subprojects 
+l(:label_subproject_plural)
+ end 
+ submit_tag l(:button_apply), :class => 'button-small', :name => nil 
+ end 
+ l(:label_version_plural) 
+ @versions.each do |version| 
+ link_to(format_version_name(version), "##{version_anchor(version)}") 
+ end 
+ if @completed_versions.present? 
+ link_to_function l(:label_completed_versions),
+                       '$("#toggle-completed-versions").toggleClass("collapsed"); $("#completed-versions").toggle()',
+                       :id => 'toggle-completed-versions', :class => 'collapsible collapsed' 
+ @completed_versions.each do |version| 
+ link_to_version version 
+ end 
+ end 
+ end 
+ html_title(l(:label_roadmap)) 
+ context_menu 

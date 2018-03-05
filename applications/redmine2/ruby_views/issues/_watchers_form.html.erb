@@ -1,0 +1,10 @@
+ if @issue.safe_attribute? 'watcher_user_ids' 
+ hidden_field_tag 'issue[watcher_user_ids][]', '' 
+ l(:label_issue_watchers) 
+ watchers_checkboxes(@issue, users_for_new_issue_watchers(@issue)) 
+ link_to l(:label_search_for_watchers),
+              {:controller => 'watchers', :action => 'new', :project_id => @issue.project},
+              :class => 'icon icon-add-bullet',
+              :remote => true,
+              :method => 'get' 
+ end 

@@ -73,8 +73,10 @@ end
 
 def handle_single_dataflow_file(item, class_name)
 		file = File.open(item, "r")
+		line_number = 1
 		file.each_line do |line|
 			if line.include?("SET IRMethod")
+				line_number += 1
 				$view_start = false
 				#i = line.index(" = ")
 				#func_name = line[i+3...line.length-1]
@@ -186,10 +188,14 @@ def handle_single_dataflow_file(item, class_name)
 				$cur_bb_stack.pop
 				$cur_cfg_stack.pop
 			elsif line.include?("BB ")
-				$cur_bb = Basic_block.new(line.split(' ')[1].to_s)
+				$cur_bb = Basic_block.new(line.split(' ')[1].to_s) 
 				$cur_cfg.addBB($cur_bb)
 			else
 				#attrs = line.split(" ")
+				if line.include?("Line Number")
+					line_number = (line.split(" ")[3]).to_i
+					#puts "#{line_number}"
+				end
 				attrs = Array.new 
 				if line.include?('"') #deal with const
 					ind = line.index('"')
@@ -396,6 +402,7 @@ def handle_single_dataflow_file(item, class_name)
 								index += 1
 							end
 							cur_instr.setIndex($cur_bb.getInstr.length)
+							cur_instr.setLN(line_number+1)
 							$cur_bb.addInstr(cur_instr)	
 						end
 					end
@@ -410,6 +417,19 @@ def handle_single_dataflow_file(item, class_name)
 					calculate_depinstr_for_cfg(cfg)
 					calculate_merge_instr_for_branches(cfg)
 					set_in_while_loop(cfg)
+				end
+			end
+		end	
+		$class_map.each do |keyc, valuec|
+			valuec.getMethods.each do |key, value|
+				cfg = value.getCFG
+				if cfg != nil
+					cfg.getBB.each do |bb|	
+						#puts "\tBB#{bb.getIndex}:"
+						bb.getInstr.each do |instr|
+							#puts "Line Number #{instr.toString3} #{instr.getLN}"
+						end
+					end
 				end
 			end
 		end	

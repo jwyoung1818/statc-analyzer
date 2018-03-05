@@ -1,0 +1,13 @@
+ link_to_if_authorized l(:label_query_new), new_project_query_path(:project_id => @project), :class => 'icon icon-add' 
+ l(:label_query_plural) 
+ if @queries.empty? 
+l(:label_no_data)
+ else 
+ @queries.each do |query| 
+ link_to query.name, :controller => 'issues', :action => 'index', :project_id => @project, :query_id => query 
+ if query.editable_by?(User.current) 
+ link_to l(:button_edit), edit_query_path(query), :class => 'icon icon-edit' 
+ delete_link query_path(query) 
+ end 
+ end 
+ end 

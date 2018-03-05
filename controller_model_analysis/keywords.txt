@@ -29,6 +29,7 @@ limit SELECT
 order SELECT
 eager_load SELECT
 preload SELECT
+reload SELECT
 readonly SELECT
 references SELECT
 except SELECT

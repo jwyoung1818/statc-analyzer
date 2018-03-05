@@ -1,0 +1,1290 @@
+SET IRMethod, name = issue_report instanceMethod = true
+BB 1
+	outgoing: 46 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 4
+		 6: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 7: %v_3->rolled_up_trackers def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:Boolean,
+		 8: %v_4->visible def_%v_5 %v_4[2.7,] 	 SYMBOL:	 ARGS:
+		 9: ATTRASSIGN %self->trackers %v_5[2.8,] 
+		 10: Line Number 5
+		 11: GETFIELD %self->project def_%v_6 %self[2.0,] 
+		 12: %v_6->shared_versions def_%v_7 %v_6[2.11,] 	 SYMBOL:	 ARGS:
+		 13: %v_7->sort def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: ATTRASSIGN %self->versions %v_8[2.13,] 
+		 15: Line Number 6
+		 16: (IssuePriority) def_%v_9 
+		 17: %v_9->all def_%v_10 %v_9[2.16,] 	 SYMBOL:	 ARGS:
+		 18: %v_10->reverse def_%v_11 %v_10[2.17,] 	 SYMBOL:	 ARGS:
+		 19: ATTRASSIGN %self->priorities %v_11[2.18,] 
+		 20: Line Number 7
+		 21: GETFIELD %self->project def_%v_12 %self[2.0,] 
+		 22: %v_12->issue_categories def_%v_13 %v_12[2.21,] 	 SYMBOL:	 ARGS:
+		 23: ATTRASSIGN %self->categories %v_13[2.22,] 
+		 24: Line Number 8
+		 25: (Setting) def_%v_14 
+		 26: %v_14->issue_group_assignment? def_%v_15 %v_14[2.25,] 	 SYMBOL:	 ARGS:
+		 27: BRANCH %v_15[2.26,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_16 %self[2.0,] 
+		 1: %v_16->principals def_%v_17 %v_16[3.0,] 	 SYMBOL:	 ARGS:
+		 2: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_18 %self[2.0,] 
+		 1: %v_18->users def_%v_19 %v_18[4.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_17 %v_19[4.1,] 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: %v_17->sort def_%v_20 %v_17[4.2,3.1,] 	 SYMBOL:	 ARGS:
+		 1: ATTRASSIGN %self->assignees %v_20[5.0,] 
+		 2: Line Number 9
+		 3: GETFIELD %self->project def_%v_21 %self[2.0,] 
+		 4: %v_21->users def_%v_22 %v_21[5.3,] 	 SYMBOL:	 ARGS:
+		 5: %v_22->sort def_%v_23 %v_22[5.4,] 	 SYMBOL:	 ARGS:
+		 6: ATTRASSIGN %self->authors %v_23[5.5,] 
+		 7: Line Number 10
+		 8: GETFIELD %self->project def_%v_24 %self[2.0,] 
+		 9: %v_24->descendants def_%v_25 %v_24[5.8,] 	 SYMBOL:	 ARGS:
+		 10: %v_25->visible def_%v_26 %v_25[5.9,] 	 SYMBOL:	 ARGS:
+		 11: ATTRASSIGN %self->subprojects %v_26[5.10,] 
+		 12: Line Number 11
+		 13: (Issue) def_%v_27 
+		 14: GETFIELD %self->project def_%v_28 %self[2.0,] 
+		 15: %v_27->by_tracker def_%v_29 %v_27[5.13,] %v_28[5.14,] 	 SYMBOL:	 ARGS:%v_28,
+		 16: ATTRASSIGN %self->issues_by_tracker %v_29[5.15,] 
+		 17: Line Number 12
+		 18: (Issue) def_%v_30 
+		 19: GETFIELD %self->project def_%v_31 %self[2.0,] 
+		 20: %v_30->by_version def_%v_32 %v_30[5.18,] %v_31[5.19,] 	 SYMBOL:	 ARGS:%v_31,
+		 21: ATTRASSIGN %self->issues_by_version %v_32[5.20,] 
+		 22: Line Number 13
+		 23: (Issue) def_%v_33 
+		 24: GETFIELD %self->project def_%v_34 %self[2.0,] 
+		 25: %v_33->by_priority def_%v_35 %v_33[5.23,] %v_34[5.24,] 	 SYMBOL:	 ARGS:%v_34,
+		 26: ATTRASSIGN %self->issues_by_priority %v_35[5.25,] 
+		 27: Line Number 14
+		 28: (Issue) def_%v_36 
+		 29: GETFIELD %self->project def_%v_37 %self[2.0,] 
+		 30: %v_36->by_category def_%v_38 %v_36[5.28,] %v_37[5.29,] 	 SYMBOL:	 ARGS:%v_37,
+		 31: ATTRASSIGN %self->issues_by_category %v_38[5.30,] 
+		 32: Line Number 15
+		 33: (Issue) def_%v_39 
+		 34: GETFIELD %self->project def_%v_40 %self[2.0,] 
+		 35: %v_39->by_assigned_to def_%v_41 %v_39[5.33,] %v_40[5.34,] 	 SYMBOL:	 ARGS:%v_40,
+		 36: ATTRASSIGN %self->issues_by_assigned_to %v_41[5.35,] 
+		 37: Line Number 16
+		 38: (Issue) def_%v_42 
+		 39: GETFIELD %self->project def_%v_43 %self[2.0,] 
+		 40: %v_42->by_author def_%v_44 %v_42[5.38,] %v_43[5.39,] 	 SYMBOL:	 ARGS:%v_43,
+		 41: ATTRASSIGN %self->issues_by_author %v_44[5.40,] 
+		 42: Line Number 17
+		 43: (Issue) def_%v_45 
+		 44: GETFIELD %self->project def_%v_46 %self[2.0,] 
+		 45: %v_45->by_subproject def_%v_47 %v_45[5.43,] %v_46[5.44,] 	 SYMBOL:	 ARGS:%v_46,
+		 46: BRANCH %v_47[5.45,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Array def_%v_48 
+		 1: COPY TYPE_PASS def_%v_47 %v_48[6.0,] 
+BB 7
+	outgoing: 8 9 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %self->issues_by_subproject %v_47[6.1,5.45,] 
+		 1: Line Number 18
+		 2: COPY TYPE_StringLiteral "reports/issue_report" def_%v_49 
+		 3: HASH-template- def_%v_50 %v_49[7.2,] 
+		 4: %self->render def_%v_51 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_50[7.3,] 	 SYMBOL:	 ARGS:%v_50,
+		 5: Line Number 19
+		 6: %self->l def_%v_52 %self[7.0,7.4,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_report_plural,	 ARGS:Symbol,
+		 7: Line Number 20
+		 8: %self->l def_%v_53 %self[7.0,7.4,7.6,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:field_tracker,	 ARGS:Symbol,
+		 9: Line Number 21
+		 10: %self->l def_%v_54 %self[7.0,7.4,7.6,7.8,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 11: GETFIELD %self->project def_%v_55 %self[7.4,7.6,7.8,7.10,2.0,] 
+		 12: COPY TYPE_StringLiteral "tracker" def_%v_56 
+		 13: HASH-detail- def_%v_57 %v_56[7.12,] 
+		 14: %self->project_issues_report_details_path def_%v_58 %self[7.0,7.4,7.6,7.8,7.10,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_55[7.11,] %v_57[7.13,] 	 SYMBOL:	 ARGS:%v_55,%v_57,
+		 15: COPY TYPE_StringLiteral "icon-only icon-zoom-in" def_%v_59 
+		 16: %self->l def_%v_60 %self[7.0,7.4,7.6,7.8,7.10,7.14,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 17: HASH-class-title- def_%v_61 %v_59[7.15,] %v_60[7.16,] 
+		 18: %self->link_to def_%v_62 %self[7.0,7.4,7.6,7.8,7.10,7.14,7.16,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_54[7.10,] %v_58[7.14,] %v_61[7.17,] 	 SYMBOL:	 ARGS:%v_54,%v_58,%v_61,
+		 19: Line Number 25
+		 20: COPY TYPE_StringLiteral "simple" def_%v_63 
+		 21: GETFIELD %self->issues_by_tracker def_%v_64 %self[7.4,7.6,7.8,7.10,7.14,7.16,7.18,5.16,2.0,] 
+		 22: COPY TYPE_StringLiteral "tracker_id" def_%v_65 
+		 23: GETFIELD %self->trackers def_%v_66 %self[7.4,7.6,7.8,7.10,7.14,7.16,7.18,2.0,2.9,] 
+		 24: HASH-data-field_name-rows- def_%v_67 %v_64[7.21,] %v_65[7.22,] %v_66[7.23,] 
+		 25: HASH-partial-locals- def_%v_68 %v_63[7.20,] %v_67[7.24,] 
+		 26: %self->render def_%v_69 %self[7.0,7.4,7.6,7.8,7.10,7.14,7.16,7.18,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_68[7.25,] 	 SYMBOL:	 ARGS:%v_68,
+		 27: Line Number 26
+		 28: GETFIELD %self->statuses def_%v_70 %self[7.4,7.6,7.8,7.10,7.14,7.16,7.18,7.26,2.0,] 
+		 29: %v_70->empty? def_%v_71 %v_70[7.28,] 	 SYMBOL:	 ARGS:
+		 30: BRANCH %v_71[7.29,] 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: %self->rows def_%v_72 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 1: %v_72->empty? def_%v_73 %v_72[8.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_71 %v_73[8.1,] 
+BB 9
+	outgoing: 10 11 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_71[8.2,7.29,] 
+BB 10
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: Line Number 27
+		 1: %self->l def_%v_74 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_no_data,	 ARGS:Symbol,
+		 2: 
+BB 11
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: Line Number 29
+		 1: %self->l def_%v_75 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_open_issues_plural,	 ARGS:Symbol,
+		 2: Line Number 30
+		 3: %self->l def_%v_76 %self[11.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_closed_issues_plural,	 ARGS:Symbol,
+		 4: Line Number 31
+		 5: %self->l def_%v_77 %self[11.1,11.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_total,	 ARGS:Symbol,
+		 6: Line Number 32
+		 7: %self->rows def_%v_79 %self[11.1,11.3,11.5,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 8: %v_79->each def_%v_78 %v_79[11.7,] %self[11.1,11.3,11.5,11.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:%v_79,
+CLOSURE BEGIN: row[] %self[11.1,11.3,11.5,11.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_row 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 33
+		 6: row->name def_%cl_1_3 row[2.2,] 	 SYMBOL:	 ARGS:
+		 7: GETFIELD %self->project def_%cl_1_4 %self[2.0,] 
+		 8: %self->field_name def_%cl_1_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %self->aggregate_path def_%cl_1_6 %self[2.0,2.8,] %cl_1_4[2.7,] %cl_1_5[2.8,] row[2.2,2.6,] 	 SYMBOL:	 ARGS:%cl_1_4,%cl_1_5,row,
+		 10: %self->link_to def_%cl_1_7 %self[2.0,2.8,2.9,] %cl_1_3[2.6,] %cl_1_6[2.9,] 	 SYMBOL:	 ARGS:%cl_1_3,%cl_1_6,
+		 11: Line Number 34
+		 12: %self->data def_%cl_1_8 %self[2.0,2.8,2.9,2.10,] 	 SYMBOL:	 ARGS:
+		 13: %self->field_name def_%cl_1_9 %self[2.0,2.8,2.9,2.10,2.12,] 	 SYMBOL:	 ARGS:
+		 14: row->id def_%cl_1_10 row[2.2,2.6,] 	 SYMBOL:	 ARGS:
+		 15: COPY TYPE_StringLiteral "closed" def_%cl_1_11 
+		 16: HASH- def_%cl_1_12 %cl_1_9[2.13,] %cl_1_10[2.14,] %cl_1_11[2.15,] 
+		 17: GETFIELD %self->project def_%cl_1_13 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 
+		 18: %self->field_name def_%cl_1_14 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 	 SYMBOL:	 ARGS:
+		 19: COPY TYPE_StringLiteral "o" def_%cl_1_15 
+		 20: HASH-status_id- def_%cl_1_16 %cl_1_15[2.19,] 
+		 21: %self->aggregate_path def_%cl_1_17 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,] %cl_1_13[2.17,] %cl_1_14[2.18,] row[2.2,2.6,2.14,] %cl_1_16[2.20,] 	 SYMBOL:	 ARGS:%cl_1_13,%cl_1_14,row,%cl_1_16,
+		 22: %self->aggregate_link def_%cl_1_18 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,] %cl_1_8[2.12,] %cl_1_12[2.16,] %cl_1_17[2.21,] 	 SYMBOL:	 ARGS:%cl_1_8,%cl_1_12,%cl_1_17,
+		 23: Line Number 35
+		 24: %self->data def_%cl_1_19 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,] 	 SYMBOL:	 ARGS:
+		 25: %self->field_name def_%cl_1_20 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,] 	 SYMBOL:	 ARGS:
+		 26: row->id def_%cl_1_21 row[2.2,2.6,2.14,] 	 SYMBOL:	 ARGS:
+		 27: COPY TYPE_StringLiteral "closed" def_%cl_1_22 
+		 28: HASH- def_%cl_1_23 %cl_1_20[2.25,] %cl_1_21[2.26,] %cl_1_22[2.27,] 
+		 29: GETFIELD %self->project def_%cl_1_24 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 
+		 30: %self->field_name def_%cl_1_25 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 	 SYMBOL:	 ARGS:
+		 31: COPY TYPE_StringLiteral "c" def_%cl_1_26 
+		 32: HASH-status_id- def_%cl_1_27 %cl_1_26[2.31,] 
+		 33: %self->aggregate_path def_%cl_1_28 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,] %cl_1_24[2.29,] %cl_1_25[2.30,] row[2.2,2.6,2.14,2.26,] %cl_1_27[2.32,] 	 SYMBOL:	 ARGS:%cl_1_24,%cl_1_25,row,%cl_1_27,
+		 34: %self->aggregate_link def_%cl_1_29 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,] %cl_1_19[2.24,] %cl_1_23[2.28,] %cl_1_28[2.33,] 	 SYMBOL:	 ARGS:%cl_1_19,%cl_1_23,%cl_1_28,
+		 35: Line Number 36
+		 36: %self->data def_%cl_1_30 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,] 	 SYMBOL:	 ARGS:
+		 37: %self->field_name def_%cl_1_31 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,] 	 SYMBOL:	 ARGS:
+		 38: row->id def_%cl_1_32 row[2.2,2.6,2.14,2.26,] 	 SYMBOL:	 ARGS:
+		 39: HASH- def_%cl_1_33 %cl_1_31[2.37,] %cl_1_32[2.38,] 
+		 40: GETFIELD %self->project def_%cl_1_34 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 
+		 41: %self->field_name def_%cl_1_35 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 	 SYMBOL:	 ARGS:
+		 42: COPY TYPE_StringLiteral "*" def_%cl_1_36 
+		 43: HASH-status_id- def_%cl_1_37 %cl_1_36[2.42,] 
+		 44: %self->aggregate_path def_%cl_1_38 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,] %cl_1_34[2.40,] %cl_1_35[2.41,] row[2.2,2.6,2.14,2.26,2.38,] %cl_1_37[2.43,] 	 SYMBOL:	 ARGS:%cl_1_34,%cl_1_35,row,%cl_1_37,
+		 45: %self->aggregate_link def_%cl_1_39 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,] %cl_1_30[2.36,] %cl_1_33[2.39,] %cl_1_38[2.44,] 	 SYMBOL:	 ARGS:%cl_1_30,%cl_1_33,%cl_1_38,
+		 46: RETURN %cl_1_39[2.45,] %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,2.45,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: row[2.2,] 
+		 9: COPY TYPE_PASS def_%v_74 %v_78[11.8,] 
+BB 12
+	outgoing: 13 14 
+	datadep: 
+	instructions:
+		 0: Line Number 39
+		 1: %self->l def_%v_80 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:field_priority,	 ARGS:Symbol,
+		 2: Line Number 40
+		 3: %self->l def_%v_81 %self[12.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 4: GETFIELD %self->project def_%v_82 %self[12.1,12.3,2.0,] 
+		 5: COPY TYPE_StringLiteral "priority" def_%v_83 
+		 6: HASH-detail- def_%v_84 %v_83[12.5,] 
+		 7: %self->project_issues_report_details_path def_%v_85 %self[12.1,12.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_82[12.4,] %v_84[12.6,] 	 SYMBOL:	 ARGS:%v_82,%v_84,
+		 8: COPY TYPE_StringLiteral "icon-only icon-zoom-in" def_%v_86 
+		 9: %self->l def_%v_87 %self[12.1,12.3,12.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 10: HASH-class-title- def_%v_88 %v_86[12.8,] %v_87[12.9,] 
+		 11: %self->link_to def_%v_89 %self[12.1,12.3,12.7,12.9,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_81[12.3,] %v_85[12.7,] %v_88[12.10,] 	 SYMBOL:	 ARGS:%v_81,%v_85,%v_88,
+		 12: Line Number 44
+		 13: COPY TYPE_StringLiteral "simple" def_%v_90 
+		 14: GETFIELD %self->issues_by_priority def_%v_91 %self[12.1,12.3,12.7,12.9,12.11,5.26,2.0,] 
+		 15: COPY TYPE_StringLiteral "priority_id" def_%v_92 
+		 16: GETFIELD %self->priorities def_%v_93 %self[12.1,12.3,12.7,12.9,12.11,2.0,2.19,] 
+		 17: HASH-data-field_name-rows- def_%v_94 %v_91[12.14,] %v_92[12.15,] %v_93[12.16,] 
+		 18: HASH-partial-locals- def_%v_95 %v_90[12.13,] %v_94[12.17,] 
+		 19: %self->render def_%v_96 %self[12.1,12.3,12.7,12.9,12.11,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_95[12.18,] 	 SYMBOL:	 ARGS:%v_95,
+		 20: Line Number 45
+		 21: GETFIELD %self->statuses def_%v_97 %self[12.1,12.3,12.7,12.9,12.11,12.19,2.0,] 
+		 22: %v_97->empty? def_%v_98 %v_97[12.21,] 	 SYMBOL:	 ARGS:
+		 23: BRANCH %v_98[12.22,] 
+BB 13
+	outgoing: 14 
+	datadep: 
+	instructions:
+		 0: %self->rows def_%v_99 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 1: %v_99->empty? def_%v_100 %v_99[13.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_98 %v_100[13.1,] 
+BB 14
+	outgoing: 15 16 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_98[13.2,12.22,] 
+BB 15
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: Line Number 46
+		 1: %self->l def_%v_101 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_no_data,	 ARGS:Symbol,
+		 2: 
+BB 16
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: Line Number 48
+		 1: %self->l def_%v_102 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_open_issues_plural,	 ARGS:Symbol,
+		 2: Line Number 49
+		 3: %self->l def_%v_103 %self[16.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_closed_issues_plural,	 ARGS:Symbol,
+		 4: Line Number 50
+		 5: %self->l def_%v_104 %self[16.1,16.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_total,	 ARGS:Symbol,
+		 6: Line Number 51
+		 7: %self->rows def_%v_106 %self[16.1,16.3,16.5,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 8: %v_106->each def_%v_105 %v_106[16.7,] %self[16.1,16.3,16.5,16.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:%v_106,
+CLOSURE BEGIN: row[11.8,] %self[16.1,16.3,16.5,16.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: RECEIVEARG def_row 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 52
+		 6: row->name def_%cl_2_3 row[2.2,] 	 SYMBOL:	 ARGS:
+		 7: GETFIELD %self->project def_%cl_2_4 %self[2.0,] 
+		 8: %self->field_name def_%cl_2_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %self->aggregate_path def_%cl_2_6 %self[2.0,2.8,] %cl_2_4[2.7,] %cl_2_5[2.8,] row[2.2,2.6,] 	 SYMBOL:	 ARGS:%cl_2_4,%cl_2_5,row,
+		 10: %self->link_to def_%cl_2_7 %self[2.0,2.8,2.9,] %cl_2_3[2.6,] %cl_2_6[2.9,] 	 SYMBOL:	 ARGS:%cl_2_3,%cl_2_6,
+		 11: Line Number 53
+		 12: %self->data def_%cl_2_8 %self[2.0,2.8,2.9,2.10,] 	 SYMBOL:	 ARGS:
+		 13: %self->field_name def_%cl_2_9 %self[2.0,2.8,2.9,2.10,2.12,] 	 SYMBOL:	 ARGS:
+		 14: row->id def_%cl_2_10 row[2.2,2.6,] 	 SYMBOL:	 ARGS:
+		 15: COPY TYPE_StringLiteral "closed" def_%cl_2_11 
+		 16: HASH- def_%cl_2_12 %cl_2_9[2.13,] %cl_2_10[2.14,] %cl_2_11[2.15,] 
+		 17: GETFIELD %self->project def_%cl_2_13 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 
+		 18: %self->field_name def_%cl_2_14 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 	 SYMBOL:	 ARGS:
+		 19: COPY TYPE_StringLiteral "o" def_%cl_2_15 
+		 20: HASH-status_id- def_%cl_2_16 %cl_2_15[2.19,] 
+		 21: %self->aggregate_path def_%cl_2_17 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,] %cl_2_13[2.17,] %cl_2_14[2.18,] row[2.2,2.6,2.14,] %cl_2_16[2.20,] 	 SYMBOL:	 ARGS:%cl_2_13,%cl_2_14,row,%cl_2_16,
+		 22: %self->aggregate_link def_%cl_2_18 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,] %cl_2_8[2.12,] %cl_2_12[2.16,] %cl_2_17[2.21,] 	 SYMBOL:	 ARGS:%cl_2_8,%cl_2_12,%cl_2_17,
+		 23: Line Number 54
+		 24: %self->data def_%cl_2_19 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,] 	 SYMBOL:	 ARGS:
+		 25: %self->field_name def_%cl_2_20 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,] 	 SYMBOL:	 ARGS:
+		 26: row->id def_%cl_2_21 row[2.2,2.6,2.14,] 	 SYMBOL:	 ARGS:
+		 27: COPY TYPE_StringLiteral "closed" def_%cl_2_22 
+		 28: HASH- def_%cl_2_23 %cl_2_20[2.25,] %cl_2_21[2.26,] %cl_2_22[2.27,] 
+		 29: GETFIELD %self->project def_%cl_2_24 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 
+		 30: %self->field_name def_%cl_2_25 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 	 SYMBOL:	 ARGS:
+		 31: COPY TYPE_StringLiteral "c" def_%cl_2_26 
+		 32: HASH-status_id- def_%cl_2_27 %cl_2_26[2.31,] 
+		 33: %self->aggregate_path def_%cl_2_28 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,] %cl_2_24[2.29,] %cl_2_25[2.30,] row[2.2,2.6,2.14,2.26,] %cl_2_27[2.32,] 	 SYMBOL:	 ARGS:%cl_2_24,%cl_2_25,row,%cl_2_27,
+		 34: %self->aggregate_link def_%cl_2_29 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,] %cl_2_19[2.24,] %cl_2_23[2.28,] %cl_2_28[2.33,] 	 SYMBOL:	 ARGS:%cl_2_19,%cl_2_23,%cl_2_28,
+		 35: Line Number 55
+		 36: %self->data def_%cl_2_30 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,] 	 SYMBOL:	 ARGS:
+		 37: %self->field_name def_%cl_2_31 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,] 	 SYMBOL:	 ARGS:
+		 38: row->id def_%cl_2_32 row[2.2,2.6,2.14,2.26,] 	 SYMBOL:	 ARGS:
+		 39: HASH- def_%cl_2_33 %cl_2_31[2.37,] %cl_2_32[2.38,] 
+		 40: GETFIELD %self->project def_%cl_2_34 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 
+		 41: %self->field_name def_%cl_2_35 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 	 SYMBOL:	 ARGS:
+		 42: COPY TYPE_StringLiteral "*" def_%cl_2_36 
+		 43: HASH-status_id- def_%cl_2_37 %cl_2_36[2.42,] 
+		 44: %self->aggregate_path def_%cl_2_38 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,] %cl_2_34[2.40,] %cl_2_35[2.41,] row[2.2,2.6,2.14,2.26,2.38,] %cl_2_37[2.43,] 	 SYMBOL:	 ARGS:%cl_2_34,%cl_2_35,row,%cl_2_37,
+		 45: %self->aggregate_link def_%cl_2_39 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,] %cl_2_30[2.36,] %cl_2_33[2.39,] %cl_2_38[2.44,] 	 SYMBOL:	 ARGS:%cl_2_30,%cl_2_33,%cl_2_38,
+		 46: RETURN %cl_2_39[2.45,] %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,2.45,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: row[2.2,] 
+		 9: COPY TYPE_PASS def_%v_101 %v_105[16.8,] 
+BB 17
+	outgoing: 18 19 
+	datadep: 
+	instructions:
+		 0: Line Number 58
+		 1: %self->l def_%v_107 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:field_assigned_to,	 ARGS:Symbol,
+		 2: Line Number 59
+		 3: %self->l def_%v_108 %self[17.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 4: GETFIELD %self->project def_%v_109 %self[17.1,17.3,2.0,] 
+		 5: COPY TYPE_StringLiteral "assigned_to" def_%v_110 
+		 6: HASH-detail- def_%v_111 %v_110[17.5,] 
+		 7: %self->project_issues_report_details_path def_%v_112 %self[17.1,17.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_109[17.4,] %v_111[17.6,] 	 SYMBOL:	 ARGS:%v_109,%v_111,
+		 8: COPY TYPE_StringLiteral "icon-only icon-zoom-in" def_%v_113 
+		 9: %self->l def_%v_114 %self[17.1,17.3,17.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 10: HASH-class-title- def_%v_115 %v_113[17.8,] %v_114[17.9,] 
+		 11: %self->link_to def_%v_116 %self[17.1,17.3,17.7,17.9,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_108[17.3,] %v_112[17.7,] %v_115[17.10,] 	 SYMBOL:	 ARGS:%v_108,%v_112,%v_115,
+		 12: Line Number 63
+		 13: COPY TYPE_StringLiteral "simple" def_%v_117 
+		 14: GETFIELD %self->issues_by_assigned_to def_%v_118 %self[17.1,17.3,17.7,17.9,17.11,5.36,2.0,] 
+		 15: COPY TYPE_StringLiteral "assigned_to_id" def_%v_119 
+		 16: GETFIELD %self->assignees def_%v_120 %self[17.1,17.3,17.7,17.9,17.11,5.1,2.0,] 
+		 17: HASH-data-field_name-rows- def_%v_121 %v_118[17.14,] %v_119[17.15,] %v_120[17.16,] 
+		 18: HASH-partial-locals- def_%v_122 %v_117[17.13,] %v_121[17.17,] 
+		 19: %self->render def_%v_123 %self[17.1,17.3,17.7,17.9,17.11,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_122[17.18,] 	 SYMBOL:	 ARGS:%v_122,
+		 20: Line Number 64
+		 21: GETFIELD %self->statuses def_%v_124 %self[17.1,17.3,17.7,17.9,17.11,17.19,2.0,] 
+		 22: %v_124->empty? def_%v_125 %v_124[17.21,] 	 SYMBOL:	 ARGS:
+		 23: BRANCH %v_125[17.22,] 
+BB 18
+	outgoing: 19 
+	datadep: 
+	instructions:
+		 0: %self->rows def_%v_126 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 1: %v_126->empty? def_%v_127 %v_126[18.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_125 %v_127[18.1,] 
+BB 19
+	outgoing: 20 21 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_125[18.2,17.22,] 
+BB 20
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: Line Number 65
+		 1: %self->l def_%v_128 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_no_data,	 ARGS:Symbol,
+		 2: 
+BB 21
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: Line Number 67
+		 1: %self->l def_%v_129 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_open_issues_plural,	 ARGS:Symbol,
+		 2: Line Number 68
+		 3: %self->l def_%v_130 %self[21.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_closed_issues_plural,	 ARGS:Symbol,
+		 4: Line Number 69
+		 5: %self->l def_%v_131 %self[21.1,21.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_total,	 ARGS:Symbol,
+		 6: Line Number 70
+		 7: %self->rows def_%v_133 %self[21.1,21.3,21.5,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 8: %v_133->each def_%v_132 %v_133[21.7,] %self[21.1,21.3,21.5,21.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:%v_133,
+CLOSURE BEGIN: row[16.8,11.8,] %self[21.1,21.3,21.5,21.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_3_0 
+		 2: RECEIVEARG def_row 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 71
+		 6: row->name def_%cl_3_3 row[2.2,] 	 SYMBOL:	 ARGS:
+		 7: GETFIELD %self->project def_%cl_3_4 %self[2.0,] 
+		 8: %self->field_name def_%cl_3_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %self->aggregate_path def_%cl_3_6 %self[2.0,2.8,] %cl_3_4[2.7,] %cl_3_5[2.8,] row[2.2,2.6,] 	 SYMBOL:	 ARGS:%cl_3_4,%cl_3_5,row,
+		 10: %self->link_to def_%cl_3_7 %self[2.0,2.8,2.9,] %cl_3_3[2.6,] %cl_3_6[2.9,] 	 SYMBOL:	 ARGS:%cl_3_3,%cl_3_6,
+		 11: Line Number 72
+		 12: %self->data def_%cl_3_8 %self[2.0,2.8,2.9,2.10,] 	 SYMBOL:	 ARGS:
+		 13: %self->field_name def_%cl_3_9 %self[2.0,2.8,2.9,2.10,2.12,] 	 SYMBOL:	 ARGS:
+		 14: row->id def_%cl_3_10 row[2.2,2.6,] 	 SYMBOL:	 ARGS:
+		 15: COPY TYPE_StringLiteral "closed" def_%cl_3_11 
+		 16: HASH- def_%cl_3_12 %cl_3_9[2.13,] %cl_3_10[2.14,] %cl_3_11[2.15,] 
+		 17: GETFIELD %self->project def_%cl_3_13 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 
+		 18: %self->field_name def_%cl_3_14 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 	 SYMBOL:	 ARGS:
+		 19: COPY TYPE_StringLiteral "o" def_%cl_3_15 
+		 20: HASH-status_id- def_%cl_3_16 %cl_3_15[2.19,] 
+		 21: %self->aggregate_path def_%cl_3_17 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,] %cl_3_13[2.17,] %cl_3_14[2.18,] row[2.2,2.6,2.14,] %cl_3_16[2.20,] 	 SYMBOL:	 ARGS:%cl_3_13,%cl_3_14,row,%cl_3_16,
+		 22: %self->aggregate_link def_%cl_3_18 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,] %cl_3_8[2.12,] %cl_3_12[2.16,] %cl_3_17[2.21,] 	 SYMBOL:	 ARGS:%cl_3_8,%cl_3_12,%cl_3_17,
+		 23: Line Number 73
+		 24: %self->data def_%cl_3_19 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,] 	 SYMBOL:	 ARGS:
+		 25: %self->field_name def_%cl_3_20 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,] 	 SYMBOL:	 ARGS:
+		 26: row->id def_%cl_3_21 row[2.2,2.6,2.14,] 	 SYMBOL:	 ARGS:
+		 27: COPY TYPE_StringLiteral "closed" def_%cl_3_22 
+		 28: HASH- def_%cl_3_23 %cl_3_20[2.25,] %cl_3_21[2.26,] %cl_3_22[2.27,] 
+		 29: GETFIELD %self->project def_%cl_3_24 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 
+		 30: %self->field_name def_%cl_3_25 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 	 SYMBOL:	 ARGS:
+		 31: COPY TYPE_StringLiteral "c" def_%cl_3_26 
+		 32: HASH-status_id- def_%cl_3_27 %cl_3_26[2.31,] 
+		 33: %self->aggregate_path def_%cl_3_28 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,] %cl_3_24[2.29,] %cl_3_25[2.30,] row[2.2,2.6,2.14,2.26,] %cl_3_27[2.32,] 	 SYMBOL:	 ARGS:%cl_3_24,%cl_3_25,row,%cl_3_27,
+		 34: %self->aggregate_link def_%cl_3_29 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,] %cl_3_19[2.24,] %cl_3_23[2.28,] %cl_3_28[2.33,] 	 SYMBOL:	 ARGS:%cl_3_19,%cl_3_23,%cl_3_28,
+		 35: Line Number 74
+		 36: %self->data def_%cl_3_30 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,] 	 SYMBOL:	 ARGS:
+		 37: %self->field_name def_%cl_3_31 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,] 	 SYMBOL:	 ARGS:
+		 38: row->id def_%cl_3_32 row[2.2,2.6,2.14,2.26,] 	 SYMBOL:	 ARGS:
+		 39: HASH- def_%cl_3_33 %cl_3_31[2.37,] %cl_3_32[2.38,] 
+		 40: GETFIELD %self->project def_%cl_3_34 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 
+		 41: %self->field_name def_%cl_3_35 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 	 SYMBOL:	 ARGS:
+		 42: COPY TYPE_StringLiteral "*" def_%cl_3_36 
+		 43: HASH-status_id- def_%cl_3_37 %cl_3_36[2.42,] 
+		 44: %self->aggregate_path def_%cl_3_38 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,] %cl_3_34[2.40,] %cl_3_35[2.41,] row[2.2,2.6,2.14,2.26,2.38,] %cl_3_37[2.43,] 	 SYMBOL:	 ARGS:%cl_3_34,%cl_3_35,row,%cl_3_37,
+		 45: %self->aggregate_link def_%cl_3_39 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,] %cl_3_30[2.36,] %cl_3_33[2.39,] %cl_3_38[2.44,] 	 SYMBOL:	 ARGS:%cl_3_30,%cl_3_33,%cl_3_38,
+		 46: RETURN %cl_3_39[2.45,] %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,2.45,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: row[2.2,] 
+		 9: COPY TYPE_PASS def_%v_128 %v_132[21.8,] 
+BB 22
+	outgoing: 23 24 
+	datadep: 
+	instructions:
+		 0: Line Number 77
+		 1: %self->l def_%v_134 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:field_author,	 ARGS:Symbol,
+		 2: Line Number 78
+		 3: %self->l def_%v_135 %self[22.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 4: GETFIELD %self->project def_%v_136 %self[22.1,22.3,2.0,] 
+		 5: COPY TYPE_StringLiteral "author" def_%v_137 
+		 6: HASH-detail- def_%v_138 %v_137[22.5,] 
+		 7: %self->project_issues_report_details_path def_%v_139 %self[22.1,22.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_136[22.4,] %v_138[22.6,] 	 SYMBOL:	 ARGS:%v_136,%v_138,
+		 8: COPY TYPE_StringLiteral "icon-only icon-zoom-in" def_%v_140 
+		 9: %self->l def_%v_141 %self[22.1,22.3,22.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 10: HASH-class-title- def_%v_142 %v_140[22.8,] %v_141[22.9,] 
+		 11: %self->link_to def_%v_143 %self[22.1,22.3,22.7,22.9,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_135[22.3,] %v_139[22.7,] %v_142[22.10,] 	 SYMBOL:	 ARGS:%v_135,%v_139,%v_142,
+		 12: Line Number 82
+		 13: COPY TYPE_StringLiteral "simple" def_%v_144 
+		 14: GETFIELD %self->issues_by_author def_%v_145 %self[22.1,22.3,22.7,22.9,22.11,5.41,2.0,] 
+		 15: COPY TYPE_StringLiteral "author_id" def_%v_146 
+		 16: GETFIELD %self->authors def_%v_147 %self[22.1,22.3,22.7,22.9,22.11,5.6,2.0,] 
+		 17: HASH-data-field_name-rows- def_%v_148 %v_145[22.14,] %v_146[22.15,] %v_147[22.16,] 
+		 18: HASH-partial-locals- def_%v_149 %v_144[22.13,] %v_148[22.17,] 
+		 19: %self->render def_%v_150 %self[22.1,22.3,22.7,22.9,22.11,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_149[22.18,] 	 SYMBOL:	 ARGS:%v_149,
+		 20: Line Number 83
+		 21: GETFIELD %self->statuses def_%v_151 %self[22.1,22.3,22.7,22.9,22.11,22.19,2.0,] 
+		 22: %v_151->empty? def_%v_152 %v_151[22.21,] 	 SYMBOL:	 ARGS:
+		 23: BRANCH %v_152[22.22,] 
+BB 23
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: %self->rows def_%v_153 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 1: %v_153->empty? def_%v_154 %v_153[23.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_152 %v_154[23.1,] 
+BB 24
+	outgoing: 25 26 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_152[23.2,22.22,] 
+BB 25
+	outgoing: 27 
+	datadep: 
+	instructions:
+		 0: Line Number 84
+		 1: %self->l def_%v_155 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_no_data,	 ARGS:Symbol,
+		 2: 
+BB 26
+	outgoing: 27 
+	datadep: 
+	instructions:
+		 0: Line Number 86
+		 1: %self->l def_%v_156 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_open_issues_plural,	 ARGS:Symbol,
+		 2: Line Number 87
+		 3: %self->l def_%v_157 %self[26.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_closed_issues_plural,	 ARGS:Symbol,
+		 4: Line Number 88
+		 5: %self->l def_%v_158 %self[26.1,26.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_total,	 ARGS:Symbol,
+		 6: Line Number 89
+		 7: %self->rows def_%v_160 %self[26.1,26.3,26.5,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 8: %v_160->each def_%v_159 %v_160[26.7,] %self[26.1,26.3,26.5,26.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:%v_160,
+CLOSURE BEGIN: row[21.8,16.8,11.8,] %self[26.1,26.3,26.5,26.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_4_0 
+		 2: RECEIVEARG def_row 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 90
+		 6: row->name def_%cl_4_3 row[2.2,] 	 SYMBOL:	 ARGS:
+		 7: GETFIELD %self->project def_%cl_4_4 %self[2.0,] 
+		 8: %self->field_name def_%cl_4_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %self->aggregate_path def_%cl_4_6 %self[2.0,2.8,] %cl_4_4[2.7,] %cl_4_5[2.8,] row[2.2,2.6,] 	 SYMBOL:	 ARGS:%cl_4_4,%cl_4_5,row,
+		 10: %self->link_to def_%cl_4_7 %self[2.0,2.8,2.9,] %cl_4_3[2.6,] %cl_4_6[2.9,] 	 SYMBOL:	 ARGS:%cl_4_3,%cl_4_6,
+		 11: Line Number 91
+		 12: %self->data def_%cl_4_8 %self[2.0,2.8,2.9,2.10,] 	 SYMBOL:	 ARGS:
+		 13: %self->field_name def_%cl_4_9 %self[2.0,2.8,2.9,2.10,2.12,] 	 SYMBOL:	 ARGS:
+		 14: row->id def_%cl_4_10 row[2.2,2.6,] 	 SYMBOL:	 ARGS:
+		 15: COPY TYPE_StringLiteral "closed" def_%cl_4_11 
+		 16: HASH- def_%cl_4_12 %cl_4_9[2.13,] %cl_4_10[2.14,] %cl_4_11[2.15,] 
+		 17: GETFIELD %self->project def_%cl_4_13 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 
+		 18: %self->field_name def_%cl_4_14 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 	 SYMBOL:	 ARGS:
+		 19: COPY TYPE_StringLiteral "o" def_%cl_4_15 
+		 20: HASH-status_id- def_%cl_4_16 %cl_4_15[2.19,] 
+		 21: %self->aggregate_path def_%cl_4_17 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,] %cl_4_13[2.17,] %cl_4_14[2.18,] row[2.2,2.6,2.14,] %cl_4_16[2.20,] 	 SYMBOL:	 ARGS:%cl_4_13,%cl_4_14,row,%cl_4_16,
+		 22: %self->aggregate_link def_%cl_4_18 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,] %cl_4_8[2.12,] %cl_4_12[2.16,] %cl_4_17[2.21,] 	 SYMBOL:	 ARGS:%cl_4_8,%cl_4_12,%cl_4_17,
+		 23: Line Number 92
+		 24: %self->data def_%cl_4_19 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,] 	 SYMBOL:	 ARGS:
+		 25: %self->field_name def_%cl_4_20 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,] 	 SYMBOL:	 ARGS:
+		 26: row->id def_%cl_4_21 row[2.2,2.6,2.14,] 	 SYMBOL:	 ARGS:
+		 27: COPY TYPE_StringLiteral "closed" def_%cl_4_22 
+		 28: HASH- def_%cl_4_23 %cl_4_20[2.25,] %cl_4_21[2.26,] %cl_4_22[2.27,] 
+		 29: GETFIELD %self->project def_%cl_4_24 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 
+		 30: %self->field_name def_%cl_4_25 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 	 SYMBOL:	 ARGS:
+		 31: COPY TYPE_StringLiteral "c" def_%cl_4_26 
+		 32: HASH-status_id- def_%cl_4_27 %cl_4_26[2.31,] 
+		 33: %self->aggregate_path def_%cl_4_28 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,] %cl_4_24[2.29,] %cl_4_25[2.30,] row[2.2,2.6,2.14,2.26,] %cl_4_27[2.32,] 	 SYMBOL:	 ARGS:%cl_4_24,%cl_4_25,row,%cl_4_27,
+		 34: %self->aggregate_link def_%cl_4_29 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,] %cl_4_19[2.24,] %cl_4_23[2.28,] %cl_4_28[2.33,] 	 SYMBOL:	 ARGS:%cl_4_19,%cl_4_23,%cl_4_28,
+		 35: Line Number 93
+		 36: %self->data def_%cl_4_30 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,] 	 SYMBOL:	 ARGS:
+		 37: %self->field_name def_%cl_4_31 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,] 	 SYMBOL:	 ARGS:
+		 38: row->id def_%cl_4_32 row[2.2,2.6,2.14,2.26,] 	 SYMBOL:	 ARGS:
+		 39: HASH- def_%cl_4_33 %cl_4_31[2.37,] %cl_4_32[2.38,] 
+		 40: GETFIELD %self->project def_%cl_4_34 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 
+		 41: %self->field_name def_%cl_4_35 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 	 SYMBOL:	 ARGS:
+		 42: COPY TYPE_StringLiteral "*" def_%cl_4_36 
+		 43: HASH-status_id- def_%cl_4_37 %cl_4_36[2.42,] 
+		 44: %self->aggregate_path def_%cl_4_38 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,] %cl_4_34[2.40,] %cl_4_35[2.41,] row[2.2,2.6,2.14,2.26,2.38,] %cl_4_37[2.43,] 	 SYMBOL:	 ARGS:%cl_4_34,%cl_4_35,row,%cl_4_37,
+		 45: %self->aggregate_link def_%cl_4_39 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,] %cl_4_30[2.36,] %cl_4_33[2.39,] %cl_4_38[2.44,] 	 SYMBOL:	 ARGS:%cl_4_30,%cl_4_33,%cl_4_38,
+		 46: RETURN %cl_4_39[2.45,] %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,2.45,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: row[2.2,] 
+		 9: COPY TYPE_PASS def_%v_155 %v_159[26.8,] 
+BB 27
+	outgoing: 28 29 
+	datadep: 
+	instructions:
+		 0: Line Number 96
+		 1: GETFIELD %self->project def_%v_161 %self[2.0,] 
+		 2: HASH-project- def_%v_162 %v_161[27.1,] 
+		 3: %self->call_hook def_%v_163 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_162[27.2,] 	 SYMBOL:view_reports_issue_report_split_content_left,	 ARGS:Symbol,%v_162,
+		 4: Line Number 97
+		 5: %self->l def_%v_164 %self[27.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:field_version,	 ARGS:Symbol,
+		 6: Line Number 98
+		 7: %self->l def_%v_165 %self[27.3,27.5,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 8: GETFIELD %self->project def_%v_166 %self[27.3,27.5,27.7,2.0,] 
+		 9: COPY TYPE_StringLiteral "version" def_%v_167 
+		 10: HASH-detail- def_%v_168 %v_167[27.9,] 
+		 11: %self->project_issues_report_details_path def_%v_169 %self[27.3,27.5,27.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_166[27.8,] %v_168[27.10,] 	 SYMBOL:	 ARGS:%v_166,%v_168,
+		 12: COPY TYPE_StringLiteral "icon-only icon-zoom-in" def_%v_170 
+		 13: %self->l def_%v_171 %self[27.3,27.5,27.7,27.11,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 14: HASH-class-title- def_%v_172 %v_170[27.12,] %v_171[27.13,] 
+		 15: %self->link_to def_%v_173 %self[27.3,27.5,27.7,27.11,27.13,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_165[27.7,] %v_169[27.11,] %v_172[27.14,] 	 SYMBOL:	 ARGS:%v_165,%v_169,%v_172,
+		 16: Line Number 102
+		 17: COPY TYPE_StringLiteral "simple" def_%v_174 
+		 18: GETFIELD %self->issues_by_version def_%v_175 %self[27.3,27.5,27.7,27.11,27.13,27.15,5.21,2.0,] 
+		 19: COPY TYPE_StringLiteral "fixed_version_id" def_%v_176 
+		 20: GETFIELD %self->versions def_%v_177 %self[27.3,27.5,27.7,27.11,27.13,27.15,2.0,2.14,] 
+		 21: HASH-data-field_name-rows- def_%v_178 %v_175[27.18,] %v_176[27.19,] %v_177[27.20,] 
+		 22: HASH-partial-locals- def_%v_179 %v_174[27.17,] %v_178[27.21,] 
+		 23: %self->render def_%v_180 %self[27.3,27.5,27.7,27.11,27.13,27.15,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_179[27.22,] 	 SYMBOL:	 ARGS:%v_179,
+		 24: Line Number 103
+		 25: GETFIELD %self->statuses def_%v_181 %self[27.3,27.5,27.7,27.11,27.13,27.15,27.23,2.0,] 
+		 26: %v_181->empty? def_%v_182 %v_181[27.25,] 	 SYMBOL:	 ARGS:
+		 27: BRANCH %v_182[27.26,] 
+BB 28
+	outgoing: 29 
+	datadep: 
+	instructions:
+		 0: %self->rows def_%v_183 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 1: %v_183->empty? def_%v_184 %v_183[28.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_182 %v_184[28.1,] 
+BB 29
+	outgoing: 30 31 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_182[28.2,27.26,] 
+BB 30
+	outgoing: 32 
+	datadep: 
+	instructions:
+		 0: Line Number 104
+		 1: %self->l def_%v_185 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_no_data,	 ARGS:Symbol,
+		 2: 
+BB 31
+	outgoing: 32 
+	datadep: 
+	instructions:
+		 0: Line Number 106
+		 1: %self->l def_%v_186 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_open_issues_plural,	 ARGS:Symbol,
+		 2: Line Number 107
+		 3: %self->l def_%v_187 %self[31.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_closed_issues_plural,	 ARGS:Symbol,
+		 4: Line Number 108
+		 5: %self->l def_%v_188 %self[31.1,31.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_total,	 ARGS:Symbol,
+		 6: Line Number 109
+		 7: %self->rows def_%v_190 %self[31.1,31.3,31.5,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 8: %v_190->each def_%v_189 %v_190[31.7,] %self[31.1,31.3,31.5,31.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:%v_190,
+CLOSURE BEGIN: row[26.8,21.8,16.8,11.8,] %self[31.1,31.3,31.5,31.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_5_0 
+		 2: RECEIVEARG def_row 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 110
+		 6: row->name def_%cl_5_3 row[2.2,] 	 SYMBOL:	 ARGS:
+		 7: GETFIELD %self->project def_%cl_5_4 %self[2.0,] 
+		 8: %self->field_name def_%cl_5_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %self->aggregate_path def_%cl_5_6 %self[2.0,2.8,] %cl_5_4[2.7,] %cl_5_5[2.8,] row[2.2,2.6,] 	 SYMBOL:	 ARGS:%cl_5_4,%cl_5_5,row,
+		 10: %self->link_to def_%cl_5_7 %self[2.0,2.8,2.9,] %cl_5_3[2.6,] %cl_5_6[2.9,] 	 SYMBOL:	 ARGS:%cl_5_3,%cl_5_6,
+		 11: Line Number 111
+		 12: %self->data def_%cl_5_8 %self[2.0,2.8,2.9,2.10,] 	 SYMBOL:	 ARGS:
+		 13: %self->field_name def_%cl_5_9 %self[2.0,2.8,2.9,2.10,2.12,] 	 SYMBOL:	 ARGS:
+		 14: row->id def_%cl_5_10 row[2.2,2.6,] 	 SYMBOL:	 ARGS:
+		 15: COPY TYPE_StringLiteral "closed" def_%cl_5_11 
+		 16: HASH- def_%cl_5_12 %cl_5_9[2.13,] %cl_5_10[2.14,] %cl_5_11[2.15,] 
+		 17: GETFIELD %self->project def_%cl_5_13 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 
+		 18: %self->field_name def_%cl_5_14 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 	 SYMBOL:	 ARGS:
+		 19: COPY TYPE_StringLiteral "o" def_%cl_5_15 
+		 20: HASH-status_id- def_%cl_5_16 %cl_5_15[2.19,] 
+		 21: %self->aggregate_path def_%cl_5_17 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,] %cl_5_13[2.17,] %cl_5_14[2.18,] row[2.2,2.6,2.14,] %cl_5_16[2.20,] 	 SYMBOL:	 ARGS:%cl_5_13,%cl_5_14,row,%cl_5_16,
+		 22: %self->aggregate_link def_%cl_5_18 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,] %cl_5_8[2.12,] %cl_5_12[2.16,] %cl_5_17[2.21,] 	 SYMBOL:	 ARGS:%cl_5_8,%cl_5_12,%cl_5_17,
+		 23: Line Number 112
+		 24: %self->data def_%cl_5_19 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,] 	 SYMBOL:	 ARGS:
+		 25: %self->field_name def_%cl_5_20 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,] 	 SYMBOL:	 ARGS:
+		 26: row->id def_%cl_5_21 row[2.2,2.6,2.14,] 	 SYMBOL:	 ARGS:
+		 27: COPY TYPE_StringLiteral "closed" def_%cl_5_22 
+		 28: HASH- def_%cl_5_23 %cl_5_20[2.25,] %cl_5_21[2.26,] %cl_5_22[2.27,] 
+		 29: GETFIELD %self->project def_%cl_5_24 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 
+		 30: %self->field_name def_%cl_5_25 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 	 SYMBOL:	 ARGS:
+		 31: COPY TYPE_StringLiteral "c" def_%cl_5_26 
+		 32: HASH-status_id- def_%cl_5_27 %cl_5_26[2.31,] 
+		 33: %self->aggregate_path def_%cl_5_28 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,] %cl_5_24[2.29,] %cl_5_25[2.30,] row[2.2,2.6,2.14,2.26,] %cl_5_27[2.32,] 	 SYMBOL:	 ARGS:%cl_5_24,%cl_5_25,row,%cl_5_27,
+		 34: %self->aggregate_link def_%cl_5_29 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,] %cl_5_19[2.24,] %cl_5_23[2.28,] %cl_5_28[2.33,] 	 SYMBOL:	 ARGS:%cl_5_19,%cl_5_23,%cl_5_28,
+		 35: Line Number 113
+		 36: %self->data def_%cl_5_30 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,] 	 SYMBOL:	 ARGS:
+		 37: %self->field_name def_%cl_5_31 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,] 	 SYMBOL:	 ARGS:
+		 38: row->id def_%cl_5_32 row[2.2,2.6,2.14,2.26,] 	 SYMBOL:	 ARGS:
+		 39: HASH- def_%cl_5_33 %cl_5_31[2.37,] %cl_5_32[2.38,] 
+		 40: GETFIELD %self->project def_%cl_5_34 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 
+		 41: %self->field_name def_%cl_5_35 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 	 SYMBOL:	 ARGS:
+		 42: COPY TYPE_StringLiteral "*" def_%cl_5_36 
+		 43: HASH-status_id- def_%cl_5_37 %cl_5_36[2.42,] 
+		 44: %self->aggregate_path def_%cl_5_38 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,] %cl_5_34[2.40,] %cl_5_35[2.41,] row[2.2,2.6,2.14,2.26,2.38,] %cl_5_37[2.43,] 	 SYMBOL:	 ARGS:%cl_5_34,%cl_5_35,row,%cl_5_37,
+		 45: %self->aggregate_link def_%cl_5_39 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,] %cl_5_30[2.36,] %cl_5_33[2.39,] %cl_5_38[2.44,] 	 SYMBOL:	 ARGS:%cl_5_30,%cl_5_33,%cl_5_38,
+		 46: RETURN %cl_5_39[2.45,] %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,2.45,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: row[2.2,] 
+		 9: COPY TYPE_PASS def_%v_185 %v_189[31.8,] 
+BB 32
+	outgoing: 33 39 
+	datadep: 
+	instructions:
+		 0: Line Number 116
+		 1: GETFIELD %self->project def_%v_191 %self[2.0,] 
+		 2: %v_191->children def_%v_192 %v_191[32.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_192->any? def_%v_193 %v_192[32.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %v_193[32.3,] 
+BB 33
+	outgoing: 34 35 
+	datadep: 
+	instructions:
+		 0: Line Number 117
+		 1: %self->l def_%v_194 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:field_subproject,	 ARGS:Symbol,
+		 2: Line Number 118
+		 3: %self->l def_%v_195 %self[33.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 4: GETFIELD %self->project def_%v_196 %self[33.1,33.3,2.0,] 
+		 5: COPY TYPE_StringLiteral "subproject" def_%v_197 
+		 6: HASH-detail- def_%v_198 %v_197[33.5,] 
+		 7: %self->project_issues_report_details_path def_%v_199 %self[33.1,33.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_196[33.4,] %v_198[33.6,] 	 SYMBOL:	 ARGS:%v_196,%v_198,
+		 8: COPY TYPE_StringLiteral "icon-only icon-zoom-in" def_%v_200 
+		 9: %self->l def_%v_201 %self[33.1,33.3,33.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 10: HASH-class-title- def_%v_202 %v_200[33.8,] %v_201[33.9,] 
+		 11: %self->link_to def_%v_203 %self[33.1,33.3,33.7,33.9,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_195[33.3,] %v_199[33.7,] %v_202[33.10,] 	 SYMBOL:	 ARGS:%v_195,%v_199,%v_202,
+		 12: Line Number 122
+		 13: COPY TYPE_StringLiteral "simple" def_%v_204 
+		 14: GETFIELD %self->issues_by_subproject def_%v_205 %self[33.1,33.3,33.7,33.9,33.11,7.0,2.0,] 
+		 15: COPY TYPE_StringLiteral "project_id" def_%v_206 
+		 16: GETFIELD %self->subprojects def_%v_207 %self[33.1,33.3,33.7,33.9,33.11,5.11,2.0,] 
+		 17: HASH-data-field_name-rows- def_%v_208 %v_205[33.14,] %v_206[33.15,] %v_207[33.16,] 
+		 18: HASH-partial-locals- def_%v_209 %v_204[33.13,] %v_208[33.17,] 
+		 19: %self->render def_%v_210 %self[33.1,33.3,33.7,33.9,33.11,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_209[33.18,] 	 SYMBOL:	 ARGS:%v_209,
+		 20: Line Number 123
+		 21: GETFIELD %self->statuses def_%v_211 %self[33.1,33.3,33.7,33.9,33.11,33.19,2.0,] 
+		 22: %v_211->empty? def_%v_212 %v_211[33.21,] 	 SYMBOL:	 ARGS:
+		 23: BRANCH %v_212[33.22,] 
+BB 34
+	outgoing: 35 
+	datadep: 
+	instructions:
+		 0: %self->rows def_%v_213 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 1: %v_213->empty? def_%v_214 %v_213[34.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_212 %v_214[34.1,] 
+BB 35
+	outgoing: 36 37 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_212[34.2,33.22,] 
+BB 36
+	outgoing: 38 
+	datadep: 
+	instructions:
+		 0: Line Number 124
+		 1: %self->l def_%v_215 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_no_data,	 ARGS:Symbol,
+		 2: 
+BB 37
+	outgoing: 38 
+	datadep: 
+	instructions:
+		 0: Line Number 126
+		 1: %self->l def_%v_216 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_open_issues_plural,	 ARGS:Symbol,
+		 2: Line Number 127
+		 3: %self->l def_%v_217 %self[37.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_closed_issues_plural,	 ARGS:Symbol,
+		 4: Line Number 128
+		 5: %self->l def_%v_218 %self[37.1,37.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_total,	 ARGS:Symbol,
+		 6: Line Number 129
+		 7: %self->rows def_%v_220 %self[37.1,37.3,37.5,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 8: %v_220->each def_%v_219 %v_220[37.7,] %self[37.1,37.3,37.5,37.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:%v_220,
+CLOSURE BEGIN: row[31.8,26.8,21.8,16.8,11.8,] %self[37.1,37.3,37.5,37.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_6_0 
+		 2: RECEIVEARG def_row 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 130
+		 6: row->name def_%cl_6_3 row[2.2,] 	 SYMBOL:	 ARGS:
+		 7: GETFIELD %self->project def_%cl_6_4 %self[2.0,] 
+		 8: %self->field_name def_%cl_6_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %self->aggregate_path def_%cl_6_6 %self[2.0,2.8,] %cl_6_4[2.7,] %cl_6_5[2.8,] row[2.2,2.6,] 	 SYMBOL:	 ARGS:%cl_6_4,%cl_6_5,row,
+		 10: %self->link_to def_%cl_6_7 %self[2.0,2.8,2.9,] %cl_6_3[2.6,] %cl_6_6[2.9,] 	 SYMBOL:	 ARGS:%cl_6_3,%cl_6_6,
+		 11: Line Number 131
+		 12: %self->data def_%cl_6_8 %self[2.0,2.8,2.9,2.10,] 	 SYMBOL:	 ARGS:
+		 13: %self->field_name def_%cl_6_9 %self[2.0,2.8,2.9,2.10,2.12,] 	 SYMBOL:	 ARGS:
+		 14: row->id def_%cl_6_10 row[2.2,2.6,] 	 SYMBOL:	 ARGS:
+		 15: COPY TYPE_StringLiteral "closed" def_%cl_6_11 
+		 16: HASH- def_%cl_6_12 %cl_6_9[2.13,] %cl_6_10[2.14,] %cl_6_11[2.15,] 
+		 17: GETFIELD %self->project def_%cl_6_13 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 
+		 18: %self->field_name def_%cl_6_14 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 	 SYMBOL:	 ARGS:
+		 19: COPY TYPE_StringLiteral "o" def_%cl_6_15 
+		 20: HASH-status_id- def_%cl_6_16 %cl_6_15[2.19,] 
+		 21: %self->aggregate_path def_%cl_6_17 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,] %cl_6_13[2.17,] %cl_6_14[2.18,] row[2.2,2.6,2.14,] %cl_6_16[2.20,] 	 SYMBOL:	 ARGS:%cl_6_13,%cl_6_14,row,%cl_6_16,
+		 22: %self->aggregate_link def_%cl_6_18 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,] %cl_6_8[2.12,] %cl_6_12[2.16,] %cl_6_17[2.21,] 	 SYMBOL:	 ARGS:%cl_6_8,%cl_6_12,%cl_6_17,
+		 23: Line Number 132
+		 24: %self->data def_%cl_6_19 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,] 	 SYMBOL:	 ARGS:
+		 25: %self->field_name def_%cl_6_20 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,] 	 SYMBOL:	 ARGS:
+		 26: row->id def_%cl_6_21 row[2.2,2.6,2.14,] 	 SYMBOL:	 ARGS:
+		 27: COPY TYPE_StringLiteral "closed" def_%cl_6_22 
+		 28: HASH- def_%cl_6_23 %cl_6_20[2.25,] %cl_6_21[2.26,] %cl_6_22[2.27,] 
+		 29: GETFIELD %self->project def_%cl_6_24 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 
+		 30: %self->field_name def_%cl_6_25 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 	 SYMBOL:	 ARGS:
+		 31: COPY TYPE_StringLiteral "c" def_%cl_6_26 
+		 32: HASH-status_id- def_%cl_6_27 %cl_6_26[2.31,] 
+		 33: %self->aggregate_path def_%cl_6_28 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,] %cl_6_24[2.29,] %cl_6_25[2.30,] row[2.2,2.6,2.14,2.26,] %cl_6_27[2.32,] 	 SYMBOL:	 ARGS:%cl_6_24,%cl_6_25,row,%cl_6_27,
+		 34: %self->aggregate_link def_%cl_6_29 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,] %cl_6_19[2.24,] %cl_6_23[2.28,] %cl_6_28[2.33,] 	 SYMBOL:	 ARGS:%cl_6_19,%cl_6_23,%cl_6_28,
+		 35: Line Number 133
+		 36: %self->data def_%cl_6_30 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,] 	 SYMBOL:	 ARGS:
+		 37: %self->field_name def_%cl_6_31 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,] 	 SYMBOL:	 ARGS:
+		 38: row->id def_%cl_6_32 row[2.2,2.6,2.14,2.26,] 	 SYMBOL:	 ARGS:
+		 39: HASH- def_%cl_6_33 %cl_6_31[2.37,] %cl_6_32[2.38,] 
+		 40: GETFIELD %self->project def_%cl_6_34 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 
+		 41: %self->field_name def_%cl_6_35 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 	 SYMBOL:	 ARGS:
+		 42: COPY TYPE_StringLiteral "*" def_%cl_6_36 
+		 43: HASH-status_id- def_%cl_6_37 %cl_6_36[2.42,] 
+		 44: %self->aggregate_path def_%cl_6_38 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,] %cl_6_34[2.40,] %cl_6_35[2.41,] row[2.2,2.6,2.14,2.26,2.38,] %cl_6_37[2.43,] 	 SYMBOL:	 ARGS:%cl_6_34,%cl_6_35,row,%cl_6_37,
+		 45: %self->aggregate_link def_%cl_6_39 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,] %cl_6_30[2.36,] %cl_6_33[2.39,] %cl_6_38[2.44,] 	 SYMBOL:	 ARGS:%cl_6_30,%cl_6_33,%cl_6_38,
+		 46: RETURN %cl_6_39[2.45,] %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,2.45,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: row[2.2,] 
+		 9: COPY TYPE_PASS def_%v_215 %v_219[37.8,] 
+BB 38
+	outgoing: 40 
+	datadep: 
+	instructions:
+		 0: 
+BB 39
+	outgoing: 40 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_215 
+BB 40
+	outgoing: 41 42 
+	datadep: 
+	instructions:
+		 0: Line Number 137
+		 1: %self->l def_%v_221 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:field_category,	 ARGS:Symbol,
+		 2: Line Number 138
+		 3: %self->l def_%v_222 %self[40.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 4: GETFIELD %self->project def_%v_223 %self[40.1,40.3,2.0,] 
+		 5: COPY TYPE_StringLiteral "category" def_%v_224 
+		 6: HASH-detail- def_%v_225 %v_224[40.5,] 
+		 7: %self->project_issues_report_details_path def_%v_226 %self[40.1,40.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_223[40.4,] %v_225[40.6,] 	 SYMBOL:	 ARGS:%v_223,%v_225,
+		 8: COPY TYPE_StringLiteral "icon-only icon-zoom-in" def_%v_227 
+		 9: %self->l def_%v_228 %self[40.1,40.3,40.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 10: HASH-class-title- def_%v_229 %v_227[40.8,] %v_228[40.9,] 
+		 11: %self->link_to def_%v_230 %self[40.1,40.3,40.7,40.9,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_222[40.3,] %v_226[40.7,] %v_229[40.10,] 	 SYMBOL:	 ARGS:%v_222,%v_226,%v_229,
+		 12: Line Number 142
+		 13: COPY TYPE_StringLiteral "simple" def_%v_231 
+		 14: GETFIELD %self->issues_by_category def_%v_232 %self[40.1,40.3,40.7,40.9,40.11,5.31,2.0,] 
+		 15: COPY TYPE_StringLiteral "category_id" def_%v_233 
+		 16: GETFIELD %self->categories def_%v_234 %self[40.1,40.3,40.7,40.9,40.11,2.0,2.23,] 
+		 17: HASH-data-field_name-rows- def_%v_235 %v_232[40.14,] %v_233[40.15,] %v_234[40.16,] 
+		 18: HASH-partial-locals- def_%v_236 %v_231[40.13,] %v_235[40.17,] 
+		 19: %self->render def_%v_237 %self[40.1,40.3,40.7,40.9,40.11,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_236[40.18,] 	 SYMBOL:	 ARGS:%v_236,
+		 20: Line Number 143
+		 21: GETFIELD %self->statuses def_%v_238 %self[40.1,40.3,40.7,40.9,40.11,40.19,2.0,] 
+		 22: %v_238->empty? def_%v_239 %v_238[40.21,] 	 SYMBOL:	 ARGS:
+		 23: BRANCH %v_239[40.22,] 
+BB 41
+	outgoing: 42 
+	datadep: 
+	instructions:
+		 0: %self->rows def_%v_240 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 1: %v_240->empty? def_%v_241 %v_240[41.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_239 %v_241[41.1,] 
+BB 42
+	outgoing: 43 44 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_239[41.2,40.22,] 
+BB 43
+	outgoing: 45 
+	datadep: 
+	instructions:
+		 0: Line Number 144
+		 1: %self->l def_%v_242 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_no_data,	 ARGS:Symbol,
+		 2: 
+BB 44
+	outgoing: 45 
+	datadep: 
+	instructions:
+		 0: Line Number 146
+		 1: %self->l def_%v_243 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_open_issues_plural,	 ARGS:Symbol,
+		 2: Line Number 147
+		 3: %self->l def_%v_244 %self[44.1,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_closed_issues_plural,	 ARGS:Symbol,
+		 4: Line Number 148
+		 5: %self->l def_%v_245 %self[44.1,44.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:label_total,	 ARGS:Symbol,
+		 6: Line Number 149
+		 7: %self->rows def_%v_247 %self[44.1,44.3,44.5,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:
+		 8: %v_247->each def_%v_246 %v_247[44.7,] %self[44.1,44.3,44.5,44.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 	 SYMBOL:	 ARGS:%v_247,
+CLOSURE BEGIN: row[37.8,31.8,26.8,21.8,16.8,11.8,] %self[44.1,44.3,44.5,44.7,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_7_0 
+		 2: RECEIVEARG def_row 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 150
+		 6: row->name def_%cl_7_3 row[2.2,] 	 SYMBOL:	 ARGS:
+		 7: GETFIELD %self->project def_%cl_7_4 %self[2.0,] 
+		 8: %self->field_name def_%cl_7_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %self->aggregate_path def_%cl_7_6 %self[2.0,2.8,] %cl_7_4[2.7,] %cl_7_5[2.8,] row[2.2,2.6,] 	 SYMBOL:	 ARGS:%cl_7_4,%cl_7_5,row,
+		 10: %self->link_to def_%cl_7_7 %self[2.0,2.8,2.9,] %cl_7_3[2.6,] %cl_7_6[2.9,] 	 SYMBOL:	 ARGS:%cl_7_3,%cl_7_6,
+		 11: Line Number 151
+		 12: %self->data def_%cl_7_8 %self[2.0,2.8,2.9,2.10,] 	 SYMBOL:	 ARGS:
+		 13: %self->field_name def_%cl_7_9 %self[2.0,2.8,2.9,2.10,2.12,] 	 SYMBOL:	 ARGS:
+		 14: row->id def_%cl_7_10 row[2.2,2.6,] 	 SYMBOL:	 ARGS:
+		 15: COPY TYPE_StringLiteral "closed" def_%cl_7_11 
+		 16: HASH- def_%cl_7_12 %cl_7_9[2.13,] %cl_7_10[2.14,] %cl_7_11[2.15,] 
+		 17: GETFIELD %self->project def_%cl_7_13 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 
+		 18: %self->field_name def_%cl_7_14 %self[2.0,2.8,2.9,2.10,2.12,2.13,] 	 SYMBOL:	 ARGS:
+		 19: COPY TYPE_StringLiteral "o" def_%cl_7_15 
+		 20: HASH-status_id- def_%cl_7_16 %cl_7_15[2.19,] 
+		 21: %self->aggregate_path def_%cl_7_17 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,] %cl_7_13[2.17,] %cl_7_14[2.18,] row[2.2,2.6,2.14,] %cl_7_16[2.20,] 	 SYMBOL:	 ARGS:%cl_7_13,%cl_7_14,row,%cl_7_16,
+		 22: %self->aggregate_link def_%cl_7_18 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,] %cl_7_8[2.12,] %cl_7_12[2.16,] %cl_7_17[2.21,] 	 SYMBOL:	 ARGS:%cl_7_8,%cl_7_12,%cl_7_17,
+		 23: Line Number 152
+		 24: %self->data def_%cl_7_19 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,] 	 SYMBOL:	 ARGS:
+		 25: %self->field_name def_%cl_7_20 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,] 	 SYMBOL:	 ARGS:
+		 26: row->id def_%cl_7_21 row[2.2,2.6,2.14,] 	 SYMBOL:	 ARGS:
+		 27: COPY TYPE_StringLiteral "closed" def_%cl_7_22 
+		 28: HASH- def_%cl_7_23 %cl_7_20[2.25,] %cl_7_21[2.26,] %cl_7_22[2.27,] 
+		 29: GETFIELD %self->project def_%cl_7_24 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 
+		 30: %self->field_name def_%cl_7_25 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,] 	 SYMBOL:	 ARGS:
+		 31: COPY TYPE_StringLiteral "c" def_%cl_7_26 
+		 32: HASH-status_id- def_%cl_7_27 %cl_7_26[2.31,] 
+		 33: %self->aggregate_path def_%cl_7_28 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,] %cl_7_24[2.29,] %cl_7_25[2.30,] row[2.2,2.6,2.14,2.26,] %cl_7_27[2.32,] 	 SYMBOL:	 ARGS:%cl_7_24,%cl_7_25,row,%cl_7_27,
+		 34: %self->aggregate_link def_%cl_7_29 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,] %cl_7_19[2.24,] %cl_7_23[2.28,] %cl_7_28[2.33,] 	 SYMBOL:	 ARGS:%cl_7_19,%cl_7_23,%cl_7_28,
+		 35: Line Number 153
+		 36: %self->data def_%cl_7_30 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,] 	 SYMBOL:	 ARGS:
+		 37: %self->field_name def_%cl_7_31 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,] 	 SYMBOL:	 ARGS:
+		 38: row->id def_%cl_7_32 row[2.2,2.6,2.14,2.26,] 	 SYMBOL:	 ARGS:
+		 39: HASH- def_%cl_7_33 %cl_7_31[2.37,] %cl_7_32[2.38,] 
+		 40: GETFIELD %self->project def_%cl_7_34 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 
+		 41: %self->field_name def_%cl_7_35 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,] 	 SYMBOL:	 ARGS:
+		 42: COPY TYPE_StringLiteral "*" def_%cl_7_36 
+		 43: HASH-status_id- def_%cl_7_37 %cl_7_36[2.42,] 
+		 44: %self->aggregate_path def_%cl_7_38 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,] %cl_7_34[2.40,] %cl_7_35[2.41,] row[2.2,2.6,2.14,2.26,2.38,] %cl_7_37[2.43,] 	 SYMBOL:	 ARGS:%cl_7_34,%cl_7_35,row,%cl_7_37,
+		 45: %self->aggregate_link def_%cl_7_39 %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,] %cl_7_30[2.36,] %cl_7_33[2.39,] %cl_7_38[2.44,] 	 SYMBOL:	 ARGS:%cl_7_30,%cl_7_33,%cl_7_38,
+		 46: RETURN %cl_7_39[2.45,] %self[2.0,2.8,2.9,2.10,2.12,2.13,2.18,2.21,2.22,2.24,2.25,2.30,2.33,2.34,2.36,2.37,2.41,2.44,2.45,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: row[2.2,] 
+		 9: COPY TYPE_PASS def_%v_242 %v_246[44.8,] 
+BB 45
+	outgoing: 46 
+	datadep: 
+	instructions:
+		 0: Line Number 156
+		 1: GETFIELD %self->project def_%v_248 %self[2.0,] 
+		 2: HASH-project- def_%v_249 %v_248[45.1,] 
+		 3: %self->call_hook def_%v_250 %self[7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] %v_249[45.2,] 	 SYMBOL:view_reports_issue_report_split_content_right,	 ARGS:Symbol,%v_249,
+		 4: RETURN %v_250[45.3,] %self[45.3,7.0,5.1,5.6,5.11,5.16,5.21,5.26,5.31,5.36,5.41,2.0,2.9,2.14,2.19,2.23,] 
+BB 46
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = issue_report_details instanceMethod = true
+BB 1
+	outgoing: 24 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 10 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 159
+		 6: %self->params def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_3->[] def_%v_4 %v_3[2.6,] 	 SYMBOL:detail,	 ARGS:Symbol,
+		 8: COPY TYPE_StringLiteral "tracker" def_%v_7 
+		 9: def_%v_6 %v_7[2.8,] %v_4[2.7,] 
+		 10: BRANCH %v_6[2.9,] 
+BB 3
+	outgoing: 4 11 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "version" def_%v_9 
+		 1: def_%v_8 %v_9[3.0,] %v_4[2.7,] 
+		 2: BRANCH %v_8[3.1,] 
+BB 4
+	outgoing: 5 12 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "priority" def_%v_11 
+		 1: def_%v_10 %v_11[4.0,] %v_4[2.7,] 
+		 2: BRANCH %v_10[4.1,] 
+BB 5
+	outgoing: 6 13 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "category" def_%v_13 
+		 1: def_%v_12 %v_13[5.0,] %v_4[2.7,] 
+		 2: BRANCH %v_12[5.1,] 
+BB 6
+	outgoing: 7 14 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "assigned_to" def_%v_15 
+		 1: def_%v_14 %v_15[6.0,] %v_4[2.7,] 
+		 2: BRANCH %v_14[6.1,] 
+BB 7
+	outgoing: 8 18 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "author" def_%v_17 
+		 1: def_%v_16 %v_17[7.0,] %v_4[2.7,] 
+		 2: BRANCH %v_16[7.1,] 
+BB 8
+	outgoing: 9 19 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "subproject" def_%v_19 
+		 1: def_%v_18 %v_19[8.0,] %v_4[2.7,] 
+		 2: BRANCH %v_18[8.1,] 
+BB 9
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: Line Number 196
+		 1: %self->render_404 def_%v_80 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_5 %v_80[9.1,] 
+		 3: RETURN %v_80[9.1,] %self[9.1,2.0,] 
+BB 10
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: Line Number 161
+		 1: COPY TYPE_StringLiteral "tracker_id" def_%v_20 
+		 2: ATTRASSIGN %self->field %v_20[10.1,] 
+		 3: Line Number 162
+		 4: GETFIELD %self->project def_%v_21 %self[2.0,] 
+		 5: %v_21->rolled_up_trackers def_%v_22 %v_21[10.4,] 	 SYMBOL:	 ARGS:Boolean,
+		 6: %v_22->visible def_%v_23 %v_22[10.5,] 	 SYMBOL:	 ARGS:
+		 7: ATTRASSIGN %self->rows %v_23[10.6,] 
+		 8: Line Number 163
+		 9: (Issue) def_%v_24 
+		 10: GETFIELD %self->project def_%v_25 %self[2.0,] 
+		 11: %v_24->by_tracker def_%v_26 %v_24[10.9,] %v_25[10.10,] 	 SYMBOL:	 ARGS:%v_25,
+		 12: ATTRASSIGN %self->data %v_26[10.11,] 
+		 13: Line Number 164
+		 14: %self->l def_%v_27 %self[10.2,10.7,10.12,2.0,] 	 SYMBOL:field_tracker,	 ARGS:Symbol,
+		 15: ATTRASSIGN %self->report_title %v_27[10.14,] 
+		 16: COPY TYPE_PASS def_%v_5 %v_27[10.14,] 
+		 17: RETURN %v_27[10.14,] %self[10.2,10.7,10.12,10.14,10.15,2.0,] 
+BB 11
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: Line Number 166
+		 1: COPY TYPE_StringLiteral "fixed_version_id" def_%v_28 
+		 2: ATTRASSIGN %self->field %v_28[11.1,] 
+		 3: Line Number 167
+		 4: GETFIELD %self->project def_%v_29 %self[2.0,] 
+		 5: %v_29->shared_versions def_%v_30 %v_29[11.4,] 	 SYMBOL:	 ARGS:
+		 6: %v_30->sort def_%v_31 %v_30[11.5,] 	 SYMBOL:	 ARGS:
+		 7: ATTRASSIGN %self->rows %v_31[11.6,] 
+		 8: Line Number 168
+		 9: (Issue) def_%v_32 
+		 10: GETFIELD %self->project def_%v_33 %self[2.0,] 
+		 11: %v_32->by_version def_%v_34 %v_32[11.9,] %v_33[11.10,] 	 SYMBOL:	 ARGS:%v_33,
+		 12: ATTRASSIGN %self->data %v_34[11.11,] 
+		 13: Line Number 169
+		 14: %self->l def_%v_35 %self[11.2,11.7,11.12,2.0,] 	 SYMBOL:field_version,	 ARGS:Symbol,
+		 15: ATTRASSIGN %self->report_title %v_35[11.14,] 
+		 16: COPY TYPE_PASS def_%v_5 %v_35[11.14,] 
+		 17: RETURN %v_35[11.14,] %self[11.2,11.7,11.12,11.14,11.15,2.0,] 
+BB 12
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: Line Number 171
+		 1: COPY TYPE_StringLiteral "priority_id" def_%v_36 
+		 2: ATTRASSIGN %self->field %v_36[12.1,] 
+		 3: Line Number 172
+		 4: (IssuePriority) def_%v_37 
+		 5: %v_37->all def_%v_38 %v_37[12.4,] 	 SYMBOL:	 ARGS:
+		 6: %v_38->reverse def_%v_39 %v_38[12.5,] 	 SYMBOL:	 ARGS:
+		 7: ATTRASSIGN %self->rows %v_39[12.6,] 
+		 8: Line Number 173
+		 9: (Issue) def_%v_40 
+		 10: GETFIELD %self->project def_%v_41 %self[2.0,] 
+		 11: %v_40->by_priority def_%v_42 %v_40[12.9,] %v_41[12.10,] 	 SYMBOL:	 ARGS:%v_41,
+		 12: ATTRASSIGN %self->data %v_42[12.11,] 
+		 13: Line Number 174
+		 14: %self->l def_%v_43 %self[12.2,12.7,12.12,2.0,] 	 SYMBOL:field_priority,	 ARGS:Symbol,
+		 15: ATTRASSIGN %self->report_title %v_43[12.14,] 
+		 16: COPY TYPE_PASS def_%v_5 %v_43[12.14,] 
+		 17: RETURN %v_43[12.14,] %self[12.2,12.7,12.12,12.14,12.15,2.0,] 
+BB 13
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: Line Number 176
+		 1: COPY TYPE_StringLiteral "category_id" def_%v_44 
+		 2: ATTRASSIGN %self->field %v_44[13.1,] 
+		 3: Line Number 177
+		 4: GETFIELD %self->project def_%v_45 %self[2.0,] 
+		 5: %v_45->issue_categories def_%v_46 %v_45[13.4,] 	 SYMBOL:	 ARGS:
+		 6: ATTRASSIGN %self->rows %v_46[13.5,] 
+		 7: Line Number 178
+		 8: (Issue) def_%v_47 
+		 9: GETFIELD %self->project def_%v_48 %self[2.0,] 
+		 10: %v_47->by_category def_%v_49 %v_47[13.8,] %v_48[13.9,] 	 SYMBOL:	 ARGS:%v_48,
+		 11: ATTRASSIGN %self->data %v_49[13.10,] 
+		 12: Line Number 179
+		 13: %self->l def_%v_50 %self[13.2,13.6,13.11,2.0,] 	 SYMBOL:field_category,	 ARGS:Symbol,
+		 14: ATTRASSIGN %self->report_title %v_50[13.13,] 
+		 15: COPY TYPE_PASS def_%v_5 %v_50[13.13,] 
+		 16: RETURN %v_50[13.13,] %self[13.2,13.6,13.11,13.13,13.14,2.0,] 
+BB 14
+	outgoing: 15 16 
+	datadep: 
+	instructions:
+		 0: Line Number 181
+		 1: COPY TYPE_StringLiteral "assigned_to_id" def_%v_51 
+		 2: ATTRASSIGN %self->field %v_51[14.1,] 
+		 3: Line Number 182
+		 4: (Setting) def_%v_52 
+		 5: %v_52->issue_group_assignment? def_%v_53 %v_52[14.4,] 	 SYMBOL:	 ARGS:
+		 6: BRANCH %v_53[14.5,] 
+BB 15
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_54 %self[2.0,] 
+		 1: %v_54->principals def_%v_55 %v_54[15.0,] 	 SYMBOL:	 ARGS:
+		 2: 
+BB 16
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_56 %self[2.0,] 
+		 1: %v_56->users def_%v_57 %v_56[16.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_55 %v_57[16.1,] 
+BB 17
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: %v_55->sort def_%v_58 %v_55[16.2,15.1,] 	 SYMBOL:	 ARGS:
+		 1: ATTRASSIGN %self->rows %v_58[17.0,] 
+		 2: Line Number 183
+		 3: (Issue) def_%v_59 
+		 4: GETFIELD %self->project def_%v_60 %self[2.0,] 
+		 5: %v_59->by_assigned_to def_%v_61 %v_59[17.3,] %v_60[17.4,] 	 SYMBOL:	 ARGS:%v_60,
+		 6: ATTRASSIGN %self->data %v_61[17.5,] 
+		 7: Line Number 184
+		 8: %self->l def_%v_62 %self[17.1,17.6,14.2,2.0,] 	 SYMBOL:field_assigned_to,	 ARGS:Symbol,
+		 9: ATTRASSIGN %self->report_title %v_62[17.8,] 
+		 10: COPY TYPE_PASS def_%v_5 %v_62[17.8,] 
+		 11: RETURN %v_62[17.8,] %self[17.1,17.6,17.8,17.9,14.2,2.0,] 
+BB 18
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: Line Number 186
+		 1: COPY TYPE_StringLiteral "author_id" def_%v_63 
+		 2: ATTRASSIGN %self->field %v_63[18.1,] 
+		 3: Line Number 187
+		 4: GETFIELD %self->project def_%v_64 %self[2.0,] 
+		 5: %v_64->users def_%v_65 %v_64[18.4,] 	 SYMBOL:	 ARGS:
+		 6: %v_65->sort def_%v_66 %v_65[18.5,] 	 SYMBOL:	 ARGS:
+		 7: ATTRASSIGN %self->rows %v_66[18.6,] 
+		 8: Line Number 188
+		 9: (Issue) def_%v_67 
+		 10: GETFIELD %self->project def_%v_68 %self[2.0,] 
+		 11: %v_67->by_author def_%v_69 %v_67[18.9,] %v_68[18.10,] 	 SYMBOL:	 ARGS:%v_68,
+		 12: ATTRASSIGN %self->data %v_69[18.11,] 
+		 13: Line Number 189
+		 14: %self->l def_%v_70 %self[18.2,18.7,18.12,2.0,] 	 SYMBOL:field_author,	 ARGS:Symbol,
+		 15: ATTRASSIGN %self->report_title %v_70[18.14,] 
+		 16: COPY TYPE_PASS def_%v_5 %v_70[18.14,] 
+		 17: RETURN %v_70[18.14,] %self[18.2,18.7,18.12,18.14,18.15,2.0,] 
+BB 19
+	outgoing: 20 21 
+	datadep: 
+	instructions:
+		 0: Line Number 191
+		 1: COPY TYPE_StringLiteral "project_id" def_%v_71 
+		 2: ATTRASSIGN %self->field %v_71[19.1,] 
+		 3: Line Number 192
+		 4: GETFIELD %self->project def_%v_72 %self[2.0,] 
+		 5: %v_72->descendants def_%v_73 %v_72[19.4,] 	 SYMBOL:	 ARGS:
+		 6: %v_73->visible def_%v_74 %v_73[19.5,] 	 SYMBOL:	 ARGS:
+		 7: ATTRASSIGN %self->rows %v_74[19.6,] 
+		 8: Line Number 193
+		 9: (Issue) def_%v_75 
+		 10: GETFIELD %self->project def_%v_76 %self[2.0,] 
+		 11: %v_75->by_subproject def_%v_77 %v_75[19.9,] %v_76[19.10,] 	 SYMBOL:	 ARGS:%v_76,
+		 12: BRANCH %v_77[19.11,] 
+BB 20
+	outgoing: 21 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Array def_%v_78 
+		 1: COPY TYPE_PASS def_%v_77 %v_78[20.0,] 
+BB 21
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %self->data %v_77[20.1,19.11,] 
+		 1: Line Number 194
+		 2: %self->l def_%v_79 %self[21.0,19.2,19.7,2.0,] 	 SYMBOL:field_subproject,	 ARGS:Symbol,
+		 3: ATTRASSIGN %self->report_title %v_79[21.2,] 
+		 4: COPY TYPE_PASS def_%v_5 %v_79[21.2,] 
+		 5: RETURN %v_79[21.2,] %self[21.0,21.2,21.3,19.2,19.7,2.0,] 
+BB 24
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = find_issue_statuses instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 224
+		 6: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 7: %v_3->rolled_up_statuses def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->sorted def_%v_5 %v_4[2.7,] 	 SYMBOL:	 ARGS:
+		 9: %v_5->to_a def_%v_6 %v_5[2.8,] 	 SYMBOL:	 ARGS:
+		 10: ATTRASSIGN %self->statuses %v_6[2.9,] 
+		 11: RETURN %v_6[2.9,] %self[2.0,2.10,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+

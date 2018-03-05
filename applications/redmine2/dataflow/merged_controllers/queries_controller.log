@@ -1,0 +1,2453 @@
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 5 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 7
+		 6: %self->params def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_3->[] def_%v_4 %v_3[2.6,] 	 SYMBOL:format,	 ARGS:Symbol,
+		 8: COPY TYPE_StringLiteral "xml" def_%v_7 
+		 9: def_%v_6 %v_7[2.8,] %v_4[2.7,] 
+		 10: BRANCH %v_6[2.9,] 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "json" def_%v_9 
+		 1: def_%v_8 %v_9[3.0,] %v_4[2.7,] 
+		 2: BRANCH %v_8[3.1,] 
+BB 4
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 11
+		 1: %self->per_page_option def_%v_18 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: ATTRASSIGN %self->limit %v_18[4.1,] 
+		 3: COPY TYPE_PASS def_%v_5 %v_18[4.1,] 
+		 4: 
+BB 5
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 9
+		 1: %self->api_offset_and_limit def_%v_10 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: def_%v_11 %v_10[5.1,] 
+		 3: def_%v_12 %v_11[5.2,] 
+		 4: def_%v_13 %v_11[5.2,] 
+		 5: ATTRASSIGN %self->offset %v_12[5.3,] 
+		 6: ATTRASSIGN %self->limit %v_13[5.4,] 
+		 7: COPY TYPE_PASS def_%v_5 %v_10[5.1,] 
+		 8: 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: %self->api_offset_and_limit def_%v_14 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: def_%v_15 %v_14[6.0,] 
+		 2: def_%v_16 %v_15[6.1,] 
+		 3: def_%v_17 %v_15[6.1,] 
+		 4: ATTRASSIGN %self->offset %v_16[6.2,] 
+		 5: ATTRASSIGN %self->limit %v_17[6.3,] 
+		 6: COPY TYPE_PASS def_%v_5 %v_14[6.0,] 
+		 7: 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 13
+		 1: %self->query_class def_%v_19 %self[5.5,5.6,6.4,6.5,4.2,2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_19->visible def_%v_20 %v_19[8.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_PASS def_scope %v_20[8.2,] 
+		 4: Line Number 14
+		 5: %v_20->count def_%v_21 %v_20[8.2,] 	 SYMBOL:	 ARGS:
+		 6: ATTRASSIGN %self->query_count %v_21[8.5,] 
+		 7: Line Number 15
+		 8: (Paginator) def_%v_22 
+		 9: GETFIELD %self->query_count def_%v_23 %self[8.1,8.6,2.0,] 
+		 10: GETFIELD %self->limit def_%v_24 %self[8.1,5.6,6.5,4.2,2.0,] 
+		 11: %self->params def_%v_25 %self[8.1,8.6,5.5,5.6,6.4,6.5,4.2,2.0,] 	 SYMBOL:	 ARGS:
+		 12: COPY TYPE_StringLiteral "page" def_%v_26 
+		 13: %v_25->[] def_%v_27 %v_25[8.11,] %v_26[8.12,] 	 SYMBOL:	 ARGS:%v_26,
+		 14: %v_22->new def_%v_28 %v_22[8.8,] %v_23[8.9,] %v_24[8.10,] %v_27[8.13,] 	 SYMBOL:	 ARGS:%v_23,%v_24,%v_27,
+		 15: ATTRASSIGN %self->query_pages %v_28[8.14,] 
+		 16: Line Number 16
+		 17: Line Number 17
+		 18: (Query) def_%v_29 
+		 19: %v_29->table_name def_%v_30 %v_29[8.18,] 	 SYMBOL:	 ARGS:
+		 20: COPY TYPE_StringLiteral ".name" def_%v_31 
+		 21: BUILDSTRING def_%v_32 %v_30[8.19,] %v_31[8.20,] 
+		 22: scope->order def_%v_33 scope[8.3,] %v_32[8.21,] 	 SYMBOL:	 ARGS:%v_32,
+		 23: GETFIELD %self->limit def_%v_34 %self[8.1,8.11,5.6,6.5,4.2,2.0,] 
+		 24: %v_33->limit def_%v_35 %v_33[8.22,] %v_34[8.23,] 	 SYMBOL:	 ARGS:%v_34,
+		 25: GETFIELD %self->offset def_%v_36 %self[8.1,8.11,5.5,6.4,2.0,] 
+		 26: %v_35->offset def_%v_37 %v_35[8.24,] %v_36[8.25,] 	 SYMBOL:	 ARGS:%v_36,
+		 27: %v_37->to_a def_%v_38 %v_37[8.26,] 	 SYMBOL:	 ARGS:
+		 28: ATTRASSIGN %self->queries %v_38[8.27,] 
+		 29: Line Number 21
+		 30: %self->respond_to def_%v_39 %self[8.1,8.6,8.11,8.15,8.28,5.5,5.6,6.4,6.5,4.2,2.0,] %self[8.1,8.6,8.11,8.15,8.28,5.5,5.6,6.4,6.5,4.2,2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[8.1,8.6,8.11,8.15,8.28,5.5,5.6,6.4,6.5,4.2,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 22
+		 1: format->html def_%cl_1_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 22
+		 1: HASH-status- def_%cl_2_3 
+		 2: %self->render_error def_%cl_2_4 %self[2.0,] %cl_2_3[3.1,] 	 SYMBOL:	 ARGS:%cl_2_3,
+		 3: RETURN %cl_2_4[3.2,] %self[3.2,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_5 
+		 1: def_%cl_2_6 %cl_2_5[4.0,] 
+		 2: RETURN %cl_2_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 23
+		 3: format->api def_%cl_1_4 format[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 4: RETURN %cl_1_4[3.3,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_5 
+		 1: def_%cl_1_6 %cl_1_5[4.0,] 
+		 2: RETURN %cl_1_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 31: RETURN %v_39[8.30,] %self[8.1,8.6,8.11,8.15,8.28,8.30,5.5,5.6,6.4,6.5,4.2,2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = new instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 40
+		 6: %self->query_class def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_3->new def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: ATTRASSIGN %self->query %v_4[2.7,] 
+		 9: Line Number 41
+		 10: GETFIELD %self->query def_%v_5 %self[2.0,2.6,2.8,] 
+		 11: (User) def_%v_6 
+		 12: %v_6->current def_%v_7 %v_6[2.11,] 	 SYMBOL:	 ARGS:
+		 13: ATTRASSIGN %v_5->user %v_7[2.12,] 
+		 14: Line Number 42
+		 15: GETFIELD %self->query def_%v_8 %self[2.0,2.6,2.8,] 
+		 16: GETFIELD %self->project def_%v_9 %self[2.0,2.6,] 
+		 17: ATTRASSIGN %v_8->project %v_9[2.16,] 
+		 18: Line Number 43
+		 19: GETFIELD %self->query def_%v_10 %self[2.0,2.6,2.8,] 
+		 20: %self->params def_%v_11 %self[2.0,2.6,2.8,] 	 SYMBOL:	 ARGS:
+		 21: %v_10->build_from_params def_%v_12 %v_10[2.19,] %v_11[2.20,] 	 SYMBOL:	 ARGS:%v_11,
+		 22: RETURN %v_12[2.21,] %self[2.0,2.6,2.8,2.20,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = create instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 133
+		 6: %self->query_class def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_3->new def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: ATTRASSIGN %self->query %v_4[2.7,] 
+		 9: Line Number 134
+		 10: GETFIELD %self->query def_%v_5 %self[2.0,2.6,2.8,] 
+		 11: (User) def_%v_6 
+		 12: %v_6->current def_%v_7 %v_6[2.11,] 	 SYMBOL:	 ARGS:
+		 13: ATTRASSIGN %v_5->user %v_7[2.12,] 
+		 14: Line Number 135
+		 15: GETFIELD %self->query def_%v_8 %self[2.0,2.6,2.8,] 
+		 16: GETFIELD %self->project def_%v_9 %self[2.0,2.6,] 
+		 17: ATTRASSIGN %v_8->project %v_9[2.16,] 
+		 18: Line Number 136
+		 19: %self->update_query_from_params def_%v_10 %self[2.0,2.6,2.8,] 	 SYMBOL:	 ARGS:
+		 20: Line Number 137
+		 21: GETFIELD %self->query def_%v_11 %self[2.0,2.6,2.8,2.19,] 
+		 22: %v_11->save def_%v_12 %v_11[2.21,] 	 SYMBOL:	 ARGS:
+		 23: BRANCH %v_12[2.22,] 
+BB 3
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 138
+		 1: %self->flash def_%v_13 %self[2.0,2.8,] 	 SYMBOL:	 ARGS:
+		 2: %self->l def_%v_14 %self[3.1,2.0,2.8,] 	 SYMBOL:notice_successful_create,	 ARGS:Symbol,
+		 3: ATTRASSIGN %v_13->[] %v_14[3.2,] 
+		 4: Line Number 139
+		 5: GETFIELD %self->query def_%v_15 %self[3.1,3.2,2.0,2.8,] 
+		 6: HASH-query_id- def_%v_16 %v_15[3.5,] 
+		 7: %self->redirect_to_items def_%v_17 %self[3.1,3.2,2.0,2.8,] %v_16[3.6,] 	 SYMBOL:	 ARGS:%v_16,
+		 8: RETURN %v_17[3.7,] %self[3.1,3.2,3.7,2.0,2.8,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 141
+		 1: COPY TYPE_StringLiteral "new" def_%v_18 
+		 2: %self->request def_%v_19 %self[2.0,2.8,] 	 SYMBOL:	 ARGS:
+		 3: %v_19->xhr? def_%v_20 %v_19[4.2,] 	 SYMBOL:	 ARGS:
+		 4: %v_20->! def_%v_21 %v_20[4.3,] 	 SYMBOL:	 ARGS:
+		 5: HASH-action-layout- def_%v_22 %v_18[4.1,] %v_21[4.4,] 
+		 6: %self->render def_%v_23 %self[4.2,2.0,2.8,] %v_22[4.5,] 	 SYMBOL:	 ARGS:%v_22,
+		 7: Line Number 142
+		 8: %self->l def_%v_24 %self[4.2,4.6,2.0,2.8,] 	 SYMBOL:label_query_new,	 ARGS:Symbol,
+		 9: Line Number 143
+		 10: GETFIELD %self->project def_%v_25 %self[4.2,4.6,4.8,2.0,] 
+		 11: BRANCH %v_25[4.10,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_26 %self[2.0,] 
+		 1: %self->project_queries_path def_%v_27 %self[2.0,2.8,] %v_26[5.0,] 	 SYMBOL:	 ARGS:%v_26,
+		 2: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: %self->queries_path def_%v_28 %self[2.0,2.8,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_27 %v_28[6.0,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "query-form" def_%v_29 
+		 1: HASH-id- def_%v_30 %v_29[7.0,] 
+		 2: %self->form_tag def_%v_31 %self[2.0,2.8,] %v_27[6.1,5.1,] %v_30[7.1,] %self[2.0,2.8,] 	 SYMBOL:	 ARGS:%v_27,%v_30,%self,
+CLOSURE BEGIN: %self[2.0,2.8,] role[] c[] field[] i[] column[] 
+BB 1
+	outgoing: 32 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 30 
+	datadep: 
+	instructions:
+		 0: Line Number 144
+		 1: COPY TYPE_StringLiteral "type" def_%cl_1_3 
+		 2: GETFIELD %self->query def_%cl_1_4 %self[2.0,] 
+		 3: %cl_1_4->class def_%cl_1_5 %cl_1_4[3.2,] 	 SYMBOL:	 ARGS:
+		 4: %cl_1_5->name def_%cl_1_6 %cl_1_5[3.3,] 	 SYMBOL:	 ARGS:
+		 5: %self->hidden_field_tag def_%cl_1_7 %self[2.0,] %cl_1_3[3.1,] %cl_1_6[3.4,] 	 SYMBOL:	 ARGS:%cl_1_3,%cl_1_6,
+		 6: Line Number 145
+		 7: COPY TYPE_StringLiteral "form" def_%cl_1_8 
+		 8: GETFIELD %self->query def_%cl_1_9 %self[3.5,2.0,] 
+		 9: HASH-query- def_%cl_1_10 %cl_1_9[3.8,] 
+		 10: HASH-partial-locals- def_%cl_1_11 %cl_1_8[3.7,] %cl_1_10[3.9,] 
+		 11: %self->render def_%cl_1_12 %self[3.5,2.0,] %cl_1_11[3.10,] 	 SYMBOL:	 ARGS:%cl_1_11,
+		 12: Line Number 146
+		 13: COPY TYPE_StringLiteral "query" def_%cl_1_13 
+		 14: %self->error_messages_for def_%cl_1_14 %self[3.5,3.11,2.0,] %cl_1_13[3.13,] 	 SYMBOL:	 ARGS:%cl_1_13,
+		 15: Line Number 147
+		 16: %self->params def_%cl_1_15 %self[3.5,3.11,3.14,2.0,] 	 SYMBOL:	 ARGS:
+		 17: %cl_1_15->[] def_%cl_1_16 %cl_1_15[3.16,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 18: BRANCH %cl_1_16[3.17,] 
+BB 4
+	outgoing: 6 30 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "gantt" def_%cl_1_17 
+		 1: COPY TYPE_StringLiteral "1" def_%cl_1_18 
+		 2: %self->hidden_field_tag def_%cl_1_19 %self[2.0,] %cl_1_17[4.0,] %cl_1_18[4.1,] 	 SYMBOL:	 ARGS:%cl_1_17,%cl_1_18,
+		 3: 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_19 
+BB 6
+	outgoing: 7 8 30 
+	datadep: 
+	instructions:
+		 0: Line Number 148
+		 1: %self->l def_%cl_1_20 %self[2.0,] 	 SYMBOL:field_name,	 ARGS:Symbol,
+		 2: Line Number 149
+		 3: COPY TYPE_StringLiteral "query" def_%cl_1_21 
+		 4: COPY TYPE_StringLiteral "name" def_%cl_1_22 
+		 5: HASH-size- def_%cl_1_23 
+		 6: %self->text_field def_%cl_1_24 %self[6.1,2.0,] %cl_1_21[6.3,] %cl_1_22[6.4,] %cl_1_23[6.5,] 	 SYMBOL:	 ARGS:%cl_1_21,%cl_1_22,%cl_1_23,
+		 7: Line Number 150
+		 8: (User) def_%cl_1_25 
+		 9: %cl_1_25->current def_%cl_1_26 %cl_1_25[6.8,] 	 SYMBOL:	 ARGS:
+		 10: %cl_1_26->admin? def_%cl_1_27 %cl_1_26[6.9,] 	 SYMBOL:	 ARGS:
+		 11: BRANCH %cl_1_27[6.10,] 
+BB 7
+	outgoing: 8 30 
+	datadep: 
+	instructions:
+		 0: (User) def_%cl_1_28 
+		 1: %cl_1_28->current def_%cl_1_29 %cl_1_28[7.0,] 	 SYMBOL:	 ARGS:
+		 2: GETFIELD %self->query def_%cl_1_30 %self[2.0,] 
+		 3: %cl_1_30->project def_%cl_1_31 %cl_1_30[7.2,] 	 SYMBOL:	 ARGS:
+		 4: %cl_1_29->allowed_to? def_%cl_1_32 %cl_1_29[7.1,] %cl_1_31[7.3,] 	 SYMBOL:manage_public_queries,	 ARGS:Symbol,%cl_1_31,
+		 5: COPY TYPE_PASS def_%cl_1_27 %cl_1_32[7.4,] 
+BB 8
+	outgoing: 9 16 
+	datadep: 
+	instructions:
+		 0: BRANCH %cl_1_27[7.5,6.10,] 
+BB 9
+	outgoing: 10 11 30 
+	datadep: 
+	instructions:
+		 0: Line Number 151
+		 1: %self->l def_%cl_1_33 %self[2.0,] 	 SYMBOL:field_visible,	 ARGS:Symbol,
+		 2: Line Number 152
+		 3: COPY TYPE_StringLiteral "query" def_%cl_1_34 
+		 4: COPY TYPE_StringLiteral "visibility" def_%cl_1_35 
+		 5: (Query) def_%cl_1_36 
+		 6: (inherit VISIBILITY_PRIVATE) def_%cl_1_37 %cl_1_36[9.5,] 
+		 7: %cl_1_37[9.6,] 
+BB 10
+	outgoing: 11 30 
+	datadep: 
+	instructions:
+		 0: %cl_1_36->const_missing def_%cl_1_37 %cl_1_36[9.5,] 	 SYMBOL:VISIBILITY_PRIVATE,	 ARGS:Symbol,
+BB 11
+	outgoing: 12 13 30 
+	datadep: 
+	instructions:
+		 0: %self->radio_button def_%cl_1_38 %self[2.0,] %cl_1_34[9.3,] %cl_1_35[9.4,] %cl_1_37[10.0,9.6,] 	 SYMBOL:	 ARGS:%cl_1_34,%cl_1_35,%cl_1_37,
+		 1: Line Number 153
+		 2: %self->l def_%cl_1_39 %self[11.0,2.0,] 	 SYMBOL:label_visibility_private,	 ARGS:Symbol,
+		 3: Line Number 154
+		 4: COPY TYPE_StringLiteral "query" def_%cl_1_40 
+		 5: COPY TYPE_StringLiteral "visibility" def_%cl_1_41 
+		 6: (Query) def_%cl_1_42 
+		 7: (inherit VISIBILITY_PUBLIC) def_%cl_1_43 %cl_1_42[11.6,] 
+		 8: %cl_1_43[11.7,] 
+BB 12
+	outgoing: 13 30 
+	datadep: 
+	instructions:
+		 0: %cl_1_42->const_missing def_%cl_1_43 %cl_1_42[11.6,] 	 SYMBOL:VISIBILITY_PUBLIC,	 ARGS:Symbol,
+BB 13
+	outgoing: 14 15 30 
+	datadep: 
+	instructions:
+		 0: %self->radio_button def_%cl_1_44 %self[2.0,] %cl_1_40[11.4,] %cl_1_41[11.5,] %cl_1_43[12.0,11.7,] 	 SYMBOL:	 ARGS:%cl_1_40,%cl_1_41,%cl_1_43,
+		 1: Line Number 155
+		 2: %self->l def_%cl_1_45 %self[13.0,2.0,] 	 SYMBOL:label_visibility_public,	 ARGS:Symbol,
+		 3: Line Number 156
+		 4: COPY TYPE_StringLiteral "query" def_%cl_1_46 
+		 5: COPY TYPE_StringLiteral "visibility" def_%cl_1_47 
+		 6: (Query) def_%cl_1_48 
+		 7: (inherit VISIBILITY_ROLES) def_%cl_1_49 %cl_1_48[13.6,] 
+		 8: %cl_1_49[13.7,] 
+BB 14
+	outgoing: 15 30 
+	datadep: 
+	instructions:
+		 0: %cl_1_48->const_missing def_%cl_1_49 %cl_1_48[13.6,] 	 SYMBOL:VISIBILITY_ROLES,	 ARGS:Symbol,
+BB 15
+	outgoing: 17 30 
+	datadep: 
+	instructions:
+		 0: %self->radio_button def_%cl_1_50 %self[2.0,] %cl_1_46[13.4,] %cl_1_47[13.5,] %cl_1_49[14.0,13.7,] 	 SYMBOL:	 ARGS:%cl_1_46,%cl_1_47,%cl_1_49,
+		 1: Line Number 157
+		 2: %self->l def_%cl_1_51 %self[15.0,2.0,] 	 SYMBOL:label_visibility_roles,	 ARGS:Symbol,
+		 3: Line Number 158
+		 4: (Role) def_%cl_1_52 
+		 5: %cl_1_52->givable def_%cl_1_53 %cl_1_52[15.4,] 	 SYMBOL:	 ARGS:
+		 6: %cl_1_53->sorted def_%cl_1_54 %cl_1_53[15.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_1_54->each def_%cl_1_55 %cl_1_54[15.6,] %self[15.0,15.2,2.0,] 	 SYMBOL:	 ARGS:%cl_1_54,
+CLOSURE BEGIN: role[] %self[15.0,15.2,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: RECEIVEARG def_role 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 159
+		 1: COPY TYPE_StringLiteral "query[role_ids][]" def_%cl_2_3 
+		 2: role->id def_%cl_2_4 role[2.2,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->query def_%cl_2_5 %self[2.0,] 
+		 4: %cl_2_5->roles def_%cl_2_6 %cl_2_5[3.3,] 	 SYMBOL:	 ARGS:
+		 5: %cl_2_6->include? def_%cl_2_7 %cl_2_6[3.4,] role[3.2,2.2,] 	 SYMBOL:	 ARGS:role,
+		 6: HASH-id- def_%cl_2_8 
+		 7: %self->check_box_tag def_%cl_2_9 %self[2.0,] %cl_2_3[3.1,] %cl_2_4[3.2,] %cl_2_7[3.5,] %cl_2_8[3.6,] 	 SYMBOL:	 ARGS:%cl_2_3,%cl_2_4,%cl_2_7,%cl_2_8,
+		 8: Line Number 160
+		 9: role->name def_%cl_2_10 role[3.2,2.2,] 	 SYMBOL:	 ARGS:
+		 10: RETURN %cl_2_10[3.9,] %self[3.7,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_11 
+		 1: def_%cl_2_12 %cl_2_11[4.0,] 
+		 2: RETURN %cl_2_12[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 8: Line Number 162
+		 9: COPY TYPE_StringLiteral "query[role_ids][]" def_%cl_1_56 
+		 10: COPY TYPE_StringLiteral "" def_%cl_1_57 
+		 11: %self->hidden_field_tag def_%cl_1_58 %self[15.0,15.2,2.0,] %cl_1_56[15.9,] %cl_1_57[15.10,] 	 SYMBOL:	 ARGS:%cl_1_56,%cl_1_57,
+		 12: 
+BB 16
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_58 
+BB 17
+	outgoing: 18 19 30 
+	datadep: 
+	instructions:
+		 0: Line Number 164
+		 1: %self->l def_%cl_1_59 %self[2.0,] 	 SYMBOL:field_is_for_all,	 ARGS:Symbol,
+		 2: Line Number 165
+		 3: COPY TYPE_StringLiteral "query_is_for_all" def_%cl_1_60 
+		 4: GETFIELD %self->query def_%cl_1_61 %self[17.1,2.0,] 
+		 5: %cl_1_61->project def_%cl_1_62 %cl_1_61[17.4,] 	 SYMBOL:	 ARGS:
+		 6: %cl_1_62->nil? def_%cl_1_63 %cl_1_62[17.5,] 	 SYMBOL:	 ARGS:
+		 7: (User) def_%cl_1_64 
+		 8: %cl_1_64->current def_%cl_1_65 %cl_1_64[17.7,] 	 SYMBOL:	 ARGS:
+		 9: %cl_1_65->admin? def_%cl_1_66 %cl_1_65[17.8,] 	 SYMBOL:	 ARGS:
+		 10: BRANCH %cl_1_66[17.9,] 
+BB 18
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "" def_%cl_1_67 
+		 1: 
+BB 19
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "disable-unless-private" def_%cl_1_68 
+		 1: COPY TYPE_PASS def_%cl_1_67 %cl_1_68[19.0,] 
+BB 20
+	outgoing: 21 22 30 
+	datadep: 
+	instructions:
+		 0: HASH-class- def_%cl_1_69 %cl_1_67[19.1,18.0,] 
+		 1: %self->check_box_tag def_%cl_1_70 %self[2.0,] %cl_1_60[17.3,] %cl_1_63[17.6,] %cl_1_69[20.0,] 	 SYMBOL:	 ARGS:%cl_1_60,Fixnum,%cl_1_63,%cl_1_69,
+		 2: Line Number 166
+		 3: %self->params def_%cl_1_71 %self[20.1,2.0,] 	 SYMBOL:	 ARGS:
+		 4: %cl_1_71->[] def_%cl_1_72 %cl_1_71[20.3,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 5: BRANCH %cl_1_72[20.4,] 
+BB 21
+	outgoing: 23 30 
+	datadep: 
+	instructions:
+		 0: Line Number 178
+		 1: %self->l def_%cl_1_73 %self[2.0,] 	 SYMBOL:label_options,	 ARGS:Symbol,
+		 2: Line Number 179
+		 3: %self->l def_%cl_1_74 %self[21.1,2.0,] 	 SYMBOL:button_show,	 ARGS:Symbol,
+		 4: Line Number 180
+		 5: COPY TYPE_StringLiteral "query[draw_relations]" def_%cl_1_75 
+		 6: COPY TYPE_StringLiteral "1" def_%cl_1_76 
+		 7: GETFIELD %self->query def_%cl_1_77 %self[21.1,21.3,2.0,] 
+		 8: %cl_1_77->draw_relations def_%cl_1_78 %cl_1_77[21.7,] 	 SYMBOL:	 ARGS:
+		 9: %self->check_box_tag def_%cl_1_79 %self[21.1,21.3,2.0,] %cl_1_75[21.5,] %cl_1_76[21.6,] %cl_1_78[21.8,] 	 SYMBOL:	 ARGS:%cl_1_75,%cl_1_76,%cl_1_78,
+		 10: Line Number 181
+		 11: %self->l def_%cl_1_80 %self[21.1,21.3,21.9,2.0,] 	 SYMBOL:label_related_issues,	 ARGS:Symbol,
+		 12: Line Number 182
+		 13: COPY TYPE_StringLiteral "query[draw_progress_line]" def_%cl_1_81 
+		 14: COPY TYPE_StringLiteral "1" def_%cl_1_82 
+		 15: GETFIELD %self->query def_%cl_1_83 %self[21.1,21.3,21.9,21.11,2.0,] 
+		 16: %cl_1_83->draw_progress_line def_%cl_1_84 %cl_1_83[21.15,] 	 SYMBOL:	 ARGS:
+		 17: %self->check_box_tag def_%cl_1_85 %self[21.1,21.3,21.9,21.11,2.0,] %cl_1_81[21.13,] %cl_1_82[21.14,] %cl_1_84[21.16,] 	 SYMBOL:	 ARGS:%cl_1_81,%cl_1_82,%cl_1_84,
+		 18: Line Number 183
+		 19: %self->l def_%cl_1_86 %self[21.1,21.3,21.9,21.11,21.17,2.0,] 	 SYMBOL:label_gantt_progress_line,	 ARGS:Symbol,
+		 20: 
+BB 22
+	outgoing: 23 30 
+	datadep: 
+	instructions:
+		 0: Line Number 167
+		 1: %self->l def_%cl_1_87 %self[2.0,] 	 SYMBOL:label_options,	 ARGS:Symbol,
+		 2: Line Number 168
+		 3: %self->l def_%cl_1_88 %self[22.1,2.0,] 	 SYMBOL:label_default_columns,	 ARGS:Symbol,
+		 4: Line Number 169
+		 5: COPY TYPE_StringLiteral "default_columns" def_%cl_1_89 
+		 6: GETFIELD %self->query def_%cl_1_90 %self[22.1,22.3,2.0,] 
+		 7: %cl_1_90->has_default_columns? def_%cl_1_91 %cl_1_90[22.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_StringLiteral "query_default_columns" def_%cl_1_92 
+		 9: COPY TYPE_StringLiteral "#columns, .block_columns input" def_%cl_1_93 
+		 10: HASH-disables- def_%cl_1_94 %cl_1_93[22.9,] 
+		 11: HASH-id-data- def_%cl_1_95 %cl_1_92[22.8,] %cl_1_94[22.10,] 
+		 12: %self->check_box_tag def_%cl_1_96 %self[22.1,22.3,2.0,] %cl_1_89[22.5,] %cl_1_91[22.7,] %cl_1_95[22.11,] 	 SYMBOL:	 ARGS:%cl_1_89,Fixnum,%cl_1_91,%cl_1_95,
+		 13: Line Number 171
+		 14: %self->l def_%cl_1_97 %self[22.1,22.3,22.12,2.0,] 	 SYMBOL:field_group_by,	 ARGS:Symbol,
+		 15: Line Number 172
+		 16: COPY TYPE_StringLiteral "query" def_%cl_1_98 
+		 17: COPY TYPE_StringLiteral "group_by" def_%cl_1_99 
+		 18: GETFIELD %self->query def_%cl_1_100 %self[22.1,22.3,22.12,22.14,2.0,] 
+		 19: %cl_1_100->groupable_columns def_%cl_1_101 %cl_1_100[22.18,] 	 SYMBOL:	 ARGS:
+		 20: %cl_1_101->collect def_%cl_1_102 %cl_1_101[22.19,] %self[22.1,22.3,22.12,22.14,2.0,] 	 SYMBOL:	 ARGS:%cl_1_101,
+CLOSURE BEGIN: c[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_3_0 
+		 2: RECEIVEARG def_c 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 172
+		 1: c->caption def_%cl_3_3 c[2.2,] 	 SYMBOL:	 ARGS:
+		 2: c->name def_%cl_3_4 c[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 3: %cl_3_4->to_s def_%cl_3_5 %cl_3_4[3.2,] 	 SYMBOL:	 ARGS:
+		 4: COPY TYPE_Array def_%cl_3_6 %cl_3_3[3.1,] %cl_3_5[3.3,] 
+		 5: RETURN %cl_3_6[3.4,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_3_7 
+		 1: def_%cl_3_8 %cl_3_7[4.0,] 
+		 2: RETURN %cl_3_8[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 21: HASH-include_blank- def_%cl_1_103 
+		 22: %self->select def_%cl_1_104 %self[22.1,22.3,22.12,22.14,2.0,] %cl_1_98[22.16,] %cl_1_99[22.17,] %cl_1_102[22.20,] %cl_1_103[22.21,] 	 SYMBOL:	 ARGS:%cl_1_98,%cl_1_99,%cl_1_102,%cl_1_103,
+		 23: Line Number 173
+		 24: %self->l def_%cl_1_105 %self[22.1,22.3,22.12,22.14,22.22,2.0,] 	 SYMBOL:button_show,	 ARGS:Symbol,
+		 25: Line Number 174
+		 26: GETFIELD %self->query def_%cl_1_106 %self[22.1,22.3,22.12,22.14,22.22,22.24,2.0,] 
+		 27: %self->available_block_columns_tags def_%cl_1_107 %self[22.1,22.3,22.12,22.14,22.22,22.24,2.0,] %cl_1_106[22.26,] 	 SYMBOL:	 ARGS:%cl_1_106,
+		 28: Line Number 175
+		 29: %self->l def_%cl_1_108 %self[22.1,22.3,22.12,22.14,22.22,22.24,22.27,2.0,] 	 SYMBOL:label_total_plural,	 ARGS:Symbol,
+		 30: Line Number 176
+		 31: GETFIELD %self->query def_%cl_1_109 %self[22.1,22.3,22.12,22.14,22.22,22.24,22.27,22.29,2.0,] 
+		 32: %self->available_totalable_columns_tags def_%cl_1_110 %self[22.1,22.3,22.12,22.14,22.22,22.24,22.27,22.29,2.0,] %cl_1_109[22.31,] 	 SYMBOL:	 ARGS:%cl_1_109,
+		 33: COPY TYPE_PASS def_%cl_1_86 %cl_1_110[22.32,] 
+BB 23
+	outgoing: 24 25 30 
+	datadep: 
+	instructions:
+		 0: Line Number 185
+		 1: %self->l def_%cl_1_111 %self[2.0,] 	 SYMBOL:label_filter_plural,	 ARGS:Symbol,
+		 2: Line Number 186
+		 3: COPY TYPE_StringLiteral "queries/filters" def_%cl_1_112 
+		 4: %self->query def_%cl_1_113 %self[23.1,2.0,] 	 SYMBOL:	 ARGS:
+		 5: HASH-query- def_%cl_1_114 %cl_1_113[23.4,] 
+		 6: HASH-partial-locals- def_%cl_1_115 %cl_1_112[23.3,] %cl_1_114[23.5,] 
+		 7: %self->render def_%cl_1_116 %self[23.1,23.4,2.0,] %cl_1_115[23.6,] 	 SYMBOL:	 ARGS:%cl_1_115,
+		 8: Line Number 187
+		 9: %self->javascript_tag def_%cl_1_117 %self[23.1,23.4,23.7,2.0,] %self[23.1,23.4,23.7,2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: %self[23.1,23.4,23.7,2.0,] field[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_4_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 188
+		 1: (Query) def_%cl_4_3 
+		 2: %cl_4_3->operators_labels def_%cl_4_4 %cl_4_3[3.1,] 	 SYMBOL:	 ARGS:
+		 3: %self->raw_json def_%cl_4_5 %self[2.0,] %cl_4_4[3.2,] 	 SYMBOL:	 ARGS:%cl_4_4,
+		 4: Line Number 189
+		 5: (Query) def_%cl_4_6 
+		 6: %cl_4_6->operators_by_filter_type def_%cl_4_7 %cl_4_6[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %self->raw_json def_%cl_4_8 %self[3.3,2.0,] %cl_4_7[3.6,] 	 SYMBOL:	 ARGS:%cl_4_7,
+		 8: Line Number 190
+		 9: %self->query def_%cl_4_9 %self[3.3,3.7,2.0,] 	 SYMBOL:	 ARGS:
+		 10: %cl_4_9->available_filters_as_json def_%cl_4_10 %cl_4_9[3.9,] 	 SYMBOL:	 ARGS:
+		 11: %self->raw_json def_%cl_4_11 %self[3.3,3.7,3.9,2.0,] %cl_4_10[3.10,] 	 SYMBOL:	 ARGS:%cl_4_10,
+		 12: Line Number 191
+		 13: %self->l def_%cl_4_12 %self[3.3,3.7,3.9,3.11,2.0,] 	 SYMBOL:label_day_plural,	 ARGS:Symbol,
+		 14: %self->raw_json def_%cl_4_13 %self[3.3,3.7,3.9,3.11,3.13,2.0,] %cl_4_12[3.13,] 	 SYMBOL:	 ARGS:%cl_4_12,
+		 15: Line Number 192
+		 16: GETFIELD %self->query def_%cl_4_14 %self[3.3,3.7,3.9,3.11,3.13,3.14,2.0,] 
+		 17: %cl_4_14->project def_%cl_4_15 %cl_4_14[3.16,] 	 SYMBOL:	 ARGS:
+		 18: %cl_4_15->try def_%cl_4_16 %cl_4_15[3.17,] 	 SYMBOL:id,	 ARGS:Symbol,
+		 19: GETFIELD %self->query def_%cl_4_17 %self[3.3,3.7,3.9,3.11,3.13,3.14,2.0,] 
+		 20: %cl_4_17->type def_%cl_4_18 %cl_4_17[3.19,] 	 SYMBOL:	 ARGS:
+		 21: HASH-project_id-type- def_%cl_4_19 %cl_4_16[3.18,] %cl_4_18[3.20,] 
+		 22: %self->queries_filter_path def_%cl_4_20 %self[3.3,3.7,3.9,3.11,3.13,3.14,2.0,] %cl_4_19[3.21,] 	 SYMBOL:	 ARGS:%cl_4_19,
+		 23: %self->raw_json def_%cl_4_21 %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,2.0,] %cl_4_20[3.22,] 	 SYMBOL:	 ARGS:%cl_4_20,
+		 24: Line Number 193
+		 25: %self->query def_%cl_4_22 %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,3.23,2.0,] 	 SYMBOL:	 ARGS:
+		 26: %cl_4_22->filters def_%cl_4_23 %cl_4_22[3.25,] 	 SYMBOL:	 ARGS:
+		 27: %cl_4_23->each def_%cl_4_24 %cl_4_23[3.26,] %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,3.23,3.25,2.0,] 	 SYMBOL:	 ARGS:%cl_4_23,
+CLOSURE BEGIN: %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,3.23,3.25,2.0,] field[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_5_0 
+		 2: RECEIVEARG def_field 
+		 3: RECEIVEARG def_options 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 194
+		 1: Line Number 195
+		 2: %self->query def_%cl_5_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %cl_5_3->operator_for def_%cl_5_4 %cl_5_3[3.2,] field[2.2,] 	 SYMBOL:	 ARGS:field,
+		 4: %self->raw_json def_%cl_5_5 %self[3.2,2.0,] %cl_5_4[3.3,] 	 SYMBOL:	 ARGS:%cl_5_4,
+		 5: Line Number 196
+		 6: %self->query def_%cl_5_6 %self[3.2,3.4,2.0,] 	 SYMBOL:	 ARGS:
+		 7: %cl_5_6->values_for def_%cl_5_7 %cl_5_6[3.6,] field[2.2,] 	 SYMBOL:	 ARGS:field,
+		 8: %self->raw_json def_%cl_5_8 %self[3.2,3.4,3.6,2.0,] %cl_5_7[3.7,] 	 SYMBOL:	 ARGS:%cl_5_7,
+		 9: RETURN %cl_5_8[3.8,] %self[3.2,3.4,3.6,3.8,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_5_9 
+		 1: def_%cl_5_10 %cl_5_9[4.0,] 
+		 2: RETURN %cl_5_10[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: options[2.3,] 
+		 28: RETURN %cl_4_24[3.27,] %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,3.23,3.25,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_4_25 
+		 1: def_%cl_4_26 %cl_4_25[4.0,] 
+		 2: RETURN %cl_4_26[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 10: Line Number 199
+		 11: COPY TYPE_StringLiteral "add_filter_select" def_%cl_1_118 
+		 12: %self->l def_%cl_1_119 %self[23.1,23.4,23.7,23.9,2.0,] 	 SYMBOL:label_filter_add,	 ARGS:Symbol,
+		 13: %self->label_tag def_%cl_1_120 %self[23.1,23.4,23.7,23.9,23.12,2.0,] %cl_1_118[23.11,] %cl_1_119[23.12,] 	 SYMBOL:	 ARGS:%cl_1_118,%cl_1_119,
+		 14: Line Number 200
+		 15: COPY TYPE_StringLiteral "add_filter_select" def_%cl_1_121 
+		 16: %self->query def_%cl_1_122 %self[23.1,23.4,23.7,23.9,23.12,23.13,2.0,] 	 SYMBOL:	 ARGS:
+		 17: %self->filters_options_for_select def_%cl_1_123 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,2.0,] %cl_1_122[23.16,] 	 SYMBOL:	 ARGS:%cl_1_122,
+		 18: HASH-name- def_%cl_1_124 
+		 19: %self->select_tag def_%cl_1_125 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,23.17,2.0,] %cl_1_121[23.15,] %cl_1_123[23.17,] %cl_1_124[23.18,] 	 SYMBOL:	 ARGS:%cl_1_121,%cl_1_123,%cl_1_124,
+		 20: Line Number 201
+		 21: COPY TYPE_StringLiteral "f[]" def_%cl_1_126 
+		 22: COPY TYPE_StringLiteral "" def_%cl_1_127 
+		 23: %self->hidden_field_tag def_%cl_1_128 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,23.17,23.19,2.0,] %cl_1_126[23.21,] %cl_1_127[23.22,] 	 SYMBOL:	 ARGS:%cl_1_126,%cl_1_127,
+		 24: Line Number 202
+		 25: %self->include_calendar_headers_tags def_%cl_1_129 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,23.17,23.19,23.23,2.0,] 	 SYMBOL:	 ARGS:
+		 26: Line Number 203
+		 27: %self->params def_%cl_1_130 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,23.17,23.19,23.23,23.25,2.0,] 	 SYMBOL:	 ARGS:
+		 28: %cl_1_130->[] def_%cl_1_131 %cl_1_130[23.27,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 29: BRANCH %cl_1_131[23.28,] 
+BB 24
+	outgoing: 26 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_132 
+		 1: 
+BB 25
+	outgoing: 26 30 
+	datadep: 
+	instructions:
+		 0: Line Number 204
+		 1: %self->l def_%cl_1_133 %self[2.0,] 	 SYMBOL:label_sort,	 ARGS:Symbol,
+		 2: Line Number 205
+		 3: CONSTANT def_%cl_1_134 %self[25.1,2.0,] 	 SYMBOL:	 ARGS:
+CLOSURE BEGIN: i[] %self[25.1,2.0,] column[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_6_0 
+		 2: RECEIVEARG def_i 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 206
+		 1: i->+ def_%cl_6_3 i[2.2,] 	 SYMBOL:	 ARGS:Fixnum,
+		 2: COPY TYPE_StringLiteral ":" def_%cl_6_4 
+		 3: BUILDSTRING def_%cl_6_5 %cl_6_3[3.1,] %cl_6_4[3.2,] 
+		 4: COPY TYPE_StringLiteral "query_sort_criteria_count" def_%cl_6_6 
+		 5: HASH-class- def_%cl_6_7 %cl_6_6[3.4,] 
+		 6: %self->content_tag def_%cl_6_8 %self[2.0,] %cl_6_5[3.3,] %cl_6_7[3.5,] 	 SYMBOL:span,	 ARGS:Symbol,%cl_6_5,%cl_6_7,
+		 7: Line Number 207
+		 8: COPY TYPE_StringLiteral "query_sort_criteria_attribute_" def_%cl_6_9 
+		 9: i->to_s def_%cl_6_10 i[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 10: %cl_6_9->+ def_%cl_6_11 %cl_6_9[3.8,] %cl_6_10[3.9,] 	 SYMBOL:	 ARGS:%cl_6_10,
+		 11: %self->l def_%cl_6_12 %self[3.6,2.0,] 	 SYMBOL:description_query_sort_criteria_attribute,	 ARGS:Symbol,
+		 12: COPY TYPE_StringLiteral "hidden-for-sighted" def_%cl_6_13 
+		 13: HASH-class- def_%cl_6_14 %cl_6_13[3.12,] 
+		 14: %self->label_tag def_%cl_6_15 %self[3.6,3.11,2.0,] %cl_6_11[3.10,] %cl_6_12[3.11,] %cl_6_14[3.13,] 	 SYMBOL:	 ARGS:%cl_6_11,%cl_6_12,%cl_6_14,
+		 15: Line Number 209
+		 16: COPY TYPE_StringLiteral "query[sort_criteria][" def_%cl_6_16 
+		 17: COPY TYPE_StringLiteral "][]" def_%cl_6_17 
+		 18: BUILDSTRING def_%cl_6_18 %cl_6_16[3.16,] i[3.1,3.9,2.2,] %cl_6_17[3.17,] 
+		 19: COPY TYPE_Array def_%cl_6_19 
+		 20: COPY TYPE_Array def_%cl_6_20 %cl_6_19[3.19,] 
+		 21: %self->query def_%cl_6_21 %self[3.6,3.11,3.14,2.0,] 	 SYMBOL:	 ARGS:
+		 22: %cl_6_21->available_columns def_%cl_6_22 %cl_6_21[3.21,] 	 SYMBOL:	 ARGS:
+		 23: %cl_6_22->select def_%cl_6_23 %cl_6_22[3.22,] 	 SYMBOL:sortable?,	 ARGS:
+		 24: %cl_6_23->collect def_%cl_6_24 %cl_6_23[3.23,] %self[3.6,3.11,3.14,3.21,2.0,] 	 SYMBOL:	 ARGS:%cl_6_23,
+CLOSURE BEGIN: column[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_7_0 
+		 2: RECEIVEARG def_column 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 210
+		 1: column->caption def_%cl_7_3 column[2.2,] 	 SYMBOL:	 ARGS:
+		 2: column->name def_%cl_7_4 column[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 3: %cl_7_4->to_s def_%cl_7_5 %cl_7_4[3.2,] 	 SYMBOL:	 ARGS:
+		 4: COPY TYPE_Array def_%cl_7_6 %cl_7_3[3.1,] %cl_7_5[3.3,] 
+		 5: RETURN %cl_7_6[3.4,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_7_7 
+		 1: def_%cl_7_8 %cl_7_7[4.0,] 
+		 2: RETURN %cl_7_8[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 25: %cl_6_20->+ def_%cl_6_25 %cl_6_20[3.20,] %cl_6_24[3.24,] 	 SYMBOL:	 ARGS:%cl_6_24,
+		 26: GETFIELD %self->query def_%cl_6_26 %self[3.6,3.11,3.14,3.21,2.0,] 
+		 27: %cl_6_26->sort_criteria_key def_%cl_6_27 %cl_6_26[3.26,] i[3.1,3.9,2.2,] 	 SYMBOL:	 ARGS:i,
+		 28: %self->options_for_select def_%cl_6_28 %self[3.6,3.11,3.14,3.21,2.0,] %cl_6_25[3.25,] %cl_6_27[3.27,] 	 SYMBOL:	 ARGS:%cl_6_25,%cl_6_27,
+		 29: COPY TYPE_StringLiteral "query_sort_criteria_attribute_" def_%cl_6_29 
+		 30: i->to_s def_%cl_6_30 i[3.1,3.9,2.2,] 	 SYMBOL:	 ARGS:
+		 31: %cl_6_29->+ def_%cl_6_31 %cl_6_29[3.29,] %cl_6_30[3.30,] 	 SYMBOL:	 ARGS:%cl_6_30,
+		 32: HASH-id- def_%cl_6_32 %cl_6_31[3.31,] 
+		 33: %self->select_tag def_%cl_6_33 %self[3.6,3.11,3.14,3.21,3.28,2.0,] %cl_6_18[3.18,] %cl_6_28[3.28,] %cl_6_32[3.32,] 	 SYMBOL:	 ARGS:%cl_6_18,%cl_6_28,%cl_6_32,
+		 34: Line Number 212
+		 35: COPY TYPE_StringLiteral "query_sort_criteria_direction_" def_%cl_6_34 
+		 36: i->to_s def_%cl_6_35 i[3.1,3.9,3.30,2.2,] 	 SYMBOL:	 ARGS:
+		 37: %cl_6_34->+ def_%cl_6_36 %cl_6_34[3.35,] %cl_6_35[3.36,] 	 SYMBOL:	 ARGS:%cl_6_35,
+		 38: %self->l def_%cl_6_37 %self[3.6,3.11,3.14,3.21,3.28,3.33,2.0,] 	 SYMBOL:description_query_sort_criteria_direction,	 ARGS:Symbol,
+		 39: COPY TYPE_StringLiteral "hidden-for-sighted" def_%cl_6_38 
+		 40: HASH-class- def_%cl_6_39 %cl_6_38[3.39,] 
+		 41: %self->label_tag def_%cl_6_40 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,2.0,] %cl_6_36[3.37,] %cl_6_37[3.38,] %cl_6_39[3.40,] 	 SYMBOL:	 ARGS:%cl_6_36,%cl_6_37,%cl_6_39,
+		 42: Line Number 214
+		 43: COPY TYPE_StringLiteral "query[sort_criteria][" def_%cl_6_41 
+		 44: COPY TYPE_StringLiteral "][]" def_%cl_6_42 
+		 45: BUILDSTRING def_%cl_6_43 %cl_6_41[3.43,] i[3.1,3.9,3.30,3.36,2.2,] %cl_6_42[3.44,] 
+		 46: COPY TYPE_Array def_%cl_6_44 
+		 47: %self->l def_%cl_6_45 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,2.0,] 	 SYMBOL:label_ascending,	 ARGS:Symbol,
+		 48: COPY TYPE_StringLiteral "asc" def_%cl_6_46 
+		 49: COPY TYPE_Array def_%cl_6_47 %cl_6_45[3.47,] %cl_6_46[3.48,] 
+		 50: %self->l def_%cl_6_48 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,2.0,] 	 SYMBOL:label_descending,	 ARGS:Symbol,
+		 51: COPY TYPE_StringLiteral "desc" def_%cl_6_49 
+		 52: COPY TYPE_Array def_%cl_6_50 %cl_6_48[3.50,] %cl_6_49[3.51,] 
+		 53: COPY TYPE_Array def_%cl_6_51 %cl_6_44[3.46,] %cl_6_47[3.49,] %cl_6_50[3.52,] 
+		 54: GETFIELD %self->query def_%cl_6_52 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,3.50,2.0,] 
+		 55: %cl_6_52->sort_criteria_order def_%cl_6_53 %cl_6_52[3.54,] i[3.1,3.9,3.30,3.36,2.2,] 	 SYMBOL:	 ARGS:i,
+		 56: %self->options_for_select def_%cl_6_54 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,3.50,2.0,] %cl_6_51[3.53,] %cl_6_53[3.55,] 	 SYMBOL:	 ARGS:%cl_6_51,%cl_6_53,
+		 57: COPY TYPE_StringLiteral "query_sort_criteria_direction_" def_%cl_6_55 
+		 58: i->to_s def_%cl_6_56 i[3.1,3.9,3.30,3.36,2.2,] 	 SYMBOL:	 ARGS:
+		 59: %cl_6_55->+ def_%cl_6_57 %cl_6_55[3.57,] %cl_6_56[3.58,] 	 SYMBOL:	 ARGS:%cl_6_56,
+		 60: HASH-id- def_%cl_6_58 %cl_6_57[3.59,] 
+		 61: %self->select_tag def_%cl_6_59 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,3.50,3.56,2.0,] %cl_6_43[3.45,] %cl_6_54[3.56,] %cl_6_58[3.60,] 	 SYMBOL:	 ARGS:%cl_6_43,%cl_6_54,%cl_6_58,
+		 62: RETURN %cl_6_59[3.61,] %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,3.50,3.56,3.61,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_6_60 
+		 1: def_%cl_6_61 %cl_6_60[4.0,] 
+		 2: RETURN %cl_6_61[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 4: COPY TYPE_PASS def_%cl_1_132 %cl_1_134[25.3,] 
+BB 26
+	outgoing: 27 28 30 
+	datadep: 
+	instructions:
+		 0: Line Number 219
+		 1: %self->params def_%cl_1_135 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_135->[] def_%cl_1_136 %cl_1_135[26.1,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 3: BRANCH %cl_1_136[26.2,] 
+BB 27
+	outgoing: 29 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_137 
+		 1: 
+BB 28
+	outgoing: 29 30 
+	datadep: 
+	instructions:
+		 0: Line Number 220
+		 1: COPY TYPE_StringLiteral "fieldset" def_%cl_1_138 
+		 2: COPY TYPE_StringLiteral "columns" def_%cl_1_139 
+		 3: HASH-id- def_%cl_1_140 %cl_1_139[28.2,] 
+		 4: %self->content_tag def_%cl_1_141 %self[2.0,] %cl_1_138[28.1,] %cl_1_140[28.3,] %self[2.0,] 	 SYMBOL:	 ARGS:%cl_1_138,%cl_1_140,%self,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_8_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 221
+		 1: %self->l def_%cl_8_3 %self[2.0,] 	 SYMBOL:field_column_names,	 ARGS:Symbol,
+		 2: Line Number 222
+		 3: %self->query def_%cl_8_4 %self[3.1,2.0,] 	 SYMBOL:	 ARGS:
+		 4: %self->render_query_columns_selection def_%cl_8_5 %self[3.1,3.3,2.0,] %cl_8_4[3.3,] 	 SYMBOL:	 ARGS:%cl_8_4,
+		 5: RETURN %cl_8_5[3.4,] %self[3.1,3.3,3.4,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_8_6 
+		 1: def_%cl_8_7 %cl_8_6[4.0,] 
+		 2: RETURN %cl_8_7[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 5: COPY TYPE_PASS def_%cl_1_137 %cl_1_141[28.4,] 
+BB 29
+	outgoing: 30 32 
+	datadep: 
+	instructions:
+		 0: Line Number 225
+		 1: %self->javascript_tag def_%cl_1_142 %self[2.0,] %self[2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_9_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: RETURN %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 227
+		 3: %self->l def_%cl_1_143 %self[29.1,2.0,] 	 SYMBOL:button_save,	 ARGS:Symbol,
+		 4: %self->submit_tag def_%cl_1_144 %self[29.1,29.3,2.0,] %cl_1_143[29.3,] 	 SYMBOL:	 ARGS:%cl_1_143,
+		 5: RETURN %cl_1_144[29.4,] %self[29.1,29.3,29.4,2.0,] 
+BB 30
+	outgoing: 32 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_145 
+		 1: def_%cl_1_146 %cl_1_145[30.0,] 
+		 2: RETURN %cl_1_146[30.1,] %self[2.0,] 
+BB 32
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 3: RETURN %v_31[7.2,] %self[7.2,2.0,2.8,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = edit instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RETURN %self[2.0,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = update instanceMethod = true
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 320
+		 6: %self->update_query_from_params def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: Line Number 321
+		 8: GETFIELD %self->query def_%v_4 %self[2.0,2.6,] 
+		 9: %v_4->save def_%v_5 %v_4[2.8,] 	 SYMBOL:	 ARGS:
+		 10: BRANCH %v_5[2.9,] 
+BB 3
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 322
+		 1: %self->flash def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->l def_%v_7 %self[3.1,2.0,] 	 SYMBOL:notice_successful_update,	 ARGS:Symbol,
+		 3: ATTRASSIGN %v_6->[] %v_7[3.2,] 
+		 4: Line Number 323
+		 5: GETFIELD %self->query def_%v_8 %self[3.1,3.2,2.0,] 
+		 6: HASH-query_id- def_%v_9 %v_8[3.5,] 
+		 7: %self->redirect_to_items def_%v_10 %self[3.1,3.2,2.0,] %v_9[3.6,] 	 SYMBOL:	 ARGS:%v_9,
+		 8: RETURN %v_10[3.7,] %self[3.1,3.2,3.7,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 325
+		 1: COPY TYPE_StringLiteral "edit" def_%v_11 
+		 2: HASH-action- def_%v_12 %v_11[4.1,] 
+		 3: %self->render def_%v_13 %self[2.0,] %v_12[4.2,] 	 SYMBOL:	 ARGS:%v_12,
+		 4: Line Number 326
+		 5: %self->l def_%v_14 %self[4.3,2.0,] 	 SYMBOL:label_query,	 ARGS:Symbol,
+		 6: Line Number 327
+		 7: GETFIELD %self->query def_%v_15 %self[4.3,4.5,2.0,] 
+		 8: %self->query_path def_%v_16 %self[4.3,4.5,2.0,] %v_15[4.7,] 	 SYMBOL:	 ARGS:%v_15,
+		 9: COPY TYPE_StringLiteral "query-form" def_%v_17 
+		 10: HASH-method-id- def_%v_18 %v_17[4.9,] 
+		 11: %self->form_tag def_%v_19 %self[4.3,4.5,4.8,2.0,] %v_16[4.8,] %v_18[4.10,] %self[4.3,4.5,4.8,2.0,] 	 SYMBOL:	 ARGS:%v_16,%v_18,%self,
+CLOSURE BEGIN: %self[4.3,4.5,4.8,2.0,] role[] c[] field[] i[] column[] 
+BB 1
+	outgoing: 32 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 30 
+	datadep: 
+	instructions:
+		 0: Line Number 328
+		 1: COPY TYPE_StringLiteral "form" def_%cl_1_3 
+		 2: GETFIELD %self->query def_%cl_1_4 %self[2.0,] 
+		 3: HASH-query- def_%cl_1_5 %cl_1_4[3.2,] 
+		 4: HASH-partial-locals- def_%cl_1_6 %cl_1_3[3.1,] %cl_1_5[3.3,] 
+		 5: %self->render def_%cl_1_7 %self[2.0,] %cl_1_6[3.4,] 	 SYMBOL:	 ARGS:%cl_1_6,
+		 6: Line Number 329
+		 7: COPY TYPE_StringLiteral "query" def_%cl_1_8 
+		 8: %self->error_messages_for def_%cl_1_9 %self[3.5,2.0,] %cl_1_8[3.7,] 	 SYMBOL:	 ARGS:%cl_1_8,
+		 9: Line Number 330
+		 10: %self->params def_%cl_1_10 %self[3.5,3.8,2.0,] 	 SYMBOL:	 ARGS:
+		 11: %cl_1_10->[] def_%cl_1_11 %cl_1_10[3.10,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 12: BRANCH %cl_1_11[3.11,] 
+BB 4
+	outgoing: 6 30 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "gantt" def_%cl_1_12 
+		 1: COPY TYPE_StringLiteral "1" def_%cl_1_13 
+		 2: %self->hidden_field_tag def_%cl_1_14 %self[2.0,] %cl_1_12[4.0,] %cl_1_13[4.1,] 	 SYMBOL:	 ARGS:%cl_1_12,%cl_1_13,
+		 3: 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_14 
+BB 6
+	outgoing: 7 8 30 
+	datadep: 
+	instructions:
+		 0: Line Number 331
+		 1: %self->l def_%cl_1_15 %self[2.0,] 	 SYMBOL:field_name,	 ARGS:Symbol,
+		 2: Line Number 332
+		 3: COPY TYPE_StringLiteral "query" def_%cl_1_16 
+		 4: COPY TYPE_StringLiteral "name" def_%cl_1_17 
+		 5: HASH-size- def_%cl_1_18 
+		 6: %self->text_field def_%cl_1_19 %self[6.1,2.0,] %cl_1_16[6.3,] %cl_1_17[6.4,] %cl_1_18[6.5,] 	 SYMBOL:	 ARGS:%cl_1_16,%cl_1_17,%cl_1_18,
+		 7: Line Number 333
+		 8: (User) def_%cl_1_20 
+		 9: %cl_1_20->current def_%cl_1_21 %cl_1_20[6.8,] 	 SYMBOL:	 ARGS:
+		 10: %cl_1_21->admin? def_%cl_1_22 %cl_1_21[6.9,] 	 SYMBOL:	 ARGS:
+		 11: BRANCH %cl_1_22[6.10,] 
+BB 7
+	outgoing: 8 30 
+	datadep: 
+	instructions:
+		 0: (User) def_%cl_1_23 
+		 1: %cl_1_23->current def_%cl_1_24 %cl_1_23[7.0,] 	 SYMBOL:	 ARGS:
+		 2: GETFIELD %self->query def_%cl_1_25 %self[2.0,] 
+		 3: %cl_1_25->project def_%cl_1_26 %cl_1_25[7.2,] 	 SYMBOL:	 ARGS:
+		 4: %cl_1_24->allowed_to? def_%cl_1_27 %cl_1_24[7.1,] %cl_1_26[7.3,] 	 SYMBOL:manage_public_queries,	 ARGS:Symbol,%cl_1_26,
+		 5: COPY TYPE_PASS def_%cl_1_22 %cl_1_27[7.4,] 
+BB 8
+	outgoing: 9 16 
+	datadep: 
+	instructions:
+		 0: BRANCH %cl_1_22[7.5,6.10,] 
+BB 9
+	outgoing: 10 11 30 
+	datadep: 
+	instructions:
+		 0: Line Number 334
+		 1: %self->l def_%cl_1_28 %self[2.0,] 	 SYMBOL:field_visible,	 ARGS:Symbol,
+		 2: Line Number 335
+		 3: COPY TYPE_StringLiteral "query" def_%cl_1_29 
+		 4: COPY TYPE_StringLiteral "visibility" def_%cl_1_30 
+		 5: (Query) def_%cl_1_31 
+		 6: (inherit VISIBILITY_PRIVATE) def_%cl_1_32 %cl_1_31[9.5,] 
+		 7: %cl_1_32[9.6,] 
+BB 10
+	outgoing: 11 30 
+	datadep: 
+	instructions:
+		 0: %cl_1_31->const_missing def_%cl_1_32 %cl_1_31[9.5,] 	 SYMBOL:VISIBILITY_PRIVATE,	 ARGS:Symbol,
+BB 11
+	outgoing: 12 13 30 
+	datadep: 
+	instructions:
+		 0: %self->radio_button def_%cl_1_33 %self[2.0,] %cl_1_29[9.3,] %cl_1_30[9.4,] %cl_1_32[10.0,9.6,] 	 SYMBOL:	 ARGS:%cl_1_29,%cl_1_30,%cl_1_32,
+		 1: Line Number 336
+		 2: %self->l def_%cl_1_34 %self[11.0,2.0,] 	 SYMBOL:label_visibility_private,	 ARGS:Symbol,
+		 3: Line Number 337
+		 4: COPY TYPE_StringLiteral "query" def_%cl_1_35 
+		 5: COPY TYPE_StringLiteral "visibility" def_%cl_1_36 
+		 6: (Query) def_%cl_1_37 
+		 7: (inherit VISIBILITY_PUBLIC) def_%cl_1_38 %cl_1_37[11.6,] 
+		 8: %cl_1_38[11.7,] 
+BB 12
+	outgoing: 13 30 
+	datadep: 
+	instructions:
+		 0: %cl_1_37->const_missing def_%cl_1_38 %cl_1_37[11.6,] 	 SYMBOL:VISIBILITY_PUBLIC,	 ARGS:Symbol,
+BB 13
+	outgoing: 14 15 30 
+	datadep: 
+	instructions:
+		 0: %self->radio_button def_%cl_1_39 %self[2.0,] %cl_1_35[11.4,] %cl_1_36[11.5,] %cl_1_38[12.0,11.7,] 	 SYMBOL:	 ARGS:%cl_1_35,%cl_1_36,%cl_1_38,
+		 1: Line Number 338
+		 2: %self->l def_%cl_1_40 %self[13.0,2.0,] 	 SYMBOL:label_visibility_public,	 ARGS:Symbol,
+		 3: Line Number 339
+		 4: COPY TYPE_StringLiteral "query" def_%cl_1_41 
+		 5: COPY TYPE_StringLiteral "visibility" def_%cl_1_42 
+		 6: (Query) def_%cl_1_43 
+		 7: (inherit VISIBILITY_ROLES) def_%cl_1_44 %cl_1_43[13.6,] 
+		 8: %cl_1_44[13.7,] 
+BB 14
+	outgoing: 15 30 
+	datadep: 
+	instructions:
+		 0: %cl_1_43->const_missing def_%cl_1_44 %cl_1_43[13.6,] 	 SYMBOL:VISIBILITY_ROLES,	 ARGS:Symbol,
+BB 15
+	outgoing: 17 30 
+	datadep: 
+	instructions:
+		 0: %self->radio_button def_%cl_1_45 %self[2.0,] %cl_1_41[13.4,] %cl_1_42[13.5,] %cl_1_44[14.0,13.7,] 	 SYMBOL:	 ARGS:%cl_1_41,%cl_1_42,%cl_1_44,
+		 1: Line Number 340
+		 2: %self->l def_%cl_1_46 %self[15.0,2.0,] 	 SYMBOL:label_visibility_roles,	 ARGS:Symbol,
+		 3: Line Number 341
+		 4: (Role) def_%cl_1_47 
+		 5: %cl_1_47->givable def_%cl_1_48 %cl_1_47[15.4,] 	 SYMBOL:	 ARGS:
+		 6: %cl_1_48->sorted def_%cl_1_49 %cl_1_48[15.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_1_49->each def_%cl_1_50 %cl_1_49[15.6,] %self[15.0,15.2,2.0,] 	 SYMBOL:	 ARGS:%cl_1_49,
+CLOSURE BEGIN: role[] %self[15.0,15.2,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: RECEIVEARG def_role 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 342
+		 1: COPY TYPE_StringLiteral "query[role_ids][]" def_%cl_2_3 
+		 2: role->id def_%cl_2_4 role[2.2,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->query def_%cl_2_5 %self[2.0,] 
+		 4: %cl_2_5->roles def_%cl_2_6 %cl_2_5[3.3,] 	 SYMBOL:	 ARGS:
+		 5: %cl_2_6->include? def_%cl_2_7 %cl_2_6[3.4,] role[3.2,2.2,] 	 SYMBOL:	 ARGS:role,
+		 6: HASH-id- def_%cl_2_8 
+		 7: %self->check_box_tag def_%cl_2_9 %self[2.0,] %cl_2_3[3.1,] %cl_2_4[3.2,] %cl_2_7[3.5,] %cl_2_8[3.6,] 	 SYMBOL:	 ARGS:%cl_2_3,%cl_2_4,%cl_2_7,%cl_2_8,
+		 8: Line Number 343
+		 9: role->name def_%cl_2_10 role[3.2,2.2,] 	 SYMBOL:	 ARGS:
+		 10: RETURN %cl_2_10[3.9,] %self[3.7,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_11 
+		 1: def_%cl_2_12 %cl_2_11[4.0,] 
+		 2: RETURN %cl_2_12[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 8: Line Number 345
+		 9: COPY TYPE_StringLiteral "query[role_ids][]" def_%cl_1_51 
+		 10: COPY TYPE_StringLiteral "" def_%cl_1_52 
+		 11: %self->hidden_field_tag def_%cl_1_53 %self[15.0,15.2,2.0,] %cl_1_51[15.9,] %cl_1_52[15.10,] 	 SYMBOL:	 ARGS:%cl_1_51,%cl_1_52,
+		 12: 
+BB 16
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_53 
+BB 17
+	outgoing: 18 19 30 
+	datadep: 
+	instructions:
+		 0: Line Number 347
+		 1: %self->l def_%cl_1_54 %self[2.0,] 	 SYMBOL:field_is_for_all,	 ARGS:Symbol,
+		 2: Line Number 348
+		 3: COPY TYPE_StringLiteral "query_is_for_all" def_%cl_1_55 
+		 4: GETFIELD %self->query def_%cl_1_56 %self[17.1,2.0,] 
+		 5: %cl_1_56->project def_%cl_1_57 %cl_1_56[17.4,] 	 SYMBOL:	 ARGS:
+		 6: %cl_1_57->nil? def_%cl_1_58 %cl_1_57[17.5,] 	 SYMBOL:	 ARGS:
+		 7: (User) def_%cl_1_59 
+		 8: %cl_1_59->current def_%cl_1_60 %cl_1_59[17.7,] 	 SYMBOL:	 ARGS:
+		 9: %cl_1_60->admin? def_%cl_1_61 %cl_1_60[17.8,] 	 SYMBOL:	 ARGS:
+		 10: BRANCH %cl_1_61[17.9,] 
+BB 18
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "" def_%cl_1_62 
+		 1: 
+BB 19
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "disable-unless-private" def_%cl_1_63 
+		 1: COPY TYPE_PASS def_%cl_1_62 %cl_1_63[19.0,] 
+BB 20
+	outgoing: 21 22 30 
+	datadep: 
+	instructions:
+		 0: HASH-class- def_%cl_1_64 %cl_1_62[19.1,18.0,] 
+		 1: %self->check_box_tag def_%cl_1_65 %self[2.0,] %cl_1_55[17.3,] %cl_1_58[17.6,] %cl_1_64[20.0,] 	 SYMBOL:	 ARGS:%cl_1_55,Fixnum,%cl_1_58,%cl_1_64,
+		 2: Line Number 349
+		 3: %self->params def_%cl_1_66 %self[20.1,2.0,] 	 SYMBOL:	 ARGS:
+		 4: %cl_1_66->[] def_%cl_1_67 %cl_1_66[20.3,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 5: BRANCH %cl_1_67[20.4,] 
+BB 21
+	outgoing: 23 30 
+	datadep: 
+	instructions:
+		 0: Line Number 361
+		 1: %self->l def_%cl_1_68 %self[2.0,] 	 SYMBOL:label_options,	 ARGS:Symbol,
+		 2: Line Number 362
+		 3: %self->l def_%cl_1_69 %self[21.1,2.0,] 	 SYMBOL:button_show,	 ARGS:Symbol,
+		 4: Line Number 363
+		 5: COPY TYPE_StringLiteral "query[draw_relations]" def_%cl_1_70 
+		 6: COPY TYPE_StringLiteral "1" def_%cl_1_71 
+		 7: GETFIELD %self->query def_%cl_1_72 %self[21.1,21.3,2.0,] 
+		 8: %cl_1_72->draw_relations def_%cl_1_73 %cl_1_72[21.7,] 	 SYMBOL:	 ARGS:
+		 9: %self->check_box_tag def_%cl_1_74 %self[21.1,21.3,2.0,] %cl_1_70[21.5,] %cl_1_71[21.6,] %cl_1_73[21.8,] 	 SYMBOL:	 ARGS:%cl_1_70,%cl_1_71,%cl_1_73,
+		 10: Line Number 364
+		 11: %self->l def_%cl_1_75 %self[21.1,21.3,21.9,2.0,] 	 SYMBOL:label_related_issues,	 ARGS:Symbol,
+		 12: Line Number 365
+		 13: COPY TYPE_StringLiteral "query[draw_progress_line]" def_%cl_1_76 
+		 14: COPY TYPE_StringLiteral "1" def_%cl_1_77 
+		 15: GETFIELD %self->query def_%cl_1_78 %self[21.1,21.3,21.9,21.11,2.0,] 
+		 16: %cl_1_78->draw_progress_line def_%cl_1_79 %cl_1_78[21.15,] 	 SYMBOL:	 ARGS:
+		 17: %self->check_box_tag def_%cl_1_80 %self[21.1,21.3,21.9,21.11,2.0,] %cl_1_76[21.13,] %cl_1_77[21.14,] %cl_1_79[21.16,] 	 SYMBOL:	 ARGS:%cl_1_76,%cl_1_77,%cl_1_79,
+		 18: Line Number 366
+		 19: %self->l def_%cl_1_81 %self[21.1,21.3,21.9,21.11,21.17,2.0,] 	 SYMBOL:label_gantt_progress_line,	 ARGS:Symbol,
+		 20: 
+BB 22
+	outgoing: 23 30 
+	datadep: 
+	instructions:
+		 0: Line Number 350
+		 1: %self->l def_%cl_1_82 %self[2.0,] 	 SYMBOL:label_options,	 ARGS:Symbol,
+		 2: Line Number 351
+		 3: %self->l def_%cl_1_83 %self[22.1,2.0,] 	 SYMBOL:label_default_columns,	 ARGS:Symbol,
+		 4: Line Number 352
+		 5: COPY TYPE_StringLiteral "default_columns" def_%cl_1_84 
+		 6: GETFIELD %self->query def_%cl_1_85 %self[22.1,22.3,2.0,] 
+		 7: %cl_1_85->has_default_columns? def_%cl_1_86 %cl_1_85[22.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_StringLiteral "query_default_columns" def_%cl_1_87 
+		 9: COPY TYPE_StringLiteral "#columns, .block_columns input" def_%cl_1_88 
+		 10: HASH-disables- def_%cl_1_89 %cl_1_88[22.9,] 
+		 11: HASH-id-data- def_%cl_1_90 %cl_1_87[22.8,] %cl_1_89[22.10,] 
+		 12: %self->check_box_tag def_%cl_1_91 %self[22.1,22.3,2.0,] %cl_1_84[22.5,] %cl_1_86[22.7,] %cl_1_90[22.11,] 	 SYMBOL:	 ARGS:%cl_1_84,Fixnum,%cl_1_86,%cl_1_90,
+		 13: Line Number 354
+		 14: %self->l def_%cl_1_92 %self[22.1,22.3,22.12,2.0,] 	 SYMBOL:field_group_by,	 ARGS:Symbol,
+		 15: Line Number 355
+		 16: COPY TYPE_StringLiteral "query" def_%cl_1_93 
+		 17: COPY TYPE_StringLiteral "group_by" def_%cl_1_94 
+		 18: GETFIELD %self->query def_%cl_1_95 %self[22.1,22.3,22.12,22.14,2.0,] 
+		 19: %cl_1_95->groupable_columns def_%cl_1_96 %cl_1_95[22.18,] 	 SYMBOL:	 ARGS:
+		 20: %cl_1_96->collect def_%cl_1_97 %cl_1_96[22.19,] %self[22.1,22.3,22.12,22.14,2.0,] 	 SYMBOL:	 ARGS:%cl_1_96,
+CLOSURE BEGIN: c[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_3_0 
+		 2: RECEIVEARG def_c 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 355
+		 1: c->caption def_%cl_3_3 c[2.2,] 	 SYMBOL:	 ARGS:
+		 2: c->name def_%cl_3_4 c[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 3: %cl_3_4->to_s def_%cl_3_5 %cl_3_4[3.2,] 	 SYMBOL:	 ARGS:
+		 4: COPY TYPE_Array def_%cl_3_6 %cl_3_3[3.1,] %cl_3_5[3.3,] 
+		 5: RETURN %cl_3_6[3.4,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_3_7 
+		 1: def_%cl_3_8 %cl_3_7[4.0,] 
+		 2: RETURN %cl_3_8[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 21: HASH-include_blank- def_%cl_1_98 
+		 22: %self->select def_%cl_1_99 %self[22.1,22.3,22.12,22.14,2.0,] %cl_1_93[22.16,] %cl_1_94[22.17,] %cl_1_97[22.20,] %cl_1_98[22.21,] 	 SYMBOL:	 ARGS:%cl_1_93,%cl_1_94,%cl_1_97,%cl_1_98,
+		 23: Line Number 356
+		 24: %self->l def_%cl_1_100 %self[22.1,22.3,22.12,22.14,22.22,2.0,] 	 SYMBOL:button_show,	 ARGS:Symbol,
+		 25: Line Number 357
+		 26: GETFIELD %self->query def_%cl_1_101 %self[22.1,22.3,22.12,22.14,22.22,22.24,2.0,] 
+		 27: %self->available_block_columns_tags def_%cl_1_102 %self[22.1,22.3,22.12,22.14,22.22,22.24,2.0,] %cl_1_101[22.26,] 	 SYMBOL:	 ARGS:%cl_1_101,
+		 28: Line Number 358
+		 29: %self->l def_%cl_1_103 %self[22.1,22.3,22.12,22.14,22.22,22.24,22.27,2.0,] 	 SYMBOL:label_total_plural,	 ARGS:Symbol,
+		 30: Line Number 359
+		 31: GETFIELD %self->query def_%cl_1_104 %self[22.1,22.3,22.12,22.14,22.22,22.24,22.27,22.29,2.0,] 
+		 32: %self->available_totalable_columns_tags def_%cl_1_105 %self[22.1,22.3,22.12,22.14,22.22,22.24,22.27,22.29,2.0,] %cl_1_104[22.31,] 	 SYMBOL:	 ARGS:%cl_1_104,
+		 33: COPY TYPE_PASS def_%cl_1_81 %cl_1_105[22.32,] 
+BB 23
+	outgoing: 24 25 30 
+	datadep: 
+	instructions:
+		 0: Line Number 368
+		 1: %self->l def_%cl_1_106 %self[2.0,] 	 SYMBOL:label_filter_plural,	 ARGS:Symbol,
+		 2: Line Number 369
+		 3: COPY TYPE_StringLiteral "queries/filters" def_%cl_1_107 
+		 4: %self->query def_%cl_1_108 %self[23.1,2.0,] 	 SYMBOL:	 ARGS:
+		 5: HASH-query- def_%cl_1_109 %cl_1_108[23.4,] 
+		 6: HASH-partial-locals- def_%cl_1_110 %cl_1_107[23.3,] %cl_1_109[23.5,] 
+		 7: %self->render def_%cl_1_111 %self[23.1,23.4,2.0,] %cl_1_110[23.6,] 	 SYMBOL:	 ARGS:%cl_1_110,
+		 8: Line Number 370
+		 9: %self->javascript_tag def_%cl_1_112 %self[23.1,23.4,23.7,2.0,] %self[23.1,23.4,23.7,2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: %self[23.1,23.4,23.7,2.0,] field[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_4_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 371
+		 1: (Query) def_%cl_4_3 
+		 2: %cl_4_3->operators_labels def_%cl_4_4 %cl_4_3[3.1,] 	 SYMBOL:	 ARGS:
+		 3: %self->raw_json def_%cl_4_5 %self[2.0,] %cl_4_4[3.2,] 	 SYMBOL:	 ARGS:%cl_4_4,
+		 4: Line Number 372
+		 5: (Query) def_%cl_4_6 
+		 6: %cl_4_6->operators_by_filter_type def_%cl_4_7 %cl_4_6[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %self->raw_json def_%cl_4_8 %self[3.3,2.0,] %cl_4_7[3.6,] 	 SYMBOL:	 ARGS:%cl_4_7,
+		 8: Line Number 373
+		 9: %self->query def_%cl_4_9 %self[3.3,3.7,2.0,] 	 SYMBOL:	 ARGS:
+		 10: %cl_4_9->available_filters_as_json def_%cl_4_10 %cl_4_9[3.9,] 	 SYMBOL:	 ARGS:
+		 11: %self->raw_json def_%cl_4_11 %self[3.3,3.7,3.9,2.0,] %cl_4_10[3.10,] 	 SYMBOL:	 ARGS:%cl_4_10,
+		 12: Line Number 374
+		 13: %self->l def_%cl_4_12 %self[3.3,3.7,3.9,3.11,2.0,] 	 SYMBOL:label_day_plural,	 ARGS:Symbol,
+		 14: %self->raw_json def_%cl_4_13 %self[3.3,3.7,3.9,3.11,3.13,2.0,] %cl_4_12[3.13,] 	 SYMBOL:	 ARGS:%cl_4_12,
+		 15: Line Number 375
+		 16: GETFIELD %self->query def_%cl_4_14 %self[3.3,3.7,3.9,3.11,3.13,3.14,2.0,] 
+		 17: %cl_4_14->project def_%cl_4_15 %cl_4_14[3.16,] 	 SYMBOL:	 ARGS:
+		 18: %cl_4_15->try def_%cl_4_16 %cl_4_15[3.17,] 	 SYMBOL:id,	 ARGS:Symbol,
+		 19: GETFIELD %self->query def_%cl_4_17 %self[3.3,3.7,3.9,3.11,3.13,3.14,2.0,] 
+		 20: %cl_4_17->type def_%cl_4_18 %cl_4_17[3.19,] 	 SYMBOL:	 ARGS:
+		 21: HASH-project_id-type- def_%cl_4_19 %cl_4_16[3.18,] %cl_4_18[3.20,] 
+		 22: %self->queries_filter_path def_%cl_4_20 %self[3.3,3.7,3.9,3.11,3.13,3.14,2.0,] %cl_4_19[3.21,] 	 SYMBOL:	 ARGS:%cl_4_19,
+		 23: %self->raw_json def_%cl_4_21 %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,2.0,] %cl_4_20[3.22,] 	 SYMBOL:	 ARGS:%cl_4_20,
+		 24: Line Number 376
+		 25: %self->query def_%cl_4_22 %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,3.23,2.0,] 	 SYMBOL:	 ARGS:
+		 26: %cl_4_22->filters def_%cl_4_23 %cl_4_22[3.25,] 	 SYMBOL:	 ARGS:
+		 27: %cl_4_23->each def_%cl_4_24 %cl_4_23[3.26,] %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,3.23,3.25,2.0,] 	 SYMBOL:	 ARGS:%cl_4_23,
+CLOSURE BEGIN: %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,3.23,3.25,2.0,] field[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_5_0 
+		 2: RECEIVEARG def_field 
+		 3: RECEIVEARG def_options 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 377
+		 1: Line Number 378
+		 2: %self->query def_%cl_5_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %cl_5_3->operator_for def_%cl_5_4 %cl_5_3[3.2,] field[2.2,] 	 SYMBOL:	 ARGS:field,
+		 4: %self->raw_json def_%cl_5_5 %self[3.2,2.0,] %cl_5_4[3.3,] 	 SYMBOL:	 ARGS:%cl_5_4,
+		 5: Line Number 379
+		 6: %self->query def_%cl_5_6 %self[3.2,3.4,2.0,] 	 SYMBOL:	 ARGS:
+		 7: %cl_5_6->values_for def_%cl_5_7 %cl_5_6[3.6,] field[2.2,] 	 SYMBOL:	 ARGS:field,
+		 8: %self->raw_json def_%cl_5_8 %self[3.2,3.4,3.6,2.0,] %cl_5_7[3.7,] 	 SYMBOL:	 ARGS:%cl_5_7,
+		 9: RETURN %cl_5_8[3.8,] %self[3.2,3.4,3.6,3.8,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_5_9 
+		 1: def_%cl_5_10 %cl_5_9[4.0,] 
+		 2: RETURN %cl_5_10[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: options[2.3,] 
+		 28: RETURN %cl_4_24[3.27,] %self[3.3,3.7,3.9,3.11,3.13,3.14,3.22,3.23,3.25,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_4_25 
+		 1: def_%cl_4_26 %cl_4_25[4.0,] 
+		 2: RETURN %cl_4_26[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 10: Line Number 382
+		 11: COPY TYPE_StringLiteral "add_filter_select" def_%cl_1_113 
+		 12: %self->l def_%cl_1_114 %self[23.1,23.4,23.7,23.9,2.0,] 	 SYMBOL:label_filter_add,	 ARGS:Symbol,
+		 13: %self->label_tag def_%cl_1_115 %self[23.1,23.4,23.7,23.9,23.12,2.0,] %cl_1_113[23.11,] %cl_1_114[23.12,] 	 SYMBOL:	 ARGS:%cl_1_113,%cl_1_114,
+		 14: Line Number 383
+		 15: COPY TYPE_StringLiteral "add_filter_select" def_%cl_1_116 
+		 16: %self->query def_%cl_1_117 %self[23.1,23.4,23.7,23.9,23.12,23.13,2.0,] 	 SYMBOL:	 ARGS:
+		 17: %self->filters_options_for_select def_%cl_1_118 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,2.0,] %cl_1_117[23.16,] 	 SYMBOL:	 ARGS:%cl_1_117,
+		 18: HASH-name- def_%cl_1_119 
+		 19: %self->select_tag def_%cl_1_120 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,23.17,2.0,] %cl_1_116[23.15,] %cl_1_118[23.17,] %cl_1_119[23.18,] 	 SYMBOL:	 ARGS:%cl_1_116,%cl_1_118,%cl_1_119,
+		 20: Line Number 384
+		 21: COPY TYPE_StringLiteral "f[]" def_%cl_1_121 
+		 22: COPY TYPE_StringLiteral "" def_%cl_1_122 
+		 23: %self->hidden_field_tag def_%cl_1_123 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,23.17,23.19,2.0,] %cl_1_121[23.21,] %cl_1_122[23.22,] 	 SYMBOL:	 ARGS:%cl_1_121,%cl_1_122,
+		 24: Line Number 385
+		 25: %self->include_calendar_headers_tags def_%cl_1_124 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,23.17,23.19,23.23,2.0,] 	 SYMBOL:	 ARGS:
+		 26: Line Number 386
+		 27: %self->params def_%cl_1_125 %self[23.1,23.4,23.7,23.9,23.12,23.13,23.16,23.17,23.19,23.23,23.25,2.0,] 	 SYMBOL:	 ARGS:
+		 28: %cl_1_125->[] def_%cl_1_126 %cl_1_125[23.27,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 29: BRANCH %cl_1_126[23.28,] 
+BB 24
+	outgoing: 26 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_127 
+		 1: 
+BB 25
+	outgoing: 26 30 
+	datadep: 
+	instructions:
+		 0: Line Number 387
+		 1: %self->l def_%cl_1_128 %self[2.0,] 	 SYMBOL:label_sort,	 ARGS:Symbol,
+		 2: Line Number 388
+		 3: CONSTANT def_%cl_1_129 %self[25.1,2.0,] 	 SYMBOL:	 ARGS:
+CLOSURE BEGIN: i[] %self[25.1,2.0,] column[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_6_0 
+		 2: RECEIVEARG def_i 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 389
+		 1: i->+ def_%cl_6_3 i[2.2,] 	 SYMBOL:	 ARGS:Fixnum,
+		 2: COPY TYPE_StringLiteral ":" def_%cl_6_4 
+		 3: BUILDSTRING def_%cl_6_5 %cl_6_3[3.1,] %cl_6_4[3.2,] 
+		 4: COPY TYPE_StringLiteral "query_sort_criteria_count" def_%cl_6_6 
+		 5: HASH-class- def_%cl_6_7 %cl_6_6[3.4,] 
+		 6: %self->content_tag def_%cl_6_8 %self[2.0,] %cl_6_5[3.3,] %cl_6_7[3.5,] 	 SYMBOL:span,	 ARGS:Symbol,%cl_6_5,%cl_6_7,
+		 7: Line Number 390
+		 8: COPY TYPE_StringLiteral "query_sort_criteria_attribute_" def_%cl_6_9 
+		 9: i->to_s def_%cl_6_10 i[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 10: %cl_6_9->+ def_%cl_6_11 %cl_6_9[3.8,] %cl_6_10[3.9,] 	 SYMBOL:	 ARGS:%cl_6_10,
+		 11: %self->l def_%cl_6_12 %self[3.6,2.0,] 	 SYMBOL:description_query_sort_criteria_attribute,	 ARGS:Symbol,
+		 12: COPY TYPE_StringLiteral "hidden-for-sighted" def_%cl_6_13 
+		 13: HASH-class- def_%cl_6_14 %cl_6_13[3.12,] 
+		 14: %self->label_tag def_%cl_6_15 %self[3.6,3.11,2.0,] %cl_6_11[3.10,] %cl_6_12[3.11,] %cl_6_14[3.13,] 	 SYMBOL:	 ARGS:%cl_6_11,%cl_6_12,%cl_6_14,
+		 15: Line Number 392
+		 16: COPY TYPE_StringLiteral "query[sort_criteria][" def_%cl_6_16 
+		 17: COPY TYPE_StringLiteral "][]" def_%cl_6_17 
+		 18: BUILDSTRING def_%cl_6_18 %cl_6_16[3.16,] i[3.1,3.9,2.2,] %cl_6_17[3.17,] 
+		 19: COPY TYPE_Array def_%cl_6_19 
+		 20: COPY TYPE_Array def_%cl_6_20 %cl_6_19[3.19,] 
+		 21: %self->query def_%cl_6_21 %self[3.6,3.11,3.14,2.0,] 	 SYMBOL:	 ARGS:
+		 22: %cl_6_21->available_columns def_%cl_6_22 %cl_6_21[3.21,] 	 SYMBOL:	 ARGS:
+		 23: %cl_6_22->select def_%cl_6_23 %cl_6_22[3.22,] 	 SYMBOL:sortable?,	 ARGS:
+		 24: %cl_6_23->collect def_%cl_6_24 %cl_6_23[3.23,] %self[3.6,3.11,3.14,3.21,2.0,] 	 SYMBOL:	 ARGS:%cl_6_23,
+CLOSURE BEGIN: column[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_7_0 
+		 2: RECEIVEARG def_column 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 393
+		 1: column->caption def_%cl_7_3 column[2.2,] 	 SYMBOL:	 ARGS:
+		 2: column->name def_%cl_7_4 column[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 3: %cl_7_4->to_s def_%cl_7_5 %cl_7_4[3.2,] 	 SYMBOL:	 ARGS:
+		 4: COPY TYPE_Array def_%cl_7_6 %cl_7_3[3.1,] %cl_7_5[3.3,] 
+		 5: RETURN %cl_7_6[3.4,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_7_7 
+		 1: def_%cl_7_8 %cl_7_7[4.0,] 
+		 2: RETURN %cl_7_8[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 25: %cl_6_20->+ def_%cl_6_25 %cl_6_20[3.20,] %cl_6_24[3.24,] 	 SYMBOL:	 ARGS:%cl_6_24,
+		 26: GETFIELD %self->query def_%cl_6_26 %self[3.6,3.11,3.14,3.21,2.0,] 
+		 27: %cl_6_26->sort_criteria_key def_%cl_6_27 %cl_6_26[3.26,] i[3.1,3.9,2.2,] 	 SYMBOL:	 ARGS:i,
+		 28: %self->options_for_select def_%cl_6_28 %self[3.6,3.11,3.14,3.21,2.0,] %cl_6_25[3.25,] %cl_6_27[3.27,] 	 SYMBOL:	 ARGS:%cl_6_25,%cl_6_27,
+		 29: COPY TYPE_StringLiteral "query_sort_criteria_attribute_" def_%cl_6_29 
+		 30: i->to_s def_%cl_6_30 i[3.1,3.9,2.2,] 	 SYMBOL:	 ARGS:
+		 31: %cl_6_29->+ def_%cl_6_31 %cl_6_29[3.29,] %cl_6_30[3.30,] 	 SYMBOL:	 ARGS:%cl_6_30,
+		 32: HASH-id- def_%cl_6_32 %cl_6_31[3.31,] 
+		 33: %self->select_tag def_%cl_6_33 %self[3.6,3.11,3.14,3.21,3.28,2.0,] %cl_6_18[3.18,] %cl_6_28[3.28,] %cl_6_32[3.32,] 	 SYMBOL:	 ARGS:%cl_6_18,%cl_6_28,%cl_6_32,
+		 34: Line Number 395
+		 35: COPY TYPE_StringLiteral "query_sort_criteria_direction_" def_%cl_6_34 
+		 36: i->to_s def_%cl_6_35 i[3.1,3.9,3.30,2.2,] 	 SYMBOL:	 ARGS:
+		 37: %cl_6_34->+ def_%cl_6_36 %cl_6_34[3.35,] %cl_6_35[3.36,] 	 SYMBOL:	 ARGS:%cl_6_35,
+		 38: %self->l def_%cl_6_37 %self[3.6,3.11,3.14,3.21,3.28,3.33,2.0,] 	 SYMBOL:description_query_sort_criteria_direction,	 ARGS:Symbol,
+		 39: COPY TYPE_StringLiteral "hidden-for-sighted" def_%cl_6_38 
+		 40: HASH-class- def_%cl_6_39 %cl_6_38[3.39,] 
+		 41: %self->label_tag def_%cl_6_40 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,2.0,] %cl_6_36[3.37,] %cl_6_37[3.38,] %cl_6_39[3.40,] 	 SYMBOL:	 ARGS:%cl_6_36,%cl_6_37,%cl_6_39,
+		 42: Line Number 397
+		 43: COPY TYPE_StringLiteral "query[sort_criteria][" def_%cl_6_41 
+		 44: COPY TYPE_StringLiteral "][]" def_%cl_6_42 
+		 45: BUILDSTRING def_%cl_6_43 %cl_6_41[3.43,] i[3.1,3.9,3.30,3.36,2.2,] %cl_6_42[3.44,] 
+		 46: COPY TYPE_Array def_%cl_6_44 
+		 47: %self->l def_%cl_6_45 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,2.0,] 	 SYMBOL:label_ascending,	 ARGS:Symbol,
+		 48: COPY TYPE_StringLiteral "asc" def_%cl_6_46 
+		 49: COPY TYPE_Array def_%cl_6_47 %cl_6_45[3.47,] %cl_6_46[3.48,] 
+		 50: %self->l def_%cl_6_48 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,2.0,] 	 SYMBOL:label_descending,	 ARGS:Symbol,
+		 51: COPY TYPE_StringLiteral "desc" def_%cl_6_49 
+		 52: COPY TYPE_Array def_%cl_6_50 %cl_6_48[3.50,] %cl_6_49[3.51,] 
+		 53: COPY TYPE_Array def_%cl_6_51 %cl_6_44[3.46,] %cl_6_47[3.49,] %cl_6_50[3.52,] 
+		 54: GETFIELD %self->query def_%cl_6_52 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,3.50,2.0,] 
+		 55: %cl_6_52->sort_criteria_order def_%cl_6_53 %cl_6_52[3.54,] i[3.1,3.9,3.30,3.36,2.2,] 	 SYMBOL:	 ARGS:i,
+		 56: %self->options_for_select def_%cl_6_54 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,3.50,2.0,] %cl_6_51[3.53,] %cl_6_53[3.55,] 	 SYMBOL:	 ARGS:%cl_6_51,%cl_6_53,
+		 57: COPY TYPE_StringLiteral "query_sort_criteria_direction_" def_%cl_6_55 
+		 58: i->to_s def_%cl_6_56 i[3.1,3.9,3.30,3.36,2.2,] 	 SYMBOL:	 ARGS:
+		 59: %cl_6_55->+ def_%cl_6_57 %cl_6_55[3.57,] %cl_6_56[3.58,] 	 SYMBOL:	 ARGS:%cl_6_56,
+		 60: HASH-id- def_%cl_6_58 %cl_6_57[3.59,] 
+		 61: %self->select_tag def_%cl_6_59 %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,3.50,3.56,2.0,] %cl_6_43[3.45,] %cl_6_54[3.56,] %cl_6_58[3.60,] 	 SYMBOL:	 ARGS:%cl_6_43,%cl_6_54,%cl_6_58,
+		 62: RETURN %cl_6_59[3.61,] %self[3.6,3.11,3.14,3.21,3.28,3.33,3.38,3.41,3.47,3.50,3.56,3.61,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_6_60 
+		 1: def_%cl_6_61 %cl_6_60[4.0,] 
+		 2: RETURN %cl_6_61[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 4: COPY TYPE_PASS def_%cl_1_127 %cl_1_129[25.3,] 
+BB 26
+	outgoing: 27 28 30 
+	datadep: 
+	instructions:
+		 0: Line Number 402
+		 1: %self->params def_%cl_1_130 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_130->[] def_%cl_1_131 %cl_1_130[26.1,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 3: BRANCH %cl_1_131[26.2,] 
+BB 27
+	outgoing: 29 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_132 
+		 1: 
+BB 28
+	outgoing: 29 30 
+	datadep: 
+	instructions:
+		 0: Line Number 403
+		 1: COPY TYPE_StringLiteral "fieldset" def_%cl_1_133 
+		 2: COPY TYPE_StringLiteral "columns" def_%cl_1_134 
+		 3: HASH-id- def_%cl_1_135 %cl_1_134[28.2,] 
+		 4: %self->content_tag def_%cl_1_136 %self[2.0,] %cl_1_133[28.1,] %cl_1_135[28.3,] %self[2.0,] 	 SYMBOL:	 ARGS:%cl_1_133,%cl_1_135,%self,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_8_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 404
+		 1: %self->l def_%cl_8_3 %self[2.0,] 	 SYMBOL:field_column_names,	 ARGS:Symbol,
+		 2: Line Number 405
+		 3: %self->query def_%cl_8_4 %self[3.1,2.0,] 	 SYMBOL:	 ARGS:
+		 4: %self->render_query_columns_selection def_%cl_8_5 %self[3.1,3.3,2.0,] %cl_8_4[3.3,] 	 SYMBOL:	 ARGS:%cl_8_4,
+		 5: RETURN %cl_8_5[3.4,] %self[3.1,3.3,3.4,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_8_6 
+		 1: def_%cl_8_7 %cl_8_6[4.0,] 
+		 2: RETURN %cl_8_7[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 5: COPY TYPE_PASS def_%cl_1_132 %cl_1_136[28.4,] 
+BB 29
+	outgoing: 30 32 
+	datadep: 
+	instructions:
+		 0: Line Number 408
+		 1: %self->javascript_tag def_%cl_1_137 %self[2.0,] %self[2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_9_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: RETURN %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 410
+		 3: %self->l def_%cl_1_138 %self[29.1,2.0,] 	 SYMBOL:button_save,	 ARGS:Symbol,
+		 4: %self->submit_tag def_%cl_1_139 %self[29.1,29.3,2.0,] %cl_1_138[29.3,] 	 SYMBOL:	 ARGS:%cl_1_138,
+		 5: RETURN %cl_1_139[29.4,] %self[29.1,29.3,29.4,2.0,] 
+BB 30
+	outgoing: 32 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_140 
+		 1: def_%cl_1_141 %cl_1_140[30.0,] 
+		 2: RETURN %cl_1_141[30.1,] %self[2.0,] 
+BB 32
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 12: RETURN %v_19[4.11,] %self[4.3,4.5,4.8,4.11,2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = destroy instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 415
+		 6: GETFIELD %self->query def_%v_3 %self[2.0,] 
+		 7: %v_3->destroy def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: Line Number 416
+		 9: HASH-set_filter- def_%v_5 
+		 10: %self->redirect_to_items def_%v_6 %self[2.0,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: RETURN %v_6[2.10,] %self[2.0,2.10,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = filter instanceMethod = true
+BB 1
+	outgoing: 23 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: GLOBALVAR $! def_%v_3 
+BB 4
+	outgoing: 5 6 15 
+	datadep: 
+	instructions:
+		 0: 
+		 1: Line Number 419
+		 2: %self->query_class def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_6->new def_%v_7 %v_6[4.2,] 	 SYMBOL:	 ARGS:
+		 4: COPY TYPE_PASS def_q %v_7[4.3,] 
+		 5: Line Number 420
+		 6: %self->params def_%v_8 %self[4.2,2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_8->[] def_%v_9 %v_8[4.6,] 	 SYMBOL:project_id,	 ARGS:Symbol,
+		 8: %v_9->present? def_%v_10 %v_9[4.7,] 	 SYMBOL:	 ARGS:
+		 9: BRANCH %v_10[4.8,] 
+BB 5
+	outgoing: 7 15 
+	datadep: 
+	instructions:
+		 0: Line Number 421
+		 1: (Project) def_%v_11 
+		 2: %self->params def_%v_12 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_12->[] def_%v_13 %v_12[5.2,] 	 SYMBOL:project_id,	 ARGS:Symbol,
+		 4: %v_11->find def_%v_14 %v_11[5.1,] %v_13[5.3,] 	 SYMBOL:	 ARGS:%v_13,
+		 5: ATTRASSIGN q->project %v_14[5.4,] 
+		 6: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_14 
+BB 7
+	outgoing: 8 9 15 
+	datadep: 
+	instructions:
+		 0: Line Number 423
+		 1: (User) def_%v_15 
+		 2: %v_15->current def_%v_16 %v_15[7.1,] 	 SYMBOL:	 ARGS:
+		 3: q->class def_%v_17 q[5.5,4.4,] 	 SYMBOL:	 ARGS:
+		 4: %v_17->view_permission def_%v_18 %v_17[7.3,] 	 SYMBOL:	 ARGS:
+		 5: q->project def_%v_19 q[7.3,5.5,4.4,] 	 SYMBOL:	 ARGS:
+		 6: HASH-global- def_%v_20 
+		 7: %v_16->allowed_to? def_%v_21 %v_16[7.2,] %v_18[7.4,] %v_19[7.5,] %v_20[7.6,] 	 SYMBOL:	 ARGS:%v_18,%v_19,%v_20,
+		 8: BRANCH %v_21[7.7,] 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_22 
+		 1: 
+BB 9
+	outgoing: 10 15 
+	datadep: 
+	instructions:
+		 0: Line Number 424
+		 1: (Unauthorized) def_%v_23 
+		 2: %self->raise def_%v_24 %self[2.0,] %v_23[9.1,] 	 SYMBOL:	 ARGS:%v_23,
+		 3: COPY TYPE_PASS def_%v_22 %v_24[9.2,] 
+BB 10
+	outgoing: 11 12 15 
+	datadep: 
+	instructions:
+		 0: Line Number 426
+		 1: q->available_filters def_%v_25 q[5.5,4.4,] 	 SYMBOL:	 ARGS:
+		 2: %self->params def_%v_26 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_26->[] def_%v_27 %v_26[10.2,] 	 SYMBOL:name,	 ARGS:Symbol,
+		 4: %v_27->to_s def_%v_28 %v_27[10.3,] 	 SYMBOL:	 ARGS:
+		 5: %v_25->[] def_%v_29 %v_25[10.1,] %v_28[10.4,] 	 SYMBOL:	 ARGS:%v_28,
+		 6: COPY TYPE_PASS def_filter %v_29[10.5,] 
+		 7: Line Number 427
+		 8: BRANCH %v_29[10.5,] 
+BB 11
+	outgoing: 13 15 
+	datadep: 
+	instructions:
+		 0: filter->values def_%v_30 filter[10.6,] 	 SYMBOL:	 ARGS:
+		 1: 
+BB 12
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Array def_%v_31 
+		 1: COPY TYPE_PASS def_%v_30 %v_31[12.0,] 
+BB 13
+	outgoing: 14 15 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_values %v_30[12.1,11.0,] 
+		 1: Line Number 428
+		 2: HASH-json- def_%v_32 %v_30[12.1,11.0,] 
+		 3: %self->render def_%v_33 %self[2.0,] %v_32[13.2,] 	 SYMBOL:	 ARGS:%v_32,
+		 4: COPY TYPE_PASS def_%v_5 %v_33[13.3,] 
+		 5: %v_3[2.5,] 
+BB 14
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: 
+BB 15
+	outgoing: 16 17 21 
+	datadep: 
+	instructions:
+		 0: def_%v_34 
+		 1: (ActiveRecord) def_%v_35 
+		 2: (inherit RecordNotFound) def_%v_36 %v_35[15.1,] 
+		 3: %v_36[15.2,] 
+BB 16
+	outgoing: 17 21 
+	datadep: 
+	instructions:
+		 0: %v_35->const_missing def_%v_36 %v_35[15.1,] 	 SYMBOL:RecordNotFound,	 ARGS:Symbol,
+BB 17
+	outgoing: 18 19 21 
+	datadep: 
+	instructions:
+		 0: def_%v_37 %v_36[16.0,15.2,] %v_34[15.0,] 
+		 1: BRANCH %v_37[17.0,] 
+BB 18
+	outgoing: 21 23 
+	datadep: 
+	instructions:
+		 0: %v_34[15.0,] 
+BB 19
+	outgoing: 20 21 
+	datadep: 
+	instructions:
+		 0: Line Number 430
+		 1: %self->render_404 def_%v_38 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_5 %v_38[19.1,] 
+		 3: %v_3[2.5,] 
+BB 20
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: 
+BB 21
+	outgoing: 23 
+	datadep: 
+	instructions:
+		 0: def_%v_39 
+		 1: def_%v_40 %v_39[21.0,] %v_3[2.5,] 
+		 2: %v_39[21.0,] 
+BB 22
+	outgoing: 23 
+	datadep: 
+	instructions:
+		 0: RETURN %v_5[13.4,19.2,] %self[2.0,] 
+BB 23
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = find_query instanceMethod = true
+BB 1
+	outgoing: 17 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: GLOBALVAR $! def_%v_3 
+BB 4
+	outgoing: 5 6 9 
+	datadep: 
+	instructions:
+		 0: 
+		 1: Line Number 434
+		 2: (Query) def_%v_6 
+		 3: %self->params def_%v_7 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 4: %v_7->[] def_%v_8 %v_7[4.3,] 	 SYMBOL:id,	 ARGS:Symbol,
+		 5: %v_6->find def_%v_9 %v_6[4.2,] %v_8[4.4,] 	 SYMBOL:	 ARGS:%v_8,
+		 6: ATTRASSIGN %self->query %v_9[4.5,] 
+		 7: Line Number 435
+		 8: GETFIELD %self->query def_%v_10 %self[4.3,4.6,2.0,] 
+		 9: %v_10->project def_%v_11 %v_10[4.8,] 	 SYMBOL:	 ARGS:
+		 10: ATTRASSIGN %self->project %v_11[4.9,] 
+		 11: Line Number 436
+		 12: GETFIELD %self->query def_%v_12 %self[4.3,4.6,2.0,] 
+		 13: (User) def_%v_13 
+		 14: %v_13->current def_%v_14 %v_13[4.13,] 	 SYMBOL:	 ARGS:
+		 15: %v_12->editable_by? def_%v_15 %v_12[4.12,] %v_14[4.14,] 	 SYMBOL:	 ARGS:%v_14,
+		 16: BRANCH %v_15[4.15,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_16 
+		 1: 
+BB 6
+	outgoing: 7 9 
+	datadep: 
+	instructions:
+		 0: %self->render_403 def_%v_17 %self[4.6,4.10,2.0,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_16 %v_17[6.0,] 
+BB 7
+	outgoing: 8 9 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_%v_5 %v_16[6.1,5.0,] 
+		 1: %v_3[2.5,] 
+BB 8
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: 
+BB 9
+	outgoing: 10 11 15 
+	datadep: 
+	instructions:
+		 0: def_%v_18 
+		 1: (ActiveRecord) def_%v_19 
+		 2: (inherit RecordNotFound) def_%v_20 %v_19[9.1,] 
+		 3: %v_20[9.2,] 
+BB 10
+	outgoing: 11 15 
+	datadep: 
+	instructions:
+		 0: %v_19->const_missing def_%v_20 %v_19[9.1,] 	 SYMBOL:RecordNotFound,	 ARGS:Symbol,
+BB 11
+	outgoing: 12 13 15 
+	datadep: 
+	instructions:
+		 0: def_%v_21 %v_20[10.0,9.2,] %v_18[9.0,] 
+		 1: BRANCH %v_21[11.0,] 
+BB 12
+	outgoing: 15 17 
+	datadep: 
+	instructions:
+		 0: %v_18[9.0,] 
+BB 13
+	outgoing: 14 15 
+	datadep: 
+	instructions:
+		 0: Line Number 438
+		 1: %self->render_404 def_%v_22 %self[4.6,4.10,2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_5 %v_22[13.1,] 
+		 3: %v_3[2.5,] 
+BB 14
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: 
+BB 15
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: def_%v_23 
+		 1: def_%v_24 %v_23[15.0,] %v_3[2.5,] 
+		 2: %v_23[15.0,] 
+BB 16
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: RETURN %v_5[7.0,13.2,] %self[4.6,4.10,2.0,] 
+BB 17
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = update_query_from_params instanceMethod = true
+BB 1
+	outgoing: 28 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 441
+		 6: GETFIELD %self->query def_%v_3 %self[2.0,] 
+		 7: %self->params def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->[] def_%v_5 %v_4[2.7,] 	 SYMBOL:query_is_for_all,	 ARGS:Symbol,
+		 9: BRANCH %v_5[2.8,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_6 
+		 1: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_7 %self[2.0,] 
+		 1: COPY TYPE_PASS def_%v_6 %v_7[4.0,] 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %v_3->project %v_6[4.1,3.0,] 
+		 1: Line Number 442
+		 2: GETFIELD %self->query def_%v_8 %self[2.0,] 
+		 3: %self->params def_%v_9 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 4: %v_8->build_from_params def_%v_10 %v_8[5.2,] %v_9[5.3,] 	 SYMBOL:	 ARGS:%v_9,
+		 5: Line Number 443
+		 6: %self->params def_%v_11 %self[5.3,2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_11->[] def_%v_12 %v_11[5.6,] 	 SYMBOL:default_columns,	 ARGS:Symbol,
+		 8: BRANCH %v_12[5.7,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->query def_%v_13 %self[2.0,] 
+		 1: ATTRASSIGN %v_13->column_names 
+		 2: COPY TYPE_Nil def_%v_14 
+		 3: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_14 
+BB 8
+	outgoing: 9 10 
+	datadep: 
+	instructions:
+		 0: Line Number 444
+		 1: GETFIELD %self->query def_%v_15 %self[2.0,] 
+		 2: %self->params def_%v_16 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_16->[] def_%v_17 %v_16[8.2,] 	 SYMBOL:query,	 ARGS:Symbol,
+		 4: BRANCH %v_17[8.3,] 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: %self->params def_%v_18 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_18->[] def_%v_19 %v_18[9.0,] 	 SYMBOL:query,	 ARGS:Symbol,
+		 2: %v_19->[] def_%v_20 %v_19[9.1,] 	 SYMBOL:sort_criteria,	 ARGS:Symbol,
+		 3: COPY TYPE_PASS def_%v_17 %v_20[9.2,] 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %v_15->sort_criteria %v_17[9.3,8.3,] 
+		 1: Line Number 445
+		 2: GETFIELD %self->query def_%v_21 %self[2.0,] 
+		 3: %self->params def_%v_22 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 4: %v_22->[] def_%v_23 %v_22[10.3,] 	 SYMBOL:query,	 ARGS:Symbol,
+		 5: BRANCH %v_23[10.4,] 
+BB 11
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: %self->params def_%v_24 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_24->[] def_%v_25 %v_24[11.0,] 	 SYMBOL:query,	 ARGS:Symbol,
+		 2: %v_25->[] def_%v_26 %v_25[11.1,] 	 SYMBOL:name,	 ARGS:Symbol,
+		 3: COPY TYPE_PASS def_%v_23 %v_26[11.2,] 
+BB 12
+	outgoing: 13 14 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %v_21->name %v_23[11.3,10.4,] 
+		 1: Line Number 446
+		 2: (User) def_%v_27 
+		 3: %v_27->current def_%v_28 %v_27[12.2,] 	 SYMBOL:	 ARGS:
+		 4: GETFIELD %self->query def_%v_29 %self[2.0,] 
+		 5: %v_29->project def_%v_30 %v_29[12.4,] 	 SYMBOL:	 ARGS:
+		 6: %v_28->allowed_to? def_%v_31 %v_28[12.3,] %v_30[12.5,] 	 SYMBOL:manage_public_queries,	 ARGS:Symbol,%v_30,
+		 7: BRANCH %v_31[12.6,] 
+BB 13
+	outgoing: 14 
+	datadep: 
+	instructions:
+		 0: (User) def_%v_32 
+		 1: %v_32->current def_%v_33 %v_32[13.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_33->admin? def_%v_34 %v_33[13.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_PASS def_%v_31 %v_34[13.2,] 
+BB 14
+	outgoing: 15 24 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_31[13.3,12.6,] 
+BB 15
+	outgoing: 16 17 
+	datadep: 
+	instructions:
+		 0: Line Number 447
+		 1: GETFIELD %self->query def_%v_35 %self[2.0,] 
+		 2: %self->params def_%v_36 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_36->[] def_%v_37 %v_36[15.2,] 	 SYMBOL:query,	 ARGS:Symbol,
+		 4: BRANCH %v_37[15.3,] 
+BB 16
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: %self->params def_%v_38 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_38->[] def_%v_39 %v_38[16.0,] 	 SYMBOL:query,	 ARGS:Symbol,
+		 2: %v_39->[] def_%v_40 %v_39[16.1,] 	 SYMBOL:visibility,	 ARGS:Symbol,
+		 3: COPY TYPE_PASS def_%v_37 %v_40[16.2,] 
+BB 17
+	outgoing: 18 21 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_37[16.3,15.3,] 
+BB 18
+	outgoing: 19 20 
+	datadep: 
+	instructions:
+		 0: (Query) def_%v_41 
+		 1: (inherit VISIBILITY_PRIVATE) def_%v_42 %v_41[18.0,] 
+		 2: %v_42[18.1,] 
+BB 19
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: %v_41->const_missing def_%v_42 %v_41[18.0,] 	 SYMBOL:VISIBILITY_PRIVATE,	 ARGS:Symbol,
+BB 20
+	outgoing: 21 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_%v_37 %v_42[19.0,18.1,] 
+BB 21
+	outgoing: 22 23 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %v_35->visibility %v_37[20.0,16.3,15.3,] 
+		 1: Line Number 448
+		 2: GETFIELD %self->query def_%v_43 %self[2.0,] 
+		 3: %self->params def_%v_44 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 4: %v_44->[] def_%v_45 %v_44[21.3,] 	 SYMBOL:query,	 ARGS:Symbol,
+		 5: BRANCH %v_45[21.4,] 
+BB 22
+	outgoing: 23 
+	datadep: 
+	instructions:
+		 0: %self->params def_%v_46 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_46->[] def_%v_47 %v_46[22.0,] 	 SYMBOL:query,	 ARGS:Symbol,
+		 2: %v_47->[] def_%v_48 %v_47[22.1,] 	 SYMBOL:role_ids,	 ARGS:Symbol,
+		 3: COPY TYPE_PASS def_%v_45 %v_48[22.2,] 
+BB 23
+	outgoing: 27 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %v_43->role_ids %v_45[22.3,21.4,] 
+		 1: 
+BB 24
+	outgoing: 25 26 
+	datadep: 
+	instructions:
+		 0: Line Number 450
+		 1: GETFIELD %self->query def_%v_49 %self[2.0,] 
+		 2: (Query) def_%v_50 
+		 3: (inherit VISIBILITY_PRIVATE) def_%v_51 %v_50[24.2,] 
+		 4: %v_51[24.3,] 
+BB 25
+	outgoing: 26 
+	datadep: 
+	instructions:
+		 0: %v_50->const_missing def_%v_51 %v_50[24.2,] 	 SYMBOL:VISIBILITY_PRIVATE,	 ARGS:Symbol,
+BB 26
+	outgoing: 27 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %v_49->visibility %v_51[25.0,24.3,] 
+		 1: COPY TYPE_PASS def_%v_45 %v_51[25.0,24.3,] 
+BB 27
+	outgoing: 28 
+	datadep: 
+	instructions:
+		 0: Line Number 453
+		 1: GETFIELD %self->query def_%v_52 %self[2.0,] 
+		 2: RETURN %v_52[27.1,] %self[2.0,] 
+BB 28
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = redirect_to_items instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_options 
+		 6: Line Number 455
+		 7: COPY TYPE_StringLiteral "redirect_to_" def_%v_3 
+		 8: GETFIELD %self->query def_%v_4 %self[2.0,] 
+		 9: %v_4->class def_%v_5 %v_4[2.8,] 	 SYMBOL:	 ARGS:
+		 10: %v_5->name def_%v_6 %v_5[2.9,] 	 SYMBOL:	 ARGS:
+		 11: %v_6->underscore def_%v_7 %v_6[2.10,] 	 SYMBOL:	 ARGS:
+		 12: BUILDSTRING def_%v_8 %v_3[2.7,] %v_7[2.11,] 
+		 13: COPY TYPE_PASS def_method %v_8[2.12,] 
+		 14: Line Number 456
+		 15: %self->send def_%v_9 %self[2.0,] %v_8[2.12,] options[2.5,] 	 SYMBOL:	 ARGS:method,options,
+		 16: RETURN %v_9[2.15,] %self[2.0,2.15,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = redirect_to_issue_query instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 7 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_options 
+		 6: Line Number 459
+		 7: %self->params def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 8: %v_3->[] def_%v_4 %v_3[2.7,] 	 SYMBOL:gantt,	 ARGS:Symbol,
+		 9: BRANCH %v_4[2.8,] 
+BB 3
+	outgoing: 4 5 
+	datadep: 
+	instructions:
+		 0: Line Number 460
+		 1: Line Number 461
+		 2: GETFIELD %self->project def_%v_5 %self[2.0,] 
+		 3: BRANCH %v_5[3.2,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_6 %self[2.0,] 
+		 1: %self->project_gantt_path def_%v_7 %self[2.0,] %v_6[4.0,] options[2.5,] 	 SYMBOL:	 ARGS:%v_6,options,
+		 2: %self->redirect_to def_%v_8 %self[4.1,2.0,] %v_7[4.1,] 	 SYMBOL:	 ARGS:%v_7,
+		 3: 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 463
+		 1: %self->issues_gantt_path def_%v_9 %self[2.0,] options[2.5,] 	 SYMBOL:	 ARGS:options,
+		 2: %self->redirect_to def_%v_10 %self[5.1,2.0,] %v_9[5.1,] 	 SYMBOL:	 ARGS:%v_9,
+		 3: COPY TYPE_PASS def_%v_8 %v_10[5.2,] 
+BB 6
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: RETURN %v_8[5.3,4.2,] %self[2.0,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 466
+		 1: GETFIELD %self->project def_%v_11 %self[2.0,] 
+		 2: %self->_project_issues_path def_%v_12 %self[2.0,] %v_11[7.1,] options[2.5,] 	 SYMBOL:	 ARGS:%v_11,options,
+		 3: %self->redirect_to def_%v_13 %self[7.2,2.0,] %v_12[7.2,] 	 SYMBOL:	 ARGS:%v_12,
+		 4: RETURN %v_13[7.3,] %self[7.2,7.3,2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = redirect_to_time_entry_query instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_options 
+		 6: Line Number 470
+		 7: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 8: %self->_time_entries_path def_%v_4 %self[2.0,] %v_3[2.7,] options[2.5,] 	 SYMBOL:	 ARGS:%v_3,Nil,options,
+		 9: %self->redirect_to def_%v_5 %self[2.0,2.8,] %v_4[2.8,] 	 SYMBOL:	 ARGS:%v_4,
+		 10: RETURN %v_5[2.9,] %self[2.0,2.8,2.9,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = query_class instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 473
+		 6: (Query) def_%v_3 
+		 7: %self->params def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->[] def_%v_5 %v_4[2.7,] 	 SYMBOL:type,	 ARGS:Symbol,
+		 9: BRANCH %v_5[2.8,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "IssueQuery" def_%v_6 
+		 1: COPY TYPE_PASS def_%v_5 %v_6[3.0,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %v_3->get_subclass def_%v_7 %v_3[2.6,] %v_5[3.1,2.8,] 	 SYMBOL:	 ARGS:%v_5,
+		 1: RETURN %v_7[4.0,] %self[2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+

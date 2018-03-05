@@ -1,0 +1,178 @@
+<% content_for :form_scripts do %>
+<script type="text/javascript" charset="utf-8">
+jQuery(document).ready(function(){
+
+  // Date observed
+  $("#observation_observed_on").datepicker({
+    dateFormat: "yy-mm-dd",
+    firstDay: 1, // week starts on Monday
+    maxDate: 0
+  });
+
+  var select = $( "#observation_quality_rating" );
+  var slider = jQuery( "<div id='slider'></div>" ).insertAfter( select ).slider({
+    min: 1,
+    max: 6,
+    range: "min",
+    value: select[ 0 ].selectedIndex + 1,
+    slide: function( event, ui ) {
+      select[ 0 ].selectedIndex = ui.value - 1;
+    }
+  });
+  $( "#observation_quality_rating" ).change(function() {
+    slider.slider( "value", this.selectedIndex + 1 );
+  });
+  select.hide();
+
+  var select2 = $( "#observation_yield_rating" );
+  var slider2 = jQuery( "<div id='slider'></div>" ).insertAfter( select2 ).slider({
+    min: 1,
+    max: 6,
+    range: "min",
+    value: select2[ 0 ].selectedIndex + 1,
+    slide: function( event, ui ) {
+      select2[ 0 ].selectedIndex = ui.value - 1;
+    }
+  });
+  $( "#observation_yield_rating" ).change(function() {
+    slider2.slider( "value", this.selectedIndex + 1 );
+  });
+  select2.hide();
+});
+
+  var select3 = $( "#observation_fruiting" );
+  var slider3 = jQuery( "<div id='slider'></div>" ).insertAfter( select3 ).slider({
+    min: 1,
+    max: 4,
+    range: "min",
+    value: select3[ 0 ].selectedIndex + 1,
+    slide: function( event, ui ) {
+      select3[ 0 ].selectedIndex = ui.value - 1;
+    }
+  });
+  $( "#observation_fruiting" ).change(function() {
+    slider3.slider( "value", this.selectedIndex + 1 );
+  });
+  select3.hide();
+
+</script>
+<% end %>
+
+<!-- Source Form -->
+<%= form_for(@obs,:html => {:id=>"editsource"}) do |f| %>
+
+  <!-- Errors -->
+  <% if @obs.errors.any? %>
+    <div id="error_explanation">
+      <strong><%= translate("locations.form.form_error") %>:</strong>
+        <ul>
+      <% @obs.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :location_id %>
+
+  <!-- Date -->
+  <div class="field first">
+    <%= f.label :observed_on, translate("locations.form.date_visited") %><br />
+    <%= f.text_field(:observed_on, :placeholder => 'yyyy-mm-dd') %>
+  </div>
+
+  <!-- Comments -->
+  <div class="field">
+    <%= f.label :comment, translate("locations.form.comments") %><br />
+    <span class="subtext"><%= translate("locations.form.comments_subtext") %></span><br />
+    <%= f.text_area :comment, :size => "40x3" %>
+  </div>
+
+  <hr />
+
+  <!-- Fruiting -->
+  <div class="field">
+    <%= f.label :fruiting, translate("locations.form.fruiting_status") %><br />
+    <span class="subtext"><%= translate("locations.form.fruiting_subtext") %></span><br />
+    <%= f.select(:fruiting, I18n.translate("locations.infowindow.fruiting").collect{ |r| [r, translate("locations.infowindow.fruiting").index(r)] },:include_blank => true) %>
+    <div class="slider-legend"><div><%= translate("locations.infowindow.unsure_other") %></div><div>&nbsp;&nbsp;<%= I18n.translate("locations.infowindow.fruiting")[0] %></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= I18n.translate("locations.infowindow.fruiting")[1] %></div><div style="text-align:right;"><%= I18n.translate("locations.infowindow.fruiting")[2] %></div></div>
+  </div>
+
+  <!-- Yield Rating -->
+  <div class="field">
+    <%= f.label :yield_rating, translate("glossary.yield") %><br />
+    <span class="subtext"><%= translate("locations.form.yield_subtext") %></span><br />
+    <%= f.select(:yield_rating, I18n.translate("locations.infowindow.rating").collect{ |r| [r, translate("locations.infowindow.rating").index(r)] },:include_blank => true) %>
+    <div class="slider-legend"><div><%= translate("locations.infowindow.unsure") %></div><div><%= I18n.translate("locations.infowindow.rating")[0] %></div><div>&nbsp;&nbsp;&nbsp;<%= I18n.translate("locations.infowindow.rating")[1] %></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<%= I18n.translate("locations.infowindow.rating")[2] %></div><div><%= I18n.translate("locations.infowindow.rating")[3] %></div><div style="text-align:right;"><%= I18n.translate("locations.infowindow.rating")[4] %></div></div>
+  </div>
+
+  <!-- Quality Rating -->
+  <div class="field">
+    <%= f.label :quality_rating, translate("glossary.quality") %><br />
+    <span class="subtext"><%= translate("locations.form.quality_subtext") %></span><br />
+    <%= f.select(:quality_rating, I18n.translate("locations.infowindow.rating").collect{ |r| [r, translate("locations.infowindow.rating").index(r)] },:include_blank => true) %>
+    <div class="slider-legend"><div><%= translate("locations.infowindow.unsure") %></div><div><%= I18n.translate("locations.infowindow.rating")[0] %></div><div>&nbsp;&nbsp;&nbsp;<%= I18n.translate("locations.infowindow.rating")[1] %></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<%= I18n.translate("locations.infowindow.rating")[2] %></div><div><%= I18n.translate("locations.infowindow.rating")[3] %></div><div style="text-align:right;"><%= I18n.translate("locations.infowindow.rating")[4] %></div></div>
+  </div>
+
+  <% if @obs.location.unverified %>
+    <!-- Verify -->
+    <div class="field">
+      <%= f.label :verify, translate("locations.form.verify") %> <%= check_box_tag(:verify) %> Yes<br />
+      <span class="subtext"><span><%= translate("locations.form.verify_subtext") %></span><span class="subtext" style="cursor:help;position:relative;top:-0.5em;font-family:verdana;font-size:9px;" onclick="$('#unverified_help').dialog({autoOpen:true, width:500, modal:true, resizable:false, draggable:false})">[?]</span></span>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? and current_user.is? :grafter %>
+    <!-- Graft -->
+    <div class="field">
+      Graft? <%= f.check_box(:graft) %><br />
+      <span class="subtext">Grafts will only be visible to other grafters.</span>
+    </div>
+  <% end %>
+
+  <hr />
+
+  <!-- Photo -->
+  <div class="field">
+   <%= f.label :photo, translate("glossary.photo") %><br />
+   <span class="subtext"><%= translate("locations.form.photo_subtext") %></span><br />
+   <%= f.file_field :photo %>
+  </div>
+
+  <!-- Caption -->
+  <div class="field">
+    <%= f.label :photo_caption, translate("locations.form.photo_caption") %><br />
+    <%= f.text_field :photo_caption, :size => "40" %>
+  </div>
+
+  <hr />
+
+  <!-- Author (if new or admin) -->
+  <div class="field">
+    <%= f.label :author, translate("locations.form.your_name") %><br />
+    <span class="subtext"><%= translate("locations.form.name_subtext") %></span><br />
+    <% if (user_signed_in? and !current_user.add_anonymously?) %>
+      <%= f.text_field :author, :value => current_user.name %>
+    <% else %>
+      <%= f.text_field :author %>
+    <% end %>
+    </span>
+  </div>
+  <br/>
+
+  <!-- Captcha -->
+  <% unless user_signed_in? %>
+    <div id="captcha">
+      <%= recaptcha_tags(:display => {:theme => 'white'}, :ssl => (request.protocol == 'https://' ? true : false)) %>
+    </div>
+  <br />
+  <% end %>
+
+  <!-- Submit -->
+  <div class="actions">
+    <%= f.button translate("glossary.submit") %>
+  </div>
+
+<% end %>
+</form>

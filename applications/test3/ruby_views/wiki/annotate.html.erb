@@ -1,0 +1,26 @@
+ link_to(l(:button_edit), {:action => 'edit', :id => @page.title}, :class => 'icon icon-edit') 
+ link_to(l(:label_history),
+            {:action => 'history', :id => @page.title}, :class => 'icon icon-history') 
+ wiki_page_breadcrumb(@page) 
+ title [@page.pretty_title, project_wiki_page_path(@page.project, @page.title, :version => nil)],
+      [l(:label_history), history_project_wiki_page_path(@page.project, @page.title)],
+      "#{l(:label_version)} #{@annotate.content.version}" 
+ @annotate.content.author ? link_to_user(@annotate.content.author) : l(:label_user_anonymous)
+       
+ format_time(@annotate.content.updated_on) 
+ @annotate.content.comments 
+ colors = Hash.new {|k,v| k[v] = (k.size % 12) } 
+ line_num = 1 
+ @annotate.lines.each do |line| 
+ colors[line[0]] 
+ line_num 
+ link_to line[0], :controller => 'wiki',
+                             :action => 'show', :project_id => @project,
+                             :id => @page.title, :version => line[0] 
+ line[1] 
+ line[2] 
+ line_num += 1 
+ end 
+ content_for :header_tags do 
+ stylesheet_link_tag 'scm' 
+ end 

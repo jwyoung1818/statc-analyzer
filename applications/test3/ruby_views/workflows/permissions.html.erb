@@ -1,0 +1,61 @@
+ render :partial => 'action_menu' 
+ title l(:label_workflow) 
+ link_to l(:label_status_transitions), workflows_edit_path(:role_id => @roles, :tracker_id => @trackers) 
+ link_to l(:label_fields_permissions), workflows_permissions_path(:role_id => @roles, :tracker_id => @trackers), :class => 'selected' 
+l(:text_workflow_edit)
+ form_tag({}, :method => 'get') do 
+l(:label_role)
+ options_for_workflow_select 'role_id[]', Role.sorted.select(&:consider_workflow?), @roles, :id => 'role_id', :class => 'expandable' 
+l(:label_tracker)
+ options_for_workflow_select 'tracker_id[]', Tracker.sorted, @trackers, :id => 'tracker_id', :class => 'expandable' 
+ submit_tag l(:button_edit), :name => nil 
+ hidden_field_tag 'used_statuses_only', '0', :id => nil 
+ check_box_tag 'used_statuses_only', '1', @used_statuses_only 
+ l(:label_display_used_statuses_only) 
+ end 
+ if @trackers && @roles && @statuses.any? 
+ form_tag({}, :id => 'workflow_form' ) do 
+ @trackers.map {|tracker| hidden_field_tag 'tracker_id[]', tracker.id, :id => nil}.join.html_safe 
+ @roles.map {|role| hidden_field_tag 'role_id[]', role.id, :id => nil}.join.html_safe 
+ hidden_field_tag 'used_statuses_only', params[:used_statuses_only], :id => nil 
+ @statuses.length 
+l(:label_issue_status)
+ for status in @statuses 
+ 75 / @statuses.size 
+ status.name 
+ end 
+ @statuses.size + 1 
+ l(:field_core_fields) 
+ @fields.each do |field, name| 
+ name 
+ content_tag('span', '*', :class => 'required') if field_required?(field) 
+ for status in @statuses 
+ @permissions[status.id][field].try(:join, ' ') 
+ name 
+ status.name 
+ field_permission_tag(@permissions, status, field, @roles) 
+ unless status == @statuses.last 
+ end 
+ end 
+ end 
+ if @custom_fields.any? 
+ @statuses.size + 1 
+ l(:label_custom_field_plural) 
+ @custom_fields.each do |field| 
+ field.name 
+ content_tag('span', '*', :class => 'required') if field_required?(field) 
+ for status in @statuses 
+ @permissions[status.id][field.id.to_s].try(:join, ' ') 
+ field.name 
+ status.name 
+ field_permission_tag(@permissions, status, field, @roles) 
+ unless status == @statuses.last 
+ end 
+ end 
+ end 
+ end 
+ submit_tag l(:button_save) 
+ end 
+ end 
+ javascript_tag do 
+ end 

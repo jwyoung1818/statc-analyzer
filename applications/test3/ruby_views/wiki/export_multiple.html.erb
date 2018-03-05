@@ -1,0 +1,10 @@
+ @wiki.project.name 
+ l(:label_index_by_title) 
+ @pages.each do |page| 
+ page.title 
+ page.pretty_title 
+ end 
+ @pages.each do |page| 
+ page.title 
+ textilizable page.content ,:text, :wiki_links => :anchor 
+ end 

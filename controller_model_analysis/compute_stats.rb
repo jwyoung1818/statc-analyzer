@@ -934,9 +934,8 @@ def compute_dataflow_stat(output_dir, start_class, start_function, build_node_li
 	printQueryFunctionFreq
 	$graph_file.puts("<\/queryFunction>")	
 
-	
-	compute_loop_invariant
 
+	
 	$graph_file.puts("<\/STATSHEADER>")	
 	$graph_file.close
 	#number of query functions
@@ -944,6 +943,22 @@ def compute_dataflow_stat(output_dir, start_class, start_function, build_node_li
 	#number of query functions within loop
 	#number of queries in view
 
+	# compute loop invariant and dead store query
+	loop_invariant_file = "#{$app_dir}/#{$results_dir}/loop_invariant.xml"
+	$loop_invariant_file = File.open(loop_invariant_file, "a+")
+	compute_loop_invariant
+	$loop_invariant_file.close
+	
+	dead_store_file = "#{$app_dir}/#{$results_dir}/dead_store.xml"
+	$dead_store_file = File.open(dead_store_file, "w")
+	compute_dead_store_query
+	$dead_store_file.close
+	
+	
+	inefficient_render_file = "#{$app_dir}/#{$results_dir}/inefficient_render.xml"
+	$inefficient_render_file = File.open(inefficient_render_file, "w")
+	compute_inefficient_partial
+	$inefficient_render_file.close
 
 end
 

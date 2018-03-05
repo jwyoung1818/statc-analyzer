@@ -1,0 +1,35 @@
+ link_to_function l(:label_options), "$('#timelog-settings').toggle();", :class => 'icon-only icon-settings', :title => l(:label_options) 
+ link_to l(:label_spent_time), time_entries_path(:user_id => 'me') 
+ l(:label_last_n_days, days) 
+ l_hours_short entries.sum(&:hours) 
+ link_to l(:button_log_time), new_time_entry_path, :class => "icon-only icon-add", :title => l(:button_log_time) if User.current.allowed_to?(:log_time, nil, :global => true) 
+ form_tag(my_page_path, :remote => true) do 
+ l(:button_show) 
+ text_field_tag 'settings[timelog][days]', days, :size => 6 
+ l(:label_day_plural) 
+ submit_tag l(:button_save) 
+ link_to_function l(:button_cancel), "$('#timelog-settings').toggle();" 
+ end 
+ if entries.any? 
+ form_tag({}, :data => {:cm_url => time_entries_context_menu_path}) do 
+ l(:label_activity) 
+ l(:label_project) 
+ l(:field_comments) 
+ l(:field_hours) 
+ entries_by_day.keys.sort.reverse_each do |day| 
+ day == User.current.today ? l(:label_today).titleize : format_date(day) 
+ html_hours(format_hours(entries_by_day[day].sum(&:hours))) 
+ entries_by_day[day].each do |entry| 
+ entry.id 
+ check_box_tag("ids[]", entry.id, false, :style => 'display:none;', :id => nil) 
+ entry.activity 
+ entry.project 
+ h(' - ') + link_to_issue(entry.issue, :truncate => 50) if entry.issue 
+ entry.comments 
+ html_hours(format_hours(entry.hours)) 
+ end 
+ end 
+ end 
+ else 
+ l(:label_no_data) 
+ end 

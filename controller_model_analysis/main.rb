@@ -53,6 +53,8 @@ load 'compute_redundant_field_access.rb'
 load 'compute_redundant_table_access.rb'
 load 'compute_redundant_rows.rb'
 load 'compute_select_condition.rb'
+load 'compute_dead_store_query.rb'
+load 'compute_inefficient_partial.rb'
 
 #load 'dump_graph.rb'
 
@@ -245,6 +247,8 @@ if options[:dir] != nil
 		read_dataflow(options[:dir])
 		
 		do_type_inference
+		
+		
 	end
 else
 	read_ruby_files

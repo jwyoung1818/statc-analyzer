@@ -1,0 +1,10 @@
+ l(:label_password_required) 
+ form_tag({}, remote: true) do 
+ hidden_field_tag '_method', request.request_method 
+ hash_to_hidden_fields @sudo_form.original_fields 
+ render_flash_messages 
+ l :field_password 
+ password_field_tag :sudo_password, nil, size: 25 
+ submit_tag l(:button_submit), onclick: "hideModal(this);"  
+ submit_tag l(:button_cancel), name: nil, onclick: "hideModal(this);", type: 'button' 
+ end 

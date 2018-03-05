@@ -1,0 +1,30 @@
+ link_to(l(:label_edit_attachments),
+              container_attachments_edit_path(container),
+              :title => l(:label_edit_attachments),
+              :class => 'icon-only icon-edit'
+             ) if options[:editable] 
+ for attachment in attachments 
+ link_to_attachment attachment, class: 'icon icon-attachment' 
+ number_to_human_size attachment.filesize 
+ link_to_attachment attachment, class: 'icon-only icon-download', title: l(:button_download), download: true 
+ attachment.description unless attachment.description.blank? 
+ if options[:author] 
+ attachment.author 
+ format_time(attachment.created_on) 
+ end 
+ if options[:deletable] 
+ link_to l(:button_delete), attachment_path(attachment),
+                  :data => {:confirm => l(:text_are_you_sure)},
+                  :method => :delete,
+                  :class => 'delete icon-only icon-del',
+                  :title => l(:button_delete) 
+ end 
+ end 
+ if defined?(thumbnails) && thumbnails 
+ images = attachments.select(&:thumbnailable?) 
+ if images.any? 
+ images.each do |attachment| 
+ thumbnail_tag(attachment) 
+ end 
+ end 
+ end 

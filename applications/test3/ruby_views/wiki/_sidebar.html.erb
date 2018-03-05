@@ -1,0 +1,9 @@
+ if @wiki && @wiki.sidebar 
+ textilizable @wiki.sidebar.content, :text 
+ end 
+ l(:label_wiki) 
+ link_to(l(:field_start_page), {:action => 'show', :id => nil}) 
+ link_to(l(:label_index_by_title), {:action => 'index'}) 
+ link_to(l(:label_index_by_date),
+                  {:controller => 'wiki', :project_id => @project,
+                   :action => 'date_index'}) 

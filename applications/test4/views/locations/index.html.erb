@@ -1,0 +1,167 @@
+<% if request.fullpath.include? "?"
+     given_params = request.fullpath.split(/\?/)[1]
+     clean_fullpath = locations_path + "?" + given_params.strip.split(/&/).collect{ |p| p =~/^center\_(lat|lng)/ ? nil : p }.compact.join("&") + "&"
+   else
+     clean_fullpath = locations_path + "?"
+   end
+%>
+
+<div id="welcome_modal" style="display:none;" title="<%= translate("locations.index.welcome_modal_title") %>">
+  <img src="/fb-avatar.jpg" style="float:right;margin:0.4em 0 0.5em 1em;" width="180">
+  <%= translate("locations.index.welcome_modal_html").html_safe %>
+</div>
+
+<div id="freegan_modal" style="display:none;" title="<%= translate("locations.index.freegan_modal_title") %>">
+  <img src="/dumpster-score.jpg" style="float:right;margin:0.4em 0 0.5em 1em;">
+  <%= translate("locations.index.freegan_modal_html").html_safe %>
+</div>
+
+<div id="grafter_modal" style="display:none;" title="<%= translate("locations.index.grafter_modal_title") %>">
+  <img src="/guerrilla-grafter-logo-resize.jpg" style="float:right;margin:0.4em 0 0.5em 1em;">
+  <%= translate("locations.index.grafter_modal_html").html_safe %>
+</div>
+
+<div id="mobile_modal" style="display:none;" title="<%= translate("locations.index.mobile_modal_title") %>">
+  <img src="/new_logo_300x.jpg" style="float:right;margin:0.4em 0 0.5em 1em;width: 200px;">
+  <%= translate("locations.index.mobile_modal_html").html_safe %>
+</div>
+
+<%= render 'searchbar' %>
+
+<% unless @show_sidebar.nil? or not @show_sidebar %>
+  <%= render 'sidebar' %>
+<% end %>
+<div id="mainmap_container">
+  <div id="map"></div>
+  <p id="stamen_attribution" style="display:none;">
+    <%= translate("locations.index.stamen_html").html_safe %>
+  </p>
+</div>
+
+<% content_for :page_scripts do %>
+<%= render 'map_includes' %>
+<script type="text/javascript" charset="utf-8">
+
+  // ================= globals ==================
+
+  var lat = 36.45662936733231;
+  var lng = -49.57030500000002;
+  var zoom = 2;
+  var type = google.maps.MapTypeId.ROADMAP;
+  <% unless @perma[:lat].nil? %>lat = <%= @perma[:lat] %>;<% end %>
+  <% unless @perma[:lng].nil? %>lng = <%= @perma[:lng] %>;<% end %>
+  <% unless @perma[:zoom].nil? %>zoom = <%= @perma[:zoom] %>;<% end %>
+  <% unless @perma[:type].nil? %>type = '<%= @perma[:type] %>';<% end %>
+  muni = <%= (@perma[:muni].nil? or @perma[:muni]) ? "true" : "false" %>;
+  labels = <%= (!@perma[:labels].nil? and @perma[:labels]) ? "true" : "false" %>;
+  var skip_ids = null;
+  var type_filter = undefined;
+  <% unless @types.nil? %>
+    type_filter = [<%= @types.collect{ |t| t.id }.join(",") %>];
+  <% end %>
+
+   // state variable used to leave out certain info_window features (report)
+   <% $embed = (not (request.fullpath.match('/locations/embed[.]*').nil?)) %>
+
+  var obj;
+
+  // ================= functions =================
+
+  function initialize() {
+    console.log('initializing');
+
+    <% if @zoom_to_polygon.nil? %>
+      basemap(lat,lng,zoom,type);
+    <% else %>
+      // Hmm, maybe check first that bounds are returned?
+      var bounds = wkt_to_bounds('<%= @zoom_to_polygon %>');
+      basemap(undefined,undefined,undefined,type,bounds);
+      add_range('<%= @zoom_to_polygon %>');
+      zoom = undefined; // for update display call
+    <% end %>
+
+    google.maps.event.addListener(map, 'maptypeid_changed', function(event) {
+      update_permalink();
+      update_attribution();
+    });
+
+    google.maps.event.addListener(map, 'rightclick', function(event) {
+      remove_add_marker();
+      place_add_marker(event.latLng);
+    });
+
+    google.maps.event.addListenerOnce(map, 'tilesloaded', function(event) {
+      if (labels && zoom > 12) labelize_markers();
+      // Ensures that labels come on again if labels = true and zoom <= 12:
+      if (labels && zoom <= 12) {
+        labelsOn = true;
+      }
+    });
+
+    // Far less redundant event trigger
+    google.maps.event.addListener(map, 'idle', function() {
+      console.log("update");
+      update_display(false);
+    });
+  }
+
+  // ================== main-level code ===================
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  jQuery(document).ready(function(){
+    // hide the 'zoom to me' button if browser isn't supporting geolocation
+    if (!navigator.geolocation) {
+      $('#recenter_button').hide();
+    }
+
+    navigator.geolocation.getCurrentPosition(function(position){},function(error){
+      $('#recenter_button').hide();
+    });
+
+    <% if mobile_device? %>
+    if ($.cookie('mobile_modal_shown') == null) {
+      $.cookie('mobile_modal_shown', 'yes', { expires: 14, path: '/' });
+      $('#mobile_modal').dialog({modal:true,width:650,resizable:false,draggable:false});
+      $("#mobile_modal").bind("clickoutside", function(event){
+        $(this).dialog('close');
+      });
+    }
+    <% elsif @freegan %>
+      if ($.cookie('freegan_modal_shown') == null) {
+        $.cookie('freegan_modal_shown', 'yes', { expires: 365, path: '/' });
+        $('#freegan_modal').dialog({modal:true,width:650,resizable:false,draggable:false});
+        $("#freegan_modal").bind("clickoutside", function(event){
+          $(this).dialog('close');
+        });
+      }
+    <% elsif @grafter %>
+      if ($.cookie('grafter_modal_shown') == null) {
+        $.cookie('grafter_modal_shown', 'yes', {expires: 365, path: '/'});
+        $('#grafter_modal').dialog({modal: true, width: 650, resizable: false, draggable: false});
+        $("#grafter_modal").bind("clickoutside", function (event) {
+          $(this).dialog('close');
+        });
+      }
+    <% else %>
+      if ($.cookie('welcome_modal_shown') == null) {
+        $.cookie('welcome_modal_shown', 'yes', { expires: 365, path: '/' });
+        $('#welcome_modal').dialog({modal:true,width:600,resizable:false,draggable:false});
+        $("#welcome_modal").bind("clickoutside", function(event){
+          $(this).dialog('close');
+        });
+      }
+    <% end %>
+  });
+
+  $(window).resize(function() {
+    resize_map();
+    google.maps.event.trigger(map,'resize');
+  });
+</script>
+<%= javascript_include_tag "maplabel" %>
+<%= javascript_include_tag "progressBar" %>
+<%= javascript_include_tag "richmarker" %>
+<%= javascript_include_tag "mapcommon" %>
+<%= javascript_include_tag "mainmap" %>
+<% end %>

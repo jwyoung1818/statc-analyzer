@@ -1,0 +1,38 @@
+ unless @changeset.previous.nil? 
+ link_to_revision(@changeset.previous, @repository,
+      :text => l(:label_previous), :accesskey => accesskey(:previous)) 
+ else 
+ l(:label_previous) 
+ end 
+ unless @changeset.next.nil? 
+ link_to_revision(@changeset.next, @repository,
+      :text => l(:label_next), :accesskey => accesskey(:next)) 
+ else 
+ l(:label_next) 
+ end 
+ form_tag({:controller => 'repositories',
+               :action     => 'revision',
+               :id         => @project,
+               :repository_id => @repository.identifier_param,
+               :rev        => nil},
+               :method     => :get) do 
+ text_field_tag 'rev', @rev, :size => 8 
+ submit_tag 'OK', :name => nil 
+ end 
+ render :partial => 'changeset' 
+ if User.current.allowed_to?(:browse_repository, @project) 
+ l(:label_added)    
+ l(:label_modified) 
+ l(:label_copied)   
+ l(:label_renamed)  
+ l(:label_deleted)  
+ render_changeset_changes 
+ end 
+ content_for :header_tags do 
+ stylesheet_link_tag "scm" 
+ end 
+
+  title = "#{l(:label_revision)} #{format_revision(@changeset)}"
+  title << " - #{@changeset.comments.truncate(80)}"
+  html_title(title)
+ 

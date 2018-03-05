@@ -1,0 +1,145 @@
+<h1>Pending</h1>
+
+<table id="open_problems_table">
+<thead>
+<tr>
+ <th>Date</th>
+ <th>User</th>
+ <th>Location</th>
+ <th>Problem</th>
+ <th style="min-width: 400px; width: 400px;">Resolve</th>
+</tr>
+</thead>
+<tbody>
+<% @open_problems.each do |problem| %>
+<tr>
+<td><%= problem.created_at.strftime('%Y-%m-%d') %></td>
+<td>
+  <%
+  unless problem.reporter.nil?
+    email = problem.reporter.email
+    email_name = problem.reporter.name.nil? ? '' : '%20' + problem.reporter.name
+    display_name = problem.reporter.name.nil? ? email : problem.reporter.name
+  else
+    email = problem.email
+    email_name = problem.name.nil? ? '' : '%20' + problem.name
+    display_name = problem.name.nil? ? email : problem.name
+  end
+  display_name = display_name.nil? ? '' : display_name
+  unless email.nil?
+    location_url = problem.location.nil? ? '' : '%0D%0A%0D%0Ahttp://fallingfruit.org/locations/' + problem.location_id.to_s
+    mailto = '<a href="mailto:' + email + '?subject=Falling%20Fruit%20Location #' + problem.location_id.to_s + '&body=Hi' + email_name + ',' + location_url + '">' + display_name + '</a>'
+  else
+    mailto = display_name
+  end
+  %>
+ <%= mailto.html_safe %>
+</td>
+<td>
+<% if problem.location.nil? %>
+  Deleted
+<% else %>
+  <%= link_to problem.location.id, location_path(problem.location.id) %>
+<% end %>
+</td>
+<td>
+  <%= Problem::Codes[problem.problem_code] %>
+    <% unless problem.comment.blank? %>
+    <br><em><%= problem.comment %></em>
+  <% end %>
+</td>
+<td>
+<%= form_for(problem) do |f| %>
+  <%= hidden_field_tag :responder_id, current_user.id %>
+  <%= f.hidden_field :id %>
+  <%= f.text_area :response, :rows => 3, :class => "full_width" %><br/>
+  <%= check_box_tag :email_reporter, :checked => false %> Email &middot;
+  <%= f.select(:resolution_code, Problem::Resolutions.collect{ |r| [r, Problem::Resolutions.index(r)] }, { :include_blank => false }) %> &middot;
+  <%= submit_tag "Resolve" %>
+<% end %>
+</td>
+</tr>
+<% end %>
+</tbody>
+</table>
+<br />
+
+<% if @closed_problems.length > 0 %>
+<h2>Completed</h2>
+
+<table id="closed_problems_table">
+<thead>
+<tr>
+ <th>Date</th>
+ <th>User</th>
+ <th>Location</th>
+ <th>Problem</th>
+ <th>Resolution</th>
+ <th>Admin</th>
+</tr>
+</thead>
+<tbody>
+<% @closed_problems.each do |problem| %>
+<tr>
+<td><%= problem.created_at %></td>
+<td>
+  <%
+  unless problem.reporter.nil?
+    email = problem.reporter.email
+    email_name = problem.reporter.name.nil? ? '' : '%20' + problem.reporter.name
+    display_name = problem.reporter.name.nil? ? email : problem.reporter.name
+  else
+    email = problem.email
+    email_name = problem.name.nil? ? '' : '%20' + problem.name
+    display_name = problem.name.nil? ? email : problem.name
+  end
+  display_name = display_name.nil? ? '' : display_name
+  unless email.nil?
+    location_url = problem.location.nil? ? '' : '%0D%0A%0D%0Ahttp://fallingfruit.org/locations/' + problem.location_id.to_s
+    mailto = '<a href="mailto:' + email + '?subject=Falling%20Fruit%20Location #' + problem.location_id.to_s + '&body=Hi' + email_name + ',' + location_url + '">' + display_name + '</a>'
+  else
+    mailto = display_name
+  end
+  %>
+ <%= mailto.html_safe %>
+</td>
+<td>
+<% if problem.location.nil? %>
+  Deleted
+<% else %>
+  <%= link_to problem.location.id, location_path(problem.location.id) %>
+<% end %>
+</td>
+<td>
+  <%= Problem::Codes[problem.problem_code] %>
+  <% unless problem.comment.blank? %>
+    <br><em><%= problem.comment %></em>
+  <% end %>
+</td>
+<td>
+  <%= Problem::Resolutions[problem.resolution_code] %>
+  <% unless problem.response.blank? %>
+    <br><em><%= problem.response %></em>
+  <% end %>
+</td>
+<td><%= problem.responder.nil? ? "Anonymous" : problem.responder.name %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+jQuery(document).ready(function(){
+    jQuery('#open_problems_table').dataTable({
+      "aaSorting": [[0,"asc"]],
+      "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+            "iDisplayLength" : -1
+    });
+    jQuery('#closed_problems_table').dataTable({
+      "aaSorting": [[0,"asc"]],
+      "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+            "iDisplayLength" : -1
+    });
+});
+</script>

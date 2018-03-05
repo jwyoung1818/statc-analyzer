@@ -1,0 +1,26 @@
+ tag_id = tag_name.gsub(/[\[\]]+/, '_').sub(/_+$/, '') 
+ available_tag_id = "available_#{tag_id}" 
+ selected_tag_id = "selected_#{tag_id}" 
+ label_tag available_tag_id, l(:description_available_columns) 
+ select_tag 'available_columns',
+              options_for_select(query_available_inline_columns_options(query)),
+              :id => available_tag_id,
+              :multiple => true, :size => 10,
+              :ondblclick => "moveOptions(this.form.#{available_tag_id}, this.form.#{selected_tag_id});" 
+ available_tag_id 
+ selected_tag_id 
+ selected_tag_id 
+ available_tag_id 
+ label_tag selected_tag_id, l(:description_selected_columns) 
+ select_tag tag_name,
+              options_for_select(query_selected_inline_columns_options(query)),
+              :id => selected_tag_id,
+              :multiple => true, :size => 10,
+              :ondblclick => "moveOptions(this.form.#{selected_tag_id}, this.form.#{available_tag_id});" 
+ selected_tag_id 
+ selected_tag_id 
+ selected_tag_id 
+ selected_tag_id 
+ javascript_tag do 
+ selected_tag_id 
+ end 

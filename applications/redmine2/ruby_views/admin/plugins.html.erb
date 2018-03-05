@@ -1,0 +1,20 @@
+ title l(:label_plugins) 
+ if @plugins.any? 
+ @plugins.each do |plugin| 
+ plugin.id 
+ plugin.name 
+ content_tag('span', plugin.description, :class => 'description') unless plugin.description.blank? 
+ content_tag('span', link_to(plugin.url, plugin.url), :class => 'url') unless plugin.url.blank? 
+ plugin.author_url.blank? ? plugin.author : link_to(plugin.author, plugin.author_url) 
+ plugin.version 
+ link_to(l(:button_configure), plugin_settings_path(plugin)) if plugin.configurable? 
+ end 
+ l(:label_check_for_updates) 
+ else 
+ l(:label_no_data) 
+ end 
+ javascript_tag do 
+ raw_json plugin_data_for_updates(@plugins) 
+ escape_javascript l(:label_latest_compatible_version) 
+ escape_javascript l(:label_unknown_plugin) 
+ end if @plugins.any? 

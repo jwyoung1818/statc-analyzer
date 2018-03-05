@@ -1,0 +1,18 @@
+ l(:label_import_issues) 
+ form_tag(import_mapping_path(@import), :id => "import-form") do 
+ l(:label_fields_mapping) 
+ render :partial => 'fields_mapping' 
+ l(:label_file_content_preview) 
+ @import.first_rows.each do |row| 
+ row.map {|c| content_tag 'td', truncate(c.to_s, :length => 50) }.join("").html_safe 
+ end 
+ button_tag("\xc2\xab " + l(:label_previous), :name => 'previous') 
+ submit_tag l(:button_import) 
+ end 
+ content_for :sidebar do 
+ render :partial => 'issues/sidebar' 
+ end 
+ javascript_tag do 
+ import_mapping_path(@import, :format => 'js') 
+ @import.total_items || 0 
+ end 

@@ -1,0 +1,1103 @@
+SET IRMethod, name = initialize instanceMethod = true
+BB 1
+	outgoing: 25 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVECONSTARG def_attributes 
+		 6: attributes[2.5,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_attributes 
+BB 4
+	outgoing: 5 21 
+	datadep: 
+	instructions:
+		 0: RECEIVEARG def_args 
+		 1: Line Number 37
+		 2: %self->super def_%v_3 %current_module[2.3,] attributes[3.0,2.5,] args[4.0,] %v_0[2.1,] 	 SYMBOL:	 ARGS:attributes,Splat,
+		 3: Line Number 38
+		 4: %self->new_record? def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 5: BRANCH %v_4[4.4,] 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 39
+		 1: COPY TYPE_PASS def_%v_5 attributes[3.0,2.5,] 
+		 2: BRANCH attributes[3.0,2.5,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: attributes->key? def_%v_6 attributes[3.0,2.5,] 	 SYMBOL:hide_mail,	 ARGS:Symbol,
+		 1: COPY TYPE_PASS def_%v_5 %v_6[6.0,] 
+BB 7
+	outgoing: 8 9 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_5[6.1,5.1,] 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_7 
+		 1: 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: Line Number 40
+		 1: (Setting) def_%v_8 
+		 2: %v_8->default_users_hide_mail? def_%v_9 %v_8[9.1,] 	 SYMBOL:	 ARGS:
+		 3: ATTRASSIGN %self->hide_mail %v_9[9.2,] 
+		 4: COPY TYPE_PASS def_%v_7 %v_9[9.2,] 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: Line Number 42
+		 1: COPY TYPE_PASS def_%v_10 attributes[3.0,2.5,] 
+		 2: BRANCH attributes[3.0,2.5,] 
+BB 11
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: attributes->key? def_%v_11 attributes[3.0,2.5,] 	 SYMBOL:time_zone,	 ARGS:Symbol,
+		 1: COPY TYPE_PASS def_%v_10 %v_11[11.0,] 
+BB 12
+	outgoing: 13 14 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_10[11.1,10.1,] 
+BB 13
+	outgoing: 15 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_12 
+		 1: 
+BB 14
+	outgoing: 15 
+	datadep: 
+	instructions:
+		 0: Line Number 43
+		 1: (Setting) def_%v_13 
+		 2: %v_13->default_users_time_zone def_%v_14 %v_13[14.1,] 	 SYMBOL:	 ARGS:
+		 3: ATTRASSIGN %self->time_zone %v_14[14.2,] 
+		 4: COPY TYPE_PASS def_%v_12 %v_14[14.2,] 
+BB 15
+	outgoing: 16 17 
+	datadep: 
+	instructions:
+		 0: Line Number 45
+		 1: COPY TYPE_PASS def_%v_15 attributes[3.0,2.5,] 
+		 2: BRANCH attributes[3.0,2.5,] 
+BB 16
+	outgoing: 17 
+	datadep: 
+	instructions:
+		 0: attributes->key? def_%v_16 attributes[3.0,2.5,] 	 SYMBOL:no_self_notified,	 ARGS:Symbol,
+		 1: COPY TYPE_PASS def_%v_15 %v_16[16.0,] 
+BB 17
+	outgoing: 18 19 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_15[16.1,15.1,] 
+BB 18
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_17 
+		 1: 
+BB 19
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: Line Number 46
+		 1: ATTRASSIGN %self->no_self_notified 
+		 2: COPY TYPE_Boolean def_%v_17 
+BB 20
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: 
+BB 21
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_17 
+BB 22
+	outgoing: 23 24 
+	datadep: 
+	instructions:
+		 0: Line Number 49
+		 1: %self->others def_%v_18 %self[19.1,2.0,14.3,9.3,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_18[22.1,] 
+BB 23
+	outgoing: 25 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_20 
+		 1: %self->others= def_%v_19 %v_20[23.0,] 	 SYMBOL:	 ARGS:%v_20,
+		 2: RETURN %v_20[23.0,] %self[23.1,19.1,2.0,14.3,9.3,] 
+BB 24
+	outgoing: 25 
+	datadep: 
+	instructions:
+		 0: RETURN %v_18[22.1,] %self[19.1,2.0,14.3,9.3,] 
+BB 25
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = set_others_hash instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 53
+		 6: %self->others def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: BRANCH %v_3[2.6,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_5 
+		 1: %self->others= def_%v_4 %v_5[3.0,] 	 SYMBOL:	 ARGS:%v_5,
+		 2: RETURN %v_5[3.0,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: RETURN %v_3[2.6,] %self[2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = [] instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_attr_name 
+		 6: Line Number 57
+		 7: %self->has_attribute? def_%v_3 %self[2.0,] attr_name[2.5,] 	 SYMBOL:	 ARGS:attr_name,
+		 8: BRANCH %v_3[2.7,] 
+BB 3
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 58
+		 1: %self->super def_%v_4 %current_module[2.3,] attr_name[2.5,] %v_0[2.1,] 	 SYMBOL:	 ARGS:attr_name,
+		 2: RETURN %v_4[3.1,] %self[2.0,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 60
+		 1: %self->others def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_5[4.1,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: %self->others def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_6->[] def_%v_7 %v_6[5.0,] attr_name[2.5,] 	 SYMBOL:	 ARGS:attr_name,
+		 2: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_7 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: RETURN %v_7[6.0,5.1,] %self[2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = []= instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_attr_name 
+		 6: RECEIVEARG def_value 
+		 7: Line Number 65
+		 8: %self->has_attribute? def_%v_3 %self[2.0,] attr_name[2.5,] 	 SYMBOL:	 ARGS:attr_name,
+		 9: BRANCH %v_3[2.8,] 
+BB 3
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 66
+		 1: %self->super def_%v_4 %current_module[2.3,] attr_name[2.5,] value[2.6,] %v_0[2.1,] 	 SYMBOL:	 ARGS:attr_name,value,
+		 2: RETURN %v_4[3.1,] %self[2.0,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 68
+		 1: %self->read_attribute def_%v_5 %self[2.0,] 	 SYMBOL:others,	 ARGS:Symbol,
+		 2: BRANCH %v_5[4.1,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_6 
+		 1: COPY TYPE_PASS def_%v_5 %v_6[5.0,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: %v_5->dup def_%v_7 %v_5[5.1,4.1,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_h %v_7[6.0,] 
+		 2: Line Number 69
+		 3: HASH- def_%v_8 attr_name[2.5,] value[2.6,] 
+		 4: %v_7->update def_%v_9 %v_7[6.0,] %v_8[6.3,] 	 SYMBOL:	 ARGS:%v_8,
+		 5: Line Number 70
+		 6: %self->write_attribute def_%v_10 %self[2.0,] h[6.1,] 	 SYMBOL:others,	 ARGS:Symbol,h,
+		 7: Line Number 71
+		 8: RETURN value[2.6,] %self[6.6,2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = comments_sorting instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 75
+		 6: %self->[] def_%v_3 %self[2.0,] 	 SYMBOL:comments_sorting,	 ARGS:Symbol,
+		 7: RETURN %v_3[2.6,] %self[2.0,2.6,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = comments_sorting= instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_order 
+		 6: Line Number 76
+		 7: ATTRASSIGN %self->[] order[2.5,] 
+		 8: RETURN order[2.5,] %self[2.0,2.7,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = warn_on_leaving_unsaved instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 78
+		 6: %self->[] def_%v_3 %self[2.0,] 	 SYMBOL:warn_on_leaving_unsaved,	 ARGS:Symbol,
+		 7: BRANCH %v_3[2.6,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "1" def_%v_4 
+		 1: RETURN %v_4[3.0,] %self[2.0,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: RETURN %v_3[2.6,] %self[2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = warn_on_leaving_unsaved= instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_value 
+		 6: Line Number 79
+		 7: ATTRASSIGN %self->[] value[2.5,] 
+		 8: RETURN value[2.5,] %self[2.0,2.7,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = no_self_notified instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 81
+		 6: %self->[] def_%v_3 %self[2.0,] 	 SYMBOL:no_self_notified,	 ARGS:Symbol,
+		 7: %v_3->== def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:Boolean,
+		 8: BRANCH %v_4[2.7,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %self->[] def_%v_5 %self[2.0,] 	 SYMBOL:no_self_notified,	 ARGS:Symbol,
+		 1: COPY TYPE_StringLiteral "1" def_%v_6 
+		 2: %v_5->== def_%v_7 %v_5[3.0,] %v_6[3.1,] 	 SYMBOL:	 ARGS:%v_6,
+		 3: RETURN %v_7[3.2,] %self[3.0,2.0,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: RETURN %v_4[2.7,] %self[2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = no_self_notified= instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_value 
+		 6: Line Number 82
+		 7: ATTRASSIGN %self->[] value[2.5,] 
+		 8: RETURN value[2.5,] %self[2.0,2.7,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = activity_scope instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 84
+		 6: %self->[] def_%v_3 %self[2.0,] 	 SYMBOL:activity_scope,	 ARGS:Symbol,
+		 7: %self->Array def_%v_4 %self[2.0,2.6,] %v_3[2.6,] 	 SYMBOL:	 ARGS:%v_3,
+		 8: RETURN %v_4[2.7,] %self[2.0,2.6,2.7,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = activity_scope= instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_value 
+		 6: Line Number 85
+		 7: ATTRASSIGN %self->[] value[2.5,] 
+		 8: RETURN value[2.5,] %self[2.0,2.7,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = textarea_font instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 87
+		 6: %self->[] def_%v_3 %self[2.0,] 	 SYMBOL:textarea_font,	 ARGS:Symbol,
+		 7: RETURN %v_3[2.6,] %self[2.0,2.6,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = textarea_font= instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_value 
+		 6: Line Number 88
+		 7: ATTRASSIGN %self->[] value[2.5,] 
+		 8: RETURN value[2.5,] %self[2.0,2.7,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = my_page_groups instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 95
+		 6: (Redmine) def_%v_3 
+		 7: (inherit MyPage) def_%v_4 %v_3[2.6,] 
+		 8: %v_4[2.7,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %v_3->const_missing def_%v_4 %v_3[2.6,] 	 SYMBOL:MyPage,	 ARGS:Symbol,
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %v_4->groups def_%v_5 %v_4[3.0,2.7,] 	 SYMBOL:	 ARGS:
+		 1: RETURN %v_5[4.0,] %self[2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = my_page_layout instanceMethod = true
+BB 1
+	outgoing: 7 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 6 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 99
+		 6: %self->[] def_%v_3 %self[2.0,] 	 SYMBOL:my_page_layout,	 ARGS:Symbol,
+		 7: BRANCH %v_3[2.6,] 
+BB 3
+	outgoing: 4 5 
+	datadep: 
+	instructions:
+		 0: (Redmine) def_%v_4 
+		 1: (inherit MyPage) def_%v_5 %v_4[3.0,] 
+		 2: %v_5[3.1,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %v_4->const_missing def_%v_5 %v_4[3.0,] 	 SYMBOL:MyPage,	 ARGS:Symbol,
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: %v_5->default_layout def_%v_6 %v_5[4.0,3.1,] 	 SYMBOL:	 ARGS:
+		 1: %v_6->deep_dup def_%v_7 %v_6[5.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->[]= def_%v_3 %self[2.0,] %v_7[5.1,] 	 SYMBOL:my_page_layout,	 ARGS:Symbol,%v_7,
+		 3: RETURN %v_7[5.1,] %self[5.2,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: RETURN %v_3[2.6,] %self[2.0,] 
+BB 7
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = my_page_layout= instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_arg 
+		 6: Line Number 103
+		 7: ATTRASSIGN %self->[] arg[2.5,] 
+		 8: RETURN arg[2.5,] %self[2.0,2.7,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = my_page_settings instanceMethod = true
+BB 1
+	outgoing: 12 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVECONSTARG def_block 
+		 6: block[2.5,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_block 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 107
+		 1: %self->[] def_%v_3 %self[2.0,] 	 SYMBOL:my_page_settings,	 ARGS:Symbol,
+		 2: BRANCH %v_3[4.1,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_4 
+		 1: %self->[]= def_%v_3 %self[2.0,] %v_4[5.0,] 	 SYMBOL:my_page_settings,	 ARGS:Symbol,%v_4,
+		 2: COPY TYPE_PASS def_%v_3 %v_4[5.0,] 
+BB 6
+	outgoing: 7 10 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_s %v_3[5.1,5.2,4.1,] 
+		 1: Line Number 108
+		 2: BRANCH block[3.0,2.5,] 
+BB 7
+	outgoing: 8 9 
+	datadep: 
+	instructions:
+		 0: Line Number 109
+		 1: s->[] def_%v_5 s[6.0,] block[3.0,2.5,] 	 SYMBOL:	 ARGS:block,
+		 2: BRANCH %v_5[7.1,] 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_6 
+		 1: s->[]= def_%v_5 s[6.0,] block[3.0,2.5,] %v_6[8.0,] 	 SYMBOL:	 ARGS:block,%v_6,
+		 2: COPY TYPE_PASS def_%v_5 %v_6[8.0,] 
+BB 9
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: RETURN %v_5[8.1,8.2,7.1,] %self[5.1,2.0,] 
+BB 10
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: Line Number 111
+		 1: RETURN s[6.0,] %self[5.1,2.0,] 
+BB 12
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = my_page_settings= instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_arg 
+		 6: Line Number 116
+		 7: ATTRASSIGN %self->[] arg[2.5,] 
+		 8: RETURN arg[2.5,] %self[2.0,2.7,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = remove_block instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: Line Number 123
+		 7: block->to_s def_%v_3 block[2.5,] 	 SYMBOL:	 ARGS:
+		 8: %v_3->underscore def_%v_4 %v_3[2.7,] 	 SYMBOL:	 ARGS:
+		 9: COPY TYPE_PASS def_block %v_4[2.8,] 
+		 10: Line Number 124
+		 11: %self->my_page_layout def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 12: %v_5->keys def_%v_6 %v_5[2.11,] 	 SYMBOL:	 ARGS:
+		 13: %v_6->each def_%v_7 %v_6[2.12,] %self[2.0,2.11,] 	 SYMBOL:	 ARGS:%v_6,
+CLOSURE BEGIN: %self[2.0,2.11,] group[] block[2.5,2.7,2.9,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_group 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 125
+		 1: %self->my_page_layout def_%cl_1_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_3->[] def_%cl_1_4 %cl_1_3[3.1,] group[2.2,] 	 SYMBOL:	 ARGS:group,
+		 3: %cl_1_4->delete def_%cl_1_5 %cl_1_4[3.2,] block[] 	 SYMBOL:	 ARGS:block,
+		 4: RETURN %cl_1_5[3.3,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_6 
+		 1: def_%cl_1_7 %cl_1_6[4.0,] 
+		 2: RETURN %cl_1_7[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 14: Line Number 127
+		 15: %self->my_page_layout def_%v_8 %self[2.0,2.11,] 	 SYMBOL:	 ARGS:
+		 16: RETURN %v_8[2.15,] %self[2.0,2.11,2.15,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = add_block instanceMethod = true
+BB 1
+	outgoing: 10 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: Line Number 134
+		 7: block->to_s def_%v_3 block[2.5,] 	 SYMBOL:	 ARGS:
+		 8: %v_3->underscore def_%v_4 %v_3[2.7,] 	 SYMBOL:	 ARGS:
+		 9: COPY TYPE_PASS def_block %v_4[2.8,] 
+		 10: Line Number 135
+		 11: (Redmine) def_%v_5 
+		 12: (inherit MyPage) def_%v_6 %v_5[2.11,] 
+		 13: %v_6[2.12,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %v_5->const_missing def_%v_6 %v_5[2.11,] 	 SYMBOL:MyPage,	 ARGS:Symbol,
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: %self->my_page_layout def_%v_7 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_7->values def_%v_8 %v_7[4.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_8->flatten def_%v_9 %v_8[4.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_6->valid_block? def_%v_10 %v_6[3.0,2.12,] block[2.5,2.9,] %v_9[4.2,] 	 SYMBOL:	 ARGS:block,%v_9,
+		 4: BRANCH %v_10[4.3,] 
+BB 5
+	outgoing: 8 9 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_11 
+		 1: Line Number 137
+		 2: %self->remove_block def_%v_12 %self[2.0,] block[2.5,2.9,] 	 SYMBOL:	 ARGS:block,
+		 3: Line Number 139
+		 4: %self->my_page_groups def_%v_13 %self[5.2,2.0,] 	 SYMBOL:	 ARGS:
+		 5: %v_13->first def_%v_14 %v_13[5.4,] 	 SYMBOL:	 ARGS:
+		 6: COPY TYPE_PASS def_group %v_14[5.5,] 
+		 7: Line Number 140
+		 8: %self->my_page_layout def_%v_15 %self[5.2,5.4,2.0,] 	 SYMBOL:	 ARGS:
+		 9: %v_15->[] def_%v_16 %v_15[5.8,] group[5.6,] 	 SYMBOL:	 ARGS:group,
+		 10: BRANCH %v_16[5.9,] 
+BB 6
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Array def_%v_17 
+		 1: %v_15->[]= def_%v_16 %v_15[5.8,] group[5.6,] %v_17[8.0,] 	 SYMBOL:	 ARGS:group,%v_17,
+		 2: COPY TYPE_PASS def_%v_16 %v_17[8.0,] 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: Line Number 141
+		 1: %self->my_page_layout def_%v_18 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_18->[] def_%v_19 %v_18[9.1,] group[5.6,] 	 SYMBOL:	 ARGS:group,
+		 3: %v_19->unshift def_%v_20 %v_19[9.2,] block[2.5,2.9,] 	 SYMBOL:	 ARGS:block,
+		 4: RETURN %v_20[9.3,] %self[9.1,2.0,] 
+BB 10
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = order_blocks instanceMethod = true
+BB 1
+	outgoing: 10 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_group 
+		 6: RECEIVEARG def_blocks 
+		 7: Line Number 148
+		 8: group->to_s def_%v_3 group[2.5,] 	 SYMBOL:	 ARGS:
+		 9: COPY TYPE_PASS def_group %v_3[2.8,] 
+		 10: Line Number 149
+		 11: (Redmine) def_%v_4 
+		 12: (inherit MyPage) def_%v_5 %v_4[2.11,] 
+		 13: %v_5[2.12,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %v_4->const_missing def_%v_5 %v_4[2.11,] 	 SYMBOL:MyPage,	 ARGS:Symbol,
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: %v_5->groups def_%v_6 %v_5[3.0,2.12,] 	 SYMBOL:	 ARGS:
+		 1: %v_6->include? def_%v_7 %v_6[4.0,] group[2.5,2.9,] 	 SYMBOL:	 ARGS:group,
+		 2: BRANCH %v_7[4.1,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: blocks->present? def_%v_8 blocks[2.6,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_7 %v_8[5.0,] 
+BB 6
+	outgoing: 7 8 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_7[5.1,4.1,] 
+BB 7
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: Line Number 150
+		 1: blocks->map def_%v_9 blocks[2.6,] 	 SYMBOL:underscore,	 ARGS:
+		 2: %self->my_page_layout def_%v_10 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_10->values def_%v_11 %v_10[7.2,] 	 SYMBOL:	 ARGS:
+		 4: %v_11->flatten def_%v_12 %v_11[7.3,] 	 SYMBOL:	 ARGS:
+		 5: %v_9->& def_%v_13 %v_9[7.1,] %v_12[7.4,] 	 SYMBOL:	 ARGS:%v_12,
+		 6: COPY TYPE_PASS def_blocks %v_13[7.5,] 
+		 7: Line Number 151
+		 8: %v_13->each def_%v_14 %v_13[7.5,] %self[7.2,2.0,] 	 SYMBOL:	 ARGS:%v_13,
+CLOSURE BEGIN: %self[7.2,2.0,] block[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_block 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 151
+		 1: %self->remove_block def_%cl_1_3 %self[2.0,] block[2.2,] 	 SYMBOL:	 ARGS:block,
+		 2: RETURN %cl_1_3[3.1,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_4 
+		 1: def_%cl_1_5 %cl_1_4[4.0,] 
+		 2: RETURN %cl_1_5[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 9: Line Number 152
+		 10: %self->my_page_layout def_%v_15 %self[7.2,2.0,] 	 SYMBOL:	 ARGS:
+		 11: ATTRASSIGN %v_15->[] group[2.5,2.9,] blocks[7.1,7.6,] 
+		 12: COPY TYPE_PASS def_%v_16 blocks[7.1,7.6,] 
+		 13: RETURN blocks[7.1,7.6,] %self[7.2,7.10,2.0,] 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 10
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = update_block_settings instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_block 
+		 6: RECEIVEARG def_settings 
+		 7: Line Number 157
+		 8: block->to_s def_%v_3 block[2.5,] 	 SYMBOL:	 ARGS:
+		 9: COPY TYPE_PASS def_block %v_3[2.8,] 
+		 10: Line Number 158
+		 11: %self->my_page_settings def_%v_4 %self[2.0,] %v_3[2.8,] 	 SYMBOL:	 ARGS:block,
+		 12: settings->symbolize_keys def_%v_5 settings[2.6,] 	 SYMBOL:	 ARGS:
+		 13: %v_4->merge def_%v_6 %v_4[2.11,] %v_5[2.12,] 	 SYMBOL:	 ARGS:%v_5,
+		 14: COPY TYPE_PASS def_block_settings %v_6[2.13,] 
+		 15: Line Number 159
+		 16: %self->my_page_settings def_%v_7 %self[2.0,2.11,] 	 SYMBOL:	 ARGS:
+		 17: ATTRASSIGN %v_7->[] block[2.5,2.8,2.9,] block_settings[2.14,] 
+		 18: RETURN block_settings[2.14,] %self[2.0,2.11,2.16,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = clear_unused_block_settings instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 163
+		 6: %self->my_page_layout def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_3->values def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->flatten def_%v_5 %v_4[2.7,] 	 SYMBOL:	 ARGS:
+		 9: COPY TYPE_PASS def_blocks %v_5[2.8,] 
+		 10: Line Number 164
+		 11: %self->my_page_settings def_%v_6 %self[2.0,2.6,] 	 SYMBOL:	 ARGS:
+		 12: %v_6->keep_if def_%v_7 %v_6[2.11,] %self[2.0,2.6,2.11,] 	 SYMBOL:	 ARGS:%v_6,
+CLOSURE BEGIN: blocks[2.9,] block[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_block 
+		 3: RECEIVEARG def_settings 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 164
+		 1: blocks->include? def_%cl_1_3 blocks[] block[2.2,] 	 SYMBOL:	 ARGS:block,
+		 2: RETURN %cl_1_3[3.1,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_4 
+		 1: def_%cl_1_5 %cl_1_4[4.0,] 
+		 2: RETURN %cl_1_5[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: settings[2.3,] 
+		 13: RETURN %v_7[2.12,] %self[2.0,2.6,2.11,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+

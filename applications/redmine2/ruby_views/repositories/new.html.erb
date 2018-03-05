@@ -1,0 +1,4 @@
+ l(:label_repository_new) 
+ labelled_form_for :repository, @repository, :url => project_repositories_path(@project), :html => {:id => 'repository-form'} do |f| 
+ render :partial => 'form', :locals => {:f => f} 
+ end 

@@ -1,0 +1,2781 @@
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 17
+		 6: %self->params def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_3->[] def_%v_4 %v_3[2.6,] 	 SYMBOL:jump,	 ARGS:Symbol,
+		 8: BRANCH %v_4[2.7,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %self->params def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_5->[] def_%v_6 %v_5[3.0,] 	 SYMBOL:jump,	 ARGS:Symbol,
+		 2: %self->redirect_to_menu_item def_%v_7 %self[3.0,2.0,] %v_6[3.1,] 	 SYMBOL:	 ARGS:%v_6,
+		 3: COPY TYPE_PASS def_%v_4 %v_7[3.2,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_4[3.3,2.7,] 
+BB 5
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 18
+		 1: RETURN %self[2.0,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_8 
+		 1: Line Number 20
+		 2: (Project) def_%v_9 
+		 3: %v_9->visible def_%v_10 %v_9[6.2,] 	 SYMBOL:	 ARGS:
+		 4: %v_10->sorted def_%v_11 %v_10[6.3,] 	 SYMBOL:	 ARGS:
+		 5: COPY TYPE_PASS def_scope %v_11[6.4,] 
+		 6: Line Number 21
+		 7: %self->respond_to def_%v_12 %self[2.0,] %self[2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[2.0,] scope[6.5,] projects[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 22
+		 1: format->html def_%cl_1_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] scope[] 
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 7 
+	datadep: 
+	instructions:
+		 0: Line Number 23
+		 1: %self->params def_%cl_2_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_2_3->[] def_%cl_2_4 %cl_2_3[3.1,] 	 SYMBOL:closed,	 ARGS:Symbol,
+		 3: BRANCH %cl_2_4[3.2,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_2_5 
+		 1: 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 24
+		 1: scope->active def_%cl_2_6 scope[] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_scope %cl_2_6[5.1,] 
+		 3: COPY TYPE_PASS def_%cl_2_5 %cl_2_6[5.1,] 
+BB 6
+	outgoing: 7 9 
+	datadep: 
+	instructions:
+		 0: Line Number 26
+		 1: scope->to_a def_%cl_2_7 scope[5.2,] 	 SYMBOL:	 ARGS:
+		 2: ATTRASSIGN %self->projects %cl_2_7[6.1,] 
+		 3: RETURN %cl_2_7[6.1,] %self[6.2,2.0,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_8 
+		 1: def_%cl_2_9 %cl_2_8[7.0,] 
+		 2: RETURN %cl_2_9[7.1,] %self[6.2,2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: scope[5.2,] 
+		 2: Line Number 28
+		 3: format->api def_%cl_1_4 format[3.1,2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] scope[3.1,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_3_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 29
+		 1: %self->api_offset_and_limit def_%cl_3_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: def_%cl_3_4 %cl_3_3[3.1,] 
+		 3: def_%cl_3_5 %cl_3_4[3.2,] 
+		 4: def_%cl_3_6 %cl_3_4[3.2,] 
+		 5: ATTRASSIGN %self->offset %cl_3_5[3.3,] 
+		 6: ATTRASSIGN %self->limit %cl_3_6[3.4,] 
+		 7: Line Number 30
+		 8: scope->count def_%cl_3_7 scope[] 	 SYMBOL:	 ARGS:
+		 9: ATTRASSIGN %self->project_count %cl_3_7[3.8,] 
+		 10: Line Number 31
+		 11: GETFIELD %self->offset def_%cl_3_8 %self[3.1,3.5,2.0,] 
+		 12: scope->offset def_%cl_3_9 scope[3.8,] %cl_3_8[3.11,] 	 SYMBOL:	 ARGS:%cl_3_8,
+		 13: GETFIELD %self->limit def_%cl_3_10 %self[3.1,3.6,2.0,] 
+		 14: %cl_3_9->limit def_%cl_3_11 %cl_3_9[3.12,] %cl_3_10[3.13,] 	 SYMBOL:	 ARGS:%cl_3_10,
+		 15: %cl_3_11->to_a def_%cl_3_12 %cl_3_11[3.14,] 	 SYMBOL:	 ARGS:
+		 16: ATTRASSIGN %self->projects %cl_3_12[3.15,] 
+		 17: RETURN %cl_3_12[3.15,] %self[3.1,3.5,3.6,3.9,3.16,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_3_13 
+		 1: def_%cl_3_14 %cl_3_13[4.0,] 
+		 2: RETURN %cl_3_14[4.1,] %self[3.5,3.6,3.9,3.16,2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 4: Line Number 33
+		 5: format->atom def_%cl_1_5 format[3.1,3.3,2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: scope[3.1,] %self[2.0,] projects[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_4_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 34
+		 1: HASH-created_on- def_%cl_4_3 
+		 2: scope->reorder def_%cl_4_4 scope[] %cl_4_3[3.1,] 	 SYMBOL:	 ARGS:%cl_4_3,
+		 3: (Setting) def_%cl_4_5 
+		 4: %cl_4_5->feeds_limit def_%cl_4_6 %cl_4_5[3.3,] 	 SYMBOL:	 ARGS:
+		 5: %cl_4_6->to_i def_%cl_4_7 %cl_4_6[3.4,] 	 SYMBOL:	 ARGS:
+		 6: %cl_4_4->limit def_%cl_4_8 %cl_4_4[3.2,] %cl_4_7[3.5,] 	 SYMBOL:	 ARGS:%cl_4_7,
+		 7: %cl_4_8->to_a def_%cl_4_9 %cl_4_8[3.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_PASS def_projects %cl_4_9[3.7,] 
+		 9: Line Number 35
+		 10: (Setting) def_%cl_4_10 
+		 11: %cl_4_10->app_title def_%cl_4_11 %cl_4_10[3.10,] 	 SYMBOL:	 ARGS:
+		 12: COPY TYPE_StringLiteral ": " def_%cl_4_12 
+		 13: %self->l def_%cl_4_13 %self[2.0,] 	 SYMBOL:label_project_latest,	 ARGS:Symbol,
+		 14: BUILDSTRING def_%cl_4_14 %cl_4_11[3.11,] %cl_4_12[3.12,] %cl_4_13[3.13,] 
+		 15: HASH-title- def_%cl_4_15 %cl_4_14[3.14,] 
+		 16: %self->render_feed def_%cl_4_16 %self[3.13,2.0,] projects[3.8,] %cl_4_15[3.15,] 	 SYMBOL:	 ARGS:projects,%cl_4_15,
+		 17: RETURN %cl_4_16[3.16,] %self[3.13,3.16,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_4_17 
+		 1: def_%cl_4_18 %cl_4_17[4.0,] 
+		 2: RETURN %cl_4_18[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 6: RETURN %cl_1_5[3.5,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_6 
+		 1: def_%cl_1_7 %cl_1_6[4.0,] 
+		 2: RETURN %cl_1_7[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 8: RETURN %v_12[6.7,] %self[6.7,2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = autocomplete instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 57
+		 6: %self->respond_to def_%v_3 %self[2.0,] %self[2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 58
+		 1: format->js def_%cl_1_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 7 
+	datadep: 
+	instructions:
+		 0: Line Number 59
+		 1: %self->params def_%cl_2_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_2_3->[] def_%cl_2_4 %cl_2_3[3.1,] 	 SYMBOL:q,	 ARGS:Symbol,
+		 3: %cl_2_4->present? def_%cl_2_5 %cl_2_4[3.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %cl_2_5[3.3,] 
+BB 4
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 60
+		 1: (Project) def_%cl_2_6 
+		 2: %cl_2_6->visible def_%cl_2_7 %cl_2_6[4.1,] 	 SYMBOL:	 ARGS:
+		 3: %self->params def_%cl_2_8 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 4: %cl_2_8->[] def_%cl_2_9 %cl_2_8[4.3,] 	 SYMBOL:q,	 ARGS:Symbol,
+		 5: %cl_2_7->like def_%cl_2_10 %cl_2_7[4.2,] %cl_2_9[4.4,] 	 SYMBOL:	 ARGS:%cl_2_9,
+		 6: %cl_2_10->to_a def_%cl_2_11 %cl_2_10[4.5,] 	 SYMBOL:	 ARGS:
+		 7: ATTRASSIGN %self->projects %cl_2_11[4.6,] 
+		 8: 
+BB 5
+	outgoing: 7 9 
+	datadep: 
+	instructions:
+		 0: Line Number 62
+		 1: (User) def_%cl_2_12 
+		 2: %cl_2_12->current def_%cl_2_13 %cl_2_12[5.1,] 	 SYMBOL:	 ARGS:
+		 3: %cl_2_13->projects def_%cl_2_14 %cl_2_13[5.2,] 	 SYMBOL:	 ARGS:
+		 4: %cl_2_14->to_a def_%cl_2_15 %cl_2_14[5.3,] 	 SYMBOL:	 ARGS:
+		 5: ATTRASSIGN %self->projects %cl_2_15[5.4,] 
+		 6: RETURN %cl_2_15[5.4,] %self[5.5,2.0,] 
+BB 6
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: RETURN %cl_2_11[4.6,] %self[4.7,2.0,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_16 
+		 1: def_%cl_2_17 %cl_2_16[7.0,] 
+		 2: RETURN %cl_2_17[7.1,] %self[4.7,5.5,2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: RETURN %cl_1_3[3.1,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_4 
+		 1: def_%cl_1_5 %cl_1_4[4.0,] 
+		 2: RETURN %cl_1_5[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 7: RETURN %v_3[2.6,] %self[2.0,2.6,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = new instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 68
+		 6: (IssueCustomField) def_%v_3 
+		 7: %v_3->sorted def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->to_a def_%v_5 %v_4[2.7,] 	 SYMBOL:	 ARGS:
+		 9: ATTRASSIGN %self->issue_custom_fields %v_5[2.8,] 
+		 10: Line Number 69
+		 11: (Tracker) def_%v_6 
+		 12: %v_6->sorted def_%v_7 %v_6[2.11,] 	 SYMBOL:	 ARGS:
+		 13: %v_7->to_a def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: ATTRASSIGN %self->trackers %v_8[2.13,] 
+		 15: Line Number 70
+		 16: (Project) def_%v_9 
+		 17: %v_9->new def_%v_10 %v_9[2.16,] 	 SYMBOL:	 ARGS:
+		 18: ATTRASSIGN %self->project %v_10[2.17,] 
+		 19: Line Number 71
+		 20: GETFIELD %self->project def_%v_11 %self[2.0,2.18,] 
+		 21: %self->params def_%v_12 %self[2.0,2.9,2.14,2.18,] 	 SYMBOL:	 ARGS:
+		 22: %v_12->[] def_%v_13 %v_12[2.21,] 	 SYMBOL:project,	 ARGS:Symbol,
+		 23: ATTRASSIGN %v_11->safe_attributes %v_13[2.22,] 
+		 24: RETURN %v_13[2.22,] %self[2.0,2.9,2.14,2.18,2.21,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = create instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 7 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 80
+		 6: (IssueCustomField) def_%v_3 
+		 7: %v_3->sorted def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->to_a def_%v_5 %v_4[2.7,] 	 SYMBOL:	 ARGS:
+		 9: ATTRASSIGN %self->issue_custom_fields %v_5[2.8,] 
+		 10: Line Number 81
+		 11: (Tracker) def_%v_6 
+		 12: %v_6->sorted def_%v_7 %v_6[2.11,] 	 SYMBOL:	 ARGS:
+		 13: %v_7->to_a def_%v_8 %v_7[2.12,] 	 SYMBOL:	 ARGS:
+		 14: ATTRASSIGN %self->trackers %v_8[2.13,] 
+		 15: Line Number 82
+		 16: (Project) def_%v_9 
+		 17: %v_9->new def_%v_10 %v_9[2.16,] 	 SYMBOL:	 ARGS:
+		 18: ATTRASSIGN %self->project %v_10[2.17,] 
+		 19: Line Number 83
+		 20: GETFIELD %self->project def_%v_11 %self[2.0,2.18,] 
+		 21: %self->params def_%v_12 %self[2.0,2.9,2.14,2.18,] 	 SYMBOL:	 ARGS:
+		 22: %v_12->[] def_%v_13 %v_12[2.21,] 	 SYMBOL:project,	 ARGS:Symbol,
+		 23: ATTRASSIGN %v_11->safe_attributes %v_13[2.22,] 
+		 24: Line Number 84
+		 25: GETFIELD %self->project def_%v_14 %self[2.0,2.18,2.21,] 
+		 26: %v_14->save def_%v_15 %v_14[2.25,] 	 SYMBOL:	 ARGS:
+		 27: BRANCH %v_15[2.26,] 
+BB 3
+	outgoing: 4 5 
+	datadep: 
+	instructions:
+		 0: Line Number 85
+		 1: (User) def_%v_16 
+		 2: %v_16->current def_%v_17 %v_16[3.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_17->admin? def_%v_18 %v_17[3.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %v_18[3.3,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_19 
+		 1: 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 86
+		 1: GETFIELD %self->project def_%v_20 %self[2.0,2.18,] 
+		 2: (User) def_%v_21 
+		 3: %v_21->current def_%v_22 %v_21[5.2,] 	 SYMBOL:	 ARGS:
+		 4: %v_20->add_default_member def_%v_23 %v_20[5.1,] %v_22[5.3,] 	 SYMBOL:	 ARGS:%v_22,
+		 5: COPY TYPE_PASS def_%v_19 %v_23[5.4,] 
+BB 6
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 88
+		 1: %self->respond_to def_%v_24 %self[2.0,2.9,2.14,2.18,] %self[2.0,2.9,2.14,2.18,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[2.0,2.9,2.14,2.18,] v[] custom_field[] formatted[] tracker[] role[] u[] p[] 
+BB 1
+	outgoing: 70 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 68 
+	datadep: 
+	instructions:
+		 0: Line Number 89
+		 1: format->html def_%cl_1_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] v[] 
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 7 
+	datadep: 
+	instructions:
+		 0: Line Number 90
+		 1: %self->flash def_%cl_2_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->l def_%cl_2_4 %self[3.1,2.0,] 	 SYMBOL:notice_successful_create,	 ARGS:Symbol,
+		 3: ATTRASSIGN %cl_2_3->[] %cl_2_4[3.2,] 
+		 4: Line Number 91
+		 5: %self->params def_%cl_2_5 %self[3.1,3.2,2.0,] 	 SYMBOL:	 ARGS:
+		 6: %cl_2_5->[] def_%cl_2_6 %cl_2_5[3.5,] 	 SYMBOL:continue,	 ARGS:Symbol,
+		 7: BRANCH %cl_2_6[3.6,] 
+BB 4
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 92
+		 1: GETFIELD %self->project def_%cl_2_7 %self[2.0,] 
+		 2: %cl_2_7->parent_id def_%cl_2_8 %cl_2_7[4.1,] 	 SYMBOL:	 ARGS:
+		 3: HASH-parent_id- def_%cl_2_9 %cl_2_8[4.2,] 
+		 4: %cl_2_9->reject def_%cl_2_10 %cl_2_9[4.3,] %self[2.0,] 	 SYMBOL:	 ARGS:%cl_2_9,
+CLOSURE BEGIN: v[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_3_0 
+		 2: RECEIVEARG def_k 
+		 3: RECEIVEARG def_v 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 92
+		 1: v->nil? def_%cl_3_3 v[2.3,] 	 SYMBOL:	 ARGS:
+		 2: RETURN %cl_3_3[3.1,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_3_4 
+		 1: def_%cl_3_5 %cl_3_4[4.0,] 
+		 2: RETURN %cl_3_5[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: v[2.3,] 
+		 5: COPY TYPE_PASS def_attrs %cl_2_10[4.4,] 
+		 6: Line Number 93
+		 7: %self->new_project_path def_%cl_2_11 %self[2.0,] %cl_2_10[4.4,] 	 SYMBOL:	 ARGS:attrs,
+		 8: %self->redirect_to def_%cl_2_12 %self[4.7,2.0,] %cl_2_11[4.7,] 	 SYMBOL:	 ARGS:%cl_2_11,
+		 9: 
+BB 5
+	outgoing: 7 9 
+	datadep: 
+	instructions:
+		 0: Line Number 95
+		 1: GETFIELD %self->project def_%cl_2_13 %self[2.0,] 
+		 2: %self->settings_project_path def_%cl_2_14 %self[2.0,] %cl_2_13[5.1,] 	 SYMBOL:	 ARGS:%cl_2_13,
+		 3: %self->redirect_to def_%cl_2_15 %self[5.2,2.0,] %cl_2_14[5.2,] 	 SYMBOL:	 ARGS:%cl_2_14,
+		 4: RETURN %cl_2_15[5.3,] %self[5.2,5.3,2.0,] 
+BB 6
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: RETURN %cl_2_12[4.8,] %self[2.0,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_16 
+		 1: def_%cl_2_17 %cl_2_16[7.0,] 
+		 2: RETURN %cl_2_17[7.1,] %self[2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 98
+		 3: format->api def_%cl_1_4 format[3.1,2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_4_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 98
+		 1: COPY TYPE_StringLiteral "show" def_%cl_4_3 
+		 2: COPY TYPE_StringLiteral "projects" def_%cl_4_4 
+		 3: COPY TYPE_StringLiteral "show" def_%cl_4_5 
+		 4: GETFIELD %self->project def_%cl_4_6 %self[2.0,] 
+		 5: %cl_4_6->id def_%cl_4_7 %cl_4_6[3.4,] 	 SYMBOL:	 ARGS:
+		 6: HASH-controller-action-id- def_%cl_4_8 %cl_4_4[3.2,] %cl_4_5[3.3,] %cl_4_7[3.5,] 
+		 7: %self->url_for def_%cl_4_9 %self[2.0,] %cl_4_8[3.6,] 	 SYMBOL:	 ARGS:%cl_4_8,
+		 8: HASH-action-status-location- def_%cl_4_10 %cl_4_3[3.1,] %cl_4_9[3.7,] 
+		 9: %self->render def_%cl_4_11 %self[3.7,2.0,] %cl_4_10[3.8,] 	 SYMBOL:	 ARGS:%cl_4_10,
+		 10: RETURN %cl_4_11[3.9,] %self[3.7,3.9,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_4_12 
+		 1: def_%cl_4_13 %cl_4_12[4.0,] 
+		 2: RETURN %cl_4_13[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 4: Line Number 99
+		 5: (User) def_%cl_1_5 
+		 6: %cl_1_5->current def_%cl_1_6 %cl_1_5[3.5,] 	 SYMBOL:	 ARGS:
+		 7: GETFIELD %self->project def_%cl_1_7 %self[2.0,] 
+		 8: %cl_1_6->allowed_to? def_%cl_1_8 %cl_1_6[3.6,] %cl_1_7[3.7,] 	 SYMBOL:add_subprojects,	 ARGS:Symbol,%cl_1_7,
+		 9: BRANCH %cl_1_8[3.8,] 
+BB 4
+	outgoing: 6 68 
+	datadep: 
+	instructions:
+		 0: Line Number 100
+		 1: %self->l def_%cl_1_9 %self[2.0,] 	 SYMBOL:label_subproject_new,	 ARGS:Symbol,
+		 2: GETFIELD %self->project def_%cl_1_10 %self[4.1,2.0,] 
+		 3: HASH-parent_id- def_%cl_1_11 %cl_1_10[4.2,] 
+		 4: %self->new_project_path def_%cl_1_12 %self[4.1,2.0,] %cl_1_11[4.3,] 	 SYMBOL:	 ARGS:%cl_1_11,
+		 5: COPY TYPE_StringLiteral "icon icon-add" def_%cl_1_13 
+		 6: HASH-class- def_%cl_1_14 %cl_1_13[4.5,] 
+		 7: %self->link_to def_%cl_1_15 %self[4.1,4.4,2.0,] %cl_1_9[4.1,] %cl_1_12[4.4,] %cl_1_14[4.6,] 	 SYMBOL:	 ARGS:%cl_1_9,%cl_1_12,%cl_1_14,
+		 8: 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_15 
+BB 6
+	outgoing: 7 11 68 
+	datadep: 
+	instructions:
+		 0: Line Number 102
+		 1: (User) def_%cl_1_16 
+		 2: %cl_1_16->current def_%cl_1_17 %cl_1_16[6.1,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->project def_%cl_1_18 %self[2.0,] 
+		 4: %cl_1_17->allowed_to? def_%cl_1_19 %cl_1_17[6.2,] %cl_1_18[6.3,] 	 SYMBOL:close_project,	 ARGS:Symbol,%cl_1_18,
+		 5: BRANCH %cl_1_19[6.4,] 
+BB 7
+	outgoing: 8 9 68 
+	datadep: 
+	instructions:
+		 0: Line Number 103
+		 1: GETFIELD %self->project def_%cl_1_20 %self[2.0,] 
+		 2: %cl_1_20->active? def_%cl_1_21 %cl_1_20[7.1,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %cl_1_21[7.2,] 
+BB 8
+	outgoing: 10 68 
+	datadep: 
+	instructions:
+		 0: Line Number 104
+		 1: %self->l def_%cl_1_22 %self[2.0,] 	 SYMBOL:button_close,	 ARGS:Symbol,
+		 2: GETFIELD %self->project def_%cl_1_23 %self[8.1,2.0,] 
+		 3: %self->close_project_path def_%cl_1_24 %self[8.1,2.0,] %cl_1_23[8.2,] 	 SYMBOL:	 ARGS:%cl_1_23,
+		 4: %self->l def_%cl_1_25 %self[8.1,8.3,2.0,] 	 SYMBOL:text_are_you_sure,	 ARGS:Symbol,
+		 5: HASH-confirm- def_%cl_1_26 %cl_1_25[8.4,] 
+		 6: COPY TYPE_StringLiteral "icon icon-lock" def_%cl_1_27 
+		 7: HASH-data-method-class- def_%cl_1_28 %cl_1_26[8.5,] %cl_1_27[8.6,] 
+		 8: %self->link_to def_%cl_1_29 %self[8.1,8.3,8.4,2.0,] %cl_1_22[8.1,] %cl_1_24[8.3,] %cl_1_28[8.7,] 	 SYMBOL:	 ARGS:%cl_1_22,%cl_1_24,%cl_1_28,
+		 9: 
+BB 9
+	outgoing: 10 68 
+	datadep: 
+	instructions:
+		 0: Line Number 106
+		 1: %self->l def_%cl_1_30 %self[2.0,] 	 SYMBOL:button_reopen,	 ARGS:Symbol,
+		 2: GETFIELD %self->project def_%cl_1_31 %self[9.1,2.0,] 
+		 3: %self->reopen_project_path def_%cl_1_32 %self[9.1,2.0,] %cl_1_31[9.2,] 	 SYMBOL:	 ARGS:%cl_1_31,
+		 4: %self->l def_%cl_1_33 %self[9.1,9.3,2.0,] 	 SYMBOL:text_are_you_sure,	 ARGS:Symbol,
+		 5: HASH-confirm- def_%cl_1_34 %cl_1_33[9.4,] 
+		 6: COPY TYPE_StringLiteral "icon icon-unlock" def_%cl_1_35 
+		 7: HASH-data-method-class- def_%cl_1_36 %cl_1_34[9.5,] %cl_1_35[9.6,] 
+		 8: %self->link_to def_%cl_1_37 %self[9.1,9.3,9.4,2.0,] %cl_1_30[9.1,] %cl_1_32[9.3,] %cl_1_36[9.7,] 	 SYMBOL:	 ARGS:%cl_1_30,%cl_1_32,%cl_1_36,
+		 9: COPY TYPE_PASS def_%cl_1_29 %cl_1_37[9.8,] 
+BB 10
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: 
+BB 11
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_29 
+BB 12
+	outgoing: 13 14 68 
+	datadep: 
+	instructions:
+		 0: Line Number 109
+		 1: %self->l def_%cl_1_38 %self[2.0,] 	 SYMBOL:label_overview,	 ARGS:Symbol,
+		 2: Line Number 110
+		 3: GETFIELD %self->project def_%cl_1_39 %self[12.1,2.0,] 
+		 4: %cl_1_39->active? def_%cl_1_40 %cl_1_39[12.3,] 	 SYMBOL:	 ARGS:
+		 5: BRANCH %cl_1_40[12.4,] 
+BB 13
+	outgoing: 15 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_41 
+		 1: 
+BB 14
+	outgoing: 15 68 
+	datadep: 
+	instructions:
+		 0: Line Number 111
+		 1: %self->l def_%cl_1_42 %self[2.0,] 	 SYMBOL:text_project_closed,	 ARGS:Symbol,
+		 2: COPY TYPE_PASS def_%cl_1_41 %cl_1_42[14.1,] 
+BB 15
+	outgoing: 16 17 68 
+	datadep: 
+	instructions:
+		 0: Line Number 113
+		 1: GETFIELD %self->project def_%cl_1_43 %self[2.0,] 
+		 2: %cl_1_43->description def_%cl_1_44 %cl_1_43[15.1,] 	 SYMBOL:	 ARGS:
+		 3: %cl_1_44->present? def_%cl_1_45 %cl_1_44[15.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %cl_1_45[15.3,] 
+BB 16
+	outgoing: 18 68 
+	datadep: 
+	instructions:
+		 0: Line Number 114
+		 1: GETFIELD %self->project def_%cl_1_46 %self[2.0,] 
+		 2: %cl_1_46->description def_%cl_1_47 %cl_1_46[16.1,] 	 SYMBOL:	 ARGS:
+		 3: %self->textilizable def_%cl_1_48 %self[2.0,] %cl_1_47[16.2,] 	 SYMBOL:	 ARGS:%cl_1_47,
+		 4: 
+BB 17
+	outgoing: 18 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_48 
+BB 18
+	outgoing: 19 20 68 
+	datadep: 
+	instructions:
+		 0: Line Number 116
+		 1: GETFIELD %self->project def_%cl_1_49 %self[2.0,] 
+		 2: %cl_1_49->homepage def_%cl_1_50 %cl_1_49[18.1,] 	 SYMBOL:	 ARGS:
+		 3: %cl_1_50->present? def_%cl_1_51 %cl_1_50[18.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %cl_1_51[18.3,] 
+BB 19
+	outgoing: 20 68 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%cl_1_52 %self[2.0,] 
+		 1: %cl_1_52->visible_custom_field_values def_%cl_1_53 %cl_1_52[19.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_53->any? def_%cl_1_54 %cl_1_53[19.1,] 	 SYMBOL:present?,	 ARGS:
+		 3: COPY TYPE_PASS def_%cl_1_51 %cl_1_54[19.2,] 
+BB 20
+	outgoing: 21 25 
+	datadep: 
+	instructions:
+		 0: BRANCH %cl_1_51[19.3,18.3,] 
+BB 21
+	outgoing: 22 23 68 
+	datadep: 
+	instructions:
+		 0: Line Number 117
+		 1: GETFIELD %self->project def_%cl_1_55 %self[2.0,] 
+		 2: %cl_1_55->homepage def_%cl_1_56 %cl_1_55[21.1,] 	 SYMBOL:	 ARGS:
+		 3: %cl_1_56->blank? def_%cl_1_57 %cl_1_56[21.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %cl_1_57[21.3,] 
+BB 22
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_58 
+		 1: 
+BB 23
+	outgoing: 24 68 
+	datadep: 
+	instructions:
+		 0: Line Number 118
+		 1: %self->l def_%cl_1_59 %self[2.0,] 	 SYMBOL:field_homepage,	 ARGS:Symbol,
+		 2: Line Number 119
+		 3: GETFIELD %self->project def_%cl_1_60 %self[23.1,2.0,] 
+		 4: %cl_1_60->homepage def_%cl_1_61 %cl_1_60[23.3,] 	 SYMBOL:	 ARGS:
+		 5: %self->uri_with_safe_scheme? def_%cl_1_62 %self[23.1,2.0,] %cl_1_61[23.4,] 	 SYMBOL:	 ARGS:%cl_1_61,
+		 6: GETFIELD %self->project def_%cl_1_63 %self[23.1,23.5,2.0,] 
+		 7: %cl_1_63->homepage def_%cl_1_64 %cl_1_63[23.6,] 	 SYMBOL:	 ARGS:
+		 8: GETFIELD %self->project def_%cl_1_65 %self[23.1,23.5,2.0,] 
+		 9: %cl_1_65->homepage def_%cl_1_66 %cl_1_65[23.8,] 	 SYMBOL:	 ARGS:
+		 10: %self->link_to_if def_%cl_1_67 %self[23.1,23.5,2.0,] %cl_1_62[23.5,] %cl_1_64[23.7,] %cl_1_66[23.9,] 	 SYMBOL:	 ARGS:%cl_1_62,%cl_1_64,%cl_1_66,
+		 11: COPY TYPE_PASS def_%cl_1_58 %cl_1_67[23.10,] 
+BB 24
+	outgoing: 26 68 
+	datadep: 
+	instructions:
+		 0: Line Number 121
+		 1: GETFIELD %self->project def_%cl_1_68 %self[2.0,] 
+		 2: %self->render_custom_field_values def_%cl_1_69 %self[2.0,] %cl_1_68[24.1,] %self[2.0,] 	 SYMBOL:	 ARGS:%cl_1_68,%self,
+CLOSURE BEGIN: custom_field[] formatted[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_5_0 
+		 2: RECEIVEARG def_custom_field 
+		 3: RECEIVEARG def_formatted 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 122
+		 1: custom_field->name def_%cl_5_3 custom_field[2.2,] 	 SYMBOL:	 ARGS:
+		 2: Line Number 123
+		 3: RETURN formatted[2.3,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_5_4 
+		 1: def_%cl_5_5 %cl_5_4[4.0,] 
+		 2: RETURN %cl_5_5[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: formatted[2.3,] 
+		 3: 
+BB 25
+	outgoing: 26 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_69 
+BB 26
+	outgoing: 27 37 68 
+	datadep: 
+	instructions:
+		 0: Line Number 126
+		 1: (User) def_%cl_1_70 
+		 2: %cl_1_70->current def_%cl_1_71 %cl_1_70[26.1,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->project def_%cl_1_72 %self[2.0,] 
+		 4: %cl_1_71->allowed_to? def_%cl_1_73 %cl_1_71[26.2,] %cl_1_72[26.3,] 	 SYMBOL:view_issues,	 ARGS:Symbol,%cl_1_72,
+		 5: BRANCH %cl_1_73[26.4,] 
+BB 27
+	outgoing: 28 29 68 
+	datadep: 
+	instructions:
+		 0: Line Number 127
+		 1: %self->l def_%cl_1_74 %self[2.0,] 	 SYMBOL:label_issue_tracking,	 ARGS:Symbol,
+		 2: Line Number 128
+		 3: GETFIELD %self->trackers def_%cl_1_75 %self[27.1,2.0,] 
+		 4: %cl_1_75->present? def_%cl_1_76 %cl_1_75[27.3,] 	 SYMBOL:	 ARGS:
+		 5: BRANCH %cl_1_76[27.4,] 
+BB 28
+	outgoing: 30 68 
+	datadep: 
+	instructions:
+		 0: Line Number 129
+		 1: %self->l def_%cl_1_77 %self[2.0,] 	 SYMBOL:label_open_issues_plural,	 ARGS:Symbol,
+		 2: Line Number 130
+		 3: %self->l def_%cl_1_78 %self[28.1,2.0,] 	 SYMBOL:label_closed_issues_plural,	 ARGS:Symbol,
+		 4: Line Number 131
+		 5: %self->l def_%cl_1_79 %self[28.1,28.3,2.0,] 	 SYMBOL:label_total,	 ARGS:Symbol,
+		 6: Line Number 132
+		 7: GETFIELD %self->trackers def_%cl_1_80 %self[28.1,28.3,28.5,2.0,] 
+		 8: %cl_1_80->each def_%cl_1_81 %cl_1_80[28.7,] %self[28.1,28.3,28.5,2.0,] 	 SYMBOL:	 ARGS:%cl_1_80,
+CLOSURE BEGIN: tracker[] %self[28.1,28.3,28.5,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_6_0 
+		 2: RECEIVEARG def_tracker 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 133
+		 1: tracker->name def_%cl_6_3 tracker[2.2,] 	 SYMBOL:	 ARGS:
+		 2: GETFIELD %self->project def_%cl_6_4 %self[2.0,] 
+		 3: tracker->id def_%cl_6_5 tracker[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 4: HASH-set_filter-tracker_id- def_%cl_6_6 %cl_6_5[3.3,] 
+		 5: %self->project_issues_path def_%cl_6_7 %self[2.0,] %cl_6_4[3.2,] %cl_6_6[3.4,] 	 SYMBOL:	 ARGS:%cl_6_4,%cl_6_6,
+		 6: %self->link_to def_%cl_6_8 %self[3.5,2.0,] %cl_6_3[3.1,] %cl_6_7[3.5,] 	 SYMBOL:	 ARGS:%cl_6_3,%cl_6_7,
+		 7: Line Number 134
+		 8: GETFIELD %self->open_issues_by_tracker def_%cl_6_9 %self[3.5,3.6,2.0,] 
+		 9: %cl_6_9->[] def_%cl_6_10 %cl_6_9[3.8,] tracker[3.1,3.3,2.2,] 	 SYMBOL:	 ARGS:tracker,
+		 10: %cl_6_10->to_i def_%cl_6_11 %cl_6_10[3.9,] 	 SYMBOL:	 ARGS:
+		 11: GETFIELD %self->project def_%cl_6_12 %self[3.5,3.6,2.0,] 
+		 12: tracker->id def_%cl_6_13 tracker[3.1,3.3,2.2,] 	 SYMBOL:	 ARGS:
+		 13: HASH-set_filter-tracker_id- def_%cl_6_14 %cl_6_13[3.12,] 
+		 14: %self->project_issues_path def_%cl_6_15 %self[3.5,3.6,2.0,] %cl_6_12[3.11,] %cl_6_14[3.13,] 	 SYMBOL:	 ARGS:%cl_6_12,%cl_6_14,
+		 15: %self->link_to def_%cl_6_16 %self[3.5,3.6,3.14,2.0,] %cl_6_11[3.10,] %cl_6_15[3.14,] 	 SYMBOL:	 ARGS:%cl_6_11,%cl_6_15,
+		 16: Line Number 135
+		 17: GETFIELD %self->total_issues_by_tracker def_%cl_6_17 %self[3.5,3.6,3.14,3.15,2.0,] 
+		 18: %cl_6_17->[] def_%cl_6_18 %cl_6_17[3.17,] tracker[3.1,3.3,3.12,2.2,] 	 SYMBOL:	 ARGS:tracker,
+		 19: %cl_6_18->to_i def_%cl_6_19 %cl_6_18[3.18,] 	 SYMBOL:	 ARGS:
+		 20: GETFIELD %self->open_issues_by_tracker def_%cl_6_20 %self[3.5,3.6,3.14,3.15,2.0,] 
+		 21: %cl_6_20->[] def_%cl_6_21 %cl_6_20[3.20,] tracker[3.1,3.3,3.12,2.2,] 	 SYMBOL:	 ARGS:tracker,
+		 22: %cl_6_21->to_i def_%cl_6_22 %cl_6_21[3.21,] 	 SYMBOL:	 ARGS:
+		 23: %cl_6_19->- def_%cl_6_23 %cl_6_19[3.19,] %cl_6_22[3.22,] 	 SYMBOL:	 ARGS:%cl_6_22,
+		 24: GETFIELD %self->project def_%cl_6_24 %self[3.5,3.6,3.14,3.15,2.0,] 
+		 25: tracker->id def_%cl_6_25 tracker[3.1,3.3,3.12,2.2,] 	 SYMBOL:	 ARGS:
+		 26: COPY TYPE_StringLiteral "c" def_%cl_6_26 
+		 27: HASH-set_filter-tracker_id-status_id- def_%cl_6_27 %cl_6_25[3.25,] %cl_6_26[3.26,] 
+		 28: %self->project_issues_path def_%cl_6_28 %self[3.5,3.6,3.14,3.15,2.0,] %cl_6_24[3.24,] %cl_6_27[3.27,] 	 SYMBOL:	 ARGS:%cl_6_24,%cl_6_27,
+		 29: %self->link_to def_%cl_6_29 %self[3.5,3.6,3.14,3.15,3.28,2.0,] %cl_6_23[3.23,] %cl_6_28[3.28,] 	 SYMBOL:	 ARGS:%cl_6_23,%cl_6_28,
+		 30: Line Number 136
+		 31: GETFIELD %self->total_issues_by_tracker def_%cl_6_30 %self[3.5,3.6,3.14,3.15,3.28,3.29,2.0,] 
+		 32: %cl_6_30->[] def_%cl_6_31 %cl_6_30[3.31,] tracker[3.1,3.3,3.12,3.25,2.2,] 	 SYMBOL:	 ARGS:tracker,
+		 33: %cl_6_31->to_i def_%cl_6_32 %cl_6_31[3.32,] 	 SYMBOL:	 ARGS:
+		 34: GETFIELD %self->project def_%cl_6_33 %self[3.5,3.6,3.14,3.15,3.28,3.29,2.0,] 
+		 35: tracker->id def_%cl_6_34 tracker[3.1,3.3,3.12,3.25,2.2,] 	 SYMBOL:	 ARGS:
+		 36: COPY TYPE_StringLiteral "*" def_%cl_6_35 
+		 37: HASH-set_filter-tracker_id-status_id- def_%cl_6_36 %cl_6_34[3.35,] %cl_6_35[3.36,] 
+		 38: %self->project_issues_path def_%cl_6_37 %self[3.5,3.6,3.14,3.15,3.28,3.29,2.0,] %cl_6_33[3.34,] %cl_6_36[3.37,] 	 SYMBOL:	 ARGS:%cl_6_33,%cl_6_36,
+		 39: %self->link_to def_%cl_6_38 %self[3.5,3.6,3.14,3.15,3.28,3.29,3.38,2.0,] %cl_6_32[3.33,] %cl_6_37[3.38,] 	 SYMBOL:	 ARGS:%cl_6_32,%cl_6_37,
+		 40: RETURN %cl_6_38[3.39,] %self[3.5,3.6,3.14,3.15,3.28,3.29,3.38,3.39,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_6_39 
+		 1: def_%cl_6_40 %cl_6_39[4.0,] 
+		 2: RETURN %cl_6_40[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 9: 
+BB 29
+	outgoing: 30 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_81 
+BB 30
+	outgoing: 31 32 68 
+	datadep: 
+	instructions:
+		 0: Line Number 139
+		 1: %self->l def_%cl_1_82 %self[2.0,] 	 SYMBOL:label_issue_view_all,	 ARGS:Symbol,
+		 2: GETFIELD %self->project def_%cl_1_83 %self[30.1,2.0,] 
+		 3: HASH-set_filter- def_%cl_1_84 
+		 4: %self->project_issues_path def_%cl_1_85 %self[30.1,2.0,] %cl_1_83[30.2,] %cl_1_84[30.3,] 	 SYMBOL:	 ARGS:%cl_1_83,%cl_1_84,
+		 5: %self->link_to def_%cl_1_86 %self[30.1,30.4,2.0,] %cl_1_82[30.1,] %cl_1_85[30.4,] 	 SYMBOL:	 ARGS:%cl_1_82,%cl_1_85,
+		 6: Line Number 140
+		 7: (User) def_%cl_1_87 
+		 8: %cl_1_87->current def_%cl_1_88 %cl_1_87[30.7,] 	 SYMBOL:	 ARGS:
+		 9: GETFIELD %self->project def_%cl_1_89 %self[30.1,30.4,30.5,2.0,] 
+		 10: HASH-global- def_%cl_1_90 
+		 11: %cl_1_88->allowed_to? def_%cl_1_91 %cl_1_88[30.8,] %cl_1_89[30.9,] %cl_1_90[30.10,] 	 SYMBOL:view_calendar,	 ARGS:Symbol,%cl_1_89,%cl_1_90,
+		 12: BRANCH %cl_1_91[30.11,] 
+BB 31
+	outgoing: 33 68 
+	datadep: 
+	instructions:
+		 0: Line Number 141
+		 1: %self->l def_%cl_1_92 %self[2.0,] 	 SYMBOL:label_calendar,	 ARGS:Symbol,
+		 2: GETFIELD %self->project def_%cl_1_93 %self[31.1,2.0,] 
+		 3: %self->project_calendar_path def_%cl_1_94 %self[31.1,2.0,] %cl_1_93[31.2,] 	 SYMBOL:	 ARGS:%cl_1_93,
+		 4: %self->link_to def_%cl_1_95 %self[31.1,31.3,2.0,] %cl_1_92[31.1,] %cl_1_94[31.3,] 	 SYMBOL:	 ARGS:%cl_1_92,%cl_1_94,
+		 5: 
+BB 32
+	outgoing: 33 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_95 
+BB 33
+	outgoing: 34 35 68 
+	datadep: 
+	instructions:
+		 0: Line Number 143
+		 1: (User) def_%cl_1_96 
+		 2: %cl_1_96->current def_%cl_1_97 %cl_1_96[33.1,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->project def_%cl_1_98 %self[2.0,] 
+		 4: HASH-global- def_%cl_1_99 
+		 5: %cl_1_97->allowed_to? def_%cl_1_100 %cl_1_97[33.2,] %cl_1_98[33.3,] %cl_1_99[33.4,] 	 SYMBOL:view_gantt,	 ARGS:Symbol,%cl_1_98,%cl_1_99,
+		 6: BRANCH %cl_1_100[33.5,] 
+BB 34
+	outgoing: 36 68 
+	datadep: 
+	instructions:
+		 0: Line Number 144
+		 1: %self->l def_%cl_1_101 %self[2.0,] 	 SYMBOL:label_gantt,	 ARGS:Symbol,
+		 2: GETFIELD %self->project def_%cl_1_102 %self[34.1,2.0,] 
+		 3: %self->project_gantt_path def_%cl_1_103 %self[34.1,2.0,] %cl_1_102[34.2,] 	 SYMBOL:	 ARGS:%cl_1_102,
+		 4: %self->link_to def_%cl_1_104 %self[34.1,34.3,2.0,] %cl_1_101[34.1,] %cl_1_103[34.3,] 	 SYMBOL:	 ARGS:%cl_1_101,%cl_1_103,
+		 5: 
+BB 35
+	outgoing: 36 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_104 
+BB 36
+	outgoing: 38 
+	datadep: 
+	instructions:
+		 0: 
+BB 37
+	outgoing: 38 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_104 
+BB 38
+	outgoing: 39 46 68 
+	datadep: 
+	instructions:
+		 0: Line Number 147
+		 1: (User) def_%cl_1_105 
+		 2: %cl_1_105->current def_%cl_1_106 %cl_1_105[38.1,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->project def_%cl_1_107 %self[2.0,] 
+		 4: %cl_1_106->allowed_to? def_%cl_1_108 %cl_1_106[38.2,] %cl_1_107[38.3,] 	 SYMBOL:view_time_entries,	 ARGS:Symbol,%cl_1_107,
+		 5: BRANCH %cl_1_108[38.4,] 
+BB 39
+	outgoing: 40 41 68 
+	datadep: 
+	instructions:
+		 0: Line Number 148
+		 1: %self->l def_%cl_1_109 %self[2.0,] 	 SYMBOL:label_spent_time,	 ARGS:Symbol,
+		 2: Line Number 149
+		 3: GETFIELD %self->total_hours def_%cl_1_110 %self[39.1,2.0,] 
+		 4: %cl_1_110->present? def_%cl_1_111 %cl_1_110[39.3,] 	 SYMBOL:	 ARGS:
+		 5: BRANCH %cl_1_111[39.4,] 
+BB 40
+	outgoing: 42 68 
+	datadep: 
+	instructions:
+		 0: Line Number 150
+		 1: GETFIELD %self->total_hours def_%cl_1_112 %self[2.0,] 
+		 2: %self->l_hours def_%cl_1_113 %self[2.0,] %cl_1_112[40.1,] 	 SYMBOL:	 ARGS:%cl_1_112,
+		 3: 
+BB 41
+	outgoing: 42 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_113 
+BB 42
+	outgoing: 43 44 68 
+	datadep: 
+	instructions:
+		 0: Line Number 152
+		 1: (User) def_%cl_1_114 
+		 2: %cl_1_114->current def_%cl_1_115 %cl_1_114[42.1,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->project def_%cl_1_116 %self[2.0,] 
+		 4: %cl_1_115->allowed_to? def_%cl_1_117 %cl_1_115[42.2,] %cl_1_116[42.3,] 	 SYMBOL:log_time,	 ARGS:Symbol,%cl_1_116,
+		 5: BRANCH %cl_1_117[42.4,] 
+BB 43
+	outgoing: 45 68 
+	datadep: 
+	instructions:
+		 0: Line Number 153
+		 1: %self->l def_%cl_1_118 %self[2.0,] 	 SYMBOL:button_log_time,	 ARGS:Symbol,
+		 2: GETFIELD %self->project def_%cl_1_119 %self[43.1,2.0,] 
+		 3: %self->new_project_time_entry_path def_%cl_1_120 %self[43.1,2.0,] %cl_1_119[43.2,] 	 SYMBOL:	 ARGS:%cl_1_119,
+		 4: %self->link_to def_%cl_1_121 %self[43.1,43.3,2.0,] %cl_1_118[43.1,] %cl_1_120[43.3,] 	 SYMBOL:	 ARGS:%cl_1_118,%cl_1_120,
+		 5: 
+BB 44
+	outgoing: 45 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_121 
+BB 45
+	outgoing: 47 68 
+	datadep: 
+	instructions:
+		 0: Line Number 155
+		 1: %self->l def_%cl_1_122 %self[2.0,] 	 SYMBOL:label_details,	 ARGS:Symbol,
+		 2: GETFIELD %self->project def_%cl_1_123 %self[45.1,2.0,] 
+		 3: %self->project_time_entries_path def_%cl_1_124 %self[45.1,2.0,] %cl_1_123[45.2,] 	 SYMBOL:	 ARGS:%cl_1_123,
+		 4: %self->link_to def_%cl_1_125 %self[45.1,45.3,2.0,] %cl_1_122[45.1,] %cl_1_124[45.3,] 	 SYMBOL:	 ARGS:%cl_1_122,%cl_1_124,
+		 5: Line Number 156
+		 6: %self->l def_%cl_1_126 %self[45.1,45.3,45.4,2.0,] 	 SYMBOL:label_report,	 ARGS:Symbol,
+		 7: GETFIELD %self->project def_%cl_1_127 %self[45.1,45.3,45.4,45.6,2.0,] 
+		 8: %self->report_project_time_entries_path def_%cl_1_128 %self[45.1,45.3,45.4,45.6,2.0,] %cl_1_127[45.7,] 	 SYMBOL:	 ARGS:%cl_1_127,
+		 9: %self->link_to def_%cl_1_129 %self[45.1,45.3,45.4,45.6,45.8,2.0,] %cl_1_126[45.6,] %cl_1_128[45.8,] 	 SYMBOL:	 ARGS:%cl_1_126,%cl_1_128,
+		 10: 
+BB 46
+	outgoing: 47 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_129 
+BB 47
+	outgoing: 48 49 68 
+	datadep: 
+	instructions:
+		 0: Line Number 158
+		 1: GETFIELD %self->project def_%cl_1_130 %self[2.0,] 
+		 2: HASH-project- def_%cl_1_131 %cl_1_130[47.1,] 
+		 3: %self->call_hook def_%cl_1_132 %self[2.0,] %cl_1_131[47.2,] 	 SYMBOL:view_projects_show_left,	 ARGS:Symbol,%cl_1_131,
+		 4: Line Number 159
+		 5: COPY TYPE_StringLiteral "members_box" def_%cl_1_133 
+		 6: HASH-partial- def_%cl_1_134 %cl_1_133[47.5,] 
+		 7: %self->render def_%cl_1_135 %self[47.3,2.0,] %cl_1_134[47.6,] 	 SYMBOL:	 ARGS:%cl_1_134,
+		 8: Line Number 160
+		 9: GETFIELD %self->users_by_role def_%cl_1_136 %self[47.3,47.7,2.0,] 
+		 10: %cl_1_136->any? def_%cl_1_137 %cl_1_136[47.9,] 	 SYMBOL:	 ARGS:
+		 11: BRANCH %cl_1_137[47.10,] 
+BB 48
+	outgoing: 50 68 
+	datadep: 
+	instructions:
+		 0: Line Number 161
+		 1: %self->l def_%cl_1_138 %self[2.0,] 	 SYMBOL:label_member_plural,	 ARGS:Symbol,
+		 2: Line Number 162
+		 3: GETFIELD %self->users_by_role def_%cl_1_139 %self[48.1,2.0,] 
+		 4: %cl_1_139->keys def_%cl_1_140 %cl_1_139[48.3,] 	 SYMBOL:	 ARGS:
+		 5: %cl_1_140->sort def_%cl_1_141 %cl_1_140[48.4,] 	 SYMBOL:	 ARGS:
+		 6: %cl_1_141->each def_%cl_1_142 %cl_1_141[48.5,] %self[48.1,2.0,] 	 SYMBOL:	 ARGS:%cl_1_141,
+CLOSURE BEGIN: %self[48.1,2.0,] role[] u[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_7_0 
+		 2: RECEIVEARG def_role 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 163
+		 1: Line Number 164
+		 2: GETFIELD %self->users_by_role def_%cl_7_3 %self[2.0,] 
+		 3: %cl_7_3->[] def_%cl_7_4 %cl_7_3[3.2,] role[2.2,] 	 SYMBOL:	 ARGS:role,
+		 4: %cl_7_4->sort def_%cl_7_5 %cl_7_4[3.3,] 	 SYMBOL:	 ARGS:
+		 5: %cl_7_5->collect def_%cl_7_6 %cl_7_5[3.4,] %self[2.0,] 	 SYMBOL:	 ARGS:%cl_7_5,
+CLOSURE BEGIN: %self[2.0,] u[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_8_0 
+		 2: RECEIVEARG def_u 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 164
+		 1: %self->link_to_user def_%cl_8_3 %self[2.0,] u[2.2,] 	 SYMBOL:	 ARGS:u,
+		 2: RETURN %cl_8_3[3.1,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_8_4 
+		 1: def_%cl_8_5 %cl_8_4[4.0,] 
+		 2: RETURN %cl_8_5[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 6: COPY TYPE_StringLiteral ", " def_%cl_7_7 
+		 7: %cl_7_6->join def_%cl_7_8 %cl_7_6[3.5,] %cl_7_7[3.6,] 	 SYMBOL:	 ARGS:%cl_7_7,
+		 8: %cl_7_8->html_safe def_%cl_7_9 %cl_7_8[3.7,] 	 SYMBOL:	 ARGS:
+		 9: RETURN %cl_7_9[3.8,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_7_10 
+		 1: def_%cl_7_11 %cl_7_10[4.0,] 
+		 2: RETURN %cl_7_11[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 7: 
+BB 49
+	outgoing: 50 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_142 
+BB 50
+	outgoing: 51 52 68 
+	datadep: 
+	instructions:
+		 0: Line Number 167
+		 1: GETFIELD %self->news def_%cl_1_143 %self[2.0,] 
+		 2: %cl_1_143->any? def_%cl_1_144 %cl_1_143[50.1,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %cl_1_144[50.2,] 
+BB 51
+	outgoing: 52 68 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "news" def_%cl_1_145 
+		 1: COPY TYPE_StringLiteral "index" def_%cl_1_146 
+		 2: %self->authorize_for def_%cl_1_147 %self[2.0,] %cl_1_145[51.0,] %cl_1_146[51.1,] 	 SYMBOL:	 ARGS:%cl_1_145,%cl_1_146,
+		 3: COPY TYPE_PASS def_%cl_1_144 %cl_1_147[51.2,] 
+BB 52
+	outgoing: 53 63 
+	datadep: 
+	instructions:
+		 0: BRANCH %cl_1_144[51.3,50.2,] 
+BB 53
+	outgoing: 54 55 68 
+	datadep: 
+	instructions:
+		 0: Line Number 168
+		 1: %self->l def_%cl_1_148 %self[2.0,] 	 SYMBOL:label_news_latest,	 ARGS:Symbol,
+		 2: Line Number 169
+		 3: COPY TYPE_StringLiteral "news/news" def_%cl_1_149 
+		 4: GETFIELD %self->news def_%cl_1_150 %self[53.1,2.0,] 
+		 5: HASH-partial-collection- def_%cl_1_151 %cl_1_149[53.3,] %cl_1_150[53.4,] 
+		 6: %self->render def_%cl_1_152 %self[53.1,2.0,] %cl_1_151[53.5,] 	 SYMBOL:	 ARGS:%cl_1_151,
+		 7: Line Number 171
+		 8: GETFIELD %self->project def_%cl_1_153 %self[53.1,53.6,2.0,] 
+		 9: BRANCH %cl_1_153[53.8,] 
+BB 54
+	outgoing: 56 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_154 
+		 1: 
+BB 55
+	outgoing: 56 68 
+	datadep: 
+	instructions:
+		 0: %self->news def_%cl_1_155 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %cl_1_155->project def_%cl_1_156 %cl_1_155[55.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->link_to_project def_%cl_1_157 %self[55.0,2.0,] %cl_1_156[55.1,] 	 SYMBOL:	 ARGS:%cl_1_156,
+		 3: COPY TYPE_StringLiteral ": " def_%cl_1_158 
+		 4: %cl_1_157->+ def_%cl_1_159 %cl_1_157[55.2,] %cl_1_158[55.3,] 	 SYMBOL:	 ARGS:%cl_1_158,
+		 5: COPY TYPE_PASS def_%cl_1_154 %cl_1_159[55.4,] 
+BB 56
+	outgoing: 57 58 68 
+	datadep: 
+	instructions:
+		 0: %self->news def_%cl_1_160 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %cl_1_160->title def_%cl_1_161 %cl_1_160[56.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->news def_%cl_1_162 %self[56.0,2.0,] 	 SYMBOL:	 ARGS:
+		 3: %self->news_path def_%cl_1_163 %self[56.0,56.2,2.0,] %cl_1_162[56.2,] 	 SYMBOL:	 ARGS:%cl_1_162,
+		 4: %self->link_to def_%cl_1_164 %self[56.0,56.2,56.3,2.0,] %cl_1_161[56.1,] %cl_1_163[56.3,] 	 SYMBOL:	 ARGS:%cl_1_161,%cl_1_163,
+		 5: Line Number 172
+		 6: %self->news def_%cl_1_165 %self[56.0,56.2,56.3,56.4,2.0,] 	 SYMBOL:	 ARGS:
+		 7: %cl_1_165->comments_count def_%cl_1_166 %cl_1_165[56.6,] 	 SYMBOL:	 ARGS:
+		 8: %cl_1_166->> def_%cl_1_167 %cl_1_166[56.7,] 	 SYMBOL:	 ARGS:Fixnum,
+		 9: BRANCH %cl_1_167[56.8,] 
+BB 57
+	outgoing: 59 68 
+	datadep: 
+	instructions:
+		 0: Line Number 173
+		 1: %self->news def_%cl_1_168 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_168->comments_count def_%cl_1_169 %cl_1_168[57.1,] 	 SYMBOL:	 ARGS:
+		 3: HASH-count- def_%cl_1_170 %cl_1_169[57.2,] 
+		 4: %self->l def_%cl_1_171 %self[57.1,2.0,] %cl_1_170[57.3,] 	 SYMBOL:label_x_comments,	 ARGS:Symbol,%cl_1_170,
+		 5: 
+BB 58
+	outgoing: 59 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_171 
+BB 59
+	outgoing: 60 61 68 
+	datadep: 
+	instructions:
+		 0: Line Number 175
+		 1: %self->news def_%cl_1_172 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_172->summary def_%cl_1_173 %cl_1_172[59.1,] 	 SYMBOL:	 ARGS:
+		 3: %cl_1_173->blank? def_%cl_1_174 %cl_1_173[59.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %cl_1_174[59.3,] 
+BB 60
+	outgoing: 62 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_175 
+		 1: 
+BB 61
+	outgoing: 62 68 
+	datadep: 
+	instructions:
+		 0: Line Number 176
+		 1: %self->news def_%cl_1_176 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_176->summary def_%cl_1_177 %cl_1_176[61.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_PASS def_%cl_1_175 %cl_1_177[61.2,] 
+BB 62
+	outgoing: 64 68 
+	datadep: 
+	instructions:
+		 0: Line Number 178
+		 1: %self->news def_%cl_1_178 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_178->created_on def_%cl_1_179 %cl_1_178[62.1,] 	 SYMBOL:	 ARGS:
+		 3: %self->news def_%cl_1_180 %self[62.1,2.0,] 	 SYMBOL:	 ARGS:
+		 4: %cl_1_180->author def_%cl_1_181 %cl_1_180[62.3,] 	 SYMBOL:	 ARGS:
+		 5: %self->authoring def_%cl_1_182 %self[62.1,62.3,2.0,] %cl_1_179[62.2,] %cl_1_181[62.4,] 	 SYMBOL:	 ARGS:%cl_1_179,%cl_1_181,
+		 6: Line Number 179
+		 7: %self->l def_%cl_1_183 %self[62.1,62.3,62.5,2.0,] 	 SYMBOL:label_news_view_all,	 ARGS:Symbol,
+		 8: GETFIELD %self->project def_%cl_1_184 %self[62.1,62.3,62.5,62.7,2.0,] 
+		 9: %self->project_news_index_path def_%cl_1_185 %self[62.1,62.3,62.5,62.7,2.0,] %cl_1_184[62.8,] 	 SYMBOL:	 ARGS:%cl_1_184,
+		 10: %self->link_to def_%cl_1_186 %self[62.1,62.3,62.5,62.7,62.9,2.0,] %cl_1_183[62.7,] %cl_1_185[62.9,] 	 SYMBOL:	 ARGS:%cl_1_183,%cl_1_185,
+		 11: 
+BB 63
+	outgoing: 64 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_186 
+BB 64
+	outgoing: 65 66 68 
+	datadep: 
+	instructions:
+		 0: Line Number 181
+		 1: GETFIELD %self->subprojects def_%cl_1_187 %self[2.0,] 
+		 2: %cl_1_187->any? def_%cl_1_188 %cl_1_187[64.1,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %cl_1_188[64.2,] 
+BB 65
+	outgoing: 67 68 
+	datadep: 
+	instructions:
+		 0: Line Number 182
+		 1: %self->l def_%cl_1_189 %self[2.0,] 	 SYMBOL:label_subproject_plural,	 ARGS:Symbol,
+		 2: Line Number 183
+		 3: GETFIELD %self->subprojects def_%cl_1_190 %self[65.1,2.0,] 
+		 4: %cl_1_190->collect def_%cl_1_191 %cl_1_190[65.3,] %self[65.1,2.0,] 	 SYMBOL:	 ARGS:%cl_1_190,
+CLOSURE BEGIN: %self[65.1,2.0,] p[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_9_0 
+		 2: RECEIVEARG def_p 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 183
+		 1: %self->project_path def_%cl_9_3 %self[2.0,] p[2.2,] 	 SYMBOL:	 ARGS:p,
+		 2: p->css_classes def_%cl_9_4 p[2.2,] 	 SYMBOL:	 ARGS:
+		 3: HASH-class- def_%cl_9_5 %cl_9_4[3.2,] 
+		 4: %self->link_to def_%cl_9_6 %self[3.1,2.0,] p[3.2,2.2,] %cl_9_3[3.1,] %cl_9_5[3.3,] 	 SYMBOL:	 ARGS:p,%cl_9_3,%cl_9_5,
+		 5: RETURN %cl_9_6[3.4,] %self[3.1,3.4,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_9_7 
+		 1: def_%cl_9_8 %cl_9_7[4.0,] 
+		 2: RETURN %cl_9_8[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 5: COPY TYPE_StringLiteral ", " def_%cl_1_192 
+		 6: %cl_1_191->join def_%cl_1_193 %cl_1_191[65.4,] %cl_1_192[65.5,] 	 SYMBOL:	 ARGS:%cl_1_192,
+		 7: %cl_1_193->html_safe def_%cl_1_194 %cl_1_193[65.6,] 	 SYMBOL:	 ARGS:
+		 8: 
+BB 66
+	outgoing: 67 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_194 
+BB 67
+	outgoing: 68 70 
+	datadep: 
+	instructions:
+		 0: Line Number 185
+		 1: GETFIELD %self->project def_%cl_1_195 %self[2.0,] 
+		 2: HASH-project- def_%cl_1_196 %cl_1_195[67.1,] 
+		 3: %self->call_hook def_%cl_1_197 %self[2.0,] %cl_1_196[67.2,] 	 SYMBOL:view_projects_show_right,	 ARGS:Symbol,%cl_1_196,
+		 4: Line Number 186
+		 5: %self->content_for def_%cl_1_198 %self[67.3,2.0,] %self[67.3,2.0,] 	 SYMBOL:sidebar,	 ARGS:Symbol,%self,
+CLOSURE BEGIN: %self[67.3,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_10_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 187
+		 1: GETFIELD %self->project def_%cl_10_3 %self[2.0,] 
+		 2: HASH-project- def_%cl_10_4 %cl_10_3[3.1,] 
+		 3: %self->call_hook def_%cl_10_5 %self[2.0,] %cl_10_4[3.2,] 	 SYMBOL:view_projects_show_sidebar_bottom,	 ARGS:Symbol,%cl_10_4,
+		 4: RETURN %cl_10_5[3.3,] %self[3.3,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_10_6 
+		 1: def_%cl_10_7 %cl_10_6[4.0,] 
+		 2: RETURN %cl_10_7[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 6: Line Number 189
+		 7: %self->content_for def_%cl_1_199 %self[67.3,67.5,2.0,] %self[67.3,67.5,2.0,] 	 SYMBOL:header_tags,	 ARGS:Symbol,%self,
+CLOSURE BEGIN: %self[67.3,67.5,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_11_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 190
+		 1: COPY TYPE_StringLiteral "activities" def_%cl_11_3 
+		 2: COPY TYPE_StringLiteral "index" def_%cl_11_4 
+		 3: GETFIELD %self->project def_%cl_11_5 %self[2.0,] 
+		 4: COPY TYPE_StringLiteral "atom" def_%cl_11_6 
+		 5: (User) def_%cl_11_7 
+		 6: %cl_11_7->current def_%cl_11_8 %cl_11_7[3.5,] 	 SYMBOL:	 ARGS:
+		 7: %cl_11_8->rss_key def_%cl_11_9 %cl_11_8[3.6,] 	 SYMBOL:	 ARGS:
+		 8: HASH-controller-action-id-format-key- def_%cl_11_10 %cl_11_3[3.1,] %cl_11_4[3.2,] %cl_11_5[3.3,] %cl_11_6[3.4,] %cl_11_9[3.7,] 
+		 9: %self->auto_discovery_link_tag def_%cl_11_11 %self[2.0,] %cl_11_10[3.8,] 	 SYMBOL:atom,	 ARGS:Symbol,%cl_11_10,
+		 10: RETURN %cl_11_11[3.9,] %self[3.9,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_11_12 
+		 1: def_%cl_11_13 %cl_11_12[4.0,] 
+		 2: RETURN %cl_11_13[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 8: Line Number 192
+		 9: %self->l def_%cl_1_200 %self[67.3,67.5,67.7,2.0,] 	 SYMBOL:label_overview,	 ARGS:Symbol,
+		 10: %self->html_title def_%cl_1_201 %self[67.3,67.5,67.7,67.9,2.0,] %cl_1_200[67.9,] 	 SYMBOL:	 ARGS:%cl_1_200,
+		 11: RETURN %cl_1_201[67.10,] %self[67.3,67.5,67.7,67.9,67.10,2.0,] 
+BB 68
+	outgoing: 70 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_202 
+		 1: def_%cl_1_203 %cl_1_202[68.0,] 
+		 2: RETURN %cl_1_203[68.1,] %self[2.0,] 
+BB 70
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: RETURN %v_24[6.1,] %self[6.1,2.0,2.9,2.14,2.18,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 195
+		 1: %self->respond_to def_%v_25 %self[2.0,2.9,2.14,2.18,] %self[2.0,2.9,2.14,2.18,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[2.0,2.9,2.14,2.18,] f[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_12_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 196
+		 1: format->html def_%cl_12_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_13_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 196
+		 1: COPY TYPE_StringLiteral "new" def_%cl_13_3 
+		 2: HASH-action- def_%cl_13_4 %cl_13_3[3.1,] 
+		 3: %self->render def_%cl_13_5 %self[2.0,] %cl_13_4[3.2,] 	 SYMBOL:	 ARGS:%cl_13_4,
+		 4: RETURN %cl_13_5[3.3,] %self[3.3,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_13_6 
+		 1: def_%cl_13_7 %cl_13_6[4.0,] 
+		 2: RETURN %cl_13_7[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 197
+		 3: %self->l def_%cl_12_4 %self[2.0,] 	 SYMBOL:label_project_new,	 ARGS:Symbol,
+		 4: %self->title def_%cl_12_5 %self[3.3,2.0,] %cl_12_4[3.3,] 	 SYMBOL:	 ARGS:%cl_12_4,
+		 5: Line Number 198
+		 6: GETFIELD %self->project def_%cl_12_6 %self[3.3,3.4,2.0,] 
+		 7: HASH-multipart- def_%cl_12_7 
+		 8: HASH-html- def_%cl_12_8 %cl_12_7[3.7,] 
+		 9: %self->labelled_form_for def_%cl_12_9 %self[3.3,3.4,2.0,] %cl_12_6[3.6,] %cl_12_8[3.8,] %self[3.3,3.4,2.0,] 	 SYMBOL:	 ARGS:%cl_12_6,%cl_12_8,%self,
+CLOSURE BEGIN: f[] %self[3.3,3.4,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_14_0 
+		 2: RECEIVEARG def_f 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 199
+		 1: COPY TYPE_StringLiteral "form" def_%cl_14_3 
+		 2: HASH-f- def_%cl_14_4 f[2.2,] 
+		 3: HASH-partial-locals- def_%cl_14_5 %cl_14_3[3.1,] %cl_14_4[3.2,] 
+		 4: %self->render def_%cl_14_6 %self[2.0,] %cl_14_5[3.3,] 	 SYMBOL:	 ARGS:%cl_14_5,
+		 5: Line Number 200
+		 6: %self->l def_%cl_14_7 %self[3.4,2.0,] 	 SYMBOL:button_create,	 ARGS:Symbol,
+		 7: %self->submit_tag def_%cl_14_8 %self[3.4,3.6,2.0,] %cl_14_7[3.6,] 	 SYMBOL:	 ARGS:%cl_14_7,
+		 8: Line Number 201
+		 9: %self->l def_%cl_14_9 %self[3.4,3.6,3.7,2.0,] 	 SYMBOL:button_create_and_continue,	 ARGS:Symbol,
+		 10: COPY TYPE_StringLiteral "continue" def_%cl_14_10 
+		 11: HASH-name- def_%cl_14_11 %cl_14_10[3.10,] 
+		 12: %self->submit_tag def_%cl_14_12 %self[3.4,3.6,3.7,3.9,2.0,] %cl_14_9[3.9,] %cl_14_11[3.11,] 	 SYMBOL:	 ARGS:%cl_14_9,%cl_14_11,
+		 13: RETURN %cl_14_12[3.12,] %self[3.4,3.6,3.7,3.9,3.12,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_14_13 
+		 1: def_%cl_14_14 %cl_14_13[4.0,] 
+		 2: RETURN %cl_14_14[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 10: Line Number 203
+		 11: format->api def_%cl_12_10 format[3.1,2.2,] %self[3.3,3.4,3.9,2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[3.3,3.4,3.9,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_15_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 203
+		 1: GETFIELD %self->project def_%cl_15_3 %self[2.0,] 
+		 2: %self->render_validation_errors def_%cl_15_4 %self[2.0,] %cl_15_3[3.1,] 	 SYMBOL:	 ARGS:%cl_15_3,
+		 3: RETURN %cl_15_4[3.2,] %self[3.2,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_15_5 
+		 1: def_%cl_15_6 %cl_15_5[4.0,] 
+		 2: RETURN %cl_15_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 12: RETURN %cl_12_10[3.11,] %self[3.3,3.4,3.9,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_12_11 
+		 1: def_%cl_12_12 %cl_12_11[4.0,] 
+		 2: RETURN %cl_12_12[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: RETURN %v_25[7.1,] %self[7.1,2.0,2.9,2.14,2.18,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = copy instanceMethod = true
+BB 1
+	outgoing: 20 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: GLOBALVAR $! def_%v_3 
+BB 4
+	outgoing: 5 9 12 
+	datadep: 
+	instructions:
+		 0: 
+		 1: Line Number 208
+		 2: (IssueCustomField) def_%v_6 
+		 3: %v_6->sorted def_%v_7 %v_6[4.2,] 	 SYMBOL:	 ARGS:
+		 4: %v_7->to_a def_%v_8 %v_7[4.3,] 	 SYMBOL:	 ARGS:
+		 5: ATTRASSIGN %self->issue_custom_fields %v_8[4.4,] 
+		 6: Line Number 209
+		 7: (Tracker) def_%v_9 
+		 8: %v_9->sorted def_%v_10 %v_9[4.7,] 	 SYMBOL:	 ARGS:
+		 9: %v_10->to_a def_%v_11 %v_10[4.8,] 	 SYMBOL:	 ARGS:
+		 10: ATTRASSIGN %self->trackers %v_11[4.9,] 
+		 11: Line Number 210
+		 12: (Project) def_%v_12 
+		 13: %self->params def_%v_13 %self[4.5,4.10,2.0,] 	 SYMBOL:	 ARGS:
+		 14: %v_13->[] def_%v_14 %v_13[4.13,] 	 SYMBOL:id,	 ARGS:Symbol,
+		 15: %v_12->find def_%v_15 %v_12[4.12,] %v_14[4.14,] 	 SYMBOL:	 ARGS:%v_14,
+		 16: ATTRASSIGN %self->source_project %v_15[4.15,] 
+		 17: Line Number 211
+		 18: %self->request def_%v_16 %self[4.5,4.10,4.13,4.16,2.0,] 	 SYMBOL:	 ARGS:
+		 19: %v_16->get? def_%v_17 %v_16[4.18,] 	 SYMBOL:	 ARGS:
+		 20: BRANCH %v_17[4.19,] 
+BB 5
+	outgoing: 6 7 12 
+	datadep: 
+	instructions:
+		 0: Line Number 212
+		 1: (Project) def_%v_18 
+		 2: GETFIELD %self->source_project def_%v_19 %self[4.16,2.0,] 
+		 3: %v_18->copy_from def_%v_20 %v_18[5.1,] %v_19[5.2,] 	 SYMBOL:	 ARGS:%v_19,
+		 4: ATTRASSIGN %self->project %v_20[5.3,] 
+		 5: Line Number 213
+		 6: (Setting) def_%v_21 
+		 7: %v_21->sequential_project_identifiers? def_%v_22 %v_21[5.6,] 	 SYMBOL:	 ARGS:
+		 8: BRANCH %v_22[5.7,] 
+BB 6
+	outgoing: 8 12 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_23 %self[5.4,2.0,] 
+		 1: (Project) def_%v_24 
+		 2: %v_24->next_identifier def_%v_25 %v_24[6.1,] 	 SYMBOL:	 ARGS:
+		 3: ATTRASSIGN %v_23->identifier %v_25[6.2,] 
+		 4: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_25 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: 
+BB 9
+	outgoing: 10 12 
+	datadep: 
+	instructions:
+		 0: Line Number 215
+		 1: (Mailer) def_%v_26 
+		 2: %self->params def_%v_27 %self[4.5,4.10,4.16,2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_27->[] def_%v_28 %v_27[9.2,] 	 SYMBOL:notifications,	 ARGS:Symbol,
+		 4: COPY TYPE_StringLiteral "1" def_%v_29 
+		 5: %v_28->== def_%v_30 %v_28[9.3,] %v_29[9.4,] 	 SYMBOL:	 ARGS:%v_29,
+		 6: %v_26->with_deliveries def_%v_31 %v_26[9.1,] %v_30[9.5,] %self[9.2,4.5,4.10,4.16,2.0,] 	 SYMBOL:	 ARGS:%v_30,%v_26,
+CLOSURE BEGIN: %self[9.2,4.5,4.10,4.16,2.0,] 
+BB 1
+	outgoing: 12 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 10 
+	datadep: 
+	instructions:
+		 0: Line Number 216
+		 1: (Project) def_%cl_1_3 
+		 2: %cl_1_3->new def_%cl_1_4 %cl_1_3[3.1,] 	 SYMBOL:	 ARGS:
+		 3: ATTRASSIGN %self->project %cl_1_4[3.2,] 
+		 4: Line Number 217
+		 5: GETFIELD %self->project def_%cl_1_5 %self[3.3,2.0,] 
+		 6: %self->params def_%cl_1_6 %self[3.3,2.0,] 	 SYMBOL:	 ARGS:
+		 7: %cl_1_6->[] def_%cl_1_7 %cl_1_6[3.6,] 	 SYMBOL:project,	 ARGS:Symbol,
+		 8: ATTRASSIGN %cl_1_5->safe_attributes %cl_1_7[3.7,] 
+		 9: Line Number 218
+		 10: GETFIELD %self->project def_%cl_1_8 %self[3.3,3.6,2.0,] 
+		 11: GETFIELD %self->source_project def_%cl_1_9 %self[3.6,2.0,] 
+		 12: %self->params def_%cl_1_10 %self[3.3,3.6,2.0,] 	 SYMBOL:	 ARGS:
+		 13: %cl_1_10->[] def_%cl_1_11 %cl_1_10[3.12,] 	 SYMBOL:only,	 ARGS:Symbol,
+		 14: HASH-only- def_%cl_1_12 %cl_1_11[3.13,] 
+		 15: %cl_1_8->copy def_%cl_1_13 %cl_1_8[3.10,] %cl_1_9[3.11,] %cl_1_12[3.14,] 	 SYMBOL:	 ARGS:%cl_1_9,%cl_1_12,
+		 16: BRANCH %cl_1_13[3.15,] 
+BB 4
+	outgoing: 9 10 
+	datadep: 
+	instructions:
+		 0: Line Number 219
+		 1: %self->flash def_%cl_1_14 %self[3.3,2.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->l def_%cl_1_15 %self[4.1,3.3,2.0,] 	 SYMBOL:notice_successful_create,	 ARGS:Symbol,
+		 3: ATTRASSIGN %cl_1_14->[] %cl_1_15[4.2,] 
+		 4: Line Number 220
+		 5: GETFIELD %self->project def_%cl_1_16 %self[4.1,4.2,3.3,2.0,] 
+		 6: %self->settings_project_path def_%cl_1_17 %self[4.1,4.2,3.3,2.0,] %cl_1_16[4.5,] 	 SYMBOL:	 ARGS:%cl_1_16,
+		 7: %self->redirect_to def_%cl_1_18 %self[4.1,4.2,4.6,3.3,2.0,] %cl_1_17[4.6,] 	 SYMBOL:	 ARGS:%cl_1_17,
+		 8: 
+BB 5
+	outgoing: 6 7 10 
+	datadep: 
+	instructions:
+		 0: Line Number 221
+		 1: GETFIELD %self->project def_%cl_1_19 %self[3.3,2.0,] 
+		 2: %cl_1_19->new_record? def_%cl_1_20 %cl_1_19[5.1,] 	 SYMBOL:	 ARGS:
+		 3: %cl_1_20->! def_%cl_1_21 %cl_1_20[5.2,] 	 SYMBOL:	 ARGS:
+		 4: BRANCH %cl_1_21[5.3,] 
+BB 6
+	outgoing: 8 10 
+	datadep: 
+	instructions:
+		 0: Line Number 222
+		 1: GETFIELD %self->project def_%cl_1_22 %self[3.3,2.0,] 
+		 2: %self->settings_project_path def_%cl_1_23 %self[3.3,2.0,] %cl_1_22[6.1,] 	 SYMBOL:	 ARGS:%cl_1_22,
+		 3: %self->redirect_to def_%cl_1_24 %self[6.2,3.3,2.0,] %cl_1_23[6.2,] 	 SYMBOL:	 ARGS:%cl_1_23,
+		 4: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_24 
+BB 8
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: RETURN %cl_1_24[7.0,6.3,] %self[3.3,2.0,] 
+BB 9
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: RETURN %cl_1_18[4.7,] %self[3.3,2.0,] 
+BB 10
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_25 
+		 1: def_%cl_1_26 %cl_1_25[10.0,] 
+		 2: RETURN %cl_1_26[10.1,] %self[3.3,2.0,] 
+BB 12
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 7: COPY TYPE_PASS def_%v_25 %v_31[9.6,] 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_%v_5 %v_25[9.7,7.0,6.2,] 
+		 1: %v_3[2.5,] 
+BB 11
+	outgoing: 19 
+	datadep: 
+	instructions:
+		 0: 
+BB 12
+	outgoing: 13 14 18 
+	datadep: 
+	instructions:
+		 0: def_%v_32 
+		 1: (ActiveRecord) def_%v_33 
+		 2: (inherit RecordNotFound) def_%v_34 %v_33[12.1,] 
+		 3: %v_34[12.2,] 
+BB 13
+	outgoing: 14 18 
+	datadep: 
+	instructions:
+		 0: %v_33->const_missing def_%v_34 %v_33[12.1,] 	 SYMBOL:RecordNotFound,	 ARGS:Symbol,
+BB 14
+	outgoing: 15 16 18 
+	datadep: 
+	instructions:
+		 0: def_%v_35 %v_34[13.0,12.2,] %v_32[12.0,] 
+		 1: BRANCH %v_35[14.0,] 
+BB 15
+	outgoing: 18 20 
+	datadep: 
+	instructions:
+		 0: %v_32[12.0,] 
+BB 16
+	outgoing: 17 18 
+	datadep: 
+	instructions:
+		 0: Line Number 227
+		 1: %self->render_404 def_%v_36 %self[4.5,4.10,4.16,5.4,2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_5 %v_36[16.1,] 
+		 3: %v_3[2.5,] 
+BB 17
+	outgoing: 19 
+	datadep: 
+	instructions:
+		 0: 
+BB 18
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: def_%v_37 
+		 1: def_%v_38 %v_37[18.0,] %v_3[2.5,] 
+		 2: %v_37[18.0,] 
+BB 19
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: RETURN %v_5[10.0,16.2,] %self[4.5,4.10,4.16,2.0,5.4,] 
+BB 20
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = show instanceMethod = true
+BB 1
+	outgoing: 11 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 266
+		 6: %self->params def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_3->[] def_%v_4 %v_3[2.6,] 	 SYMBOL:jump,	 ARGS:Symbol,
+		 8: BRANCH %v_4[2.7,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_5 %self[2.0,] 
+		 1: %self->params def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_6->[] def_%v_7 %v_6[3.1,] 	 SYMBOL:jump,	 ARGS:Symbol,
+		 3: %self->redirect_to_project_menu_item def_%v_8 %self[3.1,2.0,] %v_5[3.0,] %v_7[3.2,] 	 SYMBOL:	 ARGS:%v_5,%v_7,
+		 4: COPY TYPE_PASS def_%v_4 %v_8[3.3,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_4[3.4,2.7,] 
+BB 5
+	outgoing: 11 
+	datadep: 
+	instructions:
+		 0: Line Number 267
+		 1: RETURN %self[2.0,] 
+BB 6
+	outgoing: 8 9 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_9 
+		 1: Line Number 269
+		 2: GETFIELD %self->project def_%v_10 %self[2.0,] 
+		 3: %v_10->users_by_role def_%v_11 %v_10[6.2,] 	 SYMBOL:	 ARGS:
+		 4: ATTRASSIGN %self->users_by_role %v_11[6.3,] 
+		 5: Line Number 270
+		 6: GETFIELD %self->project def_%v_12 %self[2.0,] 
+		 7: %v_12->children def_%v_13 %v_12[6.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_13->visible def_%v_14 %v_13[6.7,] 	 SYMBOL:	 ARGS:
+		 9: %v_14->to_a def_%v_15 %v_14[6.8,] 	 SYMBOL:	 ARGS:
+		 10: ATTRASSIGN %self->subprojects %v_15[6.9,] 
+		 11: Line Number 271
+		 12: GETFIELD %self->project def_%v_16 %self[2.0,] 
+		 13: %v_16->news def_%v_17 %v_16[6.12,] 	 SYMBOL:	 ARGS:
+		 14: %v_17->limit def_%v_18 %v_17[6.13,] 	 SYMBOL:	 ARGS:Fixnum,
+		 15: %v_18->includes def_%v_19 %v_18[6.14,] 	 SYMBOL:author,project,	 ARGS:Symbol,Symbol,
+		 16: (News) def_%v_20 
+		 17: %v_20->table_name def_%v_21 %v_20[6.16,] 	 SYMBOL:	 ARGS:
+		 18: COPY TYPE_StringLiteral ".created_on DESC" def_%v_22 
+		 19: BUILDSTRING def_%v_23 %v_21[6.17,] %v_22[6.18,] 
+		 20: %v_19->reorder def_%v_24 %v_19[6.15,] %v_23[6.19,] 	 SYMBOL:	 ARGS:%v_23,
+		 21: %v_24->to_a def_%v_25 %v_24[6.20,] 	 SYMBOL:	 ARGS:
+		 22: ATTRASSIGN %self->news %v_25[6.21,] 
+		 23: Line Number 272
+		 24: GETFIELD %self->project def_%v_26 %self[2.0,] 
+		 25: %v_26->rolled_up_trackers def_%v_27 %v_26[6.24,] 	 SYMBOL:	 ARGS:
+		 26: %v_27->visible def_%v_28 %v_27[6.25,] 	 SYMBOL:	 ARGS:
+		 27: ATTRASSIGN %self->trackers %v_28[6.26,] 
+		 28: Line Number 273
+		 29: GETFIELD %self->project def_%v_29 %self[2.0,] 
+		 30: (Setting) def_%v_30 
+		 31: %v_30->display_subprojects_issues? def_%v_31 %v_30[6.30,] 	 SYMBOL:	 ARGS:
+		 32: %v_29->project_condition def_%v_32 %v_29[6.29,] %v_31[6.31,] 	 SYMBOL:	 ARGS:%v_31,
+		 33: COPY TYPE_PASS def_cond %v_32[6.32,] 
+		 34: Line Number 274
+		 35: (Issue) def_%v_33 
+		 36: %v_33->visible def_%v_34 %v_33[6.35,] 	 SYMBOL:	 ARGS:
+		 37: %v_34->open def_%v_35 %v_34[6.36,] 	 SYMBOL:	 ARGS:
+		 38: %v_35->where def_%v_36 %v_35[6.37,] cond[6.33,] 	 SYMBOL:	 ARGS:cond,
+		 39: %v_36->group def_%v_37 %v_36[6.38,] 	 SYMBOL:tracker,	 ARGS:Symbol,
+		 40: %v_37->count def_%v_38 %v_37[6.39,] 	 SYMBOL:	 ARGS:
+		 41: ATTRASSIGN %self->open_issues_by_tracker %v_38[6.40,] 
+		 42: Line Number 275
+		 43: (Issue) def_%v_39 
+		 44: %v_39->visible def_%v_40 %v_39[6.43,] 	 SYMBOL:	 ARGS:
+		 45: %v_40->where def_%v_41 %v_40[6.44,] cond[6.33,] 	 SYMBOL:	 ARGS:cond,
+		 46: %v_41->group def_%v_42 %v_41[6.45,] 	 SYMBOL:tracker,	 ARGS:Symbol,
+		 47: %v_42->count def_%v_43 %v_42[6.46,] 	 SYMBOL:	 ARGS:
+		 48: ATTRASSIGN %self->total_issues_by_tracker %v_43[6.47,] 
+		 49: Line Number 276
+		 50: (User) def_%v_44 
+		 51: %v_44->current def_%v_45 %v_44[6.50,] 	 SYMBOL:	 ARGS:
+		 52: GETFIELD %self->project def_%v_46 %self[2.0,] 
+		 53: %v_45->allowed_to_view_all_time_entries? def_%v_47 %v_45[6.51,] %v_46[6.52,] 	 SYMBOL:	 ARGS:%v_46,
+		 54: BRANCH %v_47[6.53,] 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: Line Number 277
+		 1: (TimeEntry) def_%v_48 
+		 2: %v_48->visible def_%v_49 %v_48[8.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_49->where def_%v_50 %v_49[8.2,] cond[6.33,] 	 SYMBOL:	 ARGS:cond,
+		 4: %v_50->sum def_%v_51 %v_50[8.3,] 	 SYMBOL:hours,	 ARGS:Symbol,
+		 5: %v_51->to_f def_%v_52 %v_51[8.4,] 	 SYMBOL:	 ARGS:
+		 6: ATTRASSIGN %self->total_hours %v_52[8.5,] 
+		 7: 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_52 
+BB 10
+	outgoing: 11 
+	datadep: 
+	instructions:
+		 0: Line Number 279
+		 1: (User) def_%v_53 
+		 2: %v_53->current def_%v_54 %v_53[10.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_54->rss_key def_%v_55 %v_54[10.2,] 	 SYMBOL:	 ARGS:
+		 4: ATTRASSIGN %self->key %v_55[10.3,] 
+		 5: Line Number 280
+		 6: %self->respond_to def_%v_56 %self[10.4,8.6,6.4,6.10,6.22,6.27,6.41,6.48,2.0,] %self[10.4,8.6,6.4,6.10,6.22,6.27,6.41,6.48,2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 281
+		 1: format->html def_%cl_1_3 format[2.2,] 	 SYMBOL:	 ARGS:
+		 2: Line Number 282
+		 3: format->api def_%cl_1_4 format[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 4: RETURN %cl_1_4[3.3,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_5 
+		 1: def_%cl_1_6 %cl_1_5[4.0,] 
+		 2: RETURN %cl_1_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 7: RETURN %v_56[10.6,] %self[10.4,10.6,8.6,6.4,6.10,6.22,6.27,6.41,6.48,2.0,] 
+BB 11
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = settings instanceMethod = true
+BB 1
+	outgoing: 13 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 380
+		 6: (IssueCustomField) def_%v_3 
+		 7: %v_3->sorted def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->to_a def_%v_5 %v_4[2.7,] 	 SYMBOL:	 ARGS:
+		 9: ATTRASSIGN %self->issue_custom_fields %v_5[2.8,] 
+		 10: Line Number 381
+		 11: def_%v_7 %self[2.0,2.9,] 
+		 12: COPY TYPE_PASS def_%v_6 %v_7[2.11,] 
+		 13: %v_7[2.11,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->issue_category def_%v_8 %self[2.0,] 
+		 1: COPY TYPE_PASS def_%v_6 %v_8[3.0,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_6[3.1,2.12,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: (IssueCategory) def_%v_9 
+		 1: %v_9->new def_%v_10 %v_9[5.0,] 	 SYMBOL:	 ARGS:
+		 2: ATTRASSIGN %self->issue_category %v_10[5.1,] 
+		 3: COPY TYPE_PASS def_%v_8 %v_10[5.1,] 
+BB 6
+	outgoing: 7 8 
+	datadep: 
+	instructions:
+		 0: Line Number 382
+		 1: def_%v_12 %self[5.2,2.0,2.9,] 
+		 2: COPY TYPE_PASS def_%v_11 %v_12[6.1,] 
+		 3: %v_12[6.1,] 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->member def_%v_13 %self[2.0,] 
+		 1: COPY TYPE_PASS def_%v_11 %v_13[7.0,] 
+BB 8
+	outgoing: 9 10 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_11[7.1,6.2,] 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->project def_%v_14 %self[2.0,] 
+		 1: %v_14->members def_%v_15 %v_14[9.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_15->new def_%v_16 %v_15[9.1,] 	 SYMBOL:	 ARGS:
+		 3: ATTRASSIGN %self->member %v_16[9.2,] 
+		 4: COPY TYPE_PASS def_%v_13 %v_16[9.2,] 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: Line Number 383
+		 1: (Tracker) def_%v_17 
+		 2: %v_17->sorted def_%v_18 %v_17[10.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_18->to_a def_%v_19 %v_18[10.2,] 	 SYMBOL:	 ARGS:
+		 4: ATTRASSIGN %self->trackers %v_19[10.3,] 
+		 5: Line Number 384
+		 6: %self->params def_%v_20 %self[10.4,9.3,5.2,2.0,2.9,] 	 SYMBOL:	 ARGS:
+		 7: %v_20->[] def_%v_21 %v_20[10.6,] 	 SYMBOL:version_status,	 ARGS:Symbol,
+		 8: BRANCH %v_21[10.7,] 
+BB 11
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "open" def_%v_22 
+		 1: COPY TYPE_PASS def_%v_21 %v_22[11.0,] 
+BB 12
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %self->version_status %v_21[11.1,10.7,] 
+		 1: Line Number 385
+		 2: %self->params def_%v_23 %self[12.0,10.4,9.3,5.2,2.0,2.9,] 	 SYMBOL:	 ARGS:
+		 3: %v_23->[] def_%v_24 %v_23[12.2,] 	 SYMBOL:version_name,	 ARGS:Symbol,
+		 4: ATTRASSIGN %self->version_name %v_24[12.3,] 
+		 5: Line Number 386
+		 6: GETFIELD %self->project def_%v_25 %self[12.2,2.0,] 
+		 7: %v_25->shared_versions def_%v_26 %v_25[12.6,] 	 SYMBOL:	 ARGS:
+		 8: GETFIELD %self->version_status def_%v_27 %self[12.0,12.2,2.0,] 
+		 9: %v_26->status def_%v_28 %v_26[12.7,] %v_27[12.8,] 	 SYMBOL:	 ARGS:%v_27,
+		 10: GETFIELD %self->version_name def_%v_29 %self[12.2,12.4,2.0,] 
+		 11: %v_28->like def_%v_30 %v_28[12.9,] %v_29[12.10,] 	 SYMBOL:	 ARGS:%v_29,
+		 12: ATTRASSIGN %self->versions %v_30[12.11,] 
+		 13: RETURN %v_30[12.11,] %self[12.0,12.2,12.4,12.12,10.4,9.3,5.2,2.0,2.9,] 
+BB 13
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = edit instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RETURN %self[2.0,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = update instanceMethod = true
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 394
+		 6: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 7: %self->params def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->[] def_%v_5 %v_4[2.7,] 	 SYMBOL:project,	 ARGS:Symbol,
+		 9: ATTRASSIGN %v_3->safe_attributes %v_5[2.8,] 
+		 10: Line Number 395
+		 11: GETFIELD %self->project def_%v_6 %self[2.0,2.7,] 
+		 12: %v_6->save def_%v_7 %v_6[2.11,] 	 SYMBOL:	 ARGS:
+		 13: BRANCH %v_7[2.12,] 
+BB 3
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 396
+		 1: %self->respond_to def_%v_8 %self[2.0,] %self[2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 397
+		 1: format->html def_%cl_1_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 398
+		 1: %self->flash def_%cl_2_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->l def_%cl_2_4 %self[3.1,2.0,] 	 SYMBOL:notice_successful_update,	 ARGS:Symbol,
+		 3: ATTRASSIGN %cl_2_3->[] %cl_2_4[3.2,] 
+		 4: Line Number 399
+		 5: GETFIELD %self->project def_%cl_2_5 %self[3.1,3.2,2.0,] 
+		 6: %self->params def_%cl_2_6 %self[3.1,3.2,2.0,] 	 SYMBOL:	 ARGS:
+		 7: %cl_2_6->[] def_%cl_2_7 %cl_2_6[3.6,] 	 SYMBOL:tab,	 ARGS:Symbol,
+		 8: %self->settings_project_path def_%cl_2_8 %self[3.1,3.2,3.6,2.0,] %cl_2_5[3.5,] %cl_2_7[3.7,] 	 SYMBOL:	 ARGS:%cl_2_5,%cl_2_7,
+		 9: %self->redirect_to def_%cl_2_9 %self[3.1,3.2,3.6,3.8,2.0,] %cl_2_8[3.8,] 	 SYMBOL:	 ARGS:%cl_2_8,
+		 10: RETURN %cl_2_9[3.9,] %self[3.1,3.2,3.6,3.8,3.9,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_10 
+		 1: def_%cl_2_11 %cl_2_10[4.0,] 
+		 2: RETURN %cl_2_11[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 401
+		 3: format->api def_%cl_1_4 format[3.1,2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_3_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 401
+		 1: %self->render_api_ok def_%cl_3_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: RETURN %cl_3_3[3.1,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_3_4 
+		 1: def_%cl_3_5 %cl_3_4[4.0,] 
+		 2: RETURN %cl_3_5[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 4: RETURN %cl_1_4[3.3,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_5 
+		 1: def_%cl_1_6 %cl_1_5[4.0,] 
+		 2: RETURN %cl_1_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: RETURN %v_8[3.1,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 404
+		 1: %self->respond_to def_%v_9 %self[2.0,] %self[2.0,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_4_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 405
+		 1: format->html def_%cl_4_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_5_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 406
+		 1: %self->settings def_%cl_5_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: Line Number 407
+		 3: COPY TYPE_StringLiteral "settings" def_%cl_5_4 
+		 4: HASH-action- def_%cl_5_5 %cl_5_4[3.3,] 
+		 5: %self->render def_%cl_5_6 %self[3.1,2.0,] %cl_5_5[3.4,] 	 SYMBOL:	 ARGS:%cl_5_5,
+		 6: Line Number 408
+		 7: %self->l def_%cl_5_7 %self[3.1,3.5,2.0,] 	 SYMBOL:label_settings,	 ARGS:Symbol,
+		 8: Line Number 409
+		 9: %self->project_settings_tabs def_%cl_5_8 %self[3.1,3.5,3.7,2.0,] 	 SYMBOL:	 ARGS:
+		 10: %self->render_tabs def_%cl_5_9 %self[3.1,3.5,3.7,3.9,2.0,] %cl_5_8[3.9,] 	 SYMBOL:	 ARGS:%cl_5_8,
+		 11: Line Number 410
+		 12: %self->l def_%cl_5_10 %self[3.1,3.5,3.7,3.9,3.10,2.0,] 	 SYMBOL:label_settings,	 ARGS:Symbol,
+		 13: %self->html_title def_%cl_5_11 %self[3.1,3.5,3.7,3.9,3.10,3.12,2.0,] %cl_5_10[3.12,] 	 SYMBOL:	 ARGS:%cl_5_10,
+		 14: RETURN %cl_5_11[3.13,] %self[3.1,3.5,3.7,3.9,3.10,3.12,3.13,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_5_12 
+		 1: def_%cl_5_13 %cl_5_12[4.0,] 
+		 2: RETURN %cl_5_13[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 412
+		 3: format->api def_%cl_4_4 format[3.1,2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_6_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 412
+		 1: GETFIELD %self->project def_%cl_6_3 %self[2.0,] 
+		 2: %self->render_validation_errors def_%cl_6_4 %self[2.0,] %cl_6_3[3.1,] 	 SYMBOL:	 ARGS:%cl_6_3,
+		 3: RETURN %cl_6_4[3.2,] %self[3.2,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_6_5 
+		 1: def_%cl_6_6 %cl_6_5[4.0,] 
+		 2: RETURN %cl_6_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 4: RETURN %cl_4_4[3.3,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_4_5 
+		 1: def_%cl_4_6 %cl_4_5[4.0,] 
+		 2: RETURN %cl_4_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: RETURN %v_9[4.1,] %self[4.1,2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = archive instanceMethod = true
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 417
+		 6: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 7: %v_3->archive def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: BRANCH %v_4[2.7,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_5 
+		 1: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: Line Number 418
+		 1: %self->flash def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->l def_%v_7 %self[4.1,2.0,] 	 SYMBOL:error_can_not_archive_project,	 ARGS:Symbol,
+		 3: ATTRASSIGN %v_6->[] %v_7[4.2,] 
+		 4: COPY TYPE_PASS def_%v_5 %v_7[4.2,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 420
+		 1: %self->params def_%v_8 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_8->[] def_%v_9 %v_8[5.1,] 	 SYMBOL:status,	 ARGS:Symbol,
+		 3: HASH-status- def_%v_10 %v_9[5.2,] 
+		 4: %self->admin_projects_path def_%v_11 %self[5.1,2.0,] %v_10[5.3,] 	 SYMBOL:	 ARGS:%v_10,
+		 5: %self->redirect_to_referer_or def_%v_12 %self[5.1,5.4,2.0,] %v_11[5.4,] 	 SYMBOL:	 ARGS:%v_11,
+		 6: RETURN %v_12[5.5,] %self[5.1,5.4,5.5,2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = unarchive instanceMethod = true
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 423
+		 6: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 7: %v_3->active? def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: BRANCH %v_4[2.7,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_5 
+		 1: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: Line Number 424
+		 1: GETFIELD %self->project def_%v_6 %self[2.0,] 
+		 2: %v_6->unarchive def_%v_7 %v_6[4.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_PASS def_%v_5 %v_7[4.2,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 426
+		 1: %self->params def_%v_8 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_8->[] def_%v_9 %v_8[5.1,] 	 SYMBOL:status,	 ARGS:Symbol,
+		 3: HASH-status- def_%v_10 %v_9[5.2,] 
+		 4: %self->admin_projects_path def_%v_11 %self[5.1,2.0,] %v_10[5.3,] 	 SYMBOL:	 ARGS:%v_10,
+		 5: %self->redirect_to_referer_or def_%v_12 %self[5.1,5.4,2.0,] %v_11[5.4,] 	 SYMBOL:	 ARGS:%v_11,
+		 6: RETURN %v_12[5.5,] %self[5.1,5.4,5.5,2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = close instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 429
+		 6: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 7: %v_3->close def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: Line Number 430
+		 9: GETFIELD %self->project def_%v_5 %self[2.0,] 
+		 10: %self->project_path def_%v_6 %self[2.0,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: %self->redirect_to def_%v_7 %self[2.0,2.10,] %v_6[2.10,] 	 SYMBOL:	 ARGS:%v_6,
+		 12: RETURN %v_7[2.11,] %self[2.0,2.10,2.11,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = reopen instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 433
+		 6: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 7: %v_3->reopen def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: Line Number 434
+		 9: GETFIELD %self->project def_%v_5 %self[2.0,] 
+		 10: %self->project_path def_%v_6 %self[2.0,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: %self->redirect_to def_%v_7 %self[2.0,2.10,] %v_6[2.10,] 	 SYMBOL:	 ARGS:%v_6,
+		 12: RETURN %v_7[2.11,] %self[2.0,2.10,2.11,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = destroy instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 437
+		 6: GETFIELD %self->project def_%v_3 %self[2.0,] 
+		 7: ATTRASSIGN %self->project_to_destroy %v_3[2.6,] 
+		 8: Line Number 438
+		 9: %self->api_request? def_%v_4 %self[2.0,2.7,] 	 SYMBOL:	 ARGS:
+		 10: BRANCH %v_4[2.9,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %self->params def_%v_5 %self[2.0,2.7,] 	 SYMBOL:	 ARGS:
+		 1: %v_5->[] def_%v_6 %v_5[3.0,] 	 SYMBOL:confirm,	 ARGS:Symbol,
+		 2: COPY TYPE_PASS def_%v_4 %v_6[3.1,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_4[3.2,2.9,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: Line Number 439
+		 1: GETFIELD %self->project_to_destroy def_%v_7 %self[2.0,2.7,] 
+		 2: %v_7->destroy def_%v_8 %v_7[5.1,] 	 SYMBOL:	 ARGS:
+		 3: Line Number 440
+		 4: %self->respond_to def_%v_9 %self[2.0,2.7,] %self[2.0,2.7,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[2.0,2.7,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 441
+		 1: format->html def_%cl_1_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 441
+		 1: %self->admin_projects_path def_%cl_2_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->redirect_to def_%cl_2_4 %self[3.1,2.0,] %cl_2_3[3.1,] 	 SYMBOL:	 ARGS:%cl_2_3,
+		 3: RETURN %cl_2_4[3.2,] %self[3.1,3.2,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_5 
+		 1: def_%cl_2_6 %cl_2_5[4.0,] 
+		 2: RETURN %cl_2_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 442
+		 3: format->api def_%cl_1_4 format[3.1,2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_3_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 442
+		 1: %self->render_api_ok def_%cl_3_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: RETURN %cl_3_3[3.1,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_3_4 
+		 1: def_%cl_3_5 %cl_3_4[4.0,] 
+		 2: RETURN %cl_3_5[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 4: RETURN %cl_1_4[3.3,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_5 
+		 1: def_%cl_1_6 %cl_1_5[4.0,] 
+		 2: RETURN %cl_1_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 5: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_9 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 445
+		 1: ATTRASSIGN %self->project 
+		 2: RETURN %self[7.1,2.0,2.7,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+

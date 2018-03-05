@@ -1,0 +1,23 @@
+l(:label_enumerations)
+ Enumeration.get_subclasses.each do |klass| 
+ l(klass::OptionName) 
+ enumerations = klass.shared 
+ link_to l(:label_enumeration_new), new_enumeration_path(:type => klass.name), :class => 'icon icon-add' 
+ if enumerations.any? 
+ l(:field_name) 
+ l(:field_is_default) 
+ l(:field_active) 
+ enumerations.each do |enumeration| 
+ link_to enumeration, edit_enumeration_path(enumeration) 
+ checked_image enumeration.is_default? 
+ checked_image enumeration.active? 
+ reorder_handle(enumeration, :url => enumeration_path(enumeration), :param => 'enumeration') 
+ delete_link enumeration_path(enumeration) 
+ end 
+ else 
+ l(:label_no_data) 
+ end 
+ end 
+ html_title(l(:label_enumerations)) 
+ javascript_tag do 
+ end 

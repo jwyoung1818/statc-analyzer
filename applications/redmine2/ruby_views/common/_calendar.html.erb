@@ -1,0 +1,30 @@
+ form_tag({}, :data => {:cm_url => issues_context_menu_path}) do 
+ l(:label_week) 
+ 7.times do |i| 
+ day_name( (calendar.first_wday+i)%7 ) 
+ end 
+ day = calendar.startdt
+while day <= calendar.enddt 
+ ("<td class='week-number' title='#{ l(:label_week) }'>#{(day+(11-day.cwday)%7).cweek}</td>".html_safe) if day.cwday == calendar.first_wday 
+ day.month==calendar.month ? 'even' : 'odd' 
+ ' today' if User.current.today == day 
+ day.day 
+ calendar.events_on(day).each do |i| 
+ if i.is_a? Issue 
+ i.css_classes 
+ 'starting' if day == i.start_date 
+ 'ending' if day == i.due_date 
+ "#{i.project} -" unless @project && @project == i.project 
+ link_to_issue i, :truncate => 30 
+ render_issue_tooltip i 
+ check_box_tag 'ids[]', i.id, false, :style => 'display:none;', :id => nil 
+ else 
+ "#{i.project} -" unless @project && @project == i.project 
+ link_to_version i
+ end 
+ end 
+ '</tr><tr>'.html_safe if day.cwday==calendar.last_wday and day!=calendar.enddt 
+ day = day + 1
+end 
+ end 
+ context_menu 

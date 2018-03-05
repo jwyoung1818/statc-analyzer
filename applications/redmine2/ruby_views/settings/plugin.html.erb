@@ -1,0 +1,5 @@
+ title [l(:label_plugins), {:controller => 'admin', :action => 'plugins'}], @plugin.name 
+ form_tag({:action => 'plugin'}) do 
+ render :partial => @partial, :locals => {:settings => @settings}
+ submit_tag l(:button_apply) 
+ end 

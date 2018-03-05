@@ -1,0 +1,12 @@
+l(:label_attachment_new)
+ error_messages_for 'attachment' 
+ form_tag(project_files_path(@project), :multipart => true, :class => "tabular") do 
+ if @versions.any? 
+l(:field_version)
+ select_tag "version_id", content_tag('option', '') +
+                             options_from_collection_for_select(@versions, "id", "name") 
+ end 
+l(:label_attachment_plural)
+ render :partial => 'attachments/form' 
+ submit_tag l(:button_add) 
+ end 

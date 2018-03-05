@@ -1,0 +1,10 @@
+ custom_field_title @custom_field 
+ selected = 0 
+ form_tag new_custom_field_path, :method => 'get' do 
+ l(:label_custom_field_select_type) 
+ custom_field_type_options.each do |name, type| 
+ radio_button_tag 'type', type, 1==selected+=1 
+ name 
+ end 
+ submit_tag l(:label_next).html_safe + " &#187;".html_safe, :name => nil 
+ end 

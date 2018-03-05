@@ -3,9 +3,11 @@ def read_view_files
 	for filename in files
 		if filename.to_s.end_with?("html.erb")
 			new_file_name = filename.to_s.gsub($view_folder_name, $new_view_folder_name)
+			#new_file_name = new_file_name.gsub('html.erb','rb')
 			#TODO: full path
 			view_file = View_file.new(new_file_name)
 			view_path = new_file_name.gsub(File.basename(new_file_name),'')
+			puts "VIEWPATH #{view_path}"
 			run_command("mkdir -p #{view_path}")
 			$view_files[new_file_name] = view_file
 			puts view_file.file_path

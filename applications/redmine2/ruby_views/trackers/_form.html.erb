@@ -1,0 +1,35 @@
+ error_messages_for 'tracker' 
+ f.text_field :name, :required => true 
+ f.select :default_status_id,
+        IssueStatus.sorted.map {|s| [s.name, s.id]},
+        :include_blank => @tracker.default_status.nil?,
+        :required => true 
+ f.check_box :is_in_roadmap 
+ l(:field_core_fields) 
+ Tracker::CORE_FIELDS.each do |field| 
+ check_box_tag 'tracker[core_fields][]', field, @tracker.core_fields.include?(field), :id => nil 
+ l("field_#{field}".sub(/_id$/, '')) 
+ end 
+ hidden_field_tag 'tracker[core_fields][]', '' 
+ if IssueCustomField.all.any? 
+ l(:label_custom_field_plural) 
+ IssueCustomField.all.each do |field| 
+ check_box_tag 'tracker[custom_field_ids][]',field.id, @tracker.custom_fields.to_a.include?(field), :id => nil 
+ field.name 
+ end 
+ hidden_field_tag 'tracker[custom_field_ids][]', '' 
+ end 
+ if @tracker.new_record? && @trackers.any? 
+ l(:label_copy_workflow_from) 
+ select_tag(:copy_workflow_from, content_tag("option") + options_from_collection_for_select(@trackers, :id, :name)) 
+ end 
+ submit_tag l(@tracker.new_record? ? :button_create : :button_save) 
+ if @projects.any? 
+ l(:label_project_plural) 
+ project_ids = @tracker.project_ids.to_a 
+ render_project_nested_lists(@projects) do |p|
+  content_tag('label', check_box_tag('tracker[project_ids][]', p.id, project_ids.include?(p.id), :id => nil) + ' ' + h(p))
+end 
+ hidden_field_tag('tracker[project_ids][]', '', :id => nil) 
+ check_all_links 'tracker_project_ids' 
+ end 

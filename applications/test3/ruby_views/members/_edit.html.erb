@@ -1,0 +1,16 @@
+ form_for(@member, :url => membership_path(@member),
+                      :as => :membership,
+                      :remote => request.xhr?,
+                      :method => :put) do |f| 
+ @roles.each do |role| 
+ check_box_tag('membership[role_ids][]',
+                        role.id, @member.roles.to_a.include?(role),
+                        :id => nil,
+                        :disabled => !@member.role_editable?(role)) 
+ role 
+ end 
+ hidden_field_tag 'membership[role_ids][]', '', :id => nil 
+ submit_tag l(:button_save), :class => "small" 
+ link_to_function l(:button_cancel),
+                         "$('#member-#{@member.id}-roles').show(); $('#member-#{@member.id}-form').empty(); return false;" if request.xhr? 
+ end 

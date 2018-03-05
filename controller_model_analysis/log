@@ -1,0 +1,214 @@
+dir = ../applications/bench/
+Finish reading files
+
+
+=================================
+=================================
+Handling ApplicationController, index
+Compute_field_order: qchain size = 0
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+~~~~~~~~~~~~~Handling loop invariant~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~Finish handling loop invariant~~~~~~~~~~~
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+compute_inefficient_partial
+FINISH
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+command : dot -Tpdf ../applications/bench//results/ApplicationController_index/qgraph_vis.gv -o ../applications/bench//results/ApplicationController_index/qgraph.pdf
++++ Take time: 00:00:00 +++
+
+
+=================================
+=================================
+Handling UsersController, index
+Qnode: 33, viewstack =  getViewShow = false
+Qnode: 45, viewstack =  getViewShow = false
+Qnode: 58, viewstack =  getViewShow = false
+Qnode: 74, viewstack =  getViewShow = false
+Compute_field_order: qchain size = 6
+18:[UsersController.index] (2.7) %cl_1_3[2.6]  %cl_1_3 -> all
+33:[User.getAll] (2.8) %v_3[2.7]  %v_3 -> all
+45:[User.getBlog] (2.8) %v_3[2.7] id[2.5]  %v_3 -> find
+58:[UsersController.index] (2.14) %v_8[2.13]  %v_8 -> limit
+74:[UsersController.index] (3.7) %cl_2_7[3.6]  %cl_2_7 -> limit
+92:[UsersController.index] (2.19) %v_11[2.18]  %v_11 -> exists?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+~~~~~~~~~~~~~Handling loop invariant~~~~~~~~~~~~~~~~~
+the number of loop in query is : 4
+1 query
+parent 3
+CLOSURE BEGIN
+BB 1
+  outgoing:4 2 
+  instructions:
+    0: [UsersController.index] (1.0) 
+BB 2
+  outgoing:4 
+  instructions:
+    0: [UsersController.index] (2.0) 
+    1: [UsersController.index] (2.1) 
+    2: RECEIVEARG [UsersController.index] (2.2) 
+    3: COPY [UsersController.index] (2.3) 
+    4: COPY [UsersController.index] (2.4) 
+    5: [UsersController.index] (2.5) 
+    6: (User)
+    7: [UsersController.index] (2.7) %cl_1_3[2.6]  %cl_1_3 -> all
+    8: COPY [UsersController.index] (2.8) %cl_1_4[2.7] 
+    9: [UsersController.index] (2.9) 
+    10: (User)
+    11: [UsersController.index] (2.11) %cl_1_5[2.10] i[2.2]  %cl_1_5 -> getAll
+    12: RETURN [UsersController.index] (2.12) %cl_1_6[2.11] %self[2.0] 
+BB 4
+  outgoing:
+  instructions:
+    0: [UsersController.index] (4.0) 
+CLOSURE END
+[UsersController.index] (2.7) %cl_1_3[2.6]  %cl_1_3 -> all 4 
+2 query
+parent 3
+CLOSURE BEGIN
+BB 1
+  outgoing:4 2 
+  instructions:
+    0: [UsersController.index] (1.0) 
+BB 2
+  outgoing:4 
+  instructions:
+    0: [UsersController.index] (2.0) 
+    1: [UsersController.index] (2.1) 
+    2: RECEIVEARG [UsersController.index] (2.2) 
+    3: COPY [UsersController.index] (2.3) 
+    4: COPY [UsersController.index] (2.4) 
+    5: [UsersController.index] (2.5) 
+    6: (User)
+    7: [UsersController.index] (2.7) %cl_1_3[2.6]  %cl_1_3 -> all
+    8: COPY [UsersController.index] (2.8) %cl_1_4[2.7] 
+    9: [UsersController.index] (2.9) 
+    10: (User)
+    11: [UsersController.index] (2.11) %cl_1_5[2.10] i[2.2]  %cl_1_5 -> getAll
+    12: RETURN [UsersController.index] (2.12) %cl_1_6[2.11] %self[2.0] 
+BB 4
+  outgoing:
+  instructions:
+    0: [UsersController.index] (4.0) 
+CLOSURE END
+[User.getAll] (2.8) %v_3[2.7]  %v_3 -> all 3 
+3 query
+parent 9
+CLOSURE BEGIN
+BB 1
+  outgoing:6 2 
+  instructions:
+    0: [UsersController.index] (1.0) 
+BB 2
+  outgoing:3 
+  instructions:
+    0: [UsersController.index] (2.0) 
+    1: [UsersController.index] (2.1) 
+    2: RECEIVEARG [UsersController.index] (2.2) 
+    3: COPY [UsersController.index] (2.3) 
+    4: COPY [UsersController.index] (2.4) 
+BB 3
+  outgoing:4 6 
+  instructions:
+    0: [UsersController.index] (3.0) 
+    1: COPY <user>[UsersController.index] (3.1) 
+    2: [UsersController.index] (3.2) %self[-1.-1] %self[-1.-1] %self[2.0] %cl_2_3[3.1]  %self -> partial
+    3: [UsersController.index] (3.3) %self[-1.-1] %self[-1.-1] %self[3.2] %self[2.0] %cl_2_4[3.2]  %self -> render
+    4: [UsersController.index] (3.4) 
+    5: (User)
+    6: [UsersController.index] (3.6) %cl_2_6[3.5]  %cl_2_6 -> all
+    7: [UsersController.index] (3.7) %cl_2_7[3.6]  %cl_2_7 -> limit
+    8: [UsersController.index] (3.8) 
+    9: COPY <blog>[UsersController.index] (3.9) 
+    10: [UsersController.index] (3.10) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[2.0] %cl_2_9[3.9]  %self -> partial
+    11: [UsersController.index] (3.11) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[3.10] %self[2.0] %cl_2_10[3.10]  %self -> render
+    12: [UsersController.index] (3.12) 
+    13: (Test)
+    14: (Blog)
+    15: [UsersController.index] (3.15) %cl_2_13[3.14]  %cl_2_13 -> end
+    16: [UsersController.index] (3.16) 
+    17: [UsersController.index] (3.17) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[3.10] %self[3.11] %self[2.0]  %self -> content_tag
+    18: RETURN [UsersController.index] (3.18) %cl_2_15[3.17] %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[3.10] %self[3.11] %self[3.17] %self[2.0] 
+BB 4
+  outgoing:6 
+  instructions:
+    0: [UsersController.index] (4.0) 
+    1: [UsersController.index] (4.1) %cl_2_16[4.0] 
+    2: RETURN [UsersController.index] (4.2) %cl_2_17[4.1] %self[-1.-1] %self[-1.-1] %self[2.0] 
+BB 6
+  outgoing:
+  instructions:
+    0: [UsersController.index] (6.0) 
+CLOSURE END
+[UsersController.index] (3.6) %cl_2_6[3.5]  %cl_2_6 -> all 11 
+4 query
+parent 9
+CLOSURE BEGIN
+BB 1
+  outgoing:6 2 
+  instructions:
+    0: [UsersController.index] (1.0) 
+BB 2
+  outgoing:3 
+  instructions:
+    0: [UsersController.index] (2.0) 
+    1: [UsersController.index] (2.1) 
+    2: RECEIVEARG [UsersController.index] (2.2) 
+    3: COPY [UsersController.index] (2.3) 
+    4: COPY [UsersController.index] (2.4) 
+BB 3
+  outgoing:4 6 
+  instructions:
+    0: [UsersController.index] (3.0) 
+    1: COPY <user>[UsersController.index] (3.1) 
+    2: [UsersController.index] (3.2) %self[-1.-1] %self[-1.-1] %self[2.0] %cl_2_3[3.1]  %self -> partial
+    3: [UsersController.index] (3.3) %self[-1.-1] %self[-1.-1] %self[3.2] %self[2.0] %cl_2_4[3.2]  %self -> render
+    4: [UsersController.index] (3.4) 
+    5: (User)
+    6: [UsersController.index] (3.6) %cl_2_6[3.5]  %cl_2_6 -> all
+    7: [UsersController.index] (3.7) %cl_2_7[3.6]  %cl_2_7 -> limit
+    8: [UsersController.index] (3.8) 
+    9: COPY <blog>[UsersController.index] (3.9) 
+    10: [UsersController.index] (3.10) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[2.0] %cl_2_9[3.9]  %self -> partial
+    11: [UsersController.index] (3.11) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[3.10] %self[2.0] %cl_2_10[3.10]  %self -> render
+    12: [UsersController.index] (3.12) 
+    13: (Test)
+    14: (Blog)
+    15: [UsersController.index] (3.15) %cl_2_13[3.14]  %cl_2_13 -> end
+    16: [UsersController.index] (3.16) 
+    17: [UsersController.index] (3.17) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[3.10] %self[3.11] %self[2.0]  %self -> content_tag
+    18: RETURN [UsersController.index] (3.18) %cl_2_15[3.17] %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[3.10] %self[3.11] %self[3.17] %self[2.0] 
+BB 4
+  outgoing:6 
+  instructions:
+    0: [UsersController.index] (4.0) 
+    1: [UsersController.index] (4.1) %cl_2_16[4.0] 
+    2: RETURN [UsersController.index] (4.2) %cl_2_17[4.1] %self[-1.-1] %self[-1.-1] %self[2.0] 
+BB 6
+  outgoing:
+  instructions:
+    0: [UsersController.index] (6.0) 
+CLOSURE END
+[UsersController.index] (3.7) %cl_2_7[3.6]  %cl_2_7 -> limit 11 
+~~~~~~~~~~~~~Finish handling loop invariant~~~~~~~~~~~
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+compute_inefficient_partial
+funcname all [UsersController.index] (2.7) %cl_1_3[2.6]  %cl_1_3 -> all UsersController
+funcname getAll [UsersController.index] (2.11) %cl_1_5[2.10] i[2.2]  %cl_1_5 -> getAll UsersController
+funcname all [User.getAll] (2.8) %v_3[2.7]  %v_3 -> all User
+funcname getBlog [User.getAll] (2.10) %self[2.0] id[2.5]  %self -> getBlog User
+funcname find [User.getBlog] (2.8) %v_3[2.7] id[2.5]  %v_3 -> find User
+funcname partial [UsersController.index] (3.2) %self[-1.-1] %self[-1.-1] %self[2.0] %cl_2_3[3.1]  %self -> partial User
+funcname render [UsersController.index] (3.3) %self[-1.-1] %self[-1.-1] %self[3.2] %self[2.0] %cl_2_4[3.2]  %self -> render UsersController
+funcname all [UsersController.index] (3.6) %cl_2_6[3.5]  %cl_2_6 -> all UsersController
+funcname limit [UsersController.index] (3.7) %cl_2_7[3.6]  %cl_2_7 -> limit UsersController
+funcname partial [UsersController.index] (3.10) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[2.0] %cl_2_9[3.9]  %self -> partial UsersController
+funcname render [UsersController.index] (3.11) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[3.10] %self[2.0] %cl_2_10[3.10]  %self -> render UsersController
+funcname end [UsersController.index] (3.15) %cl_2_13[3.14]  %cl_2_13 -> end UsersController
+funcname content_tag [UsersController.index] (3.17) %self[-1.-1] %self[-1.-1] %self[3.2] %self[3.3] %self[3.10] %self[3.11] %self[2.0]  %self -> content_tag Blog
+FINISH
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+command : dot -Tpdf ../applications/bench//results/UsersController_index/qgraph_vis.gv -o ../applications/bench//results/UsersController_index/qgraph.pdf
++++ Take time: 00:00:00 +++

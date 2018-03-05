@@ -90,10 +90,13 @@ class Action < BaseStructure
 		controller_path = controller_path.join("/")
 		file_path = "#{$path_prefix}/#{$new_view_folder_name}/#{controller_path}/#{@name}.html.erb"
 		exist = File.exist?(file_path)
+		puts "start #{self}"
 		if exist
 			#puts "default render path = #{file_path}, exist = #{exist}"
 			rnder = Render_stmt.new(self, nil, file_path)
 			rnder.is_default = true
+			puts "rnder #{self.name} #{self.render_stmts.length} #{self}"
+			return rnder
 		end
 	end
 	def exist_template
@@ -138,6 +141,7 @@ class View_file < BaseStructure
 		state = 0
 		@controller = ""
 		@action = ""
+		@render_stack = Array.new
 		words = file_path.split("/")
 		words.each do |p|
 			if p == $new_view_folder_name
@@ -170,10 +174,27 @@ class View_file < BaseStructure
 		end
 		#puts "\tcontroller = #{@controller}, action = #{@action}"
 	end
-	attr_accessor :file_path, :controller, :action
+	attr_accessor :file_path, :controller, :action, :render_stack
 	def get_content	
 		content = File.open(@file_path, "r").read
 		return content
+	end
+	def push_to_render_stack(r)
+		@render_stack.each do |rnd|
+			if rnd.valid_file_path and r.valid_file_path and same_file(rnd.render_file, r.render_file)
+				return false
+			end
+		end
+		@render_stack.push(r)
+		return true
+	end
+	def has_non_default_or_layout_render
+		@render_stmts.each do |r|
+			if r.is_default == false and r.is_layout == false
+				return true
+			end
+		end
+		return false
 	end
 end
 
@@ -221,7 +242,7 @@ class Render_stmt
 				str += "), (#{n.source} =>"
 				hash_key = n.source
 				state = 1
-			elsif state == 1
+			elsif state == 1 or hash_key == ''
 				str += " #{n.source} "
 				@properties[hash_key] = n.source
 				state = 0
@@ -229,7 +250,7 @@ class Render_stmt
 		end
 		#puts str	
 		@properties.each do |k,v|
-			if k == "partial" or k == "template" or k == "action"
+			if k == "partial" or k == "template" or k == "action" or k == ""
 				name = ""
 				if @action.instance_of?Action
 					#TODO: for helpers, if a helper is included in a function, it should search for the name of that function, instead of helper class name...
@@ -241,7 +262,7 @@ class Render_stmt
 				if v.include?'/'
 					chs = v.split('/')
 					if k == "partial"
-						file_path ="#{$path_prefix}/#{$new_view_folder_name}/#{chs[0...-1].join("/")}/_#{chs[-1]}.html.erb" 
+						file_path ="#{$path_prefix}/#{$new_view_folder_name}/#{chs[0...-1].join("/")}/_#{chs[-1]}.html.erb"
 					else
 						file_path ="#{$path_prefix}/#{$new_view_folder_name}/#{chs[0...-1].join("/")}/#{chs[-1]}.html.erb"
 					end
@@ -252,6 +273,7 @@ class Render_stmt
 						file_path = "#{$path_prefix}/#{$new_view_folder_name}/#{name}/#{v}.html.erb" 
 					end
 				end
+				puts "-------file_path #{file_path}"
 				exist = File.exist?(file_path)
 				if exist
 					@render_file = file_path	
@@ -270,6 +292,7 @@ class Render_stmt
 			end
 		end
 		#debug
+	
 		if @render_file.length == 0 and @astnode and set_layout == false
 			str = "Empty render -> "
 			if @action.instance_of?Action

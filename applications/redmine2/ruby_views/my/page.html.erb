@@ -1,0 +1,14 @@
+ form_tag({:action => "add_block"}, :remote => true, :id => "block-form") do 
+ label_tag('block-select', l(:button_add)) 
+ block_select_tag(@user) 
+ end 
+l(:label_my_page)
+ @groups.each do |group| 
+ group 
+ render_blocks(@blocks[group], @user) 
+ end 
+ context_menu 
+ javascript_tag do 
+ escape_javascript url_for(:action => "order_blocks") 
+ end 
+ html_title(l(:label_my_page)) 

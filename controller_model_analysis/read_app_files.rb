@@ -56,6 +56,7 @@ end
 
 def read_each_class(class_name, class_node, filename)
 		$cur_class = Class_class.new(class_name)
+		
 		if class_node.children[1].type.to_s == "const_path_ref" or class_node.children[1].type.to_s  == "var_ref"
 			#upper_class = class_node.children[1].source.to_s
 			$cur_class.setUpperClass(class_node.children[1].source.to_s)

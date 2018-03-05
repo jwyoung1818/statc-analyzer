@@ -1,0 +1,4 @@
+l(:label_report_plural)
+@report_title
+ render :partial => 'details', :locals => { :data => @data, :field_name => @field, :rows => @rows } 
+ link_to l(:button_back), project_issues_report_path(@project) 

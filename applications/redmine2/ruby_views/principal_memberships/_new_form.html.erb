@@ -1,0 +1,12 @@
+ toggle_checkboxes_link('.projects-selection input:enabled') 
+ l(:label_project_plural) 
+ render_project_nested_lists(@projects) do |p| 
+ check_box_tag('membership[project_ids][]', p.id, false, :id => nil, :disabled => @principal.member_of?(p)) 
+ p 
+ end 
+ toggle_checkboxes_link('.roles-selection input') 
+ l(:label_role_plural) 
+ @roles.each do |role| 
+ check_box_tag 'membership[role_ids][]', role.id, false, :id => nil 
+ role 
+ end 

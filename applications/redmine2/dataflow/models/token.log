@@ -1,0 +1,734 @@
+SET IRMethod, name = add_action instanceMethod = true
+BB 1
+	outgoing: 7 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_name 
+		 6: RECEIVEARG def_options 
+		 7: Line Number 30
+		 8: options->assert_valid_keys def_%v_3 options[2.6,] 	 SYMBOL:max_instances,validity_time,	 ARGS:Symbol,Symbol,
+		 9: Line Number 31
+		 10: def_%v_5 %self[2.0,] 
+		 11: COPY TYPE_PASS def_%v_4 %v_5[2.10,] 
+		 12: %v_5[2.10,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->actions def_%v_6 %self[2.0,] 
+		 1: COPY TYPE_PASS def_%v_4 %v_6[3.0,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_4[3.1,2.11,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_7 
+		 1: ATTRASSIGN %self->actions %v_7[5.0,] 
+		 2: COPY TYPE_PASS def_%v_6 %v_7[5.0,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: Line Number 32
+		 1: GETFIELD %self->actions def_%v_8 %self[5.1,2.0,] 
+		 2: name->to_s def_%v_9 name[2.5,] 	 SYMBOL:	 ARGS:
+		 3: ATTRASSIGN %v_8->[] %v_9[6.2,] options[2.6,] 
+		 4: RETURN options[2.6,] %self[5.1,2.0,] 
+BB 7
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = generate_new_token instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 44
+		 6: (Token) def_%v_3 
+		 7: %v_3->generate_token_value def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: ATTRASSIGN %self->value %v_4[2.7,] 
+		 9: RETURN %v_4[2.7,] %self[2.0,2.8,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = expired? instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 49
+		 6: %self->class def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %self->action def_%v_4 %self[2.0,2.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_3->invalid_when_created_before def_%v_5 %v_3[2.6,] %v_4[2.7,] 	 SYMBOL:	 ARGS:%v_4,
+		 9: COPY TYPE_PASS def_validity_time %v_5[2.8,] 
+		 10: Line Number 50
+		 11: %v_5->present? def_%v_6 %v_5[2.8,] 	 SYMBOL:	 ARGS:
+		 12: BRANCH %v_6[2.11,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %self->created_on def_%v_7 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_7->< def_%v_8 %v_7[3.0,] validity_time[2.9,] 	 SYMBOL:	 ARGS:validity_time,
+		 2: RETURN %v_8[3.1,] %self[3.0,2.0,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: RETURN %v_6[2.11,] %self[2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = max_instances instanceMethod = true
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 54
+		 6: (Token) def_%v_3 
+		 7: %v_3->actions def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %self->action def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %v_4->has_key? def_%v_6 %v_4[2.7,] %v_5[2.8,] 	 SYMBOL:	 ARGS:%v_5,
+		 10: BRANCH %v_6[2.9,] 
+BB 3
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: (Token) def_%v_7 
+		 1: %v_7->actions def_%v_8 %v_7[3.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->action def_%v_9 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_8->[] def_%v_10 %v_8[3.1,] %v_9[3.2,] 	 SYMBOL:	 ARGS:%v_9,
+		 4: %v_10->[] def_%v_11 %v_10[3.3,] 	 SYMBOL:max_instances,	 ARGS:Symbol,
+		 5: RETURN %v_11[3.4,] %self[3.2,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = invalid_when_created_before instanceMethod = false
+BB 1
+	outgoing: 14 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVECONSTARG def_action 
+		 6: action[2.5,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_action 
+BB 4
+	outgoing: 5 9 
+	datadep: 
+	instructions:
+		 0: Line Number 58
+		 1: (Token) def_%v_3 
+		 2: %v_3->actions def_%v_4 %v_3[4.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_4->has_key? def_%v_5 %v_4[4.2,] action[3.0,2.5,] 	 SYMBOL:	 ARGS:action,
+		 4: BRANCH %v_5[4.3,] 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 59
+		 1: (Token) def_%v_6 
+		 2: %v_6->actions def_%v_7 %v_6[5.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_7->[] def_%v_8 %v_7[5.2,] action[3.0,2.5,] 	 SYMBOL:	 ARGS:action,
+		 4: %v_8->[] def_%v_9 %v_8[5.3,] 	 SYMBOL:validity_time,	 ARGS:Symbol,
+		 5: COPY TYPE_PASS def_validity_time %v_9[5.4,] 
+		 6: Line Number 60
+		 7: %v_9->respond_to? def_%v_10 %v_9[5.4,] 	 SYMBOL:call,	 ARGS:Symbol,
+		 8: BRANCH %v_10[5.7,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: validity_time->call def_%v_11 validity_time[5.5,] action[3.0,2.5,] 	 SYMBOL:	 ARGS:action,
+		 1: COPY TYPE_PASS def_validity_time %v_11[6.0,] 
+		 2: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_11 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: Line Number 62
+		 1: %self->validity_time def_%v_12 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_validity_time %v_12[9.1,] 
+		 3: COPY TYPE_PASS def_%v_11 %v_12[9.1,] 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: Line Number 65
+		 1: BRANCH validity_time[9.2,6.1,5.5,] 
+BB 11
+	outgoing: 14 
+	datadep: 
+	instructions:
+		 0: Line Number 66
+		 1: (Time) def_%v_13 
+		 2: %v_13->now def_%v_14 %v_13[11.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_14->- def_%v_15 %v_14[11.2,] validity_time[9.2,6.1,5.5,] 	 SYMBOL:	 ARGS:validity_time,
+		 4: RETURN %v_15[11.3,] %self[2.0,] 
+BB 12
+	outgoing: 14 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 14
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = destroy_expired instanceMethod = false
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 72
+		 6: (Token) def_%v_3 
+		 7: %v_3->arel_table def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_PASS def_t %v_4[2.7,] 
+		 9: Line Number 75
+		 10: %v_4->[] def_%v_5 %v_4[2.7,] 	 SYMBOL:action,	 ARGS:Symbol,
+		 11: %self->actions def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 12: %v_6->keys def_%v_7 %v_6[2.11,] 	 SYMBOL:	 ARGS:
+		 13: %v_5->not_in def_%v_8 %v_5[2.10,] %v_7[2.12,] 	 SYMBOL:	 ARGS:%v_7,
+		 14: t->[] def_%v_9 t[2.8,] 	 SYMBOL:created_on,	 ARGS:Symbol,
+		 15: %self->invalid_when_created_before def_%v_10 %self[2.0,2.11,] 	 SYMBOL:	 ARGS:
+		 16: %v_9->lt def_%v_11 %v_9[2.14,] %v_10[2.15,] 	 SYMBOL:	 ARGS:%v_10,
+		 17: %v_8->and def_%v_12 %v_8[2.13,] %v_11[2.16,] 	 SYMBOL:	 ARGS:%v_11,
+		 18: COPY TYPE_PASS def_condition %v_12[2.17,] 
+		 19: Line Number 77
+		 20: %self->actions def_%v_13 %self[2.0,2.11,2.15,] 	 SYMBOL:	 ARGS:
+		 21: %v_13->each def_%v_14 %v_13[2.20,] %self[2.0,2.11,2.15,2.20,] 	 SYMBOL:	 ARGS:%v_13,
+CLOSURE BEGIN: %self[2.0,2.11,2.15,2.20,] action[] t[2.8,2.14,] validity_time[] condition[2.18,] 
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_action 
+		 3: RECEIVEARG def_options 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 7 
+	datadep: 
+	instructions:
+		 0: Line Number 78
+		 1: %self->invalid_when_created_before def_%cl_1_3 %self[2.0,] action[2.2,] 	 SYMBOL:	 ARGS:action,
+		 2: COPY TYPE_PASS def_validity_time %cl_1_3[3.1,] 
+		 3: Line Number 81
+		 4: %cl_1_3->nil? def_%cl_1_4 %cl_1_3[3.1,] 	 SYMBOL:	 ARGS:
+		 5: BRANCH %cl_1_4[3.4,] 
+BB 4
+	outgoing: 7 9 
+	datadep: 
+	instructions:
+		 0: 
+		 1: RETURN %self[2.0,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%cl_1_5 
+BB 6
+	outgoing: 7 9 
+	datadep: 
+	instructions:
+		 0: Line Number 83
+		 1: t->[] def_%cl_1_6 t[] 	 SYMBOL:action,	 ARGS:Symbol,
+		 2: %cl_1_6->eq def_%cl_1_7 %cl_1_6[6.1,] action[2.2,] 	 SYMBOL:	 ARGS:action,
+		 3: t->[] def_%cl_1_8 t[6.1,] 	 SYMBOL:created_on,	 ARGS:Symbol,
+		 4: %cl_1_8->lt def_%cl_1_9 %cl_1_8[6.3,] validity_time[3.2,] 	 SYMBOL:	 ARGS:validity_time,
+		 5: %cl_1_7->and def_%cl_1_10 %cl_1_7[6.2,] %cl_1_9[6.4,] 	 SYMBOL:	 ARGS:%cl_1_9,
+		 6: condition->or def_%cl_1_11 condition[] %cl_1_10[6.5,] 	 SYMBOL:	 ARGS:%cl_1_10,
+		 7: COPY TYPE_PASS def_condition %cl_1_11[6.6,] 
+		 8: RETURN %cl_1_11[6.6,] %self[2.0,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_12 
+		 1: def_%cl_1_13 %cl_1_12[7.0,] 
+		 2: RETURN %cl_1_13[7.1,] %self[2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: condition[6.7,] options[2.3,] validity_time[3.2,] 
+		 22: Line Number 88
+		 23: (Token) def_%v_15 
+		 24: %v_15->where def_%v_16 %v_15[2.23,] condition[2.18,2.21,] 	 SYMBOL:	 ARGS:condition,
+		 25: %v_16->delete_all def_%v_17 %v_16[2.24,] 	 SYMBOL:	 ARGS:
+		 26: RETURN %v_17[2.25,] %self[2.0,2.11,2.15,2.20,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = find_active_user instanceMethod = false
+BB 1
+	outgoing: 10 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_action 
+		 6: RECEIVEARG def_key 
+		 7: RECEIVECONSTARG def_validity_days 
+		 8: validity_days[2.7,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_validity_days 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 93
+		 1: %self->find_user def_%v_3 %self[2.0,] action[2.5,] key[2.6,] validity_days[3.0,2.7,] 	 SYMBOL:	 ARGS:action,key,validity_days,
+		 2: COPY TYPE_PASS def_user %v_3[4.1,] 
+		 3: Line Number 94
+		 4: COPY TYPE_PASS def_%v_4 %v_3[4.1,] 
+		 5: BRANCH %v_3[4.1,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: user->active? def_%v_5 user[4.2,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_4 %v_5[5.0,] 
+BB 6
+	outgoing: 7 8 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_4[5.1,4.4,] 
+BB 7
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: Line Number 95
+		 1: COPY TYPE_PASS def_%v_6 user[4.2,] 
+		 2: RETURN user[4.2,] %self[2.0,] 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 10
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = find_user instanceMethod = false
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_action 
+		 6: RECEIVEARG def_key 
+		 7: RECEIVECONSTARG def_validity_days 
+		 8: validity_days[2.7,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_validity_days 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 101
+		 1: %self->find_token def_%v_3 %self[2.0,] action[2.5,] key[2.6,] validity_days[3.0,2.7,] 	 SYMBOL:	 ARGS:action,key,validity_days,
+		 2: COPY TYPE_PASS def_token %v_3[4.1,] 
+		 3: Line Number 102
+		 4: BRANCH %v_3[4.1,] 
+BB 5
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 103
+		 1: token->user def_%v_4 token[4.2,] 	 SYMBOL:	 ARGS:
+		 2: RETURN %v_4[5.1,] %self[2.0,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = find_token instanceMethod = false
+BB 1
+	outgoing: 24 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_action 
+		 6: RECEIVEARG def_key 
+		 7: RECEIVECONSTARG def_validity_days 
+		 8: validity_days[2.7,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_validity_days 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 110
+		 1: action->to_s def_%v_3 action[2.5,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_action %v_3[4.1,] 
+		 3: Line Number 111
+		 4: key->to_s def_%v_4 key[2.6,] 	 SYMBOL:	 ARGS:
+		 5: COPY TYPE_PASS def_key %v_4[4.4,] 
+		 6: Line Number 112
+		 7: action->present? def_%v_5 action[4.1,4.2,] 	 SYMBOL:	 ARGS:
+		 8: BRANCH %v_5[4.7,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Regexp def_%v_6 
+		 1: key->=~ def_%v_7 key[4.5,] 	 SYMBOL:	 ARGS:%v_6,
+		 2: COPY TYPE_PASS def_%v_5 %v_7[5.1,] 
+BB 6
+	outgoing: 7 8 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_5[5.2,4.7,] 
+BB 7
+	outgoing: 10 11 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_8 
+		 1: Line Number 114
+		 2: (Token) def_%v_9 
+		 3: HASH-action-value- def_%v_10 action[4.2,] key[4.5,] 
+		 4: %v_9->where def_%v_11 %v_9[7.2,] %v_10[7.3,] 	 SYMBOL:	 ARGS:%v_10,
+		 5: %v_11->first def_%v_12 %v_11[7.4,] 	 SYMBOL:	 ARGS:
+		 6: COPY TYPE_PASS def_token %v_12[7.5,] 
+		 7: Line Number 115
+		 8: COPY TYPE_PASS def_%v_13 %v_12[7.5,] 
+		 9: BRANCH %v_12[7.5,] 
+BB 8
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 10
+	outgoing: 11 
+	datadep: 
+	instructions:
+		 0: token->action def_%v_14 token[7.6,] 	 SYMBOL:	 ARGS:
+		 1: %v_14->== def_%v_15 %v_14[10.0,] action[4.2,] 	 SYMBOL:	 ARGS:action,
+		 2: COPY TYPE_PASS def_%v_13 %v_15[10.1,] 
+BB 11
+	outgoing: 12 13 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_13[10.2,7.8,] 
+BB 12
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: token->value def_%v_16 token[7.6,] 	 SYMBOL:	 ARGS:
+		 1: %v_16->== def_%v_17 %v_16[12.0,] key[4.5,] 	 SYMBOL:	 ARGS:key,
+		 2: COPY TYPE_PASS def_%v_13 %v_17[12.1,] 
+BB 13
+	outgoing: 14 15 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_13[12.2,10.2,7.8,] 
+BB 14
+	outgoing: 15 
+	datadep: 
+	instructions:
+		 0: token->user def_%v_18 token[7.6,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_13 %v_18[14.0,] 
+BB 15
+	outgoing: 16 22 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_13[14.1,12.2,10.2,7.8,] 
+BB 16
+	outgoing: 17 18 
+	datadep: 
+	instructions:
+		 0: Line Number 116
+		 1: validity_days->nil? def_%v_19 validity_days[3.0,2.7,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_19[16.1,] 
+BB 17
+	outgoing: 18 
+	datadep: 
+	instructions:
+		 0: token->created_on def_%v_20 token[7.6,] 	 SYMBOL:	 ARGS:
+		 1: validity_days->days def_%v_21 validity_days[3.0,2.7,] 	 SYMBOL:	 ARGS:
+		 2: %v_21->ago def_%v_22 %v_21[17.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_20->> def_%v_23 %v_20[17.0,] %v_22[17.2,] 	 SYMBOL:	 ARGS:%v_22,
+		 4: COPY TYPE_PASS def_%v_19 %v_23[17.3,] 
+BB 18
+	outgoing: 19 20 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_19[17.4,16.1,] 
+BB 19
+	outgoing: 21 
+	datadep: 
+	instructions:
+		 0: Line Number 117
+		 1: COPY TYPE_PASS def_%v_24 token[7.6,] 
+		 2: 
+BB 20
+	outgoing: 21 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_24 
+BB 21
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: RETURN %v_24[20.0,19.1,] %self[2.0,] 
+BB 22
+	outgoing: 24 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 24
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = generate_token_value instanceMethod = false
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 123
+		 6: (Redmine) def_%v_3 
+		 7: (inherit Utils) def_%v_4 %v_3[2.6,] 
+		 8: %v_4[2.7,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %v_3->const_missing def_%v_4 %v_3[2.6,] 	 SYMBOL:Utils,	 ARGS:Symbol,
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %v_4->random_hex def_%v_5 %v_4[3.0,2.7,] 	 SYMBOL:	 ARGS:Fixnum,
+		 1: RETURN %v_5[4.0,] %self[2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = delete_previous_tokens instanceMethod = true
+BB 1
+	outgoing: 12 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 10 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 130
+		 6: %self->user def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: BRANCH %v_3[2.6,] 
+BB 3
+	outgoing: 4 8 
+	datadep: 
+	instructions:
+		 0: Line Number 131
+		 1: (Token) def_%v_4 
+		 2: %self->user def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_5->id def_%v_6 %v_5[3.2,] 	 SYMBOL:	 ARGS:
+		 4: %self->action def_%v_7 %self[3.2,2.0,] 	 SYMBOL:	 ARGS:
+		 5: HASH-user_id-action- def_%v_8 %v_6[3.3,] %v_7[3.4,] 
+		 6: %v_4->where def_%v_9 %v_4[3.1,] %v_8[3.5,] 	 SYMBOL:	 ARGS:%v_8,
+		 7: COPY TYPE_PASS def_scope %v_9[3.6,] 
+		 8: Line Number 132
+		 9: %self->max_instances def_%v_10 %self[3.2,3.4,2.0,] 	 SYMBOL:	 ARGS:
+		 10: %v_10->> def_%v_11 %v_10[3.9,] 	 SYMBOL:	 ARGS:Fixnum,
+		 11: BRANCH %v_11[3.10,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 133
+		 1: HASH-updated_on- def_%v_12 
+		 2: scope->order def_%v_13 scope[3.7,] %v_12[4.1,] 	 SYMBOL:	 ARGS:%v_12,
+		 3: %self->max_instances def_%v_14 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 4: %v_14->- def_%v_15 %v_14[4.3,] 	 SYMBOL:	 ARGS:Fixnum,
+		 5: %v_13->offset def_%v_16 %v_13[4.2,] %v_15[4.4,] 	 SYMBOL:	 ARGS:%v_15,
+		 6: %v_16->ids def_%v_17 %v_16[4.5,] 	 SYMBOL:	 ARGS:
+		 7: COPY TYPE_PASS def_ids %v_17[4.6,] 
+		 8: Line Number 134
+		 9: %v_17->any? def_%v_18 %v_17[4.6,] 	 SYMBOL:	 ARGS:
+		 10: BRANCH %v_18[4.9,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: Line Number 135
+		 1: (Token) def_%v_19 
+		 2: %v_19->delete def_%v_20 %v_19[5.1,] ids[4.7,] 	 SYMBOL:	 ARGS:ids,
+		 3: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_20 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 138
+		 1: scope->delete_all def_%v_21 scope[3.7,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_20 %v_21[8.1,] 
+BB 9
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: RETURN %v_20[8.2,6.0,5.2,] %self[2.0,] 
+BB 10
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 12
+	outgoing: 
+	datadep: 
+	instructions:
+

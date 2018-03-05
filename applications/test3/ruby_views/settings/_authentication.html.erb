@@ -1,0 +1,26 @@
+ form_tag({:action => 'edit', :tab => 'authentication'}) do 
+ setting_check_box :login_required 
+ setting_select :autologin, [[l(:label_disabled), 0]] + [1, 7, 30, 365].collect{|days| [l('datetime.distance_in_words.x_days', :count => days), days.to_s]} 
+ setting_select :self_registration, [[l(:label_disabled), "0"],
+                                           [l(:label_registration_activation_by_email), "1"],
+                                           [l(:label_registration_manual_activation), "2"],
+                                           [l(:label_registration_automatic_activation), "3"]],
+                      :onchange =>
+                          "if (this.value != '0') { $('#settings_show_custom_fields_on_registration').removeAttr('disabled'); } else { $('#settings_show_custom_fields_on_registration').attr('disabled', true); }" 
+ setting_check_box :show_custom_fields_on_registration,
+                         :disabled => !Setting.self_registration? 
+ setting_check_box :unsubscribe 
+ setting_text_field :password_min_length, :size => 6 
+ setting_select :password_max_age, [[l(:label_disabled), 0]] + [7, 30, 60, 90, 180, 365].collect{|days| [l('datetime.distance_in_words.x_days', :count => days), days.to_s]} 
+ setting_check_box :lost_password 
+ setting_text_field :max_additional_emails, :size => 6 
+ setting_check_box :openid, :disabled => !Object.const_defined?(:OpenID) 
+ l(:label_session_expiration) 
+ setting_select :session_lifetime, session_lifetime_options 
+ setting_select :session_timeout, session_timeout_options 
+ l(:text_session_expiration_settings) 
+ l(:label_default_values_for_new_users) 
+ setting_check_box :default_users_hide_mail, :label => :field_hide_mail 
+ setting_select :default_users_time_zone, ActiveSupport::TimeZone.all.collect {|z| [ z.to_s, z.name ]}, :label => :field_time_zone, :blank => :label_none 
+ submit_tag l(:button_save) 
+ end 

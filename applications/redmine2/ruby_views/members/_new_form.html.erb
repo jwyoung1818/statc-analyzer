@@ -1,0 +1,10 @@
+ label_tag("principal_search", l(:label_principal_search)) 
+ text_field_tag('principal_search', nil) 
+ javascript_tag "observeSearchfield('principal_search', null, '#{ escape_javascript autocomplete_project_memberships_path(@project, :format => 'js') }')" 
+ render_principals_for_new_members(@project) 
+ toggle_checkboxes_link('.roles-selection input') 
+ l(:label_role_plural) 
+ User.current.managed_roles(@project).each do |role| 
+ check_box_tag 'membership[role_ids][]', role.id, false, :id => nil 
+ role 
+ end 

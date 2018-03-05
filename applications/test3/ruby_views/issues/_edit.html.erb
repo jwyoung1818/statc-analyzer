@@ -1,0 +1,53 @@
+ labelled_form_for @issue, :html => {:id => 'issue-form', :multipart => true} do |f| 
+ error_messages_for 'issue', 'time_entry' 
+ render :partial => 'conflict' if @conflict 
+ if @issue.attributes_editable? 
+ l(:label_change_properties) 
+ render :partial => 'form', :locals => {:f => f} 
+ end 
+ if User.current.allowed_to?(:log_time, @project) 
+ l(:button_log_time) 
+ labelled_fields_for :time_entry, @time_entry do |time_entry| 
+ time_entry.hours_field :hours, :size => 6, :label => :label_spent_time 
+ l(:field_hours) 
+ time_entry.select :activity_id, activity_collection_for_select_options 
+ time_entry.text_field :comments, :size => 60 
+ @time_entry.custom_field_values.each do |value| 
+ custom_field_tag_with_label :time_entry, value 
+ end 
+ end 
+ end 
+ if @issue.notes_addable? 
+ l(:field_notes) 
+ f.text_area :notes, :cols => 60, :rows => 10, :class => 'wiki-edit', :no_label => true 
+ wikitoolbar_for 'issue_notes' 
+ if @issue.safe_attribute? 'private_notes' 
+ f.check_box :private_notes, :no_label => true 
+ l(:field_private_notes) 
+ end 
+ call_hook(:view_issues_edit_notes_bottom, { :issue => @issue, :notes => @notes, :form => f }) 
+ l(:label_attachment_plural) 
+ if @issue.attachments.any? && @issue.safe_attribute?('deleted_attachment_ids') 
+ link_to l(:label_edit_attachments), '#', :onclick => "$('#existing-attachments').toggle(); return false;" 
+ @issue.deleted_attachment_ids.blank? ? 'display:none;' : '' 
+ @issue.attachments.each do |attachment| 
+ text_field_tag '', attachment.filename, :class => "icon icon-attachment filename", :disabled => true 
+ check_box_tag 'issue[deleted_attachment_ids][]',
+                                attachment.id,
+                                @issue.deleted_attachment_ids.include?(attachment.id),
+                                :id => nil, :class => "deleted_attachment" 
+ l(:button_delete) 
+ end 
+ end 
+ render :partial => 'attachments/form', :locals => {:container => @issue} 
+ end 
+ f.hidden_field :lock_version 
+ hidden_field_tag 'last_journal_id', params[:last_journal_id] || @issue.last_journal_id 
+ submit_tag l(:button_submit) 
+ preview_link preview_edit_issue_path(:project_id => @project, :id => @issue), 'issue-form' 
+ link_to l(:button_cancel), issue_path(id: @issue.id), :onclick => params[:action] == 'show' ? "$('#update').hide(); return false;" : '' 
+ hidden_field_tag 'prev_issue_id', @prev_issue_id if @prev_issue_id 
+ hidden_field_tag 'next_issue_id', @next_issue_id if @next_issue_id 
+ hidden_field_tag 'issue_position', @issue_position if @issue_position 
+ hidden_field_tag 'issue_count', @issue_count if @issue_count 
+ end 

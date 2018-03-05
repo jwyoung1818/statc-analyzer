@@ -1,0 +1,108 @@
+ render :partial => 'action_menu' 
+ issue_heading(@issue) 
+ @issue.css_classes 
+ if @prev_issue_id || @next_issue_id 
+ link_to_if @prev_issue_id,
+                     "\xc2\xab #{l(:label_previous)}",
+                     (@prev_issue_id ? issue_path(@prev_issue_id) : nil),
+                     :title => "##{@prev_issue_id}",
+                     :accesskey => accesskey(:previous) 
+ if @issue_position && @issue_count 
+ link_to_if @query_path,
+                         l(:label_item_position, :position => @issue_position, :count => @issue_count),
+                         @query_path 
+ end 
+ link_to_if @next_issue_id,
+                     "#{l(:label_next)} \xc2\xbb",
+                     (@next_issue_id ? issue_path(@next_issue_id) : nil),
+                     :title => "##{@next_issue_id}",
+                     :accesskey => accesskey(:next) 
+ end 
+ avatar(@issue.author, :size => "50", :title => l(:field_author)) 
+ avatar(@issue.assigned_to, :size => "22", :class => "gravatar gravatar-child", :title => l(:field_assigned_to)) if @issue.assigned_to 
+ render_issue_subject_with_tree(@issue) 
+ authoring @issue.created_on, @issue.author 
+ if @issue.created_on != @issue.updated_on 
+ l(:label_updated_time, time_tag(@issue.updated_on)).html_safe 
+ end 
+ issue_fields_rows do |rows|
+  rows.left l(:field_status), @issue.status.name, :class => 'status'
+  rows.left l(:field_priority), @issue.priority.name, :class => 'priority'
+
+  unless @issue.disabled_core_fields.include?('assigned_to_id')
+    rows.left l(:field_assigned_to), (@issue.assigned_to ? link_to_user(@issue.assigned_to) : "-"), :class => 'assigned-to'
+  end
+  unless @issue.disabled_core_fields.include?('category_id') || (@issue.category.nil? && @issue.project.issue_categories.none?)
+    rows.left l(:field_category), (@issue.category ? @issue.category.name : "-"), :class => 'category'
+  end
+  unless @issue.disabled_core_fields.include?('fixed_version_id') || (@issue.fixed_version.nil? && @issue.assignable_versions.none?)
+    rows.left l(:field_fixed_version), (@issue.fixed_version ? link_to_version(@issue.fixed_version) : "-"), :class => 'fixed-version'
+  end
+
+  unless @issue.disabled_core_fields.include?('start_date')
+    rows.right l(:field_start_date), format_date(@issue.start_date), :class => 'start-date'
+  end
+  unless @issue.disabled_core_fields.include?('due_date')
+    rows.right l(:field_due_date), format_date(@issue.due_date), :class => 'due-date'
+  end
+  unless @issue.disabled_core_fields.include?('done_ratio')
+    rows.right l(:field_done_ratio), progress_bar(@issue.done_ratio, :legend => "#{@issue.done_ratio}%"), :class => 'progress'
+  end
+  unless @issue.disabled_core_fields.include?('estimated_hours')
+    rows.right l(:field_estimated_hours), issue_estimated_hours_details(@issue), :class => 'estimated-hours'
+  end
+  if User.current.allowed_to?(:view_time_entries, @project) && @issue.total_spent_hours > 0
+    rows.right l(:label_spent_time), issue_spent_hours_details(@issue), :class => 'spent-time'
+  end
+end 
+ render_half_width_custom_fields_rows(@issue) 
+ call_hook(:view_issues_show_details_bottom, :issue => @issue) 
+ if @issue.description? || @issue.attachments.any? 
+ if @issue.description? 
+ link_to l(:button_quote), quoted_issue_path(@issue), :remote => true, :method => 'post', :class => 'icon icon-comment' if @issue.notes_addable? 
+l(:field_description)
+ textilizable @issue, :description, :attachments => @issue.attachments 
+ end 
+ link_to_attachments @issue, :thumbnails => true 
+ end 
+ render_full_width_custom_fields_rows(@issue) 
+ call_hook(:view_issues_show_description_bottom, :issue => @issue) 
+ if !@issue.leaf? || User.current.allowed_to?(:manage_subtasks, @project) 
+ link_to_new_subtask(@issue) if User.current.allowed_to?(:manage_subtasks, @project) 
+l(:label_subtask_plural)
+ form_tag({}, :data => {:cm_url => issues_context_menu_path}) do 
+ render_descendants_tree(@issue) unless @issue.leaf? 
+ end 
+ end 
+ if @relations.present? || User.current.allowed_to?(:manage_issue_relations, @project) 
+ render :partial => 'relations' 
+ end 
+ if @changesets.present? 
+l(:label_associated_revisions)
+ render :partial => 'changesets', :locals => { :changesets => @changesets} 
+ end 
+ if @journals.present? 
+l(:label_history)
+ render :partial => 'history', :locals => { :issue => @issue, :journals => @journals } 
+ end 
+ render :partial => 'action_menu' 
+ if @issue.editable? 
+ l(:button_edit) 
+ render :partial => 'edit' 
+ end 
+ other_formats_links do |f| 
+ f.link_to 'Atom', :url => {:key => User.current.rss_key} 
+ f.link_to 'PDF' 
+ end 
+ html_title "#{@issue.tracker.name} ##{@issue.id}: #{@issue.subject}" 
+ content_for :sidebar do 
+ render :partial => 'issues/sidebar' 
+ if User.current.allowed_to?(:add_issue_watchers, @project) ||
+    (@issue.watchers.present? && User.current.allowed_to?(:view_issue_watchers, @project)) 
+ render :partial => 'watchers/watchers', :locals => {:watched => @issue} 
+ end 
+ end 
+ content_for :header_tags do 
+ auto_discovery_link_tag(:atom, {:format => 'atom', :key => User.current.rss_key}, :title => "#{@issue.project} - #{@issue.tracker} ##{@issue.id}: #{@issue.subject}") 
+ end 
+ context_menu 

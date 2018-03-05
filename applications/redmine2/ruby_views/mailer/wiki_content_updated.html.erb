@@ -1,0 +1,5 @@
+ l(:mail_body_wiki_content_updated, :id => link_to(@wiki_content.page.pretty_title, @wiki_content_url),
+                                          :author => h(@wiki_content.author)).html_safe 
+ @wiki_content.comments 
+ l(:label_view_diff) 
+ link_to @wiki_diff_url, @wiki_diff_url 

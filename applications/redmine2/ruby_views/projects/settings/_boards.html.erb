@@ -1,0 +1,20 @@
+ if User.current.allowed_to?(:manage_boards, @project) 
+ link_to l(:label_board_new), new_project_board_path(@project), :class => 'icon icon-add' 
+ end 
+ if @project.boards.any? 
+ l(:label_board) 
+ render_boards_tree(@project.boards) do |board, level| 
+ 2 + level * 16 
+ link_to board.name, project_board_path(@project, board) 
+ board.description 
+ if User.current.allowed_to?(:manage_boards, @project) 
+ reorder_handle(board) 
+ link_to l(:button_edit), edit_project_board_path(@project, board), :class => 'icon icon-edit' 
+ delete_link project_board_path(@project, board) 
+ end 
+ end 
+ javascript_tag do 
+ end 
+ else 
+ l(:label_no_data) 
+ end 

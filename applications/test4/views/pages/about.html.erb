@@ -1,0 +1,211 @@
+<div class="rightphoto">  <!-- keep all <img> on same line with no spaces -->
+  <img src="/ethan-oranges.jpg"><img src="/jeff-tree.jpg"><img src="/plums.jpg"><img src="/amittai-mulberries.jpg">
+</div>
+
+<p>
+  <em><%= translate("pages.about.ff_disclaimer_html").html_safe %></em>
+</p>
+
+<p class="announcement"><b><%= translate("glossary.donate") %></b>
+  <span><%= translate("pages.about.give_us_money") %></span>
+</p>
+
+  <blockquote>
+
+  <!-- Paypal -->
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="POST" style="display:inline;">
+    <input type="hidden" name="cmd" value="_donations">
+    <input type="hidden" name="business" value="info@fallingfruit.org">
+    <input type="hidden" name="return" value="http://fallingfruit.org/about">
+    <input type="hidden" name="item_name" value="Falling Fruit Donation">
+    <input type="hidden" name="no_shipping" value="1">
+    $ <input name="amount" type="text" size="4" style="text-align:right;padding:0.25em 0.4em;font-size:inherit;" placeholder="0.00">
+    <button type="submit" style="padding:0.25em 0.4em;"><%= translate("pages.about.give_paypal") %></button>
+  </form>
+
+  &nbsp; &middot; &nbsp;
+
+  <!-- Gratipay  -->
+  <form action="https://gratipay.com/falling-fruit/" style="display:inline;">
+    <button type="submit" style="padding:0.25em 0.4em;"><%= translate("pages.about.give_gratipay") %></button>
+  </form>
+
+  </blockquote>
+
+<p class="announcement"><b><%= translate("pages.about.write") %></b>
+  <span><%= translate("pages.about.contact_us_html").html_safe %></span>
+</p>
+
+<p class="announcement"><b><%= translate("pages.about.translate") %></b>
+  <span><%= translate("pages.about.translate_for_us_html").html_safe %></span>
+</p>
+
+<h2><%= translate("pages.about.about_the_site") %></h2>
+
+<p>
+  <%= translate("pages.about.celebration").html_safe %>
+</p>
+
+<%
+  cache "pages_about_stats_#{I18n.locale}" + ((params[:i18n_viz].present? and params[:i18n_viz] == 'true') ? "_i18nviz" : "")  do
+    @types_count = Location.joins("LEFT OUTER JOIN types ON types.id = ANY(locations.type_ids)").select("types.id").group("types.id").length
+    @locations_count = Location.count
+%>
+
+<p>
+  <%= translate("pages.about.more_about_html",
+      :types => number_with_delimiter(@types_count),
+      :locations => number_with_delimiter(@locations_count)).html_safe %>
+</p>
+
+<!-- cache end -->
+<% end %>
+
+<p>
+  <%= translate("pages.about.join_us_html").html_safe %>
+</p>
+
+<h2>
+  <%= translate("pages.about.about_us") %>
+</h2>
+
+<div class="big-bios">
+
+<!-- Caleb -->
+<div class="profile">
+ <img class="avatar" src="/caleb.jpg">
+ <div class="bio">
+  <b>Caleb Phillips</b><br>
+  <a href="mailto:caleb@fallingfruit.org">caleb@fallingfruit.org</a><br>
+  Boulder, Colorado, USA<br>
+  <p>
+    <%= translate("pages.about.caleb_bio_html").html_safe %>
+  </p>
+ </div>
+</div>
+<br>
+
+<!-- Ethan -->
+<div class="profile">
+ <img class="avatar" src="/ethan-mountain.jpg">
+ <div class="bio">
+  <b>Ethan Welty</b><br>
+  <a href="mailto:ethan@fallingfruit.org">ethan@fallingfruit.org</a><br>
+  Boulder, Colorado, USA<br>
+  <p>
+    <%= translate("pages.about.ethan_bio_html").html_safe %>
+  </p>
+ </div>
+</div>
+<br>
+
+<!-- Jeff -->
+<div class="profile">
+  <img class="avatar" src="/jeff-apples.jpg">
+  <div class="bio">
+    <b>Jeff Wanner</b><br>
+    <a href="mailto:jeff@fallingfruit.org">jeff@fallingfruit.org</a><br>
+    Snowmass, Colorado, USA<br>
+    <p>
+      <%= translate("pages.about.jeff_bio_html").html_safe %>
+    </p>
+  </div>
+</div>
+
+</div>
+
+<h2>
+  <%= translate("pages.about.advisory_board") %>
+</h2>
+
+<div class="small-bios">
+  <div class="profile">
+    <img class="avatar" src="/craig_durkin.jpg">
+    <div class="bio">
+      <b>Craig Durkin</b><br>
+      <p>
+        <%= translate("pages.about.craig_durkin_bio_html").html_safe %>
+      </p>
+    </div>
+  </div>
+  <br>
+  <div class="profile">
+    <img class="avatar" src="/cristina_rubke.jpg">
+    <div class="bio">
+      <b>Cristina Rubke</b><br>
+      <p>
+        <%= translate("pages.about.cristina_rubke_bio_html").html_safe %>
+      </p>
+    </div>
+  </div>
+  <br>
+  <div class="profile">
+    <img class="avatar" src="/david_craft.jpg">
+    <div class="bio">
+      <b>David Craft</b><br>
+      <p>
+        <%= translate("pages.about.david_craft_bio_html").html_safe %>
+      </p>
+    </div>
+  </div>
+  <br>
+  <div class="profile">
+    <img class="avatar" src="/tristram_stuart.jpg">
+    <div class="bio">
+      <b>Tristram Stuart</b><br/>
+      <p>
+        <%= translate("pages.about.tristram_stuart_bio_html").html_safe %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<h2>
+  <%= translate("pages.about.translators") %>
+</h2>
+
+<p>
+  <b>Amit Baum (<span dir="rtl">עמית באום</span>)</b> – עִברִית<br/>
+  <b>Ana Carolina de Lima</b> – Português<br/>
+  <b>Daniela Marini</b> – Español<br/>
+  <b>Ethan Welty</b> – Français, Español<br/>
+  <b>Jadalnia Warszawa</b> – Polski<br/>
+  <b>Karolina Hansen</b> - Polski<br/>
+  <b>Kira Dell</b> – Português, Español<br/>
+  <b>Liana Welty</b> – Español<br/>
+  <b>Maria Noel Silvera</b> – Español<br/>
+  <b>Maria Rosa Puig</b> – Español<br/>
+  <b>Michela Pasquali</b> – Italiano<br/>
+  <b>Monica Breval Listán</b> – Español<br/>
+  <b>Mylène Jacquemart</b> – Deutsch, Italiano<br/>
+  <b>Parmenter Welty</b> – Español<br/>
+  <b>Raven Lyn</b> – Português<br/>
+  <b>Sifis Diamantidis</b> - Ελληνικά<br/>
+  <b>Thomaz Brandão Teixeira</b> – Português<br/>
+  <b>Tim Conze</b> – Svenska<br/>
+  <b>Timna Raz</b> – עִברִית<br/>
+</p>
+
+<a href="https://www.colorado.gov/pacific/cdphe/environmental-leadership-program"><img src="/elpbronze.svg" style="height: 250px;margin: 0 0 1.5em 1.5em;display: block;float:right;" /></a>
+<a href="http://choosecolorado.com/programs-initiatives/bycolorado/"><img src="/bycolorado.svg" style="height: 150px;margin: 0 0 1.5em 1.5em;display: block;float:right;" /></a>
+
+<h2>
+  <%= translate("pages.about.closing_remarks") %>
+</h2>
+
+<p>
+  <%= translate("pages.about.closing_remarks_para1_html").html_safe %>
+  <blockquote>
+    Falling Fruit<br/>
+    PO Box 284, Boulder, CO, 80306, USA<br/>
+    EIN: 46-5363428
+  </blockquote>
+</p>
+
+<p>
+  <%= translate("pages.about.closing_remarks_para2_html").html_safe %>
+</p>
+
+<p>
+  <%= translate("pages.about.closing_remarks_para3_html".html_safe) %>
+</p>

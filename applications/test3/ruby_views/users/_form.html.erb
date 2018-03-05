@@ -1,0 +1,34 @@
+ error_messages_for 'user' 
+l(:label_information_plural)
+ f.text_field :login, :required => true, :size => 25  
+ f.text_field :firstname, :required => true 
+ f.text_field :lastname, :required => true 
+ f.text_field :mail, :required => true 
+ unless @user.force_default_language? 
+ f.select :language, lang_options_for_select 
+ end 
+ if Setting.openid? 
+ f.text_field :identity_url  
+ end 
+ @user.custom_field_values.each do |value| 
+ custom_field_tag_with_label :user, value 
+ end 
+ f.check_box :admin, :disabled => (@user == User.current) 
+ call_hook(:view_users_form, :user => @user, :form => f) 
+l(:label_authentication)
+ unless @auth_sources.empty? 
+ f.select :auth_source_id, ([[l(:label_internal), ""]] + @auth_sources.collect { |a| [a.name, a.id] }), {}, :onchange => "if (this.value=='') {$('#password_fields').show();} else {$('#password_fields').hide();}" 
+ end 
+ 'display:none;' if @user.auth_source 
+ f.password_field :password, :required => true, :size => 25  
+ l(:text_caracters_minimum, :count => Setting.password_min_length) 
+ f.password_field :password_confirmation, :required => true, :size => 25  
+ f.check_box :generate_password 
+ f.check_box :must_change_passwd 
+l(:field_mail_notification)
+ render :partial => 'users/mail_notifications' 
+l(:label_preferences)
+ render :partial => 'users/preferences' 
+ call_hook(:view_users_form_preferences, :user => @user, :form => f) 
+ javascript_tag do 
+ end 

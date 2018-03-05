@@ -1,0 +1,18 @@
+ link_to l(:label_tracker_new), new_tracker_path, :class => 'icon icon-add' 
+ link_to l(:field_summary), fields_trackers_path, :class => 'icon icon-summary' 
+l(:label_tracker_plural)
+l(:label_tracker)
+l(:field_default_status)
+ for tracker in @trackers 
+ link_to tracker.name, edit_tracker_path(tracker) 
+ tracker.default_status.name 
+ unless tracker.workflow_rules.exists? 
+ l(:text_tracker_no_workflow) 
+ link_to l(:button_edit), workflows_edit_path(:tracker_id => tracker) 
+ end 
+ reorder_handle(tracker) 
+ delete_link tracker_path(tracker) 
+ end 
+ html_title(l(:label_tracker_plural)) 
+ javascript_tag do 
+ end 

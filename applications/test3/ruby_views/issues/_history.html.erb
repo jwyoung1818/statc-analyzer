@@ -1,0 +1,25 @@
+ reply_links = issue.notes_addable? 
+ for journal in journals 
+ journal.id 
+ journal.css_classes 
+ journal.indice 
+ render_journal_actions(issue, journal, :reply_links => reply_links) 
+ journal.indice 
+ journal.indice 
+ avatar(journal.user, :size => "24") 
+ authoring journal.created_on, journal.user, :label => :label_updated_time_by 
+ render_private_notes_indicator(journal) 
+ if journal.details.any? 
+ details_to_strings(journal.visible_details).each do |string| 
+ string 
+ end 
+ if Setting.thumbnails_enabled? && (thumbnail_attachments = journal_thumbnail_attachments(journal)).any? 
+ thumbnail_attachments.each do |attachment| 
+ thumbnail_tag(attachment) 
+ end 
+ end 
+ end 
+ render_notes(issue, journal, :reply_links => reply_links) unless journal.notes.blank? 
+ call_hook(:view_issues_history_journal_bottom, { :journal => journal }) 
+ end 
+ heads_for_wiki_formatter if User.current.allowed_to?(:edit_issue_notes, issue.project) || User.current.allowed_to?(:edit_own_issue_notes, issue.project) 

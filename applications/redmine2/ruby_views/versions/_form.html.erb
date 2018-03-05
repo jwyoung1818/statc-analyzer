@@ -1,0 +1,17 @@
+ back_url_hidden_field_tag 
+ error_messages_for 'version' 
+ f.text_field :name, :size => 60, :required => true 
+ f.text_field :description, :size => 60 
+ unless @version.new_record? 
+ f.select :status, Version::VERSION_STATUSES.collect {|s| [l("version_status_#{s}"), s]} 
+ end 
+ f.text_field :wiki_page_title, :label => :label_wiki_page, :size => 60, :disabled => @project.wiki.nil? 
+ f.date_field :effective_date, :size => 10 
+ calendar_for('version_effective_date') 
+ f.select :sharing, @version.allowed_sharings.collect {|v| [format_version_sharing(v), v]} 
+ if @version.new_record? 
+ f.check_box :default_project_version, :label => :field_default_version 
+ end 
+ @version.custom_field_values.each do |value| 
+ custom_field_tag_with_label :version, value 
+ end 

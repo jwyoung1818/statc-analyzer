@@ -1,0 +1,16 @@
+ javascript_tag do 
+ raw_json Query.operators_labels 
+ raw_json Query.operators_by_filter_type 
+ raw_json query.available_filters_as_json 
+ raw_json l(:label_day_plural) 
+ raw_json queries_filter_path(:project_id => @query.project.try(:id), :type => @query.type) 
+ query.filters.each do |field, options| 
+ field 
+ raw_json query.operator_for(field) 
+ raw_json query.values_for(field) 
+ end 
+ end 
+ label_tag('add_filter_select', l(:label_filter_add)) 
+ select_tag 'add_filter_select', filters_options_for_select(query), :name => nil 
+ hidden_field_tag 'f[]', '' 
+ include_calendar_headers_tags 

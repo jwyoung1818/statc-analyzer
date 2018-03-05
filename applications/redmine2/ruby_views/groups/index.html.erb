@@ -1,0 +1,23 @@
+ link_to l(:label_group_new), new_group_path, :class => 'icon icon-add' 
+ title l(:label_group_plural) 
+ form_tag(groups_path, :method => :get) do 
+ l(:label_filter_plural) 
+ l(:label_group) 
+ text_field_tag 'name', params[:name], :size => 30 
+ submit_tag l(:button_apply), :class => "small", :name => nil 
+ link_to l(:button_clear), groups_path, :class => 'icon icon-reload' 
+ end 
+ if @groups.any? 
+l(:label_group)
+l(:label_user_plural)
+ @groups.each do |group| 
+ group.id 
+ "builtin" if group.builtin? 
+ link_to group, edit_group_path(group) 
+ (@user_count_by_group_id[group.id] || 0) unless group.builtin? 
+ delete_link group unless group.builtin? 
+ end 
+ pagination_links_full @group_pages, @group_count 
+ else 
+ l(:label_no_data) 
+ end 

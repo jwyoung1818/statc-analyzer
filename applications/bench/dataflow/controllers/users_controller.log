@@ -1,0 +1,60 @@
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 3
+		 6: CONSTANT def_%v_4 
+		 7: %v_4->each def_%v_3 %v_4[2.6,] %self[2.0,] 	 SYMBOL:	 ARGS:%v_4,
+CLOSURE BEGIN: i[] 
+BB 1
+	outgoing: 4 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_i 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+		 5: Line Number 4
+		 6: (User) def_%cl_1_3 
+		 7: %cl_1_3->all def_%cl_1_4 %cl_1_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: COPY TYPE_PASS def_users %cl_1_4[2.7,] 
+		 9: Line Number 5
+		 10: (User) def_%cl_1_5 
+		 11: %cl_1_5->getAll def_%cl_1_6 %cl_1_5[2.10,] i[2.2,] 	 SYMBOL:	 ARGS:i,
+		 12: RETURN %cl_1_6[2.11,] %self[2.0,] 
+BB 4
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: i[2.2,] users[2.8,] 
+		 8: Line Number 7
+		 9: COPY TYPE_StringLiteral "index" def_%v_5 
+		 10: %self->render def_%v_6 %self[2.0,] %v_5[2.9,] 	 SYMBOL:	 ARGS:%v_5,
+		 11: Line Number 8
+		 12: users->reload def_%v_7 users[2.7,] 	 SYMBOL:	 ARGS:
+		 13: Line Number 9
+		 14: COPY TYPE_StringLiteral "Do nothing with user" def_%v_8 
+		 15: %self->puts def_%v_9 %self[2.0,2.10,] %v_8[2.14,] 	 SYMBOL:	 ARGS:%v_8,
+		 16: Line Number 10
+		 17: users->reload def_%v_10 users[2.7,2.12,] 	 SYMBOL:	 ARGS:
+		 18: RETURN %v_10[2.17,] %self[2.0,2.10,2.15,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+

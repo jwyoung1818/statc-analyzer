@@ -1,0 +1,7 @@
+ l(:label_issue_plural) 
+ block 
+ form_tag(my_page_path, :remote => true) do 
+ l(:label_query) 
+ select_tag "settings[#{block}][query_id]", content_tag("option") + options_from_collection_for_select(queries, :id, :name, settings[:query_id]) 
+ submit_tag l(:button_save) 
+ end 

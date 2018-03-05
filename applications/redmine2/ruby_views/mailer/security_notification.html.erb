@@ -1,0 +1,14 @@
+ @message 
+ if @url && @title 
+ link_to @title, @url 
+ elsif @url 
+ link_to @url  
+ elsif @title 
+ content_tag :h1, @title 
+ end 
+ l(:field_user) 
+ User.current.login 
+ l(:field_remote_ip) 
+ User.current.remote_ip 
+ l(:label_date) 
+ format_time Time.now, true, @user 

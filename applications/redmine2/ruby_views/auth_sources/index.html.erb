@@ -1,0 +1,16 @@
+ link_to l(:label_auth_source_new), {:action => 'new'}, :class => 'icon icon-add' 
+ title l(:label_auth_source_plural) 
+l(:field_name)
+l(:field_type)
+l(:field_host)
+l(:label_user_plural)
+ for source in @auth_sources 
+ source.id 
+ link_to(source.name, :action => 'edit', :id => source)
+ source.auth_method_name 
+ source.host 
+ source.users.count 
+ link_to l(:button_test), try_connection_auth_source_path(source), :class => 'icon icon-test' 
+ delete_link auth_source_path(source) 
+ end 
+ pagination_links_full @auth_source_pages 

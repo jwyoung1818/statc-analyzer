@@ -1,0 +1,49 @@
+ form_tag({}, :data => {:cm_url => time_entries_context_menu_path}) do 
+ hidden_field_tag 'back_url', url_for(:params => request.query_parameters), :id => nil 
+ check_box_tag 'check_all', '', false, :class => 'toggle-selection',
+        :title => "#{l(:button_check_all)}/#{l(:button_uncheck_all)}" 
+ @query.inline_columns.each do |column| 
+ column_header(@query, column) 
+ end 
+ grouped_query_results(entries, @query) do |entry, group_name, group_count, group_totals| 
+ if group_name 
+ reset_cycle 
+ @query.inline_columns.size + 2 
+ group_name 
+ if group_count 
+ group_count 
+ end 
+ group_totals 
+ link_to_function("#{l(:button_collapse_all)}/#{l(:button_expand_all)}",
+                             "toggleAllRowGroups(this)", :class => 'toggle-all') 
+ end 
+ entry.id 
+ cycle("odd", "even") 
+ check_box_tag("ids[]", entry.id, false, :id => nil) 
+ @query.inline_columns.each do |column| 
+ content_tag('td', column_content(column, entry), :class => column.css_classes) 
+ end 
+ if entry.editable_by?(User.current) 
+ link_to l(:button_edit), edit_time_entry_path(entry),
+                    :title => l(:button_edit),
+                    :class => 'icon-only icon-edit' 
+ link_to l(:button_delete), time_entry_path(entry),
+                    :data => {:confirm => l(:text_are_you_sure)},
+                    :method => :delete,
+                    :title => l(:button_delete),
+                    :class => 'icon-only icon-del' 
+ end 
+ @query.block_columns.each do |column|
+       if (text = column_content(column, issue)) && text.present? 
+ current_cycle 
+ @query.inline_columns.size + 1 
+ column.css_classes 
+ if query.block_columns.count > 1 
+ column.caption 
+ end 
+ text 
+ end 
+ end 
+ end 
+ end 
+ context_menu 

@@ -1,0 +1,9 @@
+ l(:field_name) 
+ l(:field_filesize) 
+ if @repository.report_last_commit 
+ l(:label_revision)  
+ l(:label_age)       
+ l(:field_author)    
+ l(:field_comments)  
+ end 
+ render :partial => 'dir_list_content' 

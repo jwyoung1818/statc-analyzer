@@ -1,0 +1,84 @@
+ form_tag({:action => 'edit', :tab => 'repositories'}) do 
+ l(:setting_enabled_scm) 
+ hidden_field_tag 'settings[enabled_scm][]', '' 
+ l(:text_scm_command)         
+ l(:text_scm_command_version) 
+ Redmine::Scm::Base.all.collect do |choice| 
+ scm_class = "Repository::#{choice}".constantize 
+ text, value = (choice.is_a?(Array) ? choice : [choice, choice]) 
+ setting = :enabled_scm 
+ enabled = Setting.send(setting).include?(value) 
+ check_box_tag("settings[#{setting}][]", value, enabled, :id => nil) 
+ text.to_s 
+ if enabled 
+ (scm_class.scm_available ? 'icon-ok' : 'icon-error') 
+ scm_class.scm_command 
+ end 
+ scm_class.scm_version_string if enabled 
+ end 
+ l(:text_scm_config) 
+ setting_check_box :autofetch_changesets 
+ setting_check_box :sys_api_enabled,
+                         :onclick =>
+                             "if (this.checked) { $('#settings_sys_api_key').removeAttr('disabled'); } else { $('#settings_sys_api_key').attr('disabled', true); }" 
+ setting_text_field :sys_api_key,
+                          :size     => 30,
+                          :id       => 'settings_sys_api_key',
+                          :disabled => !Setting.sys_api_enabled? 
+ link_to_function l(:label_generate_key),
+                       "if (!$('#settings_sys_api_key').attr('disabled')) { $('#settings_sys_api_key').val(randomKey(20)) }" 
+ setting_text_field :repository_log_display_limit, :size => 6 
+ setting_check_box :commit_logs_formatting 
+ l(:text_issues_ref_in_commit_messages) 
+ setting_text_field :commit_ref_keywords, :size => 30 
+ l(:text_comma_separated) 
+ setting_check_box :commit_cross_project_ref 
+ setting_check_box :commit_logtime_enabled,
+                         :onclick =>
+                            "if (this.checked) { $('#settings_commit_logtime_activity_id').removeAttr('disabled'); } else { $('#settings_commit_logtime_activity_id').attr('disabled', true); }"
+ setting_select :commit_logtime_activity_id,
+                      [[l(:label_default), 0]] +
+                          TimeEntryActivity.shared.active.collect{|activity| [activity.name, activity.id.to_s]},
+                      :disabled => !Setting.commit_logtime_enabled?
+ l(:label_tracker) 
+ l(:setting_commit_fix_keywords) 
+ l(:label_applied_status) 
+ l(:field_done_ratio) 
+ @commit_update_keywords.each do |rule| 
+ select_tag(
+                "settings[commit_update_keywords][if_tracker_id][]",
+                options_for_select(
+                  [[l(:label_all), ""]] +
+                    Tracker.sorted.map {|t| [t.name, t.id.to_s]},
+                rule['if_tracker_id']),
+                :id => nil
+               ) 
+ text_field_tag("settings[commit_update_keywords][keywords][]",
+                           rule['keywords'], :id => nil, :size => 30) 
+ select_tag("settings[commit_update_keywords][status_id][]",
+                       options_for_select(
+                         [["", 0]] +
+                         IssueStatus.sorted.
+                           collect{|status| [status.name, status.id.to_s]},
+                         rule['status_id']),
+                       :id => nil
+                   ) 
+ select_tag("settings[commit_update_keywords][done_ratio][]",
+                       options_for_select(
+                          [["", ""]] +
+                          (0..10).to_a.collect {|r| ["#{r*10} %", "#{r*10}"] },
+                       rule['done_ratio']),
+                       :id => nil
+                    ) 
+ link_to(l(:button_delete), '#',
+                    :class => 'delete-commit-keywords icon-only icon-del',
+                    :title => l(:button_delete)) 
+ end 
+ l(:text_comma_separated) 
+ link_to(l(:button_add), '#',
+                    :class => 'add-commit-keywords icon-only icon-add',
+                    :title => l(:button_add)) 
+ submit_tag l(:button_save) 
+ end 
+ javascript_tag do 
+ end 

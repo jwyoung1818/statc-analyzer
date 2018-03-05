@@ -1,0 +1,3 @@
+ render :layout => 'layouts/file' do 
+ render :partial => 'common/file', :locals => {:content => @content, :filename => @attachment.filename} 
+ end 

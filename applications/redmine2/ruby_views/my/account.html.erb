@@ -1,0 +1,36 @@
+ additional_emails_link(@user) 
+ link_to(l(:button_change_password), {:action => 'password'}, :class => 'icon icon-passwd') if @user.change_password_allowed? 
+ call_hook(:view_my_account_contextual, :user => @user)
+ avatar_edit_link(@user, :size => "50") 
+l(:label_my_account)
+ error_messages_for 'user' 
+ labelled_form_for :user, @user,
+                     :url => { :action => "account" },
+                     :html => { :id => 'my_account_form',
+                                :method => :post, :multipart => true } do |f| 
+l(:label_information_plural)
+ f.text_field :firstname, :required => true 
+ f.text_field :lastname, :required => true 
+ f.text_field :mail, :required => true 
+ unless @user.force_default_language? 
+ f.select :language, lang_options_for_select 
+ end 
+ if Setting.openid? 
+ f.text_field :identity_url  
+ end 
+ @user.custom_field_values.select(&:editable?).each do |value| 
+ custom_field_tag_with_label :user, value 
+ end 
+ call_hook(:view_my_account, :user => @user, :form => f) 
+ submit_tag l(:button_save) 
+l(:field_mail_notification)
+ render :partial => 'users/mail_notifications' 
+l(:label_preferences)
+ render :partial => 'users/preferences' 
+ call_hook(:view_my_account_preferences, :user => @user, :form => f) 
+ submit_tag l(:button_save) 
+ end 
+ content_for :sidebar do 
+ render :partial => 'sidebar' 
+ end 
+ html_title(l(:label_my_account)) 

@@ -1,0 +1,24 @@
+ memberships = principal.memberships.preload(:member_roles, :roles).sorted_by_project.to_a 
+ link_to l(:label_add_projects), new_principal_membership_path(principal), :remote => true, :class => "icon icon-add" 
+ if memberships.any? 
+ l(:label_project) 
+ l(:label_role_plural) 
+ call_table_header_hook principal 
+ memberships.each do |membership| 
+ next if membership.new_record? 
+ membership.id 
+ link_to_project membership.project 
+ membership.id 
+h membership.roles.sort.collect(&:to_s).join(', ') 
+ membership.id 
+ link_to l(:button_edit),
+                  edit_principal_membership_path(principal, membership),
+                  :remote => true,
+                  :class => 'icon icon-edit'
+          
+ delete_link principal_membership_path(principal, membership), :remote => true if membership.deletable? 
+ call_table_row_hook principal, membership 
+ end 
+ else 
+ l(:label_no_data) 
+ end 

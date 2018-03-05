@@ -1,0 +1,1205 @@
+SET IRMethod, name = visible_condition instanceMethod = false
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_user 
+		 6: RECEIVECONSTARG def_options 
+		 7: options[2.6,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_3 
+		 1: COPY TYPE_PASS def_options %v_3[3.0,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: Line Number 66
+		 1: (Project) def_%v_4 
+		 2: %v_4->allowed_to_condition def_%v_5 %v_4[4.1,] user[2.5,] options[3.1,2.6,] %self[2.0,] 	 SYMBOL:view_time_entries,	 ARGS:user,Symbol,options,%v_4,
+CLOSURE BEGIN: role[] user[2.5,] %self[2.0,] 
+BB 1
+	outgoing: 16 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_role 
+		 3: RECEIVEARG def_user 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 14 
+	datadep: 
+	instructions:
+		 0: Line Number 67
+		 1: role->time_entries_visibility def_%cl_1_3 role[2.2,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_StringLiteral "all" def_%cl_1_4 
+		 3: %cl_1_3->== def_%cl_1_5 %cl_1_3[3.1,] %cl_1_4[3.2,] 	 SYMBOL:	 ARGS:%cl_1_4,
+		 4: BRANCH %cl_1_5[3.3,] 
+BB 4
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: Line Number 69
+		 1: COPY TYPE_Nil def_%cl_1_6 
+		 2: RETURN %self[2.0,] 
+BB 5
+	outgoing: 6 7 14 
+	datadep: 
+	instructions:
+		 0: role->time_entries_visibility def_%cl_1_7 role[2.2,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_StringLiteral "own" def_%cl_1_8 
+		 2: %cl_1_7->== def_%cl_1_9 %cl_1_7[5.0,] %cl_1_8[5.1,] 	 SYMBOL:	 ARGS:%cl_1_8,
+		 3: BRANCH %cl_1_9[5.2,] 
+BB 6
+	outgoing: 7 14 
+	datadep: 
+	instructions:
+		 0: user->id def_%cl_1_10 user[2.3,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%cl_1_9 %cl_1_10[6.0,] 
+BB 7
+	outgoing: 8 9 
+	datadep: 
+	instructions:
+		 0: BRANCH %cl_1_9[6.1,5.2,] 
+BB 8
+	outgoing: 9 14 
+	datadep: 
+	instructions:
+		 0: user->logged? def_%cl_1_11 user[2.3,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%cl_1_9 %cl_1_11[8.0,] 
+BB 9
+	outgoing: 10 11 
+	datadep: 
+	instructions:
+		 0: BRANCH %cl_1_9[8.1,6.1,5.2,] 
+BB 10
+	outgoing: 12 14 
+	datadep: 
+	instructions:
+		 0: Line Number 70
+		 1: %self->table_name def_%cl_1_12 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_StringLiteral ".user_id = " def_%cl_1_13 
+		 3: user->id def_%cl_1_14 user[2.3,] 	 SYMBOL:	 ARGS:
+		 4: BUILDSTRING def_%cl_1_15 %cl_1_12[10.1,] %cl_1_13[10.2,] %cl_1_14[10.3,] 
+		 5: 
+BB 11
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: Line Number 72
+		 1: COPY TYPE_StringLiteral "1=0" def_%cl_1_16 
+		 2: COPY TYPE_PASS def_%cl_1_15 %cl_1_16[11.1,] 
+BB 12
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: RETURN %cl_1_15[11.2,10.4,] %self[2.0,] 
+BB 14
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_17 
+		 1: def_%cl_1_18 %cl_1_17[14.0,] 
+		 2: RETURN %cl_1_18[14.1,] %self[2.0,] 
+BB 16
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: user[2.3,] 
+		 3: RETURN %v_5[4.2,] %self[2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = visible? instanceMethod = true
+BB 1
+	outgoing: 7 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVECONSTARG def_user 
+		 6: user[2.5,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_user 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 79
+		 1: COPY TYPE_PASS def_%v_3 user[3.0,2.5,] 
+		 2: BRANCH user[3.0,2.5,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: (User) def_%v_4 
+		 1: %v_4->current def_%v_5 %v_4[5.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_3 %v_5[5.1,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: %self->project def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_3->allowed_to? def_%v_7 %v_3[5.2,4.1,] %v_6[6.0,] %self[6.0,2.0,] 	 SYMBOL:view_time_entries,	 ARGS:Symbol,%v_6,%v_3,
+CLOSURE BEGIN: role[] %self[6.0,2.0,] user[3.0,2.5,] 
+BB 1
+	outgoing: 12 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_role 
+		 3: RECEIVEARG def_user 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 5 10 
+	datadep: 
+	instructions:
+		 0: Line Number 80
+		 1: role->time_entries_visibility def_%cl_1_3 role[2.2,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_StringLiteral "all" def_%cl_1_4 
+		 3: %cl_1_3->== def_%cl_1_5 %cl_1_3[3.1,] %cl_1_4[3.2,] 	 SYMBOL:	 ARGS:%cl_1_4,
+		 4: BRANCH %cl_1_5[3.3,] 
+BB 4
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: Line Number 82
+		 1: COPY TYPE_Boolean def_%cl_1_6 
+		 2: RETURN %self[2.0,] 
+BB 5
+	outgoing: 6 7 10 
+	datadep: 
+	instructions:
+		 0: role->time_entries_visibility def_%cl_1_7 role[2.2,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_StringLiteral "own" def_%cl_1_8 
+		 2: %cl_1_7->== def_%cl_1_9 %cl_1_7[5.0,] %cl_1_8[5.1,] 	 SYMBOL:	 ARGS:%cl_1_8,
+		 3: BRANCH %cl_1_9[5.2,] 
+BB 6
+	outgoing: 8 10 
+	datadep: 
+	instructions:
+		 0: Line Number 83
+		 1: %self->user def_%cl_1_10 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %cl_1_10->== def_%cl_1_11 %cl_1_10[6.1,] user[2.3,] 	 SYMBOL:	 ARGS:user,
+		 3: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 86
+		 1: COPY TYPE_Boolean def_%cl_1_11 
+BB 8
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: RETURN %cl_1_11[7.1,6.2,] %self[2.0,] 
+BB 10
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_12 
+		 1: def_%cl_1_13 %cl_1_12[10.0,] 
+		 2: RETURN %cl_1_13[10.1,] %self[2.0,] 
+BB 12
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: user[2.3,] 
+		 2: RETURN %v_7[6.1,] %self[6.0,2.0,] 
+BB 7
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = initialize instanceMethod = true
+BB 1
+	outgoing: 16 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVECONSTARG def_attributes 
+		 6: attributes[2.5,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_attributes 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: RECEIVEARG def_args 
+		 1: Line Number 91
+		 2: %self->super def_%v_3 %current_module[2.3,] attributes[3.0,2.5,] args[4.0,] %v_0[2.1,] 	 SYMBOL:	 ARGS:attributes,Splat,
+		 3: Line Number 92
+		 4: %self->new_record? def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 5: BRANCH %v_4[4.4,] 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: %self->activity def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_5->nil? def_%v_6 %v_5[5.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_4 %v_6[5.1,] 
+BB 6
+	outgoing: 7 14 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_4[5.2,4.4,] 
+BB 7
+	outgoing: 8 9 
+	datadep: 
+	instructions:
+		 0: Line Number 93
+		 1: (TimeEntryActivity) def_%v_7 
+		 2: %v_7->default def_%v_8 %v_7[7.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_PASS def_default_activity %v_8[7.2,] 
+		 4: BRANCH %v_8[7.2,] 
+BB 8
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: Line Number 94
+		 1: default_activity->id def_%v_9 default_activity[7.3,] 	 SYMBOL:	 ARGS:
+		 2: ATTRASSIGN %self->activity_id %v_9[8.1,] 
+		 3: 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_9 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: Line Number 96
+		 1: %self->hours def_%v_10 %self[8.2,2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_10->== def_%v_11 %v_10[10.1,] 	 SYMBOL:	 ARGS:Fixnum,
+		 3: BRANCH %v_11[10.2,] 
+BB 11
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %self->hours 
+		 1: COPY TYPE_Nil def_%v_12 
+		 2: 
+BB 12
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_12 
+BB 13
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: RETURN %v_12[12.0,11.1,] %self[11.0,8.2,2.0,] 
+BB 14
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 16
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = safe_attributes= instanceMethod = true
+BB 1
+	outgoing: 23 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_attrs 
+		 6: RECEIVECONSTARG def_user 
+		 7: user[2.6,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: (User) def_%v_3 
+		 1: %v_3->current def_%v_4 %v_3[3.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_user %v_4[3.1,] 
+BB 4
+	outgoing: 5 21 
+	datadep: 
+	instructions:
+		 0: Line Number 101
+		 1: BRANCH attrs[2.5,] 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 102
+		 1: %self->super def_%v_5 %current_module[2.3,] attrs[2.5,] %v_0[2.1,] 	 SYMBOL:	 ARGS:attrs,
+		 2: COPY TYPE_PASS def_attrs %v_5[5.1,] 
+		 3: Line Number 103
+		 4: %self->issue_id_changed? def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 5: BRANCH %v_6[5.4,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: %self->issue def_%v_7 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_6 %v_7[6.0,] 
+BB 7
+	outgoing: 8 19 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_6[6.1,5.4,] 
+BB 8
+	outgoing: 9 10 
+	datadep: 
+	instructions:
+		 0: Line Number 104
+		 1: %self->issue def_%v_8 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_8->visible? def_%v_9 %v_8[8.1,] user[3.2,2.6,] 	 SYMBOL:	 ARGS:user,
+		 3: BRANCH %v_9[8.2,] 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: %self->issue def_%v_10 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_10->project def_%v_11 %v_10[9.0,] 	 SYMBOL:	 ARGS:
+		 2: user->allowed_to? def_%v_12 user[3.2,2.6,] %v_11[9.1,] 	 SYMBOL:log_time,	 ARGS:Symbol,%v_11,
+		 3: COPY TYPE_PASS def_%v_9 %v_12[9.2,] 
+BB 10
+	outgoing: 11 17 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_9[9.3,8.2,] 
+BB 11
+	outgoing: 12 13 
+	datadep: 
+	instructions:
+		 0: Line Number 105
+		 1: attrs->[] def_%v_13 attrs[5.2,] 	 SYMBOL:project_id,	 ARGS:Symbol,
+		 2: %v_13->blank? def_%v_14 %v_13[11.1,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %v_14[11.2,] 
+BB 12
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: %self->issue def_%v_15 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_15->project_id def_%v_16 %v_15[12.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->project_id def_%v_17 %self[12.0,2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_16->!= def_%v_18 %v_16[12.1,] %v_17[12.2,] 	 SYMBOL:	 ARGS:%v_17,
+		 4: COPY TYPE_PASS def_%v_14 %v_18[12.3,] 
+BB 13
+	outgoing: 14 15 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_14[12.4,11.2,] 
+BB 14
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: Line Number 106
+		 1: %self->issue def_%v_19 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_19->project_id def_%v_20 %v_19[14.1,] 	 SYMBOL:	 ARGS:
+		 3: ATTRASSIGN %self->project_id %v_20[14.2,] 
+		 4: 
+BB 15
+	outgoing: 16 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_20 
+BB 16
+	outgoing: 18 
+	datadep: 
+	instructions:
+		 0: Line Number 108
+		 1: ATTRASSIGN %self->invalid_issue_id 
+		 2: COPY TYPE_Nil def_%v_21 
+		 3: 
+BB 17
+	outgoing: 18 
+	datadep: 
+	instructions:
+		 0: Line Number 110
+		 1: %self->issue_id def_%v_22 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: ATTRASSIGN %self->invalid_issue_id %v_22[17.1,] 
+		 3: COPY TYPE_PASS def_%v_21 %v_22[17.1,] 
+BB 18
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: 
+BB 19
+	outgoing: 20 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_21 
+BB 20
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: 
+BB 21
+	outgoing: 22 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_21 
+BB 22
+	outgoing: 23 
+	datadep: 
+	instructions:
+		 0: Line Number 114
+		 1: RETURN attrs[2.5,5.2,] %self[2.0,17.2,16.1,14.3,] 
+BB 23
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = set_project_if_nil instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 118
+		 6: %self->issue def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: BRANCH %v_3[2.6,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %self->project def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_4->nil? def_%v_5 %v_4[3.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_3 %v_5[3.1,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_3[3.2,2.6,] 
+BB 5
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: %self->issue def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_6->project def_%v_7 %v_6[5.0,] 	 SYMBOL:	 ARGS:
+		 2: ATTRASSIGN %self->project %v_7[5.1,] 
+		 3: RETURN %v_7[5.1,] %self[5.0,5.2,2.0,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = validate_time_entry instanceMethod = true
+BB 1
+	outgoing: 45 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 22 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 122
+		 6: %self->hours def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: BRANCH %v_3[2.6,] 
+BB 3
+	outgoing: 4 5 
+	datadep: 
+	instructions:
+		 0: Line Number 123
+		 1: %self->hours def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_4->< def_%v_5 %v_4[3.1,] 	 SYMBOL:	 ARGS:Fixnum,
+		 3: BRANCH %v_5[3.2,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: %self->errors def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_6->add def_%v_7 %v_6[4.0,] 	 SYMBOL:hours,invalid,	 ARGS:Symbol,Symbol,
+		 2: 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_7 
+BB 6
+	outgoing: 7 8 
+	datadep: 
+	instructions:
+		 0: Line Number 124
+		 1: %self->hours def_%v_8 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_8->== def_%v_9 %v_8[6.1,] 	 SYMBOL:	 ARGS:Float,
+		 3: BRANCH %v_9[6.2,] 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: %self->hours_changed? def_%v_10 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_9 %v_10[7.0,] 
+BB 8
+	outgoing: 9 10 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_9[7.1,6.2,] 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: (Setting) def_%v_11 
+		 1: %v_11->timelog_accept_0_hours? def_%v_12 %v_11[9.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_12->! def_%v_13 %v_12[9.1,] 	 SYMBOL:	 ARGS:
+		 3: COPY TYPE_PASS def_%v_9 %v_13[9.2,] 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_9[9.3,7.1,6.2,] 
+BB 11
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: %self->errors def_%v_14 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_14->add def_%v_15 %v_14[11.0,] 	 SYMBOL:hours,invalid,	 ARGS:Symbol,Symbol,
+		 2: 
+BB 12
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_15 
+BB 13
+	outgoing: 14 15 
+	datadep: 
+	instructions:
+		 0: Line Number 126
+		 1: (Setting) def_%v_16 
+		 2: %v_16->timelog_max_hours_per_day def_%v_17 %v_16[13.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_17->to_f def_%v_18 %v_17[13.2,] 	 SYMBOL:	 ARGS:
+		 4: COPY TYPE_PASS def_max_hours %v_18[13.3,] 
+		 5: Line Number 127
+		 6: %self->hours_changed? def_%v_19 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: BRANCH %v_19[13.6,] 
+BB 14
+	outgoing: 15 
+	datadep: 
+	instructions:
+		 0: max_hours->> def_%v_20 max_hours[13.4,] 	 SYMBOL:	 ARGS:Float,
+		 1: COPY TYPE_PASS def_%v_19 %v_20[14.0,] 
+BB 15
+	outgoing: 16 20 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_19[14.1,13.6,] 
+BB 16
+	outgoing: 17 18 
+	datadep: 
+	instructions:
+		 0: Line Number 128
+		 1: %self->other_hours_with_same_user_and_day def_%v_21 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_logged_hours %v_21[16.1,] 
+		 3: Line Number 129
+		 4: %self->hours def_%v_22 %self[16.1,2.0,] 	 SYMBOL:	 ARGS:
+		 5: logged_hours->+ def_%v_23 logged_hours[16.2,] %v_22[16.4,] 	 SYMBOL:	 ARGS:%v_22,
+		 6: %v_23->> def_%v_24 %v_23[16.5,] max_hours[13.4,] 	 SYMBOL:	 ARGS:max_hours,
+		 7: BRANCH %v_24[16.6,] 
+BB 17
+	outgoing: 19 
+	datadep: 
+	instructions:
+		 0: Line Number 130
+		 1: %self->errors def_%v_25 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: (I18n) def_%v_26 
+		 3: %self->format_hours def_%v_27 %self[17.1,2.0,] logged_hours[16.2,] 	 SYMBOL:	 ARGS:logged_hours,
+		 4: %self->format_hours def_%v_28 %self[17.1,17.3,2.0,] max_hours[13.4,] 	 SYMBOL:	 ARGS:max_hours,
+		 5: HASH-logged_hours-max_hours- def_%v_29 %v_27[17.3,] %v_28[17.4,] 
+		 6: %v_26->t def_%v_30 %v_26[17.2,] %v_29[17.5,] 	 SYMBOL:error_exceeds_maximum_hours_per_day,	 ARGS:Symbol,%v_29,
+		 7: %v_25->add def_%v_31 %v_25[17.1,] %v_30[17.6,] 	 SYMBOL:base,	 ARGS:Symbol,%v_30,
+		 8: 
+BB 18
+	outgoing: 19 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_31 
+BB 19
+	outgoing: 21 
+	datadep: 
+	instructions:
+		 0: 
+BB 20
+	outgoing: 21 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_31 
+BB 21
+	outgoing: 23 
+	datadep: 
+	instructions:
+		 0: 
+BB 22
+	outgoing: 23 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_31 
+BB 23
+	outgoing: 24 25 
+	datadep: 
+	instructions:
+		 0: Line Number 135
+		 1: %self->project def_%v_32 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_32->nil? def_%v_33 %v_32[23.1,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %v_33[23.2,] 
+BB 24
+	outgoing: 26 
+	datadep: 
+	instructions:
+		 0: %self->errors def_%v_34 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_34->add def_%v_35 %v_34[24.0,] 	 SYMBOL:project_id,invalid,	 ARGS:Symbol,Symbol,
+		 2: 
+BB 25
+	outgoing: 26 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_35 
+BB 26
+	outgoing: 27 28 
+	datadep: 
+	instructions:
+		 0: Line Number 136
+		 1: %self->issue_id def_%v_36 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_36[26.1,] 
+BB 27
+	outgoing: 28 
+	datadep: 
+	instructions:
+		 0: %self->issue def_%v_37 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_37->! def_%v_38 %v_37[27.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_36 %v_38[27.1,] 
+BB 28
+	outgoing: 29 32 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_36[27.2,26.1,] 
+BB 29
+	outgoing: 30 31 
+	datadep: 
+	instructions:
+		 0: %self->issue def_%v_39 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: BRANCH %v_39[29.0,] 
+BB 30
+	outgoing: 31 
+	datadep: 
+	instructions:
+		 0: %self->project def_%v_40 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %self->issue def_%v_41 %self[30.0,2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_41->project def_%v_42 %v_41[30.1,] 	 SYMBOL:	 ARGS:
+		 3: %v_40->!= def_%v_43 %v_40[30.0,] %v_42[30.2,] 	 SYMBOL:	 ARGS:%v_42,
+		 4: COPY TYPE_PASS def_%v_39 %v_43[30.3,] 
+BB 31
+	outgoing: 32 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_%v_36 %v_39[30.4,29.0,] 
+BB 32
+	outgoing: 33 34 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_36[31.0,27.2,26.1,] 
+BB 33
+	outgoing: 34 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->invalid_issue_id def_%v_44 %self[2.0,] 
+		 1: COPY TYPE_PASS def_%v_36 %v_44[33.0,] 
+BB 34
+	outgoing: 35 36 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_36[33.1,31.0,27.2,26.1,] 
+BB 35
+	outgoing: 37 
+	datadep: 
+	instructions:
+		 0: %self->errors def_%v_45 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_45->add def_%v_46 %v_45[35.0,] 	 SYMBOL:issue_id,invalid,	 ARGS:Symbol,Symbol,
+		 2: 
+BB 36
+	outgoing: 37 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_46 
+BB 37
+	outgoing: 38 39 
+	datadep: 
+	instructions:
+		 0: Line Number 137
+		 1: %self->activity_id_changed? def_%v_47 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_47[37.1,] 
+BB 38
+	outgoing: 39 
+	datadep: 
+	instructions:
+		 0: %self->project def_%v_48 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_47 %v_48[38.0,] 
+BB 39
+	outgoing: 40 41 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_47[38.1,37.1,] 
+BB 40
+	outgoing: 41 
+	datadep: 
+	instructions:
+		 0: %self->project def_%v_49 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_49->activities def_%v_50 %v_49[40.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->activity def_%v_51 %self[40.0,2.0,] 	 SYMBOL:	 ARGS:
+		 3: %v_50->include? def_%v_52 %v_50[40.1,] %v_51[40.2,] 	 SYMBOL:	 ARGS:%v_51,
+		 4: %v_52->! def_%v_53 %v_52[40.3,] 	 SYMBOL:	 ARGS:
+		 5: COPY TYPE_PASS def_%v_47 %v_53[40.4,] 
+BB 41
+	outgoing: 42 43 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_47[40.5,38.1,37.1,] 
+BB 42
+	outgoing: 45 
+	datadep: 
+	instructions:
+		 0: %self->errors def_%v_54 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_54->add def_%v_55 %v_54[42.0,] 	 SYMBOL:activity_id,inclusion,	 ARGS:Symbol,Symbol,
+		 2: RETURN %v_55[42.1,] %self[42.0,2.0,] 
+BB 43
+	outgoing: 45 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 45
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = hours= instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 6 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_h 
+		 6: Line Number 141
+		 7: (String) def_%v_3 
+		 8: h->is_a? def_%v_4 h[2.5,] %v_3[2.7,] 	 SYMBOL:	 ARGS:%v_3,
+		 9: BRANCH %v_4[2.8,] 
+BB 3
+	outgoing: 4 5 
+	datadep: 
+	instructions:
+		 0: h->to_hours def_%v_5 h[2.5,] 	 SYMBOL:	 ARGS:
+		 1: BRANCH %v_5[3.0,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_%v_5 h[2.5,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_%v_5 h[2.5,] 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: %self->write_attribute def_%v_6 %self[2.0,] %v_5[6.0,4.0,3.0,] 	 SYMBOL:hours,	 ARGS:Symbol,%v_5,
+		 1: RETURN %v_6[7.0,] %self[7.0,2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = hours instanceMethod = true
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 145
+		 6: %self->read_attribute def_%v_3 %self[2.0,] 	 SYMBOL:hours,	 ARGS:Symbol,
+		 7: COPY TYPE_PASS def_h %v_3[2.6,] 
+		 8: Line Number 146
+		 9: (Float) def_%v_4 
+		 10: %v_3->is_a? def_%v_5 %v_3[2.6,] %v_4[2.9,] 	 SYMBOL:	 ARGS:%v_4,
+		 11: BRANCH %v_5[2.10,] 
+BB 3
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 147
+		 1: h->round def_%v_6 h[2.7,] 	 SYMBOL:	 ARGS:Fixnum,
+		 2: RETURN %v_6[3.1,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 149
+		 1: RETURN h[2.7,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = spent_on= instanceMethod = true
+BB 1
+	outgoing: 12 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_date 
+		 6: Line Number 156
+		 7: %self->super def_%v_3 date[2.5,] %v_0[2.1,] 	 SYMBOL:	 ARGS:date,
+		 8: Line Number 157
+		 9: %self->spent_on def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 10: BRANCH %v_4[2.9,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %self->spent_on def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_5->year def_%v_6 %v_5[3.0,] 	 SYMBOL:	 ARGS:
+		 2: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_6 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %self->tyear %v_6[4.0,3.1,] 
+		 1: Line Number 158
+		 2: %self->spent_on def_%v_7 %self[5.0,2.0,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %v_7[5.2,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: %self->spent_on def_%v_8 %self[5.0,2.0,] 	 SYMBOL:	 ARGS:
+		 1: %v_8->month def_%v_9 %v_8[6.0,] 	 SYMBOL:	 ARGS:
+		 2: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_9 
+BB 8
+	outgoing: 9 10 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %self->tmonth %v_9[7.0,6.1,] 
+		 1: Line Number 159
+		 2: %self->spent_on def_%v_10 %self[8.0,5.0,2.0,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %v_10[8.2,] 
+BB 9
+	outgoing: 11 
+	datadep: 
+	instructions:
+		 0: (Date) def_%v_11 
+		 1: %self->spent_on def_%v_12 %self[8.0,5.0,2.0,] 	 SYMBOL:	 ARGS:
+		 2: %v_12->year def_%v_13 %v_12[9.1,] 	 SYMBOL:	 ARGS:
+		 3: %self->spent_on def_%v_14 %self[9.1,8.0,5.0,2.0,] 	 SYMBOL:	 ARGS:
+		 4: %v_14->month def_%v_15 %v_14[9.3,] 	 SYMBOL:	 ARGS:
+		 5: %self->spent_on def_%v_16 %self[9.1,9.3,8.0,5.0,2.0,] 	 SYMBOL:	 ARGS:
+		 6: %v_16->day def_%v_17 %v_16[9.5,] 	 SYMBOL:	 ARGS:
+		 7: %v_11->civil def_%v_18 %v_11[9.0,] %v_13[9.2,] %v_15[9.4,] %v_17[9.6,] 	 SYMBOL:	 ARGS:%v_13,%v_15,%v_17,
+		 8: %v_18->cweek def_%v_19 %v_18[9.7,] 	 SYMBOL:	 ARGS:
+		 9: 
+BB 10
+	outgoing: 11 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_19 
+BB 11
+	outgoing: 12 
+	datadep: 
+	instructions:
+		 0: ATTRASSIGN %self->tweek %v_19[10.0,9.8,] 
+		 1: RETURN %v_19[10.0,9.8,] %self[11.0,8.0,5.0,2.0,] 
+BB 12
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = editable_by? instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 8 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_usr 
+		 6: Line Number 164
+		 7: %self->visible? def_%v_3 %self[2.0,] usr[2.5,] 	 SYMBOL:	 ARGS:usr,
+		 8: BRANCH %v_3[2.7,] 
+BB 3
+	outgoing: 4 5 
+	datadep: 
+	instructions:
+		 0: Line Number 165
+		 1: %self->user def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: usr->== def_%v_5 usr[2.5,] %v_4[3.1,] 	 SYMBOL:	 ARGS:%v_4,
+		 3: BRANCH %v_5[3.2,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: %self->project def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: usr->allowed_to? def_%v_7 usr[2.5,] %v_6[4.0,] 	 SYMBOL:edit_own_time_entries,	 ARGS:Symbol,%v_6,
+		 2: COPY TYPE_PASS def_%v_5 %v_7[4.1,] 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_5[4.2,3.2,] 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: %self->project def_%v_8 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: usr->allowed_to? def_%v_9 usr[2.5,] %v_8[6.0,] 	 SYMBOL:edit_time_entries,	 ARGS:Symbol,%v_8,
+		 2: COPY TYPE_PASS def_%v_5 %v_9[6.1,] 
+BB 7
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: RETURN %v_5[6.2,4.2,3.2,] %self[2.0,] 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: RETURN %v_3[2.7,] %self[2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = editable_custom_field_values instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVECONSTARG def_user 
+		 6: user[2.5,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_user 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: Line Number 171
+		 1: %self->visible_custom_field_values def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: RETURN %v_3[4.1,] %self[4.1,2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = editable_custom_fields instanceMethod = true
+BB 1
+	outgoing: 5 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVECONSTARG def_user 
+		 6: user[2.5,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_user 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: Line Number 176
+		 1: %self->editable_custom_field_values def_%v_3 %self[2.0,] user[3.0,2.5,] 	 SYMBOL:	 ARGS:user,
+		 2: %v_3->map def_%v_4 %v_3[4.1,] 	 SYMBOL:custom_field,	 ARGS:
+		 3: %v_4->uniq def_%v_5 %v_4[4.2,] 	 SYMBOL:	 ARGS:
+		 4: RETURN %v_5[4.3,] %self[4.1,2.0,] 
+BB 5
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = other_hours_with_same_user_and_day instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 183
+		 6: %self->user_id def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: BRANCH %v_3[2.6,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: %self->spent_on def_%v_4 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 1: COPY TYPE_PASS def_%v_3 %v_4[3.0,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_3[3.1,2.6,] 
+BB 5
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 184
+		 1: (TimeEntry) def_%v_5 
+		 2: %self->user_id def_%v_6 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 3: %self->spent_on def_%v_7 %self[5.2,2.0,] 	 SYMBOL:	 ARGS:
+		 4: HASH-user_id-spent_on- def_%v_8 %v_6[5.2,] %v_7[5.3,] 
+		 5: %v_5->where def_%v_9 %v_5[5.1,] %v_8[5.4,] 	 SYMBOL:	 ARGS:%v_8,
+		 6: %v_9->where def_%v_10 %v_9[5.5,] 	 SYMBOL:	 ARGS:
+		 7: %self->id def_%v_11 %self[5.2,5.3,2.0,] 	 SYMBOL:	 ARGS:
+		 8: HASH-id- def_%v_12 %v_11[5.7,] 
+		 9: %v_10->not def_%v_13 %v_10[5.6,] %v_12[5.8,] 	 SYMBOL:	 ARGS:%v_12,
+		 10: %v_13->sum def_%v_14 %v_13[5.9,] 	 SYMBOL:hours,	 ARGS:Symbol,
+		 11: %v_14->to_f def_%v_15 %v_14[5.10,] 	 SYMBOL:	 ARGS:
+		 12: RETURN %v_15[5.11,] %self[5.2,5.3,5.7,2.0,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 189
+		 1: RETURN %self[2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+

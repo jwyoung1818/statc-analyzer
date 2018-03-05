@@ -1,0 +1,66 @@
+<div id="editmap_container">
+  <div id="map"></div>
+  <p id="stamen_attribution" style="display:none;">
+    <%= translate("locations.index.stamen_html").html_safe %>
+  </p>
+</div>
+
+<% content_for :page_scripts do %>
+<%= render :partial => "/locations/map_includes" %>
+<script type="text/javascript" charset="utf-8">
+
+  // ================= globals ==================
+
+  var lat = <%= @obs.location.lat %>;
+  var lng = <%= @obs.location.lng %>;
+  var zoom = 20;
+  var type = google.maps.MapTypeId.HYBRID;
+  var type_filter = undefined;
+  var skip_ids = null;
+  var opened_once = false;
+
+  // ================= functions =================
+
+ function initialize() {
+    basemap(lat,lng,zoom,type);
+
+    google.maps.event.addListenerOnce(map, 'tilesloaded', function(event) {
+      do_markers(map.getBounds(),$("#observation_location_id").val(),true);
+      document.addEventListener("markersloaded",function(event){
+        if (!opened_once) {
+          opened_once = open_marker_by_id(<%= @obs.location.id %>,<%= @obs.location.lat %>,<%= @obs.location.lng %>);
+        }
+        $("#tabs").tabs();
+      },false);
+    });
+
+    google.maps.event.addListener(map, 'bounds_changed', function() {
+      google.maps.event.addListenerOnce(map, 'idle', function() {
+        var zoom = map.getZoom();
+        var bounds = map.getBounds();
+        if (prior_bounds == null && prior_zoom == null) {
+          prior_zoom = zoom;
+          prior_bounds = bounds;
+          return;
+        }
+        if (zoom > 12 && prior_bounds != bounds) {
+          do_markers(bounds,null,true);
+        }
+        prior_zoom = zoom;
+        prior_bounds = bounds;
+      });
+    });
+  }
+
+  // ================== main-level code ===================
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+<%= javascript_include_tag "mapcommon" %>
+<%= javascript_include_tag "maplabel" %>
+<%= javascript_include_tag "progressBar" %>
+<%= javascript_include_tag "richmarker" %>
+<% end %>
+
+<%= render 'form' %>

@@ -1,0 +1,7 @@
+ if @users_by_role.any? 
+l(:label_member_plural)
+ @users_by_role.keys.sort.each do |role| 
+ role 
+ @users_by_role[role].sort.collect{|u| link_to_user u}.join(", ").html_safe 
+ end 
+ end 

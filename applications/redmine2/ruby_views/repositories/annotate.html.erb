@@ -1,0 +1,33 @@
+ call_hook(:view_repositories_show_contextual, { :repository => @repository, :project => @project }) 
+ render :partial => 'navigation' 
+ render :partial => 'breadcrumbs', :locals => { :path => @path, :kind => 'file', :revision => @rev } 
+ render :partial => 'link_to_functions' 
+ if @annotate 
+ colors = Hash.new {|k,v| k[v] = (k.size % 12) } 
+ line_num = 1; previous_revision = nil 
+ syntax_highlight_lines(@path, Redmine::CodesetUtil.to_utf8_by_setting(@annotate.content)).each do |line| 
+ revision = @annotate.revisions[line_num - 1] 
+ line_num 
+ revision.nil? ? 0 : colors[revision.identifier || revision.revision] 
+ previous_revision && revision && revision != previous_revision ? 'bloc-change' : nil
+ line_num 
+ line_num 
+ if revision && revision != previous_revision 
+ revision.identifier ?
+                  link_to_revision(revision, @repository) : format_revision(revision) 
+ end 
+ if revision && revision != previous_revision 
+ author = Redmine::CodesetUtil.to_utf8(revision.author.to_s,
+                                                     @repository.repo_log_encoding) 
+ author.split('<').first 
+ end 
+ line.html_safe 
+ line_num += 1; previous_revision = revision 
+ end 
+ else 
+ @error_message 
+ end 
+ html_title(l(:button_annotate)) 
+ content_for :header_tags do 
+ stylesheet_link_tag 'scm' 
+ end 

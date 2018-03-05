@@ -1,0 +1,6 @@
+ render :partial => 'custom_fields/formats/regexp', :locals => {:f => f, :custom_field => custom_field} 
+ f.check_box :text_formatting, {:label => :setting_text_formatting}, 'full', '' 
+ if @custom_field.class.name == "IssueCustomField" 
+ f.check_box :full_width_layout 
+ end 
+ f.text_area(:default_value, :rows => 5) 

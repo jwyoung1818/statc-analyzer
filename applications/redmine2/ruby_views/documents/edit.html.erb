@@ -1,0 +1,5 @@
+l(:label_document)
+ labelled_form_for @document, :html => {:multipart => true} do |f| 
+ render :partial => 'form', :locals => {:f => f} 
+ submit_tag l(:button_save) 
+ end 

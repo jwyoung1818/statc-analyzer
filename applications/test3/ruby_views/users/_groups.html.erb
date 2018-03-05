@@ -1,0 +1,10 @@
+ form_for(:user, :url => { :action => 'update' }, :html => {:method => :put}) do 
+ user_group_ids = @user.group_ids 
+ Group.givable.sort.each do |group| 
+ check_box_tag 'user[group_ids][]', group.id, user_group_ids.include?(group.id), :id => nil 
+ group 
+ end 
+ hidden_field_tag 'user[group_ids][]', '' 
+ check_all_links 'user_group_ids' 
+ submit_tag l(:button_save) 
+ end 

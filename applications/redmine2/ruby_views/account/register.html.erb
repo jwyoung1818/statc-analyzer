@@ -1,0 +1,27 @@
+l(:label_register)
+link_to l(:label_login_with_open_id_option), signin_url if Setting.openid? 
+ labelled_form_for @user, :url => register_path do |f| 
+ error_messages_for 'user' 
+ if @user.auth_source_id.nil? 
+ f.text_field :login, :size => 25, :required => true 
+ f.password_field :password, :size => 25, :required => true 
+ l(:text_caracters_minimum, :count => Setting.password_min_length) 
+ f.password_field :password_confirmation, :size => 25, :required => true 
+ end 
+ f.text_field :firstname, :required => true 
+ f.text_field :lastname, :required => true 
+ f.text_field :mail, :required => true 
+ labelled_fields_for :pref, @user.pref do |pref_fields| 
+ pref_fields.check_box :hide_mail 
+ end 
+ unless @user.force_default_language? 
+ f.select :language, lang_options_for_select 
+ end 
+ if Setting.openid? 
+ f.text_field :identity_url  
+ end 
+ @user.custom_field_values.select {|v| (Setting.show_custom_fields_on_registration? && v.editable?) || v.required?}.each do |value| 
+ custom_field_tag_with_label :user, value 
+ end 
+ submit_tag l(:button_submit) 
+ end 

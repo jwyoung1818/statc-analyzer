@@ -1,0 +1,355 @@
+SET IRMethod, name = container_attachments_edit_path instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_container 
+		 6: Line Number 22
+		 7: container->class def_%v_3 container[2.5,] 	 SYMBOL:	 ARGS:
+		 8: %v_3->name def_%v_4 %v_3[2.7,] 	 SYMBOL:	 ARGS:
+		 9: %v_4->underscore def_%v_5 %v_4[2.8,] 	 SYMBOL:	 ARGS:
+		 10: %v_5->pluralize def_%v_6 %v_5[2.9,] 	 SYMBOL:	 ARGS:
+		 11: container->id def_%v_7 container[2.5,2.7,] 	 SYMBOL:	 ARGS:
+		 12: %self->object_attachments_edit_path def_%v_8 %self[2.0,] %v_6[2.10,] %v_7[2.11,] 	 SYMBOL:	 ARGS:%v_6,%v_7,
+		 13: RETURN %v_8[2.12,] %self[2.0,2.12,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = container_attachments_path instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_container 
+		 6: Line Number 26
+		 7: container->class def_%v_3 container[2.5,] 	 SYMBOL:	 ARGS:
+		 8: %v_3->name def_%v_4 %v_3[2.7,] 	 SYMBOL:	 ARGS:
+		 9: %v_4->underscore def_%v_5 %v_4[2.8,] 	 SYMBOL:	 ARGS:
+		 10: %v_5->pluralize def_%v_6 %v_5[2.9,] 	 SYMBOL:	 ARGS:
+		 11: container->id def_%v_7 container[2.5,2.7,] 	 SYMBOL:	 ARGS:
+		 12: %self->object_attachments_path def_%v_8 %self[2.0,] %v_6[2.10,] %v_7[2.11,] 	 SYMBOL:	 ARGS:%v_6,%v_7,
+		 13: RETURN %v_8[2.12,] %self[2.0,2.12,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = link_to_attachments instanceMethod = true
+BB 1
+	outgoing: 13 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_container 
+		 6: RECEIVECONSTARG def_options 
+		 7: options[2.6,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_3 
+		 1: COPY TYPE_PASS def_options %v_3[3.0,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: Line Number 34
+		 1: options->assert_valid_keys def_%v_4 options[3.1,2.6,] 	 SYMBOL:author,thumbnails,	 ARGS:Symbol,Symbol,
+		 2: Line Number 36
+		 3: container->attachments def_%v_5 container[2.5,] 	 SYMBOL:	 ARGS:
+		 4: %v_5->loaded? def_%v_6 %v_5[4.3,] 	 SYMBOL:	 ARGS:
+		 5: BRANCH %v_6[4.4,] 
+BB 5
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: Line Number 37
+		 1: container->attachments def_%v_7 container[2.5,] 	 SYMBOL:	 ARGS:
+		 2: 
+BB 6
+	outgoing: 7 
+	datadep: 
+	instructions:
+		 0: Line Number 39
+		 1: container->attachments def_%v_8 container[2.5,] 	 SYMBOL:	 ARGS:
+		 2: %v_8->preload def_%v_9 %v_8[6.1,] 	 SYMBOL:author,	 ARGS:Symbol,
+		 3: %v_9->to_a def_%v_10 %v_9[6.2,] 	 SYMBOL:	 ARGS:
+		 4: COPY TYPE_PASS def_%v_7 %v_10[6.3,] 
+BB 7
+	outgoing: 8 11 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_PASS def_attachments %v_7[6.4,5.1,] 
+		 1: Line Number 42
+		 2: %v_7->any? def_%v_11 %v_7[6.4,5.1,] 	 SYMBOL:	 ARGS:
+		 3: BRANCH %v_11[7.2,] 
+BB 8
+	outgoing: 9 10 
+	datadep: 
+	instructions:
+		 0: Line Number 43
+		 1: container->attachments_editable? def_%v_12 container[2.5,] 	 SYMBOL:	 ARGS:
+		 2: container->attachments_deletable? def_%v_13 container[8.1,2.5,] 	 SYMBOL:	 ARGS:
+		 3: HASH-editable-deletable-author- def_%v_14 %v_12[8.1,] %v_13[8.2,] 
+		 4: %v_14->merge def_%v_15 %v_14[8.3,] options[3.1,2.6,] 	 SYMBOL:	 ARGS:options,
+		 5: COPY TYPE_PASS def_options %v_15[8.4,] 
+		 6: Line Number 48
+		 7: COPY TYPE_StringLiteral "attachments/links" def_%v_16 
+		 8: Line Number 53
+		 9: %v_15->[] def_%v_17 %v_15[8.4,] 	 SYMBOL:thumbnails,	 ARGS:Symbol,
+		 10: BRANCH %v_17[8.9,] 
+BB 9
+	outgoing: 10 
+	datadep: 
+	instructions:
+		 0: (Setting) def_%v_18 
+		 1: %v_18->thumbnails_enabled? def_%v_19 %v_18[9.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_17 %v_19[9.1,] 
+BB 10
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: HASH-container-attachments-options-thumbnails- def_%v_20 container[2.5,] attachments[7.0,] options[8.5,] %v_17[9.2,8.9,] 
+		 1: HASH-partial-locals- def_%v_21 %v_16[8.7,] %v_20[10.0,] 
+		 2: %self->render def_%v_22 %self[2.0,] %v_21[10.1,] 	 SYMBOL:	 ARGS:%v_21,
+		 3: RETURN %v_22[10.2,] %self[10.2,2.0,] 
+BB 11
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: RETURN %self[2.0,] 
+BB 13
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_api_attachment instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 5 6 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_attachment 
+		 6: RECEIVEARG def_api 
+		 7: RECEIVECONSTARG def_options 
+		 8: options[2.7,] 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: HASH- def_%v_3 
+		 1: COPY TYPE_PASS def_options %v_3[4.0,] 
+BB 5
+	outgoing: 6 8 
+	datadep: 
+	instructions:
+		 0: Line Number 59
+		 1: api->attachment def_%v_4 api[2.6,] %self[2.0,] 	 SYMBOL:	 ARGS:api,
+CLOSURE BEGIN: %self[2.0,] attachment[2.5,] api[2.6,] options[4.1,2.7,] key[] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 60
+		 1: %self->render_api_attachment_attributes def_%cl_1_3 %self[2.0,] attachment[] api[] 	 SYMBOL:	 ARGS:attachment,api,
+		 2: Line Number 61
+		 3: options->each def_%cl_1_4 options[] %self[3.1,2.0,] 	 SYMBOL:	 ARGS:options,
+CLOSURE BEGIN: key[] %self[3.1,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: RECEIVEARG def_key 
+		 3: RECEIVEARG def_value 
+		 4: COPY TYPE_CurrentScope def_%current_scope 
+		 5: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 61
+		 1: COPY TYPE_StringLiteral "api." def_%cl_2_3 
+		 2: COPY TYPE_StringLiteral " value" def_%cl_2_4 
+		 3: BUILDSTRING def_%cl_2_5 %cl_2_3[3.1,] key[2.2,] %cl_2_4[3.2,] 
+		 4: %self->eval def_%cl_2_6 %self[2.0,] %cl_2_5[3.3,] 	 SYMBOL:	 ARGS:%cl_2_5,
+		 5: RETURN %cl_2_6[3.4,] %self[3.4,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_7 
+		 1: def_%cl_2_8 %cl_2_7[4.0,] 
+		 2: RETURN %cl_2_8[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: value[2.3,] 
+		 4: RETURN %cl_1_4[3.3,] %self[3.1,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_5 
+		 1: def_%cl_1_6 %cl_1_5[4.0,] 
+		 2: RETURN %cl_1_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: RETURN %v_4[5.1,] %self[2.0,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: def_%v_5 
+		 1: def_%v_6 %v_5[6.0,] 
+		 2: RETURN %v_6[6.1,] %self[2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = render_api_attachment_attributes instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_attachment 
+		 6: RECEIVEARG def_api 
+		 7: Line Number 66
+		 8: attachment->id def_%v_3 attachment[2.5,] 	 SYMBOL:	 ARGS:
+		 9: api->id def_%v_4 api[2.6,] %v_3[2.8,] 	 SYMBOL:	 ARGS:%v_3,
+		 10: Line Number 67
+		 11: attachment->filename def_%v_5 attachment[2.5,2.8,] 	 SYMBOL:	 ARGS:
+		 12: api->filename def_%v_6 api[2.6,2.9,] %v_5[2.11,] 	 SYMBOL:	 ARGS:%v_5,
+		 13: Line Number 68
+		 14: attachment->filesize def_%v_7 attachment[2.5,2.8,2.11,] 	 SYMBOL:	 ARGS:
+		 15: api->filesize def_%v_8 api[2.6,2.9,2.12,] %v_7[2.14,] 	 SYMBOL:	 ARGS:%v_7,
+		 16: Line Number 69
+		 17: attachment->content_type def_%v_9 attachment[2.5,2.8,2.11,2.14,] 	 SYMBOL:	 ARGS:
+		 18: api->content_type def_%v_10 api[2.6,2.9,2.12,2.15,] %v_9[2.17,] 	 SYMBOL:	 ARGS:%v_9,
+		 19: Line Number 70
+		 20: attachment->description def_%v_11 attachment[2.5,2.8,2.11,2.14,2.17,] 	 SYMBOL:	 ARGS:
+		 21: api->description def_%v_12 api[2.6,2.9,2.12,2.15,2.18,] %v_11[2.20,] 	 SYMBOL:	 ARGS:%v_11,
+		 22: Line Number 71
+		 23: attachment->filename def_%v_13 attachment[2.5,2.8,2.11,2.14,2.17,2.20,] 	 SYMBOL:	 ARGS:
+		 24: %self->download_named_attachment_url def_%v_14 %self[2.0,] attachment[2.5,2.8,2.11,2.14,2.17,2.20,2.23,] %v_13[2.23,] 	 SYMBOL:	 ARGS:attachment,%v_13,
+		 25: api->content_url def_%v_15 api[2.6,2.9,2.12,2.15,2.18,2.21,] %v_14[2.24,] 	 SYMBOL:	 ARGS:%v_14,
+		 26: Line Number 72
+		 27: attachment->thumbnailable? def_%v_16 attachment[2.5,2.8,2.11,2.14,2.17,2.20,2.23,] 	 SYMBOL:	 ARGS:
+		 28: BRANCH %v_16[2.27,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: Line Number 73
+		 1: %self->thumbnail_url def_%v_17 %self[2.0,] attachment[2.5,] 	 SYMBOL:	 ARGS:attachment,
+		 2: api->thumbnail_url def_%v_18 api[2.6,] %v_17[3.1,] 	 SYMBOL:	 ARGS:%v_17,
+		 3: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_18 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 75
+		 1: attachment->author def_%v_19 attachment[2.5,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_19[5.1,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 76
+		 1: attachment->author def_%v_20 attachment[2.5,] 	 SYMBOL:	 ARGS:
+		 2: %v_20->id def_%v_21 %v_20[6.1,] 	 SYMBOL:	 ARGS:
+		 3: attachment->author def_%v_22 attachment[6.1,2.5,] 	 SYMBOL:	 ARGS:
+		 4: %v_22->name def_%v_23 %v_22[6.3,] 	 SYMBOL:	 ARGS:
+		 5: HASH-id-name- def_%v_24 %v_21[6.2,] %v_23[6.4,] 
+		 6: api->author def_%v_25 api[2.6,] %v_24[6.5,] 	 SYMBOL:	 ARGS:%v_24,
+		 7: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_25 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 78
+		 1: attachment->created_on def_%v_26 attachment[2.5,] 	 SYMBOL:	 ARGS:
+		 2: api->created_on def_%v_27 api[2.6,] %v_26[8.1,] 	 SYMBOL:	 ARGS:%v_26,
+		 3: RETURN %v_27[8.2,] %self[2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+

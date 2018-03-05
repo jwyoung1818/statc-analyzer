@@ -1,0 +1,8 @@
+l(:label_information_plural)
+ Redmine::Info.versioned_name 
+ @checklist.each do |label, result| 
+ label.is_a?(Symbol) ? l(label) : label 
+ (result ? 'icon-ok' : 'icon-error') 
+ end 
+ Redmine::Info.environment 
+ html_title(l(:label_information_plural)) 

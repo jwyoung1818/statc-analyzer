@@ -1,0 +1,27 @@
+ members = @project.memberships.preload(:project).sorted.to_a 
+ link_to l(:label_member_new), new_project_membership_path(@project), :remote => true, :class => "icon icon-add" 
+ if members.any? 
+ l(:label_user) 
+ l(:label_group) 
+ l(:label_role_plural) 
+ call_hook(:view_projects_settings_members_table_header, :project => @project) 
+ members.each do |member| 
+ next if member.new_record? 
+ member.id 
+ member.principal.class.name.downcase 
+ link_to_user member.principal 
+ member.id 
+ member.roles.sort.collect(&:to_s).join(', ') 
+ member.id 
+ link_to l(:button_edit),
+                  edit_membership_path(member),
+                  :remote => true,
+                  :class => 'icon icon-edit' 
+ delete_link membership_path(member),
+                      :remote => true,
+                      :data => (!User.current.admin? && member.include?(User.current) ? {:confirm => l(:text_own_membership_delete_confirmation)} : {}) if member.deletable? 
+ call_hook(:view_projects_settings_members_table_row, { :project => @project, :member => member}) 
+ end 
+ else 
+ l(:label_no_data) 
+ end 

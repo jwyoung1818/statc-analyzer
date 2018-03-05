@@ -1,0 +1,9 @@
+ l(:label_import_issues) 
+ @import.total_items.to_i 
+ content_for :sidebar do 
+ render :partial => 'issues/sidebar' 
+ end 
+ javascript_tag do 
+ @import.total_items.to_i 
+ import_run_path(@import, :format => 'js') 
+ end 

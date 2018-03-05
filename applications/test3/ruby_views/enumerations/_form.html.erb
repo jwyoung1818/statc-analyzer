@@ -1,0 +1,7 @@
+ error_messages_for 'enumeration' 
+ f.text_field :name 
+ f.check_box :active 
+ f.check_box :is_default 
+ @enumeration.custom_field_values.each do |value| 
+ custom_field_tag_with_label :enumeration, value 
+ end 

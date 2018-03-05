@@ -1,0 +1,57 @@
+ link_to l(:button_log_time), 
+            _new_time_entry_path(@project, @issue),
+            :class => 'icon icon-time-add' if User.current.allowed_to?(:log_time, @project, :global => true) 
+ @query.new_record? ? l(:label_spent_time) : @query.name 
+ form_tag(_report_time_entries_path(@project, nil), :method => :get, :id => 'query_form') do 
+ @report.criteria.each do |criterion| 
+ hidden_field_tag 'criteria[]', criterion, :id => nil 
+ end 
+ render :partial => 'timelog/date_range' 
+ l(:label_details) 
+ select_tag 'columns', options_for_select([[l(:label_year), 'year'],
+                                                                            [l(:label_month), 'month'],
+                                                                            [l(:label_week), 'week'],
+                                                                            [l(:label_day_plural).titleize, 'day']], @report.columns),
+                                                        :onchange => "this.form.submit();" 
+ l(:button_add) 
+ select_tag('criteria[]', options_for_select([[]] + (@report.available_criteria.keys - @report.criteria).collect{|k| [l_or_humanize(@report.available_criteria[k][:label]), k]}),
+                                                          :onchange => "this.form.submit();",
+                                                          :style => 'width: 200px',
+                                                          :disabled => (@report.criteria.length >= 3),
+                                                          :id => "criterias") 
+ link_to l(:button_clear), {:params => request.query_parameters.merge(:criteria => nil)}, :class => 'icon icon-reload' 
+ end 
+ if @query.valid? 
+ unless @report.criteria.empty? 
+ if @report.hours.empty? 
+ l(:label_no_data) 
+ else 
+ @report.criteria.each do |criteria| 
+ l_or_humanize(@report.available_criteria[criteria][:label]) 
+ end 
+ columns_width = (40 / (@report.periods.length+1)).to_i 
+ @report.periods.each do |period| 
+ columns_width 
+ period 
+ end 
+ columns_width 
+ l(:label_total_time) 
+ render :partial => 'report_criteria', :locals => {:criterias => @report.criteria, :hours => @report.hours, :level => 0} 
+ l(:label_total_time) 
+ ('<td></td>' * (@report.criteria.size - 1)).html_safe 
+ total = 0 
+ @report.periods.each do |period| 
+ sum = sum_hours(select_hours(@report.hours, @report.columns, period.to_s)); total += sum 
+ html_hours(format_hours(sum)) if sum > 0 
+ end 
+ html_hours(format_hours(total)) if total > 0 
+ other_formats_links do |f| 
+ f.link_to_with_query_parameters 'CSV' 
+ end 
+ end 
+ end 
+ end 
+ content_for :sidebar do 
+ render_sidebar_queries(TimeEntryQuery, @project) 
+ end 
+ html_title(@query.new_record? ? l(:label_spent_time) : @query.name, l(:label_report)) 

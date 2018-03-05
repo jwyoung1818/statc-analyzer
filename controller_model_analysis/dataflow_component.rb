@@ -49,6 +49,7 @@ class Instruction
 		@symbols = Array.new
 		@in_while_loop = false
 		@in_view = false
+		@line_number = 1
 	end
 	attr_accessor :defv_var, :args, :inodes, :inode, :symbols, :in_while_loop, :in_view
 	def addSymbol(s)
@@ -66,6 +67,12 @@ class Instruction
 	end
 	def getDefv
 		@defv
+	end
+	def setLN(ln)
+		@line_number = ln
+	end
+	def getLN()
+		@line_number
 	end
 	def setFromUserInput
 		@from_user_input = true
@@ -950,8 +957,6 @@ class Closure < CFG
 	def getViewCode
 		@view_code
 	end
-
-	
 	def getLastBB
 		return @bb[-1]
 	end

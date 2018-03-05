@@ -1,0 +1,24 @@
+ call_hook :view_account_login_top 
+ form_tag(signin_path, onsubmit: 'return keepAnchorOnSignIn(this);') do 
+ back_url_hidden_field_tag 
+l(:field_login)
+ text_field_tag 'username', params[:username], :tabindex => '1' 
+l(:field_password)
+ link_to l(:label_password_lost), lost_password_path, :class => "lost_password" if Setting.lost_password? 
+ password_field_tag 'password', nil, :tabindex => '2' 
+ if Setting.openid? 
+l(:field_identity_url)
+ text_field_tag "openid_url", nil, :tabindex => '3' 
+ end 
+ if Setting.autologin? 
+ check_box_tag 'autologin', 1, false, :tabindex => 4 
+ l(:label_stay_logged_in) 
+ end 
+l(:button_login)
+ end 
+ call_hook :view_account_login_bottom 
+ if params[:username].present? 
+ javascript_tag "$('#password').focus();" 
+ else 
+ javascript_tag "$('#username').focus();" 
+ end 

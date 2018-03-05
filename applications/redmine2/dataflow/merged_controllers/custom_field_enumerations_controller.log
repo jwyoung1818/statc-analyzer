@@ -1,0 +1,559 @@
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 8
+		 6: GETFIELD %self->custom_field def_%v_3 %self[2.0,] 
+		 7: %v_3->enumerations def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->order def_%v_5 %v_4[2.7,] 	 SYMBOL:position,	 ARGS:Symbol,
+		 9: ATTRASSIGN %self->values %v_5[2.8,] 
+		 10: RETURN %v_5[2.8,] %self[2.0,2.9,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = create instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 33
+		 6: GETFIELD %self->custom_field def_%v_3 %self[2.0,] 
+		 7: %v_3->enumerations def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %v_4->build def_%v_5 %v_4[2.7,] 	 SYMBOL:	 ARGS:
+		 9: ATTRASSIGN %self->value %v_5[2.8,] 
+		 10: Line Number 34
+		 11: GETFIELD %self->value def_%v_6 %self[2.0,2.9,] 
+		 12: %self->enumeration_params def_%v_7 %self[2.0,2.9,] 	 SYMBOL:	 ARGS:
+		 13: ATTRASSIGN %v_6->attributes %v_7[2.12,] 
+		 14: Line Number 35
+		 15: GETFIELD %self->value def_%v_8 %self[2.0,2.9,2.12,] 
+		 16: %v_8->save def_%v_9 %v_8[2.15,] 	 SYMBOL:	 ARGS:
+		 17: Line Number 36
+		 18: %self->respond_to def_%v_10 %self[2.0,2.9,2.12,] %self[2.0,2.9,2.12,] 	 SYMBOL:	 ARGS:%self,
+CLOSURE BEGIN: format[] %self[2.0,2.9,2.12,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: RECEIVEARG def_format 
+		 3: COPY TYPE_CurrentScope def_%current_scope 
+		 4: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 37
+		 1: format->html def_%cl_1_3 format[2.2,] %self[2.0,] 	 SYMBOL:	 ARGS:format,
+CLOSURE BEGIN: %self[2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_2_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 37
+		 1: GETFIELD %self->custom_field def_%cl_2_3 %self[2.0,] 
+		 2: %self->custom_field_enumerations_path def_%cl_2_4 %self[2.0,] %cl_2_3[3.1,] 	 SYMBOL:	 ARGS:%cl_2_3,
+		 3: %self->redirect_to def_%cl_2_5 %self[3.2,2.0,] %cl_2_4[3.2,] 	 SYMBOL:	 ARGS:%cl_2_4,
+		 4: RETURN %cl_2_5[3.3,] %self[3.2,3.3,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_2_6 
+		 1: def_%cl_2_7 %cl_2_6[4.0,] 
+		 2: RETURN %cl_2_7[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 2: Line Number 38
+		 3: format->js def_%cl_1_4 format[3.1,2.2,] 	 SYMBOL:	 ARGS:
+		 4: RETURN %cl_1_4[3.3,] %self[2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_5 
+		 1: def_%cl_1_6 %cl_1_5[4.0,] 
+		 2: RETURN %cl_1_6[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 19: RETURN %v_10[2.18,] %self[2.0,2.9,2.12,2.18,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = update_each instanceMethod = true
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 42
+		 6: (CustomFieldEnumeration) def_%v_3 
+		 7: GETFIELD %self->custom_field def_%v_4 %self[2.0,] 
+		 8: %self->update_each_params def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %v_3->update_each def_%v_6 %v_3[2.6,] %v_4[2.7,] %v_5[2.8,] 	 SYMBOL:	 ARGS:%v_4,%v_5,
+		 10: COPY TYPE_PASS def_saved %v_6[2.9,] 
+		 11: Line Number 43
+		 12: BRANCH %v_6[2.9,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: Line Number 44
+		 1: %self->flash def_%v_7 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 2: %self->l def_%v_8 %self[3.1,2.0,] 	 SYMBOL:notice_successful_update,	 ARGS:Symbol,
+		 3: ATTRASSIGN %v_7->[] %v_8[3.2,] 
+		 4: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_8 
+BB 5
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: Line Number 46
+		 1: COPY TYPE_StringLiteral "index" def_%v_9 
+		 2: HASH-action- def_%v_10 %v_9[5.1,] 
+		 3: %self->redirect_to def_%v_11 %self[2.0,] %v_10[5.2,] 	 SYMBOL:	 ARGS:%v_10,
+		 4: RETURN %v_11[5.3,] %self[5.3,2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = destroy instanceMethod = true
+BB 1
+	outgoing: 8 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 49
+		 6: GETFIELD %self->custom_field def_%v_3 %self[2.0,] 
+		 7: %v_3->enumerations def_%v_4 %v_3[2.6,] 	 SYMBOL:	 ARGS:
+		 8: %self->params def_%v_5 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 9: %v_5->[] def_%v_6 %v_5[2.8,] 	 SYMBOL:reassign_to_id,	 ARGS:Symbol,
+		 10: %v_4->find_by_id def_%v_7 %v_4[2.7,] %v_6[2.9,] 	 SYMBOL:	 ARGS:%v_6,
+		 11: COPY TYPE_PASS def_reassign_to %v_7[2.10,] 
+		 12: Line Number 50
+		 13: %v_7->nil? def_%v_8 %v_7[2.10,] 	 SYMBOL:	 ARGS:
+		 14: BRANCH %v_8[2.13,] 
+BB 3
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: GETFIELD %self->value def_%v_9 %self[2.0,] 
+		 1: %v_9->in_use? def_%v_10 %v_9[3.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_8 %v_10[3.1,] 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: BRANCH %v_8[3.2,2.13,] 
+BB 5
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: Line Number 51
+		 1: GETFIELD %self->custom_field def_%v_11 %self[2.0,] 
+		 2: %v_11->enumerations def_%v_12 %v_11[5.1,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->value def_%v_13 %self[2.0,] 
+		 4: COPY TYPE_Array def_%v_14 %v_13[5.3,] 
+		 5: %v_12->- def_%v_15 %v_12[5.2,] %v_14[5.4,] 	 SYMBOL:	 ARGS:%v_14,
+		 6: ATTRASSIGN %self->enumerations %v_15[5.5,] 
+		 7: Line Number 52
+		 8: COPY TYPE_StringLiteral "destroy" def_%v_16 
+		 9: HASH-action- def_%v_17 %v_16[5.8,] 
+		 10: %self->render def_%v_18 %self[5.6,2.0,] %v_17[5.9,] 	 SYMBOL:	 ARGS:%v_17,
+		 11: Line Number 53
+		 12: %self->l def_%v_19 %self[5.6,5.10,2.0,] 	 SYMBOL:label_custom_field_plural,	 ARGS:Symbol,
+		 13: %self->custom_fields_path def_%v_20 %self[5.6,5.10,5.12,2.0,] 	 SYMBOL:	 ARGS:
+		 14: COPY TYPE_Array def_%v_21 %v_19[5.12,] %v_20[5.13,] 
+		 15: GETFIELD %self->custom_field def_%v_22 %self[5.10,5.12,5.13,2.0,] 
+		 16: %v_22->type_name def_%v_23 %v_22[5.15,] 	 SYMBOL:	 ARGS:
+		 17: %self->l def_%v_24 %self[5.6,5.10,5.12,5.13,2.0,] %v_23[5.16,] 	 SYMBOL:	 ARGS:%v_23,
+		 18: GETFIELD %self->custom_field def_%v_25 %self[5.10,5.12,5.13,5.17,2.0,] 
+		 19: %v_25->class def_%v_26 %v_25[5.18,] 	 SYMBOL:	 ARGS:
+		 20: %v_26->name def_%v_27 %v_26[5.19,] 	 SYMBOL:	 ARGS:
+		 21: HASH-tab- def_%v_28 %v_27[5.20,] 
+		 22: %self->custom_fields_path def_%v_29 %self[5.6,5.10,5.12,5.13,5.17,2.0,] %v_28[5.21,] 	 SYMBOL:	 ARGS:%v_28,
+		 23: COPY TYPE_Array def_%v_30 %v_24[5.17,] %v_29[5.22,] 
+		 24: GETFIELD %self->custom_field def_%v_31 %self[5.10,5.12,5.13,5.17,5.22,2.0,] 
+		 25: %v_31->name def_%v_32 %v_31[5.24,] 	 SYMBOL:	 ARGS:
+		 26: %self->title def_%v_33 %self[5.6,5.10,5.12,5.13,5.17,5.22,2.0,] %v_21[5.14,] %v_30[5.23,] %v_32[5.25,] 	 SYMBOL:	 ARGS:%v_21,%v_30,%v_32,
+		 27: Line Number 56
+		 28: GETFIELD %self->custom_field def_%v_34 %self[5.10,5.12,5.13,5.17,5.22,5.26,2.0,] 
+		 29: GETFIELD %self->value def_%v_35 %self[5.10,5.12,5.13,5.17,5.22,5.26,2.0,] 
+		 30: %self->custom_field_enumeration_path def_%v_36 %self[5.6,5.10,5.12,5.13,5.17,5.22,5.26,2.0,] %v_34[5.28,] %v_35[5.29,] 	 SYMBOL:	 ARGS:%v_34,%v_35,
+		 31: HASH-method- def_%v_37 
+		 32: %self->form_tag def_%v_38 %self[5.6,5.10,5.12,5.13,5.17,5.22,5.26,5.30,2.0,] %v_36[5.30,] %v_37[5.31,] %self[5.6,5.10,5.12,5.13,5.17,5.22,5.26,5.30,2.0,] 	 SYMBOL:	 ARGS:%v_36,%v_37,%self,
+CLOSURE BEGIN: %self[5.6,5.10,5.12,5.13,5.17,5.22,5.26,5.30,2.0,] 
+BB 1
+	outgoing: 6 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%cl_1_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+BB 3
+	outgoing: 4 6 
+	datadep: 
+	instructions:
+		 0: Line Number 57
+		 1: GETFIELD %self->value def_%cl_1_3 %self[2.0,] 
+		 2: %cl_1_3->name def_%cl_1_4 %cl_1_3[3.1,] 	 SYMBOL:	 ARGS:
+		 3: GETFIELD %self->value def_%cl_1_5 %self[2.0,] 
+		 4: %cl_1_5->objects_count def_%cl_1_6 %cl_1_5[3.3,] 	 SYMBOL:	 ARGS:
+		 5: HASH-name-count- def_%cl_1_7 %cl_1_4[3.2,] %cl_1_6[3.4,] 
+		 6: %self->l def_%cl_1_8 %self[2.0,] %cl_1_7[3.5,] 	 SYMBOL:text_enumeration_destroy_question,	 ARGS:Symbol,%cl_1_7,
+		 7: Line Number 58
+		 8: %self->l def_%cl_1_9 %self[3.6,2.0,] 	 SYMBOL:text_enumeration_category_reassign_to,	 ARGS:Symbol,
+		 9: Line Number 59
+		 10: COPY TYPE_StringLiteral "reassign_to_id" def_%cl_1_10 
+		 11: COPY TYPE_StringLiteral "option" def_%cl_1_11 
+		 12: COPY TYPE_StringLiteral "--- " def_%cl_1_12 
+		 13: %self->l def_%cl_1_13 %self[3.6,3.8,2.0,] 	 SYMBOL:actionview_instancetag_blank_option,	 ARGS:Symbol,
+		 14: COPY TYPE_StringLiteral " ---" def_%cl_1_14 
+		 15: BUILDSTRING def_%cl_1_15 %cl_1_12[3.12,] %cl_1_13[3.13,] %cl_1_14[3.14,] 
+		 16: COPY TYPE_StringLiteral "" def_%cl_1_16 
+		 17: HASH-value- def_%cl_1_17 %cl_1_16[3.16,] 
+		 18: %self->content_tag def_%cl_1_18 %self[3.6,3.8,3.13,2.0,] %cl_1_11[3.11,] %cl_1_15[3.15,] %cl_1_17[3.17,] 	 SYMBOL:	 ARGS:%cl_1_11,%cl_1_15,%cl_1_17,
+		 19: GETFIELD %self->enumerations def_%cl_1_19 %self[3.6,3.8,3.13,3.18,2.0,] 
+		 20: COPY TYPE_StringLiteral "id" def_%cl_1_20 
+		 21: COPY TYPE_StringLiteral "name" def_%cl_1_21 
+		 22: %self->options_from_collection_for_select def_%cl_1_22 %self[3.6,3.8,3.13,3.18,2.0,] %cl_1_19[3.19,] %cl_1_20[3.20,] %cl_1_21[3.21,] 	 SYMBOL:	 ARGS:%cl_1_19,%cl_1_20,%cl_1_21,
+		 23: %cl_1_18->+ def_%cl_1_23 %cl_1_18[3.18,] %cl_1_22[3.22,] 	 SYMBOL:	 ARGS:%cl_1_22,
+		 24: %self->select_tag def_%cl_1_24 %self[3.6,3.8,3.13,3.18,3.22,2.0,] %cl_1_10[3.10,] %cl_1_23[3.23,] 	 SYMBOL:	 ARGS:%cl_1_10,%cl_1_23,
+		 25: Line Number 60
+		 26: %self->l def_%cl_1_25 %self[3.6,3.8,3.13,3.18,3.22,3.24,2.0,] 	 SYMBOL:button_apply,	 ARGS:Symbol,
+		 27: %self->submit_tag def_%cl_1_26 %self[3.6,3.8,3.13,3.18,3.22,3.24,3.26,2.0,] %cl_1_25[3.26,] 	 SYMBOL:	 ARGS:%cl_1_25,
+		 28: Line Number 61
+		 29: %self->l def_%cl_1_27 %self[3.6,3.8,3.13,3.18,3.22,3.24,3.26,3.27,2.0,] 	 SYMBOL:button_cancel,	 ARGS:Symbol,
+		 30: GETFIELD %self->custom_field def_%cl_1_28 %self[3.6,3.8,3.13,3.18,3.22,3.24,3.26,3.27,3.29,2.0,] 
+		 31: %self->custom_field_enumerations_path def_%cl_1_29 %self[3.6,3.8,3.13,3.18,3.22,3.24,3.26,3.27,3.29,2.0,] %cl_1_28[3.30,] 	 SYMBOL:	 ARGS:%cl_1_28,
+		 32: %self->link_to def_%cl_1_30 %self[3.6,3.8,3.13,3.18,3.22,3.24,3.26,3.27,3.29,3.31,2.0,] %cl_1_27[3.29,] %cl_1_29[3.31,] 	 SYMBOL:	 ARGS:%cl_1_27,%cl_1_29,
+		 33: RETURN %cl_1_30[3.32,] %self[3.6,3.8,3.13,3.18,3.22,3.24,3.26,3.27,3.29,3.31,3.32,2.0,] 
+BB 4
+	outgoing: 6 
+	datadep: 
+	instructions:
+		 0: def_%cl_1_31 
+		 1: def_%cl_1_32 %cl_1_31[4.0,] 
+		 2: RETURN %cl_1_32[4.1,] %self[2.0,] 
+BB 6
+	outgoing: 
+	datadep: 
+	instructions:
+CLOSURE END: 
+		 33: Line Number 63
+		 34: RETURN %self[5.6,5.10,5.12,5.13,5.17,5.22,5.26,5.30,5.32,2.0,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_39 
+		 1: Line Number 65
+		 2: GETFIELD %self->value def_%v_40 %self[2.0,] 
+		 3: %v_40->destroy def_%v_41 %v_40[6.2,] reassign_to[2.11,] 	 SYMBOL:	 ARGS:reassign_to,
+		 4: Line Number 66
+		 5: GETFIELD %self->custom_field def_%v_42 %self[2.0,] 
+		 6: %self->custom_field_enumerations_path def_%v_43 %self[2.0,] %v_42[6.5,] 	 SYMBOL:	 ARGS:%v_42,
+		 7: %self->redirect_to def_%v_44 %self[6.6,2.0,] %v_43[6.6,] 	 SYMBOL:	 ARGS:%v_43,
+		 8: RETURN %v_44[6.7,] %self[6.6,6.7,2.0,] 
+BB 8
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = find_custom_field instanceMethod = true
+BB 1
+	outgoing: 14 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: GLOBALVAR $! def_%v_3 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: 
+		 1: Line Number 70
+		 2: (CustomField) def_%v_6 
+		 3: %self->params def_%v_7 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 4: %v_7->[] def_%v_8 %v_7[4.3,] 	 SYMBOL:custom_field_id,	 ARGS:Symbol,
+		 5: %v_6->find def_%v_9 %v_6[4.2,] %v_8[4.4,] 	 SYMBOL:	 ARGS:%v_8,
+		 6: ATTRASSIGN %self->custom_field %v_9[4.5,] 
+		 7: COPY TYPE_PASS def_%v_5 %v_9[4.5,] 
+		 8: %v_3[2.5,] 
+BB 5
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: 
+BB 6
+	outgoing: 7 8 12 
+	datadep: 
+	instructions:
+		 0: def_%v_10 
+		 1: (ActiveRecord) def_%v_11 
+		 2: (inherit RecordNotFound) def_%v_12 %v_11[6.1,] 
+		 3: %v_12[6.2,] 
+BB 7
+	outgoing: 8 12 
+	datadep: 
+	instructions:
+		 0: %v_11->const_missing def_%v_12 %v_11[6.1,] 	 SYMBOL:RecordNotFound,	 ARGS:Symbol,
+BB 8
+	outgoing: 9 10 12 
+	datadep: 
+	instructions:
+		 0: def_%v_13 %v_12[7.0,6.2,] %v_10[6.0,] 
+		 1: BRANCH %v_13[8.0,] 
+BB 9
+	outgoing: 12 14 
+	datadep: 
+	instructions:
+		 0: %v_10[6.0,] 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: Line Number 72
+		 1: %self->render_404 def_%v_14 %self[4.6,2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_5 %v_14[10.1,] 
+		 3: %v_3[2.5,] 
+BB 11
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: 
+BB 12
+	outgoing: 14 
+	datadep: 
+	instructions:
+		 0: def_%v_15 
+		 1: def_%v_16 %v_15[12.0,] %v_3[2.5,] 
+		 2: %v_15[12.0,] 
+BB 13
+	outgoing: 14 
+	datadep: 
+	instructions:
+		 0: RETURN %v_5[4.7,10.2,] %self[4.6,2.0,] 
+BB 14
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = find_enumeration instanceMethod = true
+BB 1
+	outgoing: 14 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: GLOBALVAR $! def_%v_3 
+BB 4
+	outgoing: 5 6 
+	datadep: 
+	instructions:
+		 0: 
+		 1: Line Number 75
+		 2: GETFIELD %self->custom_field def_%v_6 %self[2.0,] 
+		 3: %v_6->enumerations def_%v_7 %v_6[4.2,] 	 SYMBOL:	 ARGS:
+		 4: %self->params def_%v_8 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 5: %v_8->[] def_%v_9 %v_8[4.4,] 	 SYMBOL:id,	 ARGS:Symbol,
+		 6: %v_7->find def_%v_10 %v_7[4.3,] %v_9[4.5,] 	 SYMBOL:	 ARGS:%v_9,
+		 7: ATTRASSIGN %self->value %v_10[4.6,] 
+		 8: COPY TYPE_PASS def_%v_5 %v_10[4.6,] 
+		 9: %v_3[2.5,] 
+BB 5
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: 
+BB 6
+	outgoing: 7 8 12 
+	datadep: 
+	instructions:
+		 0: def_%v_11 
+		 1: (ActiveRecord) def_%v_12 
+		 2: (inherit RecordNotFound) def_%v_13 %v_12[6.1,] 
+		 3: %v_13[6.2,] 
+BB 7
+	outgoing: 8 12 
+	datadep: 
+	instructions:
+		 0: %v_12->const_missing def_%v_13 %v_12[6.1,] 	 SYMBOL:RecordNotFound,	 ARGS:Symbol,
+BB 8
+	outgoing: 9 10 12 
+	datadep: 
+	instructions:
+		 0: def_%v_14 %v_13[7.0,6.2,] %v_11[6.0,] 
+		 1: BRANCH %v_14[8.0,] 
+BB 9
+	outgoing: 12 14 
+	datadep: 
+	instructions:
+		 0: %v_11[6.0,] 
+BB 10
+	outgoing: 11 12 
+	datadep: 
+	instructions:
+		 0: Line Number 77
+		 1: %self->render_404 def_%v_15 %self[4.7,2.0,] 	 SYMBOL:	 ARGS:
+		 2: COPY TYPE_PASS def_%v_5 %v_15[10.1,] 
+		 3: %v_3[2.5,] 
+BB 11
+	outgoing: 13 
+	datadep: 
+	instructions:
+		 0: 
+BB 12
+	outgoing: 14 
+	datadep: 
+	instructions:
+		 0: def_%v_16 
+		 1: def_%v_17 %v_16[12.0,] %v_3[2.5,] 
+		 2: %v_16[12.0,] 
+BB 13
+	outgoing: 14 
+	datadep: 
+	instructions:
+		 0: RETURN %v_5[4.8,10.2,] %self[4.7,2.0,] 
+BB 14
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = enumeration_params instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 80
+		 6: %self->params def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: %v_3->require def_%v_4 %v_3[2.6,] 	 SYMBOL:custom_field_enumeration,	 ARGS:Symbol,
+		 8: %v_4->permit def_%v_5 %v_4[2.7,] 	 SYMBOL:name,active,position,	 ARGS:Symbol,Symbol,Symbol,
+		 9: RETURN %v_5[2.8,] %self[2.0,2.6,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = update_each_params instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 83
+		 6: %self->params def_%v_3 %self[2.0,] 	 SYMBOL:	 ARGS:
+		 7: COPY TYPE_Array def_%v_4 
+		 8: HASH-custom_field_enumerations- def_%v_5 %v_4[2.7,] 
+		 9: %v_3->permit def_%v_6 %v_3[2.6,] %v_5[2.8,] 	 SYMBOL:	 ARGS:%v_5,
+		 10: %v_6->require def_%v_7 %v_6[2.9,] 	 SYMBOL:custom_field_enumerations,	 ARGS:Symbol,
+		 11: RETURN %v_7[2.10,] %self[2.0,2.6,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+

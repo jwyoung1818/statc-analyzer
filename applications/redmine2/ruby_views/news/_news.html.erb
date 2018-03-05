@@ -1,0 +1,9 @@
+ link_to_project(news.project) + ': ' unless @project 
+ link_to news.title, news_path(news) 
+ if news.comments_count > 0 
+ l(:label_x_comments, :count => news.comments_count) 
+ end 
+ unless news.summary.blank? 
+ news.summary 
+ end 
+ authoring news.created_on, news.author 

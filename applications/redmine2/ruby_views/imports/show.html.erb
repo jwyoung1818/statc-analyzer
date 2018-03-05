@@ -1,0 +1,18 @@
+ l(:label_import_issues) 
+ if @import.saved_items.count > 0 
+ l(:notice_import_finished, :count => @import.saved_items.count) 
+ @import.saved_objects.each do |issue| 
+ link_to_issue issue 
+ end 
+ link_to l(:label_issue_view_all), issues_path(:set_filter => 1, :status_id => '*', :issue_id => @import.saved_objects.map(&:id).join(',')) 
+ end 
+ if @import.unsaved_items.count > 0 
+ l(:notice_import_finished_with_errors, :count => @import.unsaved_items.count, :total => @import.total_items) 
+ @import.unsaved_items.each do |item| 
+ item.position 
+ simple_format_without_paragraph item.message 
+ end 
+ end 
+ content_for :sidebar do 
+ render :partial => 'issues/sidebar' 
+ end 

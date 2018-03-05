@@ -1,0 +1,93 @@
+ error_messages_for 'custom_field' 
+ f.select :field_format, custom_field_formats_for_select(@custom_field), {}, :disabled => !@custom_field.new_record? 
+ f.text_field :name, :size => 50, :required => true 
+ f.text_area :description, :rows => 7 
+ if @custom_field.format.multiple_supported 
+ f.check_box :multiple 
+ if !@custom_field.new_record? && @custom_field.multiple 
+ l(:text_turning_multiple_off) 
+ end 
+ end 
+ render_custom_field_format_partial f, @custom_field 
+ call_hook(:view_custom_fields_form_upper_box, :custom_field => @custom_field, :form => f) 
+ submit_tag l(:button_save) 
+ case @custom_field.class.name
+when "IssueCustomField" 
+ f.check_box :is_required 
+ if @custom_field.format.is_filter_supported 
+ f.check_box :is_filter 
+ end 
+ if @custom_field.format.searchable_supported 
+ f.check_box :searchable 
+ end 
+ when "UserCustomField" 
+ f.check_box :is_required 
+ f.check_box :visible 
+ f.check_box :editable 
+ if @custom_field.format.is_filter_supported 
+ f.check_box :is_filter 
+ end 
+ when "ProjectCustomField" 
+ f.check_box :is_required 
+ f.check_box :visible 
+ if @custom_field.format.searchable_supported 
+ f.check_box :searchable 
+ end 
+ if @custom_field.format.is_filter_supported 
+ f.check_box :is_filter 
+ end 
+ when "VersionCustomField" 
+ f.check_box :is_required 
+ if @custom_field.format.is_filter_supported 
+ f.check_box :is_filter 
+ end 
+ when "GroupCustomField" 
+ f.check_box :is_required 
+ if @custom_field.format.is_filter_supported 
+ f.check_box :is_filter 
+ end 
+ when "TimeEntryCustomField" 
+ f.check_box :is_required 
+ if @custom_field.format.is_filter_supported 
+ f.check_box :is_filter 
+ end 
+ else 
+ f.check_box :is_required 
+ end 
+ call_hook(:"view_custom_fields_form_#{@custom_field.type.to_s.underscore}", :custom_field => @custom_field, :form => f) 
+ if @custom_field.is_a?(IssueCustomField) 
+ l(:field_visible) 
+ radio_button_tag 'custom_field[visible]', 1, @custom_field.visible?, :id => 'custom_field_visible_on',
+            :data => {:disables => '.custom_field_role input'} 
+ l(:label_visibility_public) 
+ radio_button_tag 'custom_field[visible]', 0, !@custom_field.visible?, :id => 'custom_field_visible_off',
+            :data => {:enables => '.custom_field_role input'} 
+ l(:label_visibility_roles) 
+ role_ids = @custom_field.role_ids 
+ Role.givable.sorted.each do |role| 
+ check_box_tag 'custom_field[role_ids][]', role.id, role_ids.include?(role.id), :id => nil 
+ role.name 
+ end 
+ hidden_field_tag 'custom_field[role_ids][]', '' 
+l(:label_tracker_plural)
+ tracker_ids = @custom_field.tracker_ids 
+ Tracker.sorted.each do |tracker| 
+ check_box_tag "custom_field[tracker_ids][]",
+                      tracker.id,
+                      tracker_ids.include?(tracker.id),
+                      :id => "custom_field_tracker_ids_#{tracker.id}" 
+tracker.id
+ tracker.name 
+ end 
+ hidden_field_tag "custom_field[tracker_ids][]", '' 
+ check_all_links 'custom_field_tracker_ids' 
+ l(:label_project_plural) 
+ f.check_box :is_for_all, :data => {:disables => '#custom_field_project_ids input'} 
+ project_ids = @custom_field.project_ids.to_a 
+ render_project_nested_lists(Project.all) do |p|
+        content_tag('label', check_box_tag('custom_field[project_ids][]', p.id, project_ids.include?(p.id), :id => nil) + ' ' + p)
+      end 
+ hidden_field_tag('custom_field[project_ids][]', '', :id => nil) 
+ check_all_links 'custom_field_project_ids' 
+ end 
+ include_calendar_headers_tags 

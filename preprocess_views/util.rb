@@ -4,6 +4,7 @@ require 'find'
 def os_walk(dir)
   root = Pathname(dir)
   files, dirs = [], []
+  puts "#{root}"
   Pathname(root).find do |path|
     unless path == root
       dirs << path if path.directory?

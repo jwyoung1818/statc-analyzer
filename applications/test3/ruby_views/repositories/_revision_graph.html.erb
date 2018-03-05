@@ -1,0 +1,8 @@
+ javascript_tag do 
+ commits.to_json.html_safe 
+ space 
+ end 
+ content_for :header_tags do 
+ javascript_include_tag 'raphael' 
+ javascript_include_tag 'revision_graph' 
+ end 

@@ -1,0 +1,11 @@
+l(:label_wiki_page_new)
+ labelled_form_for :page, @page,
+            :url => new_project_wiki_page_path(@project, :parent => params[:parent]),
+            :method => 'post',
+            :remote => true do |f| 
+ render_error_messages @page.errors.full_messages_for(:title) 
+ f.text_field :title, :name => 'title', :size => 60, :required => true 
+ l(:text_unallowed_characters) 
+ submit_tag l(:label_next), :name => nil 
+ submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' 
+ end 

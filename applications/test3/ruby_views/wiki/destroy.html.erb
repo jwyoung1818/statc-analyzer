@@ -1,0 +1,18 @@
+ wiki_page_breadcrumb(@page) 
+ @page.pretty_title 
+ form_tag({}, :method => :delete) do 
+ l(:text_wiki_page_destroy_question, :descendants => @descendants_count) 
+ radio_button_tag 'todo', 'nullify', true 
+ l(:text_wiki_page_nullify_children) 
+ radio_button_tag 'todo', 'destroy', false 
+ l(:text_wiki_page_destroy_children) 
+ if @reassignable_to.any? 
+ radio_button_tag 'todo', 'reassign', false 
+ l(:text_wiki_page_reassign_children) 
+ label_tag "reassign_to_id", l(:description_wiki_subpages_reassign), :class => "hidden-for-sighted" 
+ select_tag 'reassign_to_id', wiki_page_options_for_select(@reassignable_to),
+                                 :onclick => "$('#todo_reassign').prop('checked', true);" 
+ end 
+ submit_tag l(:button_apply) 
+ link_to l(:button_cancel), :controller => 'wiki', :action => 'show', :project_id => @project, :id => @page.title 
+ end 

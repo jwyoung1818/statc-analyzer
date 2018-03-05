@@ -1,0 +1,596 @@
+../applications/bench/views/
+VIEWPATH ../applications/bench/ruby_views/layouts/
+../applications/bench/ruby_views/layouts/application.html.erb
+VIEWPATH ../applications/bench/ruby_views/users/
+../applications/bench/ruby_views/users/_blog.html.erb
+VIEWPATH ../applications/bench/ruby_views/users/
+../applications/bench/ruby_views/users/_blog1.html.erb
+VIEWPATH ../applications/bench/ruby_views/users/
+../applications/bench/ruby_views/users/_user.html.erb
+-------file_path ../applications/bench//ruby_views/users/_blog.html.erb
+VIEWPATH ../applications/bench/ruby_views/users/
+../applications/bench/ruby_views/users/edit.html.erb
+VIEWPATH ../applications/bench/ruby_views/users/
+../applications/bench/ruby_views/users/index.html.erb
+-------file_path ../applications/bench//ruby_views/users/_user.html.erb
+-------file_path ../applications/bench//ruby_views/users/_blog1.html.erb
+../applications/bench/controllers/
+start #<Action:0x00000002074f98>
+start #<Action:0x00000001fb6b88>
+rnder index 1 #<Action:0x00000001fb6b88>
+-------file_path ../applications/bench//ruby_views/users/index.html.erb
+start #<Action:0x00000001f9c6e8>
+-------file_path ../applications/bench//ruby_views/users/index.html.erb
+@@@@@ index true false
+action ssss 2 def index
+  end
+VIEW FILE ../applications/bench/controllers/application_controller.rb 2
+def index
+  end
+III 2
+III 3
+@@@@@ index true true
+action ssss 3 def index
+  	for i in 1..8
+		users = User.all
+        	User.getAll(i)
+  	end
+  	render 'index'
+  	users.reload
+  	puts "Do nothing with user"
+  	users.reload
+  end
+VIEW FILE ../applications/bench/controllers/users_controller.rb 10
+def index
+  	for i in 1..8
+		users = User.all
+        	User.getAll(i)
+  	end
+  	render 'index'
+  	users.reload
+  	puts "Do nothing with user"
+  	users.reload
+  end
+III 3
+III 4
+III 5
+III 6
+III 7
+III 8
+III 9
+III 10
+III 11
+III 12
+VIEW FILE ../applications/bench//ruby_views/users/index.html.erb 7
+ User.all.limit(1) 
+ users.each do |user| 
+ render partial 'user'  
+ end 
+ User.exists? 
+ Start rendering etid
+ render partial 'blog1' 
+III 1
+III 2
+III 3
+III 4
+III 5
+III 6
+III 7
+../applications/bench//ruby_views/users/_blog1.html.erb ../applications/bench//ruby_views/users/index.html.erb
+VIEW FILE ../applications/bench//ruby_views/users/_blog1.html.erb 2
+ Test 
+ Line 4 
+III 1
+III 2
+RRR 7 render partial 'blog1'
+KEY IS : 1
+KEY IS : 2
+KEY IS : 3
+KEY IS : 4
+KEY IS : 5
+KEY IS : 6
+KEY IS : 7
+**** 8 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+**** 9 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+HASH 9 [[1, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [2, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [3, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [4, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [5, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [6, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [7, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [8, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [9, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]]]
+../applications/bench//ruby_views/users/_user.html.erb ../applications/bench//ruby_views/users/index.html.erb
+VIEW FILE ../applications/bench//ruby_views/users/_user.html.erb 3
+ User.all.limit(10) 
+ render partial 'blog' 
+ Blog.end 
+III 1
+III 2
+III 3
+../applications/bench//ruby_views/users/_blog.html.erb ../applications/bench//ruby_views/users/_user.html.erb
+VIEW FILE ../applications/bench//ruby_views/users/_blog.html.erb 1
+ Test 
+III 1
+RRR 2 render partial 'blog'
+KEY IS : 1
+KEY IS : 2
+KEY IS : 3
+#### 4 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+**** 3 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+HASH 4 [[1, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [2, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [3, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [4, ["../applications/bench//ruby_views/users/_user.html.erb", 3]]]
+STTTTTTR IS  User.all.limit(10) 
+ render partial 'blog' 
+ Test 
+ Blog.end 
+RRR 3 render partial 'user'
+KEY IS : 1
+KEY IS : 2
+KEY IS : 3
+KEY IS : 4
+#### 8 ["../applications/bench//ruby_views/users/index.html.erb", 4]
+KEY IS : 5
+#### 9 ["../applications/bench//ruby_views/users/index.html.erb", 5]
+KEY IS : 6
+#### 10 ["../applications/bench//ruby_views/users/index.html.erb", 6]
+KEY IS : 7
+#### 11 ["../applications/bench//ruby_views/users/index.html.erb", 7]
+KEY IS : 8
+#### 12 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+KEY IS : 9
+#### 13 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+**** 4 ["../applications/bench//ruby_views/users/_user.html.erb", 1]
+**** 5 ["../applications/bench//ruby_views/users/_user.html.erb", 2]
+**** 6 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+**** 7 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+HASH 13 [[1, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [2, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [3, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [4, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [5, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [6, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [7, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [8, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [9, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [10, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [11, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [12, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [13, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]]]
+STTTTTTR IS  User.all.limit(1) 
+ users.each do |user| 
+ render partial 'user'  
+ User.all.limit(10) 
+ render partial 'blog' 
+ Test 
+ Blog.end 
+ end 
+ User.exists? 
+ Start rendering etid
+ render partial 'blog1' 
+ Test 
+ Line 4 
+KEY IS : 1
+KEY IS : 2
+KEY IS : 3
+KEY IS : 4
+KEY IS : 5
+KEY IS : 6
+KEY IS : 7
+#### 20 ["../applications/bench/controllers/users_controller.rb", 9]
+KEY IS : 8
+#### 21 ["../applications/bench/controllers/users_controller.rb", 10]
+KEY IS : 9
+#### 22 ["../applications/bench/controllers/users_controller.rb", 11]
+KEY IS : 10
+#### 23 ["../applications/bench/controllers/users_controller.rb", 12]
+**** 7 ["../applications/bench//ruby_views/users/index.html.erb", 1]
+**** 8 ["../applications/bench//ruby_views/users/index.html.erb", 2]
+**** 9 ["../applications/bench//ruby_views/users/index.html.erb", 3]
+**** 10 ["../applications/bench//ruby_views/users/_user.html.erb", 1]
+**** 11 ["../applications/bench//ruby_views/users/_user.html.erb", 2]
+**** 12 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+**** 13 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+**** 14 ["../applications/bench//ruby_views/users/index.html.erb", 4]
+**** 15 ["../applications/bench//ruby_views/users/index.html.erb", 5]
+**** 16 ["../applications/bench//ruby_views/users/index.html.erb", 6]
+**** 17 ["../applications/bench//ruby_views/users/index.html.erb", 7]
+**** 18 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+**** 19 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+HASH 23 [[1, ["../applications/bench/controllers/users_controller.rb", 3]], [2, ["../applications/bench/controllers/users_controller.rb", 4]], [3, ["../applications/bench/controllers/users_controller.rb", 5]], [4, ["../applications/bench/controllers/users_controller.rb", 6]], [5, ["../applications/bench/controllers/users_controller.rb", 7]], [6, ["../applications/bench/controllers/users_controller.rb", 8]], [7, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [8, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [9, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [10, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [11, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [12, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [13, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [14, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [15, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [16, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [17, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [18, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [19, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]], [20, ["../applications/bench/controllers/users_controller.rb", 9]], [21, ["../applications/bench/controllers/users_controller.rb", 10]], [22, ["../applications/bench/controllers/users_controller.rb", 11]], [23, ["../applications/bench/controllers/users_controller.rb", 12]]]
+***************
+def index
+  	for i in 1..8
+		users = User.all
+        	User.getAll(i)
+  	end
+  	render 'index'
+ User.all.limit(1) 
+ users.each do |user| 
+ render partial 'user'  
+ User.all.limit(10) 
+ render partial 'blog' 
+ Test 
+ Blog.end 
+ end 
+ User.exists? 
+ Start rendering etid
+ render partial 'blog1' 
+ Test 
+ Line 4 
+  	users.reload
+  	puts "Do nothing with user"
+  	users.reload
+  end
+----------------
+ User.all.limit(1) 
+ users.each do |user| 
+ render partial 'user'  
+ User.all.limit(10) 
+ render partial 'blog' 
+ Test 
+ Blog.end 
+ end 
+ User.exists? 
+ Start rendering etid
+ render partial 'blog1' 
+ Test 
+ Line 4 
+@@@@@ test false true
+action ssss 13 def test
+    puts "Rendering index"
+    render "index"
+    puts " finishing index"
+  end
+VIEW FILE ../applications/bench/controllers/users_controller.rb 5
+def test
+    puts "Rendering index"
+    render "index"
+    puts " finishing index"
+  end
+III 13
+III 14
+III 15
+III 16
+III 17
+VIEW FILE ../applications/bench//ruby_views/users/index.html.erb 7
+ User.all.limit(1) 
+ users.each do |user| 
+ render partial 'user'  
+ end 
+ User.exists? 
+ Start rendering etid
+ render partial 'blog1' 
+III 1
+III 2
+III 3
+III 4
+III 5
+III 6
+III 7
+../applications/bench//ruby_views/users/_blog1.html.erb ../applications/bench//ruby_views/users/index.html.erb
+VIEW FILE ../applications/bench//ruby_views/users/_blog1.html.erb 2
+ Test 
+ Line 4 
+III 1
+III 2
+RRR 7 render partial 'blog1'
+KEY IS : 1
+KEY IS : 2
+KEY IS : 3
+KEY IS : 4
+KEY IS : 5
+KEY IS : 6
+KEY IS : 7
+**** 8 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+**** 9 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+HASH 9 [[1, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [2, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [3, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [4, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [5, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [6, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [7, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [8, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [9, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]]]
+../applications/bench//ruby_views/users/_user.html.erb ../applications/bench//ruby_views/users/index.html.erb
+VIEW FILE ../applications/bench//ruby_views/users/_user.html.erb 3
+ User.all.limit(10) 
+ render partial 'blog' 
+ Blog.end 
+III 1
+III 2
+III 3
+../applications/bench//ruby_views/users/_blog.html.erb ../applications/bench//ruby_views/users/_user.html.erb
+VIEW FILE ../applications/bench//ruby_views/users/_blog.html.erb 1
+ Test 
+III 1
+RRR 2 render partial 'blog'
+KEY IS : 1
+KEY IS : 2
+KEY IS : 3
+#### 4 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+**** 3 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+HASH 4 [[1, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [2, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [3, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [4, ["../applications/bench//ruby_views/users/_user.html.erb", 3]]]
+STTTTTTR IS  User.all.limit(10) 
+ render partial 'blog' 
+ Test 
+ Blog.end 
+RRR 3 render partial 'user'
+KEY IS : 1
+KEY IS : 2
+KEY IS : 3
+KEY IS : 4
+#### 8 ["../applications/bench//ruby_views/users/index.html.erb", 4]
+KEY IS : 5
+#### 9 ["../applications/bench//ruby_views/users/index.html.erb", 5]
+KEY IS : 6
+#### 10 ["../applications/bench//ruby_views/users/index.html.erb", 6]
+KEY IS : 7
+#### 11 ["../applications/bench//ruby_views/users/index.html.erb", 7]
+KEY IS : 8
+#### 12 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+KEY IS : 9
+#### 13 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+**** 4 ["../applications/bench//ruby_views/users/_user.html.erb", 1]
+**** 5 ["../applications/bench//ruby_views/users/_user.html.erb", 2]
+**** 6 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+**** 7 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+HASH 13 [[1, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [2, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [3, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [4, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [5, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [6, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [7, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [8, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [9, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [10, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [11, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [12, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [13, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]]]
+STTTTTTR IS  User.all.limit(1) 
+ users.each do |user| 
+ render partial 'user'  
+ User.all.limit(10) 
+ render partial 'blog' 
+ Test 
+ Blog.end 
+ end 
+ User.exists? 
+ Start rendering etid
+ render partial 'blog1' 
+ Test 
+ Line 4 
+KEY IS : 1
+KEY IS : 2
+KEY IS : 3
+KEY IS : 4
+#### 17 ["../applications/bench/controllers/users_controller.rb", 16]
+KEY IS : 5
+#### 18 ["../applications/bench/controllers/users_controller.rb", 17]
+**** 4 ["../applications/bench//ruby_views/users/index.html.erb", 1]
+**** 5 ["../applications/bench//ruby_views/users/index.html.erb", 2]
+**** 6 ["../applications/bench//ruby_views/users/index.html.erb", 3]
+**** 7 ["../applications/bench//ruby_views/users/_user.html.erb", 1]
+**** 8 ["../applications/bench//ruby_views/users/_user.html.erb", 2]
+**** 9 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+**** 10 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+**** 11 ["../applications/bench//ruby_views/users/index.html.erb", 4]
+**** 12 ["../applications/bench//ruby_views/users/index.html.erb", 5]
+**** 13 ["../applications/bench//ruby_views/users/index.html.erb", 6]
+**** 14 ["../applications/bench//ruby_views/users/index.html.erb", 7]
+**** 15 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+**** 16 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+HASH 18 [[1, ["../applications/bench/controllers/users_controller.rb", 13]], [2, ["../applications/bench/controllers/users_controller.rb", 14]], [3, ["../applications/bench/controllers/users_controller.rb", 15]], [4, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [5, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [6, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [7, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [8, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [9, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [10, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [11, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [12, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [13, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [14, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [15, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [16, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]], [17, ["../applications/bench/controllers/users_controller.rb", 16]], [18, ["../applications/bench/controllers/users_controller.rb", 17]]]
+***************
+def test
+    puts "Rendering index"
+    render "index"
+ User.all.limit(1) 
+ users.each do |user| 
+ render partial 'user'  
+ User.all.limit(10) 
+ render partial 'blog' 
+ Test 
+ Blog.end 
+ end 
+ User.exists? 
+ Start rendering etid
+ render partial 'blog1' 
+ Test 
+ Line 4 
+    puts " finishing index"
+  end
+----------------
+ User.all.limit(1) 
+ users.each do |user| 
+ render partial 'user'  
+ User.all.limit(10) 
+ render partial 'blog' 
+ Test 
+ Blog.end 
+ end 
+ User.exists? 
+ Start rendering etid
+ render partial 'blog1' 
+ Test 
+ Line 4 
+CONTENT class ApplicationController < ActionController::Base
+  def index
+  end
+end
+VIEW FILE ../applications/bench/controllers/application_controller.rb 4
+class ApplicationController < ActionController::Base
+  def index
+  end
+end
+III 1
+III 2
+III 3
+III 4
+Replace ApplicationController.index
+START 2
+KEY2 IS : 1
+KEY2 IS : 2
+KEY2 IS : 3
+####2 5 ["../applications/bench/controllers/application_controller.rb", 3]
+KEY2 IS : 4
+####2 6 ["../applications/bench/controllers/application_controller.rb", 4]
+****2 3 ["../applications/bench/controllers/application_controller.rb", 2]
+****2 4 ["../applications/bench/controllers/application_controller.rb", 3]
+HASH2 4 [[1, ["../applications/bench/controllers/application_controller.rb", 1]], [2, ["../applications/bench/controllers/application_controller.rb", 2]], [3, ["../applications/bench/controllers/application_controller.rb", 3]], [4, ["../applications/bench/controllers/application_controller.rb", 4]]]
+FINAL 4 [[1, ["../applications/bench/controllers/application_controller.rb", 1]], [2, ["../applications/bench/controllers/application_controller.rb", 2]], [3, ["../applications/bench/controllers/application_controller.rb", 3]], [4, ["../applications/bench/controllers/application_controller.rb", 4]]]
+Rewriting ../applications/bench/merged_controllers/application_controller.rb
+../applications/bench/merged_controllers/application_controller.rb.line
+CONTENT # This is usersController
+class UsersController < ApplicationController
+  def index
+  	for i in 1..8
+		users = User.all
+        	User.getAll(i)
+  	end
+  	render 'index'
+  	users.reload
+  	puts "Do nothing with user"
+  	users.reload
+  end
+  def test
+    puts "Rendering index"
+    render "index"
+    puts " finishing index"
+  end
+end
+VIEW FILE ../applications/bench/controllers/users_controller.rb 18
+# This is usersController
+class UsersController < ApplicationController
+  def index
+  	for i in 1..8
+		users = User.all
+        	User.getAll(i)
+  	end
+  	render 'index'
+  	users.reload
+  	puts "Do nothing with user"
+  	users.reload
+  end
+  def test
+    puts "Rendering index"
+    render "index"
+    puts " finishing index"
+  end
+end
+III 1
+III 2
+III 3
+III 4
+III 5
+III 6
+III 7
+III 8
+III 9
+III 10
+III 11
+III 12
+III 13
+III 14
+III 15
+III 16
+III 17
+III 18
+Replace UsersController.test
+START 13
+KEY2 IS : 1
+KEY2 IS : 2
+KEY2 IS : 3
+KEY2 IS : 4
+KEY2 IS : 5
+KEY2 IS : 6
+KEY2 IS : 7
+KEY2 IS : 8
+KEY2 IS : 9
+KEY2 IS : 10
+KEY2 IS : 11
+KEY2 IS : 12
+KEY2 IS : 13
+KEY2 IS : 14
+####2 32 ["../applications/bench/controllers/users_controller.rb", 14]
+KEY2 IS : 15
+####2 33 ["../applications/bench/controllers/users_controller.rb", 15]
+KEY2 IS : 16
+####2 34 ["../applications/bench/controllers/users_controller.rb", 16]
+KEY2 IS : 17
+####2 35 ["../applications/bench/controllers/users_controller.rb", 17]
+KEY2 IS : 18
+####2 36 ["../applications/bench/controllers/users_controller.rb", 18]
+****2 14 ["../applications/bench/controllers/users_controller.rb", 13]
+****2 15 ["../applications/bench/controllers/users_controller.rb", 14]
+****2 16 ["../applications/bench/controllers/users_controller.rb", 15]
+****2 17 ["../applications/bench//ruby_views/users/index.html.erb", 1]
+****2 18 ["../applications/bench//ruby_views/users/index.html.erb", 2]
+****2 30 ["../applications/bench/controllers/users_controller.rb", 16]
+****2 31 ["../applications/bench/controllers/users_controller.rb", 17]
+****2 19 ["../applications/bench//ruby_views/users/index.html.erb", 3]
+****2 20 ["../applications/bench//ruby_views/users/_user.html.erb", 1]
+****2 21 ["../applications/bench//ruby_views/users/_user.html.erb", 2]
+****2 22 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+****2 23 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+****2 24 ["../applications/bench//ruby_views/users/index.html.erb", 4]
+****2 25 ["../applications/bench//ruby_views/users/index.html.erb", 5]
+****2 26 ["../applications/bench//ruby_views/users/index.html.erb", 6]
+****2 27 ["../applications/bench//ruby_views/users/index.html.erb", 7]
+****2 28 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+****2 29 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+HASH2 31 [[1, ["../applications/bench/controllers/users_controller.rb", 1]], [2, ["../applications/bench/controllers/users_controller.rb", 2]], [3, ["../applications/bench/controllers/users_controller.rb", 3]], [4, ["../applications/bench/controllers/users_controller.rb", 4]], [5, ["../applications/bench/controllers/users_controller.rb", 5]], [6, ["../applications/bench/controllers/users_controller.rb", 6]], [7, ["../applications/bench/controllers/users_controller.rb", 7]], [8, ["../applications/bench/controllers/users_controller.rb", 8]], [9, ["../applications/bench/controllers/users_controller.rb", 9]], [10, ["../applications/bench/controllers/users_controller.rb", 10]], [11, ["../applications/bench/controllers/users_controller.rb", 11]], [12, ["../applications/bench/controllers/users_controller.rb", 12]], [13, ["../applications/bench/controllers/users_controller.rb", 13]], [14, ["../applications/bench/controllers/users_controller.rb", 14]], [15, ["../applications/bench/controllers/users_controller.rb", 15]], [16, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [17, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [18, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [19, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [20, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [21, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [22, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [23, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [24, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [25, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [26, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [27, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [28, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]], [29, ["../applications/bench/controllers/users_controller.rb", 16]], [30, ["../applications/bench/controllers/users_controller.rb", 17]], [31, ["../applications/bench/controllers/users_controller.rb", 18]]]
+Replace UsersController.index
+START 3
+KEY2 IS : 1
+KEY2 IS : 2
+KEY2 IS : 3
+KEY2 IS : 4
+####2 27 ["../applications/bench/controllers/users_controller.rb", 4]
+KEY2 IS : 5
+####2 28 ["../applications/bench/controllers/users_controller.rb", 5]
+KEY2 IS : 6
+####2 29 ["../applications/bench/controllers/users_controller.rb", 6]
+KEY2 IS : 7
+####2 30 ["../applications/bench/controllers/users_controller.rb", 7]
+KEY2 IS : 8
+####2 31 ["../applications/bench/controllers/users_controller.rb", 8]
+KEY2 IS : 9
+####2 32 ["../applications/bench/controllers/users_controller.rb", 9]
+KEY2 IS : 10
+####2 33 ["../applications/bench/controllers/users_controller.rb", 10]
+KEY2 IS : 11
+####2 34 ["../applications/bench/controllers/users_controller.rb", 11]
+KEY2 IS : 12
+####2 35 ["../applications/bench/controllers/users_controller.rb", 12]
+KEY2 IS : 13
+####2 36 ["../applications/bench/controllers/users_controller.rb", 13]
+KEY2 IS : 14
+####2 37 ["../applications/bench/controllers/users_controller.rb", 14]
+KEY2 IS : 15
+####2 38 ["../applications/bench/controllers/users_controller.rb", 15]
+KEY2 IS : 16
+####2 39 ["../applications/bench//ruby_views/users/index.html.erb", 1]
+KEY2 IS : 17
+####2 40 ["../applications/bench//ruby_views/users/index.html.erb", 2]
+KEY2 IS : 18
+####2 41 ["../applications/bench//ruby_views/users/index.html.erb", 3]
+KEY2 IS : 27
+####2 50 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+KEY2 IS : 28
+####2 51 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+KEY2 IS : 29
+####2 52 ["../applications/bench/controllers/users_controller.rb", 16]
+KEY2 IS : 30
+####2 53 ["../applications/bench/controllers/users_controller.rb", 17]
+KEY2 IS : 31
+####2 54 ["../applications/bench/controllers/users_controller.rb", 18]
+KEY2 IS : 19
+####2 42 ["../applications/bench//ruby_views/users/_user.html.erb", 1]
+KEY2 IS : 20
+####2 43 ["../applications/bench//ruby_views/users/_user.html.erb", 2]
+KEY2 IS : 21
+####2 44 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+KEY2 IS : 22
+####2 45 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+KEY2 IS : 23
+####2 46 ["../applications/bench//ruby_views/users/index.html.erb", 4]
+KEY2 IS : 24
+####2 47 ["../applications/bench//ruby_views/users/index.html.erb", 5]
+KEY2 IS : 25
+####2 48 ["../applications/bench//ruby_views/users/index.html.erb", 6]
+KEY2 IS : 26
+####2 49 ["../applications/bench//ruby_views/users/index.html.erb", 7]
+****2 4 ["../applications/bench/controllers/users_controller.rb", 3]
+****2 5 ["../applications/bench/controllers/users_controller.rb", 4]
+****2 6 ["../applications/bench/controllers/users_controller.rb", 5]
+****2 7 ["../applications/bench/controllers/users_controller.rb", 6]
+****2 8 ["../applications/bench/controllers/users_controller.rb", 7]
+****2 9 ["../applications/bench/controllers/users_controller.rb", 8]
+****2 10 ["../applications/bench//ruby_views/users/index.html.erb", 1]
+****2 11 ["../applications/bench//ruby_views/users/index.html.erb", 2]
+****2 12 ["../applications/bench//ruby_views/users/index.html.erb", 3]
+****2 13 ["../applications/bench//ruby_views/users/_user.html.erb", 1]
+****2 23 ["../applications/bench/controllers/users_controller.rb", 9]
+****2 24 ["../applications/bench/controllers/users_controller.rb", 10]
+****2 25 ["../applications/bench/controllers/users_controller.rb", 11]
+****2 26 ["../applications/bench/controllers/users_controller.rb", 12]
+****2 14 ["../applications/bench//ruby_views/users/_user.html.erb", 2]
+****2 15 ["../applications/bench//ruby_views/users/_blog.html.erb", 1]
+****2 16 ["../applications/bench//ruby_views/users/_user.html.erb", 3]
+****2 17 ["../applications/bench//ruby_views/users/index.html.erb", 4]
+****2 18 ["../applications/bench//ruby_views/users/index.html.erb", 5]
+****2 19 ["../applications/bench//ruby_views/users/index.html.erb", 6]
+****2 20 ["../applications/bench//ruby_views/users/index.html.erb", 7]
+****2 21 ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]
+****2 22 ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]
+HASH2 44 [[1, ["../applications/bench/controllers/users_controller.rb", 1]], [2, ["../applications/bench/controllers/users_controller.rb", 2]], [3, ["../applications/bench/controllers/users_controller.rb", 3]], [4, ["../applications/bench/controllers/users_controller.rb", 4]], [5, ["../applications/bench/controllers/users_controller.rb", 5]], [6, ["../applications/bench/controllers/users_controller.rb", 6]], [7, ["../applications/bench/controllers/users_controller.rb", 7]], [8, ["../applications/bench/controllers/users_controller.rb", 8]], [9, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [10, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [11, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [12, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [13, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [14, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [15, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [16, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [17, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [18, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [19, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [20, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [21, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]], [22, ["../applications/bench/controllers/users_controller.rb", 9]], [23, ["../applications/bench/controllers/users_controller.rb", 10]], [24, ["../applications/bench/controllers/users_controller.rb", 11]], [25, ["../applications/bench/controllers/users_controller.rb", 12]], [26, ["../applications/bench/controllers/users_controller.rb", 13]], [27, ["../applications/bench/controllers/users_controller.rb", 14]], [28, ["../applications/bench/controllers/users_controller.rb", 15]], [29, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [30, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [31, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [32, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [33, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [34, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [35, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [36, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [37, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [38, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [39, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [40, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [41, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]], [42, ["../applications/bench/controllers/users_controller.rb", 16]], [43, ["../applications/bench/controllers/users_controller.rb", 17]], [44, ["../applications/bench/controllers/users_controller.rb", 18]]]
+DELETE
+# This is usersController
+, 0
+Delete ["../applications/bench/controllers/users_controller.rb", 1]
+FINAL 43 [[1, ["../applications/bench/controllers/users_controller.rb", 2]], [2, ["../applications/bench/controllers/users_controller.rb", 3]], [3, ["../applications/bench/controllers/users_controller.rb", 4]], [4, ["../applications/bench/controllers/users_controller.rb", 5]], [5, ["../applications/bench/controllers/users_controller.rb", 6]], [6, ["../applications/bench/controllers/users_controller.rb", 7]], [7, ["../applications/bench/controllers/users_controller.rb", 8]], [8, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [9, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [10, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [11, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [12, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [13, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [14, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [15, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [16, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [17, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [18, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [19, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [20, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]], [21, ["../applications/bench/controllers/users_controller.rb", 9]], [22, ["../applications/bench/controllers/users_controller.rb", 10]], [23, ["../applications/bench/controllers/users_controller.rb", 11]], [24, ["../applications/bench/controllers/users_controller.rb", 12]], [25, ["../applications/bench/controllers/users_controller.rb", 13]], [26, ["../applications/bench/controllers/users_controller.rb", 14]], [27, ["../applications/bench/controllers/users_controller.rb", 15]], [28, ["../applications/bench//ruby_views/users/index.html.erb", 1]], [29, ["../applications/bench//ruby_views/users/index.html.erb", 2]], [30, ["../applications/bench//ruby_views/users/index.html.erb", 3]], [31, ["../applications/bench//ruby_views/users/_user.html.erb", 1]], [32, ["../applications/bench//ruby_views/users/_user.html.erb", 2]], [33, ["../applications/bench//ruby_views/users/_blog.html.erb", 1]], [34, ["../applications/bench//ruby_views/users/_user.html.erb", 3]], [35, ["../applications/bench//ruby_views/users/index.html.erb", 4]], [36, ["../applications/bench//ruby_views/users/index.html.erb", 5]], [37, ["../applications/bench//ruby_views/users/index.html.erb", 6]], [38, ["../applications/bench//ruby_views/users/index.html.erb", 7]], [39, ["../applications/bench//ruby_views/users/_blog1.html.erb", 1]], [40, ["../applications/bench//ruby_views/users/_blog1.html.erb", 2]], [41, ["../applications/bench/controllers/users_controller.rb", 16]], [42, ["../applications/bench/controllers/users_controller.rb", 17]], [43, ["../applications/bench/controllers/users_controller.rb", 18]]]
+Rewriting ../applications/bench/merged_controllers/users_controller.rb
+../applications/bench/merged_controllers/users_controller.rb.line

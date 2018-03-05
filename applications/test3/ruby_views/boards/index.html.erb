@@ -1,0 +1,23 @@
+ l(:label_board_plural) 
+ l(:label_board) 
+ l(:label_topic_plural) 
+ l(:label_message_plural) 
+ l(:label_message_last) 
+ Board.board_tree(@boards) do |board, level| 
+ level * 18 
+ link_to board.name, project_board_path(board.project, board), :class => "board" 
+h board.description 
+ board.topics_count 
+ board.messages_count 
+ if board.last_message 
+ authoring board.last_message.created_on, board.last_message.author 
+ link_to_message board.last_message 
+ end 
+ end 
+ other_formats_links do |f| 
+ f.link_to 'Atom', :url => {:controller => 'activities', :action => 'index', :id => @project, :show_messages => 1, :key => User.current.rss_key} 
+ end 
+ content_for :header_tags do 
+ auto_discovery_link_tag(:atom, {:controller => 'activities', :action => 'index', :id => @project, :format => 'atom', :show_messages => 1, :key => User.current.rss_key}) 
+ end 
+ html_title l(:label_board_plural) 

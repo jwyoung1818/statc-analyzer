@@ -1,0 +1,7 @@
+ @issue.tracker 
+ @issue.id 
+ authoring @journal.created_on, @journal.user, :label => :label_updated_time_by 
+ simple_format_without_paragraph @diff.to_html 
+ link_to(l(:button_back), issue_path(@issue),
+              :onclick => 'if (document.referrer != "") {history.back(); return false;}') 
+ html_title "#{@issue.tracker.name} ##{@issue.id}: #{@issue.subject}" 

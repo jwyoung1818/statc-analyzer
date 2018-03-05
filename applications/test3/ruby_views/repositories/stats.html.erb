@@ -1,0 +1,22 @@
+ l(:label_statistics) 
+ javascript_tag do 
+ raw url_for(:controller => 'repositories',
+    :action => 'graph', :id => @project,
+    :repository_id => @repository.identifier_param,
+    :graph => "commits_per_month").to_json 
+ raw l(:label_revision_plural).to_json 
+ raw l(:label_change_plural).to_json 
+ raw l(:label_commits_per_month).to_json 
+ raw url_for(:controller => 'repositories',
+    :action => 'graph', :id => @project,
+    :repository_id => @repository.identifier_param,
+    :graph => "commits_per_author").to_json 
+ raw l(:label_revision_plural).to_json 
+ raw l(:label_change_plural).to_json 
+ raw l(:label_commits_per_author).to_json 
+ end 
+ link_to l(:button_back), :action => 'show', :id => @project 
+ html_title(l(:label_repository), l(:label_statistics)) 
+ content_for :header_tags do 
+ javascript_include_tag "Chart.bundle.min" 
+ end 

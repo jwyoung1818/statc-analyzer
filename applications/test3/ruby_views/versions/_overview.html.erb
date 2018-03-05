@@ -1,0 +1,30 @@
+ if version.completed? 
+ format_date(version.effective_date) 
+ elsif version.effective_date 
+ due_date_distance_in_words(version.effective_date) 
+ format_date(version.effective_date) 
+ end 
+h version.description 
+ if version.custom_field_values.any? 
+ render_custom_field_values(version) do |custom_field, formatted| 
+ custom_field.name 
+ formatted 
+ end 
+ end 
+ if version.visible_fixed_issues.count > 0 
+ progress_bar([version.visible_fixed_issues.closed_percent, version.visible_fixed_issues.completed_percent],
+                     :titles =>
+                       ["%s: %0.0f%%" % [l(:label_closed_issues_plural), version.visible_fixed_issues.closed_percent],
+                        "%s: %0.0f%%" % [l(:field_done_ratio), version.visible_fixed_issues.completed_percent]],
+                     :legend => ('%0.0f%%' % version.visible_fixed_issues.completed_percent)) 
+ link_to(l(:label_x_issues, :count => version.visible_fixed_issues.count),
+                  version_filtered_issues_path(version, :status_id => '*')) 
+ link_to_if(version.visible_fixed_issues.closed_count > 0,
+                      l(:label_x_closed_issues_abbr, :count => version.visible_fixed_issues.closed_count),
+                      version_filtered_issues_path(version, :status_id => 'c')) 
+ link_to_if(version.visible_fixed_issues.open_count > 0,
+                     l(:label_x_open_issues_abbr, :count => version.visible_fixed_issues.open_count),
+                     version_filtered_issues_path(version, :status_id => 'o')) 
+ else 
+ l(:label_roadmap_no_issues) 
+ end 
