@@ -797,7 +797,12 @@ def getRealLine(filename, l)
 		end
 		result[0] = viewf
 	end
-	result[0] = result[0].gsub($app_dir, '') if result
+	if result
+		result[0] = result[0].gsub($app_dir, '')
+		if result[0][0] == "/"
+			result[0] = result[0][1...-1]
+		end
+	end
 	return result
 	
 end
