@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Analyze {
-
+    
     public static void main(final String[] args) throws IOException, InterruptedException {
         runCommand("b1", "/home/ubuntu/workspace/bench/", "/home/ubuntu/workspace/ORManalysis/");
     }
+    // app is the name of the application
+    // input is the absolute path of the application
+    // analysis is absolute path of this repo
     public static void runCommand(String app, String input, String analysis) throws IOException, InterruptedException {
         //Build command 
         List<String> commands = new ArrayList<String>();
