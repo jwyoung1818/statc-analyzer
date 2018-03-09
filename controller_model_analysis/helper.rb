@@ -776,7 +776,7 @@ end
 
 def getRealLine(filename, l)
 	line_file = filename + ".line"
-	result = [filename, l]
+	result = [filename, l, 0]
 	if(File.exist?line_file)
 		f = open(line_file, 'r')
 		c = f.read
@@ -784,18 +784,20 @@ def getRealLine(filename, l)
 		c = eval(c)
 		result = c[l]
 		f.close
-		#puts "FILE #{l} #{result}"
 	end
-	if result[0].include?"/ruby_views/"
+	if result and result[0].include?"/ruby_views/"
 		viewf = result[0].gsub("/ruby_views/", "/views/")
 		viewl = result[0] + ".line"
 		if(File.exist?viewl)
 			f = open(viewl, 'r')
-			c = f.readlines()
-			result[1] = c[result[1] - 1].to_i
+			cs = f.readlines()
+			c = cs[result[1] - 1].split(' ')
+			result[1] = c[0].to_i
+			result[2] = c[1].to_i
 		end
 		result[0] = viewf
 	end
+	result[0] = result[0].gsub($app_dir, '') if result
 	return result
 	
 end
@@ -804,5 +806,9 @@ def getInstrLN(instr)
 	class_name = instr.getBB.getCFG.getMHandler.getCallerClass.getName
 	filename = $class_map[class_name].filename
 	ln = instr.getLN
-	getRealLine(filename, ln)
+	if filename && ln
+		#puts "F: #{filename} LOC: #{ln}"
+		return getRealLine(filename, ln) 
+	end
+	return [-1,-1,-1]
 end

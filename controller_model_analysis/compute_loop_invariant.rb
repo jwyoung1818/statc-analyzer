@@ -15,6 +15,12 @@ def compute_loop_invariant
 				end
 			end
 		end
+		if n.getInstr
+			re = getInstrLN(n.getInstr)
+			if re and re[2] == 1
+				puts "#{re}"
+			end
+		end
 		# "query loop"
 		#if n.getInstr.instance_of?Copy_instr and /IN.*\(SELECT/.match(n.getInstr.const_string)
 		#	@query_loops.push(n.getInstr) unless @query_loops.include?(n.getInstr)

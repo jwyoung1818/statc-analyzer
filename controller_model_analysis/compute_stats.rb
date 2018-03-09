@@ -837,9 +837,12 @@ def compute_dataflow_stat(output_dir, start_class, start_function, build_node_li
 		compute_order_stat
 	end
 
+	redundant_usage_file = "#{$app_dir}/#{$results_dir}/redundant_usage.xml"
+	$redundant_usage_file = File.open(redundant_usage_file, 'a+')
 	if $compute_redundant_usage
 		compute_redundant_usage
 	end
+	$redundant_usage_file.close
 
 	if $compute_field_order_stat
 		if $compute_redundant_usage == false
@@ -950,13 +953,13 @@ def compute_dataflow_stat(output_dir, start_class, start_function, build_node_li
 	$loop_invariant_file.close
 	
 	dead_store_file = "#{$app_dir}/#{$results_dir}/dead_store.xml"
-	$dead_store_file = File.open(dead_store_file, "w")
+	$dead_store_file = File.open(dead_store_file, "a+")
 	compute_dead_store_query
 	$dead_store_file.close
 	
 	
 	inefficient_render_file = "#{$app_dir}/#{$results_dir}/inefficient_render.xml"
-	$inefficient_render_file = File.open(inefficient_render_file, "w")
+	$inefficient_render_file = File.open(inefficient_render_file, "a+")
 	compute_inefficient_partial
 	$inefficient_render_file.close
 

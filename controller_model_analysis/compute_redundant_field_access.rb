@@ -22,6 +22,12 @@ def compute_redundant_usage
 			elsif @qr == "int" and n.getInstr.getTableName
 				class_name = n.getInstr.getTableName
 				$graph_file.puts("\t<#{class_name} totalFieldSize=\"4\">4<\/#{class_name}>")
+				res = getInstrLN(n.getInstr)
+				$redundant_usage_file.puts("<#{class_name} totalFieldSize=\"4\">")
+				$redundant_usage_file.puts("\t<filename>#{res[0]}<\/filename>")
+				$redundant_usage_file.puts("\t<loc>#{res[1]}<\/loc>")
+				$redundant_usage_file.puts("<\/#{class_name}>")
+
 			end
 		#elsif @qr
 		#	puts "Table name empty... #{n.getIndex}"
@@ -245,6 +251,13 @@ def print_single_redundant_usage(class_name, r, query_node)
 	actual_used_size = 0
 	if r.include?"ALL_FIELDS"
 		$graph_file.puts("\t<#{class_name} totalFieldSize=\"#{total_field_size}\">#{total_field_size}<\/#{class_name}>")
+
+		res = getInstrLN(query_node.getInstr)
+		$redundant_usage_file.puts("<#{class_name} totalFieldSize=\"#{total_field_size}\">")
+		$redundant_usage_file.puts("\t<filename>#{res[0]}<\/filename>")
+		$redundant_usage_file.puts("\t<loc>#{res[1]}<\/loc>")
+		$redundant_usage_file.puts("<\/#{class_name}>")
+
 		puts("\t<#{class_name} totalFieldSize=\"#{total_field_size}\">#{total_field_size}<\/#{class_name}>")
 		$class_map[class_name].getTableFields.each do |f|
 			if get_field_size(f) >= 2400
@@ -265,6 +278,13 @@ def print_single_redundant_usage(class_name, r, query_node)
 			end
 		end
 		$graph_file.puts("\t<#{class_name} totalFieldSize=\"#{total_field_size}\">#{actual_used_size}<\/#{class_name}>")
+		
+		res = getInstrLN(query_node.getInstr)
+		$redundant_usage_file.puts("<#{class_name} totalFieldSize=\"#{total_field_size}\" actual_used_size=\"#{actual_used_size}\">" )
+		$redundant_usage_file.puts("\t<filename>#{res[0]}<\/filename>")
+		$redundant_usage_file.puts("\t<loc>#{res[1]}<\/loc>")
+		$redundant_usage_file.puts("<\/#{class_name}>")
+
 	end
 end
 

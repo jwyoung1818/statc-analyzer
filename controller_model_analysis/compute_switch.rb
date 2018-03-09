@@ -41,7 +41,7 @@ $compute_redundant_table_usage=true
 
 $compute_branch_queries=false
 
-$compute_physical_volatile_store=false
+$compute_physical_volatile_store=true
 
 #the diff between longest and shortest path 
 $compute_single_path=false

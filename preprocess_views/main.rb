@@ -51,8 +51,9 @@ if options[:help]
 	exit
 end
 
-if options[:haml]
-else
+#if options[:haml]
+	
+if true
 	$path_prefix = "../applications/#{options[:application]}/"
 	$view_dir = "../applications/#{options[:application]}/#{$view_folder_name}/"
 	$new_view_dir = "../applications/#{options[:application]}/#{$new_view_folder_name}/"
@@ -75,6 +76,7 @@ else
 		run_command("mkdir #{$next_action_dir}")
 	end
 end
+
 
 read_view_files
 

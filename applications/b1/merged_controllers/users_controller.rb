@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   def index
   	for i in 1..8
-		users = User.all
-        	User.getAll(i)
+      users = User.all
+    	User.getAll(i)
+    	user = User.first
+    	id = user.id
   	end
   	render 'index'
  User.all.limit(1) 

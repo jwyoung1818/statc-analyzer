@@ -1,7 +1,11 @@
 def read_view_files
 	root, files, dirs = os_walk($view_dir)
 	for filename in files
-		if filename.to_s.end_with?("html.erb")
+		if filename.to_s.end_with?(".haml") 	
+			run_command("python3 haml2html.py #{filename}")
+			filename = filename.replace('haml', 'html.erb')
+		end
+		if filename.to_s.end_with?("html.erb") 
 			new_file_name = filename.to_s.gsub($view_folder_name, $new_view_folder_name)
 			#new_file_name = new_file_name.gsub('html.erb','rb')
 			#TODO: full path

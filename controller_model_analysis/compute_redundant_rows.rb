@@ -26,6 +26,7 @@ def compute_query_only_used_for_queries
 			if test2 and only_to_query
 				if n.getNonViewClosureStack.length > 0
 					@in_loop += 1
+					
 				end
 				cnt2 += 1
 			end

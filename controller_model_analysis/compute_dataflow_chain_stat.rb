@@ -43,7 +43,7 @@ def calculate_backward_path_tree(parent_Tnode, from_node, root_node)
  	cur_Tnode = TreeNode.new(from_node)
 	parent_Tnode.addChildren(cur_Tnode)
 	$path_tracker.push(cur_Tnode)
-  from_node.getBackwardEdges.each do |e|
+	from_node.getBackwardEdges.each do |e|
 		if e.getFromNode != nil
 			if $path_tracker.include?(e.getFromNode)
 			else
@@ -541,9 +541,9 @@ class Temp_field_stat
 end
 
 def compute_chain_stats
-=begin
+#=begin
 	$sketch_node_list.each do |n|
-		#puts "#{n.node.getIndex}:#{n.node.getInstr.toString}"
+		puts "#{n.node.getIndex}:#{n.node.getInstr.toString}"
 	end
 	$sketch_node_list.each do |n|
 		is_root = true
@@ -553,20 +553,20 @@ def compute_chain_stats
 			end
 		end
 		if is_root
-			#puts "Root node: #{n.node.getIndex}:#{n.node.getInstr.toString}"
-			#compute_single_chain_node(n.node)
+			puts "Root node: #{n.node.getIndex}:#{n.node.getInstr.toString}"
+			compute_single_chain_node(n.node)
 			
 			if n.node.getInstr.getFromUserInput
 				reaches = compute_reachability(n.node)
 				$graph_file.puts("\t<inputReaches>#{reaches}<\/inputReaches>")
 				if reaches == 0
-					#puts "ZERO reach #{n.node.getIndex}:#{n.node.getInstr.toString}"
+					puts "ZERO reach #{n.node.getIndex}:#{n.node.getInstr.toString}"
 				end
-				#puts "Input #{n.node.getIndex} reaches #{reaches}"
+				puts "Input #{n.node.getIndex} reaches #{reaches}"
 			end
 		end 
 	end
-=end
+#=end
 
 	$node_list.each do |n|
 		if n.getInstr.getFromUserInput
