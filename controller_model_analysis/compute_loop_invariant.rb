@@ -173,6 +173,7 @@ def compute_loop_invariant
 
 	puts "~~~~~~~~~~~~~Finish handling loop invariant~~~~~~~~~~~"
 	puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	puts "APP #{$app_dir}"
 end
 
 

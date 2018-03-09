@@ -798,7 +798,10 @@ def getRealLine(filename, l)
 		result[0] = viewf
 	end
 	if result
-		result[0] = result[0].gsub($app_dir, '')
+		# get the app name
+		app = $app_dir.split("/")[-1]
+		# split the path to by app
+		result[0] = result[0].split(app)[1]
 		if result[0][0] == "/"
 			result[0] = result[0][1...-1]
 		end
