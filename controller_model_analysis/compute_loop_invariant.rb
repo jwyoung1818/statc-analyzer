@@ -159,7 +159,7 @@ def compute_loop_invariant
 			$loop_invariant_file.puts "</startFilename>"
 			$loop_invariant_file.puts "<statement>"
 			$loop_invariant_file.puts "#{r[1]}"
-			$loop_invariant_file.puts "</statment>"
+			$loop_invariant_file.puts "</statement>"
 			$loop_invariant_file.puts "<filename>"
 			$loop_invariant_file.puts "#{r[0]}"
 			$loop_invariant_file.puts "</filename>"			

@@ -81,7 +81,7 @@ def compute_dead_store_query
 		$dead_store_file.puts "<loc>"
 		$dead_store_file.puts "#{r2[1]}"	
 		$dead_store_file.puts "</loc>"
-		$dead_store_file.puts "<dead_store_query>"
+		$dead_store_file.puts "</dead_store_query>"
 		$dead_store_file.puts "</dead_store_pairs>"
 
 	end
