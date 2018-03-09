@@ -803,7 +803,7 @@ def getRealLine(filename, l)
 		# split the path to by app
 		result[0] = result[0].split(app)[1]
 		if result[0][0] == "/"
-			result[0] = result[0][1...-1]
+			result[0] = result[0][1..-1]
 		end
 	end
 	return result
