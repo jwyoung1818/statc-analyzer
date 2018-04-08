@@ -27,20 +27,27 @@ int main(int argc, char** argv){
         a = fgetc(fin);
         b = fgetc(fin);
         c = fgetc(fin);
-        if(a == '\n')
+        if(a == '\n'){
+          std::string result = std::to_string(line) + " 1" + '\n';
+          fputs(result.c_str(), lineout);
           line += 1;
+          cl += 1;
+        }
         while ((a != '%' || b != '>') && (a != '-' || b != '%' || c != '>')){
           fputc(a, fout);
           a = b;
           b = c;
           c = fgetc(fin);      
-          if(a == '\n')
+          if(a == '\n'){
+            std::string result = std::to_string(line) + " 1" + '\n';
+            fputs(result.c_str(), lineout);
             line += 1;
-
+            cl += 1;
+          }
         }   
         
         fputc('\n', fout);
-        std::string result = std::to_string(line) + '\n';
+        std::string result = std::to_string(line) + " 1" + '\n';
         fputs(result.c_str(), lineout);
         cl += 1;
         
@@ -48,7 +55,7 @@ int main(int argc, char** argv){
           a = c;
         else 
           a = fgetc(fin);
-          if(a == '\n')
+        if(a == '\n')
             line += 1;
 
         b = fgetc(fin);
@@ -64,20 +71,27 @@ int main(int argc, char** argv){
         a = c;
         b = fgetc(fin);
         c = fgetc(fin);
-        if(a == '\n')
+        if(a == '\n'){
+          std::string result = std::to_string(line) + " 1" + '\n';
+          fputs(result.c_str(), lineout);
           line += 1;
+          cl += 1;
+        }
         while ((a != '%' || b != '>') && (a != '-' || b != '%' || c != '>')){
           fputc(a, fout);
           a = b;
           b = c;
           c = fgetc(fin);
-          
-          if(a == '\n')
+          if(a == '\n'){
+            std::string result = std::to_string(line) + " 0" + '\n';
+            fputs(result.c_str(), lineout);
             line += 1;
+            cl += 1;
+          }
 
         }   
         fputc('\n', fout);
-        std::string result =  std::to_string(line) + '\n';
+        std::string result =  std::to_string(line) + " 0" + '\n';
         fputs(result.c_str(), lineout);
         cl += 1;
         if (c != '>')

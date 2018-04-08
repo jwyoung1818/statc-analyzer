@@ -130,3 +130,201 @@ BB 9
 	datadep: 
 	instructions:
 
+SET IRMethod, name = user_icon_class instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_user 
+		 6: Line Number 4
+		 7: COPY TYPE_StringLiteral "" def_%v_3 
+		 8: COPY TYPE_PASS def_user_icon %v_3[2.7,] 
+		 9: Line Number 5
+		 10: user->admin def_%v_4 user[2.5,] 	 SYMBOL:	 ARGS:
+		 11: BRANCH %v_4[2.10,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "user_admin" def_%v_5 
+		 1: COPY TYPE_PASS def_user_icon %v_5[3.0,] 
+		 2: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_5 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 6
+		 1: user->needs_auth? def_%v_6 user[2.5,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_6[5.1,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "user_warn" def_%v_7 
+		 1: COPY TYPE_PASS def_user_icon %v_7[6.0,] 
+		 2: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_7 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 7
+		 1: Line Number 8
+		 2: COPY TYPE_StringLiteral "index" def_%v_8 
+		 3: %self->render def_%v_9 %self[2.0,] %v_8[8.2,] 	 SYMBOL:	 ARGS:%v_8,
+		 4: RETURN %v_9[8.3,] %self[8.3,2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = user_icon_class instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_user 
+		 6: Line Number 4
+		 7: COPY TYPE_StringLiteral "" def_%v_3 
+		 8: COPY TYPE_PASS def_user_icon %v_3[2.7,] 
+		 9: Line Number 5
+		 10: user->admin def_%v_4 user[2.5,] 	 SYMBOL:	 ARGS:
+		 11: BRANCH %v_4[2.10,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "user_admin" def_%v_5 
+		 1: COPY TYPE_PASS def_user_icon %v_5[3.0,] 
+		 2: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_5 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 6
+		 1: user->needs_auth? def_%v_6 user[2.5,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_6[5.1,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "user_warn" def_%v_7 
+		 1: COPY TYPE_PASS def_user_icon %v_7[6.0,] 
+		 2: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_7 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 7
+		 1: Line Number 8
+		 2: COPY TYPE_StringLiteral "index" def_%v_8 
+		 3: %self->render def_%v_9 %self[2.0,] %v_8[8.2,] 	 SYMBOL:	 ARGS:%v_8,
+		 4: RETURN %v_9[8.3,] %self[8.3,2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = user_icon_class instanceMethod = true
+BB 1
+	outgoing: 9 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 4 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RECEIVEARG def_user 
+		 6: Line Number 4
+		 7: COPY TYPE_StringLiteral "" def_%v_3 
+		 8: COPY TYPE_PASS def_user_icon %v_3[2.7,] 
+		 9: Line Number 5
+		 10: user->admin def_%v_4 user[2.5,] 	 SYMBOL:	 ARGS:
+		 11: BRANCH %v_4[2.10,] 
+BB 3
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "user_admin" def_%v_5 
+		 1: COPY TYPE_PASS def_user_icon %v_5[3.0,] 
+		 2: 
+BB 4
+	outgoing: 5 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_5 
+BB 5
+	outgoing: 6 7 
+	datadep: 
+	instructions:
+		 0: Line Number 6
+		 1: user->needs_auth? def_%v_6 user[2.5,] 	 SYMBOL:	 ARGS:
+		 2: BRANCH %v_6[5.1,] 
+BB 6
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_StringLiteral "user_warn" def_%v_7 
+		 1: COPY TYPE_PASS def_user_icon %v_7[6.0,] 
+		 2: 
+BB 7
+	outgoing: 8 
+	datadep: 
+	instructions:
+		 0: COPY TYPE_Nil def_%v_7 
+BB 8
+	outgoing: 9 
+	datadep: 
+	instructions:
+		 0: Line Number 7
+		 1: Line Number 8
+		 2: COPY TYPE_StringLiteral "index" def_%v_8 
+		 3: %self->render def_%v_9 %self[2.0,] %v_8[8.2,] 	 SYMBOL:	 ARGS:%v_8,
+		 4: RETURN %v_9[8.3,] %self[8.3,2.0,] 
+BB 9
+	outgoing: 
+	datadep: 
+	instructions:
+

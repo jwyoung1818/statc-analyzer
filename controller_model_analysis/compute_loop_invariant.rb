@@ -18,7 +18,7 @@ def compute_loop_invariant
 		if n.getInstr
 			re = getInstrLN(n.getInstr)
 			if re and re[2] == 1
-				puts "#{re}"
+				#puts "#{re}"
 			end
 		end
 		# "query loop"

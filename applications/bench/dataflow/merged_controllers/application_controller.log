@@ -78,3 +78,45 @@ BB 3
 	datadep: 
 	instructions:
 
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: RETURN %self[2.0,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+
+SET IRMethod, name = index instanceMethod = true
+BB 1
+	outgoing: 3 2 
+	datadep: 
+	instructions:
+BB 2
+	outgoing: 3 
+	datadep: 
+	instructions:
+		 0: def_%self 
+		 1: def_%v_0 
+		 2: COPY TYPE_CurrentScope def_%current_scope 
+		 3: COPY TYPE_ScopeModule def_%current_module 
+		 4: 
+		 5: Line Number 2
+		 6: COPY TYPE_Fixnum def_i 
+		 7: RETURN %self[2.0,] 
+BB 3
+	outgoing: 
+	datadep: 
+	instructions:
+

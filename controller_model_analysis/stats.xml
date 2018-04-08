@@ -1,14 +1,14 @@
 <STATSHEADER>
 <stat>
 	<general>
-		<queryTotal>16</queryTotal>
+		<queryTotal>22</queryTotal>
 		<readTotal>16</readTotal>
-		<writeTotal>0</writeTotal>
+		<writeTotal>6</writeTotal>
 		<queryInView>0</queryInView>
 		<queryInViewAssoc>0</queryInViewAssoc>
-		<queryIssuedByOther>2</queryIssuedByOther>
-		<queryInClosure>4</queryInClosure>
-		<queryReadInClosure>4</queryReadInClosure>
+		<queryIssuedByOther>0</queryIssuedByOther>
+		<queryInClosure>14</queryInClosure>
+		<queryReadInClosure>10</queryReadInClosure>
 		<queryInClosureByDB>0</queryInClosureByDB>
 		<queryInClosureByDBScale>0</queryInClosureByDBScale>
 		<queryInWhile>0</queryInWhile>
@@ -16,73 +16,80 @@
 		<queryInClosureWithCarrydep>0</queryInClosureWithCarrydep>
 		<queryUseSQLString>0</queryUseSQLString>
 		<branchOnQuery>12</branchOnQuery>
-		<branchInView>21</branchInView>
-		<branchTotal>44</branchTotal>
+		<branchInView>0</branchInView>
+		<branchTotal>45</branchTotal>
 		<readSink>
 			<total>16</total>
-			<sinkTotal>125</sinkTotal>
-			<toReadQuery>5</toReadQuery>
-			<toWriteQuery>0</toWriteQuery>
-			<toView>106</toView>
-			<toBranch>13</toBranch>
+			<sinkTotal>63</sinkTotal>
+			<toReadQuery>12</toReadQuery>
+			<toWriteQuery>6</toWriteQuery>
+			<toView>0</toView>
+			<toBranch>25</toBranch>
 		</readSink>
 		<readSource>
 			<total>16</total>
-			<sourceTotal>38</sourceTotal>
-			<fromUserInput>3</fromUserInput>
-			<fromUtil>1</fromUtil>
-			<fromQuery>5</fromQuery>
+			<sourceTotal>59</sourceTotal>
+			<fromUserInput>4</fromUserInput>
+			<fromUtil>2</fromUtil>
+			<fromQuery>10</fromQuery>
 			<fromQueryString>0</fromQueryString>
-			<selectCondition>2</selectCondition>
+			<selectCondition>0</selectCondition>
 			<fromConst>13</fromConst>
 			<fromGlobal>0</fromGlobal>
 		</readSource>
 		<writeSource>
-			<total>0</total>
-			<sourceTotal>0</sourceTotal>
+			<total>6</total>
+			<sourceTotal>16</sourceTotal>
 			<fromUserInput>0</fromUserInput>
-			<fromUtil>0</fromUtil>
-			<fromQuery>0</fromQuery>
+			<fromUtil>2</fromUtil>
+			<fromQuery>2</fromQuery>
 			<selectCondition>0</selectCondition>
-			<fromConst>0</fromConst>
+			<fromConst>4</fromConst>
 			<fromGlobal>0</fromGlobal>
 		</writeSource>
 		<queryOnlyFromUser>11</queryOnlyFromUser>
-		<queryUsedInView>10</queryUsedInView>
+		<queryUsedInView>0</queryUsedInView>
 	</general>
 </stat>
 
 <queryVariable>
-	<SharesController.shares in_loop="0">1</SharesController.shares>
+	<HomeController.user in_loop="1">1</HomeController.user>
+	<StoriesPaginator.user in_loop="1">1</StoriesPaginator.user>
 </queryVariable>
-<readFromInput in_loop="0">2</readFromInput>
+<readFromInput in_loop="1">4</readFromInput>
 <loopWhile>
 	<while>0</while>
-	<closure>5</closure>
+	<closure>11</closure>
 </loopWhile>
 <loopByDB>
-	<queryInLoop>4</queryInLoop>
-	<queryInLoopByDB>3</queryInLoopByDB>
-	<loopByDB>2</loopByDB>
+	<queryInLoop>14</queryInLoop>
+	<queryInLoopByDB>0</queryInLoopByDB>
+	<loopByDB>5</loopByDB>
 </loopByDB>
 <queryCardStats>
-	<limitedCard in_loop="0">9</limitedCard>
-	<scaleCard in_loop="4">7</scaleCard>
+	<limitedCard in_loop="6">11</limitedCard>
+	<scaleCard in_loop="4">5</scaleCard>
 </queryCardStats>
 <redundantData>
-	<Setting totalFieldSize="196">0</Setting>
-	<Setting totalFieldSize="196">0</Setting>
-	<DnsAlias totalFieldSize="132">0</DnsAlias>
-	<Setting totalFieldSize="196">64</Setting>
-	<Share totalFieldSize="2671">0</Share>
-	<Share totalFieldSize="4">4</Share>
-	<User totalFieldSize="4">4</User>
-	<User totalFieldSize="625">68</User>
-	<Setting totalFieldSize="196">64</Setting>
+	<Keystore totalFieldSize="72">64</Keystore>
+	<Keystore totalFieldSize="72">64</Keystore>
+	<User totalFieldSize="3082">68</User>
+	<User totalFieldSize="3082">0</User>
+	<Tag totalFieldSize="4">4</Tag>
+	<Story totalFieldSize="7658">0</Story>
+	<Vote totalFieldSize="84">72</Vote>
+	<HiddenStory totalFieldSize="12">0</HiddenStory>
 </redundantData>
 <selectCondition>
-	<Setting field="name" has_index="false">3</Setting>
-	<DnsAlias field="name" has_index="false">1</DnsAlias>
+	<Keystore field="key" has_index="true">2</Keystore>
+	<User field="session_token" has_index="true">1</User>
+	<User field="rss_token" has_index="true">1</User>
+	<Tag field="tag" has_index="true">1</Tag>
+	<Vote field="user_id" has_index="true">1</Vote>
+	<Vote field="story_id" has_index="false">1</Vote>
+	<Vote field="comment_id" has_index="false">1</Vote>
+	<HiddenStory field="user_id" has_index="true">1</HiddenStory>
+	<HiddenStory field="story_id" has_index="false">1</HiddenStory>
 </selectCondition>
 <fieldOrder>
 </fieldOrder>
@@ -92,42 +99,113 @@
 	<number2 in_loop="0">0</number2>
 </queryOnlyToQuery>
 <viewStats>
-	<table>Share</table>
-	<table>User</table>
-	<table>Setting</table>
-	<field>Share.id</field>
-	<field>Share.name</field>
-	<field>Share.created_at</field>
-	<field>Share.everyone</field>
-	<field>Share.rdonly</field>
-	<field>User.name</field>
-	<field>User.id</field>
-	<field>Share.guest_access</field>
-	<field>Share.guest_writeable</field>
-	<field>Share.visible</field>
-	<field>Setting.value</field>
-	<field>Share.tags</field>
-	<field>Share.path</field>
-	<field>Share.extras</field>
 </viewStats>
 <constStats>
 	<receiveArg>0</receiveArg>
 	<attrAssign>0</attrAssign>
-	<StringLiteral>11</StringLiteral>
-	<Nil>1</Nil>
-	<NthRef>1</NthRef>
+	<StringLiteral>17</StringLiteral>
 </constStats>
 <cliqueStat>
 </cliqueStat>
 <assignmentDetail>
+	<Keystore.key></Keystore.key>
+	<Keystore.value>const,util_func</Keystore.value>
 </assignmentDetail>
+<chainStats>
+	<inputReaches>0</inputReaches>
+	<inputReaches>0</inputReaches>
+	<inputReaches>2</inputReaches>
+	<inputReaches>0</inputReaches>
+	<inputReaches>2</inputReaches>
+	<inputReaches>2</inputReaches>
+	<inputReaches>0</inputReaches>
+	<inputReaches>0</inputReaches>
+	<inputReaches>0</inputReaches>
+	<inputReaches>1</inputReaches>
+	<inputReaches>0</inputReaches>
+	<nonField>
+		<name>Vote.[]</name>
+		<numUses>0</numUses>
+		<numAssigns>1</numAssigns>
+		<type>integer</type>
+		<avgSourceDist>3439.0</avgSourceDist>
+	</nonField>
+	<field>
+		<name>Keystore.key</name>
+		<numUses>8</numUses>
+		<numAssigns>2</numAssigns>
+		<type>string</type>
+		<avgSourceDist>1.0</avgSourceDist>
+	</field>
+	<field>
+		<name>Keystore.value</name>
+		<numUses>2</numUses>
+		<numAssigns>4</numAssigns>
+		<type>integer</type>
+		<avgSourceDist>10000</avgSourceDist>
+	</field>
+	<field>
+		<name>User.id</name>
+		<numUses>4</numUses>
+		<numAssigns>0</numAssigns>
+		<type>integer</type>
+		<avgSourceDist>NaN</avgSourceDist>
+	</field>
+	<field>
+		<name>User.username</name>
+		<numUses>2</numUses>
+		<numAssigns>0</numAssigns>
+		<type>string</type>
+		<avgSourceDist>NaN</avgSourceDist>
+	</field>
+	<field>
+		<name>TagFilter.tag_id</name>
+		<numUses>1</numUses>
+		<numAssigns>0</numAssigns>
+		<type>integer</type>
+		<avgSourceDist>NaN</avgSourceDist>
+	</field>
+	<field>
+		<name>Tag.id</name>
+		<numUses>1</numUses>
+		<numAssigns>0</numAssigns>
+		<type>integer</type>
+		<avgSourceDist>NaN</avgSourceDist>
+	</field>
+	<field>
+		<name>Vote.story_id</name>
+		<numUses>2</numUses>
+		<numAssigns>0</numAssigns>
+		<type>integer</type>
+		<avgSourceDist>NaN</avgSourceDist>
+	</field>
+	<field>
+		<name>Vote.vote</name>
+		<numUses>1</numUses>
+		<numAssigns>0</numAssigns>
+		<type>integer</type>
+		<avgSourceDist>NaN</avgSourceDist>
+	</field>
+	<field>
+		<name>Vote.reason</name>
+		<numUses>1</numUses>
+		<numAssigns>0</numAssigns>
+		<type>string</type>
+		<avgSourceDist>NaN</avgSourceDist>
+	</field>
+	<field>
+		<name>User.rss_token</name>
+		<numUses>3</numUses>
+		<numAssigns>0</numAssigns>
+		<type>string</type>
+		<avgSourceDist>NaN</avgSourceDist>
+	</field>
+</chainStats>
 <queryFunction>
-	<where>4</where>
+	<lock>2</lock>
+	<where>9</where>
 	<first>4</first>
-	<find>1</find>
-	<all>2</all>
 	<any>1</any>
-	<count>1</count>
-	<association>3</association>
+	<association>1</association>
 </queryFunction>
 </STATSHEADER>

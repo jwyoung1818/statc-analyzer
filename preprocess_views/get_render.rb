@@ -250,6 +250,7 @@ class Render_stmt
 		end
 		#puts str	
 		@properties.each do |k,v|
+			puts "@@@@@@@ #{k} ### #{v} @@@@@@@"
 			if k == "partial" or k == "template" or k == "action" or k == ""
 				name = ""
 				if @action.instance_of?Action
@@ -261,12 +262,16 @@ class Render_stmt
 				file_path = ""
 				if v.include?'/'
 					chs = v.split('/')
+					fp1 ="#{$path_prefix}/#{$new_view_folder_name}/#{chs[0...-1].join("/")}/_#{chs[-1]}.html.erb"
+					fp2 ="#{$path_prefix}/#{$new_view_folder_name}/#{chs[0...-1].join("/")}/#{chs[-1]}.html.erb"
 					if k == "partial"
 						file_path ="#{$path_prefix}/#{$new_view_folder_name}/#{chs[0...-1].join("/")}/_#{chs[-1]}.html.erb"
 					else
 						file_path ="#{$path_prefix}/#{$new_view_folder_name}/#{chs[0...-1].join("/")}/#{chs[-1]}.html.erb"
 					end
 				else
+					fp1 = "#{$path_prefix}/#{$new_view_folder_name}/#{name}/_#{v}.html.erb" 
+					fp2 = "#{$path_prefix}/#{$new_view_folder_name}/#{name}/#{v}.html.erb" 
 					if k == "partial"
 						file_path = "#{$path_prefix}/#{$new_view_folder_name}/#{name}/_#{v}.html.erb" 
 					else
@@ -274,9 +279,11 @@ class Render_stmt
 					end
 				end
 				puts "-------file_path #{file_path}"
-				exist = File.exist?(file_path)
-				if exist
-					@render_file = file_path	
+				[fp1, fp2].each do |file_path|
+					exist = File.exist?(file_path) 
+					if exist
+						@render_file = file_path	
+					end
 				end
 			elsif k == "layout"
 				if v == "false"

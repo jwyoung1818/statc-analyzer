@@ -4,7 +4,7 @@ output='./applications/'
 pre_pro='./preprocess_views'
 controller='./controller_model_analysis'
 call=$input/'calls.txt'
-schema=$input/'schema.rb'
+schema=$input/db/'schema.rb'
 mkdir $output/$app
 echo "move app dir to applications "
 cp -r $input/app/* $output/$app/

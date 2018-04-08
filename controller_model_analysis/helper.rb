@@ -454,7 +454,8 @@ def call_match_name(caller_name, funcname, f_handler)
 	only_call = nil
 	f_handler.getCalls.each do |call|
 		if (call.getObjName.include?(caller_name) or caller_name.include?(call.getObjName)) and funcname == call.getFuncName
-				return call 
+				return call ;lk
+				
 		end
 		if funcname == call.getFuncName and (call.caller != nil and call.caller.getName == caller_name)
 			return call
@@ -791,9 +792,12 @@ def getRealLine(filename, l)
 		if(File.exist?viewl)
 			f = open(viewl, 'r')
 			cs = f.readlines()
-			c = cs[result[1] - 1].split(' ')
-			result[1] = c[0].to_i
-			result[2] = c[1].to_i
+			c = cs[result[1] - 1]
+			if c
+				s = c.split(' ')
+				result[1] = s[0].to_i
+				result[2] = s[1].to_i
+			end
 		end
 		result[0] = viewf
 	end
@@ -802,9 +806,13 @@ def getRealLine(filename, l)
 		app = $app_dir.split("/")[-1]
 		# split the path to by app
 		result[0] = result[0].split(app)[1]
+		if result[0][0..1] == "//"
+			result[0] = result[0][2..-1]
+		end
 		if result[0][0] == "/"
 			result[0] = result[0][1..-1]
 		end
+
 	end
 	return result
 	

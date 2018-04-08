@@ -9,16 +9,16 @@ class UsersController < ApplicationController
   	render 'index'
  User.all.limit(1) 
  users.each do |user| 
- render partial 'user'  
+ render partial: 'user'  
  User.all.limit(10) 
- render partial 'blog' 
+ render partial: 'blog' 
  Test 
  Blog.end 
  content_tag(:div) 
  end 
  User.exists? 
  Start rendering etid
- render partial 'blog1' 
+ render partial: 'blog1' 
  Test 
  Line 4 
   	users.reload
@@ -30,16 +30,16 @@ class UsersController < ApplicationController
     render "index"
  User.all.limit(1) 
  users.each do |user| 
- render partial 'user'  
+ render partial: 'user'  
  User.all.limit(10) 
- render partial 'blog' 
+ render partial: 'blog' 
  Test 
  Blog.end 
  content_tag(:div) 
  end 
  User.exists? 
  Start rendering etid
- render partial 'blog1' 
+ render partial: 'blog1' 
  Test 
  Line 4 
     puts " finishing index"

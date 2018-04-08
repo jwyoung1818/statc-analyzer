@@ -55,7 +55,7 @@ load 'compute_redundant_rows.rb'
 load 'compute_select_condition.rb'
 load 'compute_dead_store_query.rb'
 load 'compute_inefficient_partial.rb'
-
+load 'compute_performance.rb'
 #load 'dump_graph.rb'
 
 #Static count:
@@ -198,6 +198,11 @@ opt_parser = OptionParser.new do |opt|
 			options[:trace] = stats
 	end
 
+	opt.on("-p", "--performance CLASS_NAME,FUNCTION_NAME",Array,"print some stats, including query_num, dataflow grap from user input to user output, etc. Needs two argument") do |stats|
+			options[:perf] = true
+			options[:trace] = stats
+	end
+
 	opt.on("-o", "--output-dir DIR",String,"Output directory for graphviz files") do |output_dir|
 		options[:output] = output_dir
 	end
@@ -291,16 +296,21 @@ if options[:output] != nil
 	$output_dir = options[:output]
 end
 
-
+if options[:perf]
+	start_class = options[:trace][0]
+	start_function = options[:trace][1]
+	level = 0
+	$temp_file = File.open("#{$output_dir}/trace.log","w")
+	compute_performance($output_dir, start_class, start_function)
+end
 if options[:trace_flow] or options[:stats] or options[:query_graph]
 	start_class = options[:trace][0]
 	start_function = options[:trace][1]
 	level = 0
 
-	loop_invariant_fname = "#{$output_dir}/#{start_class}_#{start_function}_loop_invariant.log"
-	$loop_invariant_file = File.open(loop_invariant_fname, "w");
-
 	$temp_file = File.open("#{$output_dir}/trace.log","w")
+	puts "COMPUTE STATS"
+	puts start_function, start_class
 	puts "temp file name: #{$output_dir}/trace.log"
 	if options[:trace_flow] or options[:random_path]
 		graph_fname = "#{$output_dir}/#{start_class}_#{start_function}_graph.log"

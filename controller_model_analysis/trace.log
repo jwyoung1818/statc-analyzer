@@ -1,0 +1,174 @@
+0:[BlogsController.before_filter] (1.0) 
+1:[BlogsController.show] (1.0) 
+2:[BlogsController.show] (2.0) 
+3:[BlogsController.show] (2.1) 
+4:COPY [BlogsController.show] (2.2) 
+5:COPY [BlogsController.show] (2.3) 
+6:[BlogsController.show] (2.4) 
+7:[BlogsController.show] (2.5) 
+8:[BlogsController.show] (2.6) 
+9:[BlogsController.show] (2.7) %v_4[2.6] %self[2.0]  %v_4 -> each
+10:[BlogsController.show] (1.0) 
+11:[BlogsController.show] (2.0) 
+12:[BlogsController.show] (2.1) 
+13:RECEIVEARG [BlogsController.show] (2.2) 
+14:COPY [BlogsController.show] (2.3) 
+15:COPY [BlogsController.show] (2.4) 
+16:[BlogsController.show] (2.5) 
+17:(User)
+18:[BlogsController.show] (2.7) %cl_1_3[2.6]  %cl_1_3 -> limit
+19:ATTRASSIGN [BlogsController.show] (2.8) %cl_1_4[2.7]  %self -> users
+20:RETURN [BlogsController.show] (2.9) %cl_1_4[2.7] %self[-1.-1] %self[2.8] 
+21:[BlogsController.show] (4.0) 
+22:[BlogsController.show] (2.8) 
+23:(Blog)
+24:COPY <admin>[BlogsController.show] (2.10) 
+25:[BlogsController.show] (2.11) %v_5[2.9] %v_6[2.10]  %v_5 -> blogByCategory
+26:[Blog.before_filter] (1.0) 
+27:[Blog.blogByCategory] (1.0) 
+28:[Blog.blogByCategory] (2.0) 
+29:[Blog.blogByCategory] (2.1) 
+30:COPY [Blog.blogByCategory] (2.2) 
+31:COPY [Blog.blogByCategory] (2.3) 
+32:[Blog.blogByCategory] (2.4) 
+33:RECEIVEARG [Blog.blogByCategory] (2.5) 
+34:[Blog.blogByCategory] (2.6) 
+35:COPY [Blog.blogByCategory] (2.7) 
+36:COPY [Blog.blogByCategory] (2.8) %v_3[2.7] 
+37:[Blog.blogByCategory] (2.9) 
+38:[Blog.blogByCategory] (2.10) %self[2.0] category[2.5]  %self -> extractBlogs
+39:[Blog.extractBlogs] (1.0) 
+40:[Blog.extractBlogs] (2.0) 
+41:[Blog.extractBlogs] (2.1) 
+42:COPY [Blog.extractBlogs] (2.2) 
+43:COPY [Blog.extractBlogs] (2.3) 
+44:[Blog.extractBlogs] (2.4) 
+45:RECEIVECONSTARG RECEIVEARG [Blog.extractBlogs] (2.5) 
+46:[Blog.extractBlogs] (2.6) category[2.5] 
+47:COPY [Blog.extractBlogs] (3.0) 
+48:[Blog.extractBlogs] (4.0) 
+49:COPY [Blog.extractBlogs] (4.1) 
+50:[Blog.extractBlogs] (4.2) 
+51:COPY [Blog.extractBlogs] (4.3) 
+52:COPY [Blog.extractBlogs] (4.4) %v_3[4.3] 
+53:[Blog.extractBlogs] (4.5) 
+54:[Blog.extractBlogs] (4.6) %v_3[4.3] %self[2.0]  %v_3 -> each
+55:[Blog.extractBlogs] (1.0) 
+56:[Blog.extractBlogs] (2.0) 
+57:[Blog.extractBlogs] (2.1) 
+58:RECEIVEARG [Blog.extractBlogs] (2.2) 
+59:COPY [Blog.extractBlogs] (2.3) 
+60:COPY [Blog.extractBlogs] (2.4) 
+61:[Blog.extractBlogs] (3.0) 
+62:(Blog)
+63:[Blog.extractBlogs] (3.2) %cl_1_3[3.1] id[2.2]  %cl_1_3 -> find
+64:RETURN [Blog.extractBlogs] (3.3) %cl_1_4[3.2] %self[2.0] 
+65:[Blog.extractBlogs] (4.0) 
+66:[Blog.extractBlogs] (4.1) %cl_1_5[4.0] 
+67:RETURN [Blog.extractBlogs] (4.2) %cl_1_6[4.1] %self[2.0] 
+68:[Blog.extractBlogs] (6.0) 
+69:[Blog.extractBlogs] (4.7) 
+70:BRANCH [Blog.extractBlogs] (4.8) category[2.5] 
+71:[Blog.extractBlogs] (5.0) 
+72:(Blog)
+73:HashField [category ] [Blog.extractBlogs] (5.2) category[2.5] 
+74:[Blog.extractBlogs] (5.3) %v_5[5.1] %v_6[5.2]  %v_5 -> where
+75:[Blog.extractBlogs] (5.4) %v_7[5.3]  %v_7 -> reload
+76:[Blog.extractBlogs] (5.5) %v_8[5.4] %self[2.0]  %v_8 -> reject
+77:[Blog.extractBlogs] (1.0) 
+78:[Blog.extractBlogs] (2.0) 
+79:[Blog.extractBlogs] (2.1) 
+80:RECEIVEARG [Blog.extractBlogs] (2.2) 
+81:COPY [Blog.extractBlogs] (2.3) 
+82:COPY [Blog.extractBlogs] (2.4) 
+83:[Blog.extractBlogs] (3.0) 
+84:[Blog.extractBlogs] (3.1) blog[2.2]  blog -> user_id
+85:[Blog.extractBlogs] (3.2) %cl_2_3[3.1]  %cl_2_3 -> ==
+86:RETURN [Blog.extractBlogs] (3.3) %cl_2_4[3.2] %self[2.0] 
+87:[Blog.extractBlogs] (4.0) 
+88:[Blog.extractBlogs] (4.1) %cl_2_5[4.0] 
+89:RETURN [Blog.extractBlogs] (4.2) %cl_2_6[4.1] %self[2.0] 
+90:[Blog.extractBlogs] (6.0) 
+91:COPY [Blog.extractBlogs] (5.6) %v_9[5.5] 
+92:[Blog.extractBlogs] (5.7) 
+93:COPY [Blog.extractBlogs] (6.0) 
+94:[Blog.extractBlogs] (7.0) 
+95:RETURN [Blog.extractBlogs] (7.1) blogs[4.1] %self[2.0] 
+96:[Blog.extractBlogs] (9.0) 
+97:COPY [Blog.blogByCategory] (2.11) %v_4[2.10] 
+98:RETURN [Blog.blogByCategory] (2.12) %v_4[2.10] %self[2.10] 
+99:[Blog.blogByCategory] (3.0) 
+100:ATTRASSIGN [BlogsController.show] (2.12) %v_7[2.11]  %self -> blogs
+101:[BlogsController.show] (2.13) 
+102:COPY <show>[BlogsController.show] (2.14) 
+103:[BlogsController.show] (2.15) %self[2.12] %v_8[2.14]  %self -> render
+104:[BlogsController.show] (2.16) 
+105:(User)
+106:[BlogsController.show] (2.18) %v_10[2.17]  %v_10 -> first
+107:[BlogsController.show] (2.19) %v_11[2.18]  %v_11 -> blogs
+108:COPY <admin>[BlogsController.show] (2.20) 
+109:HashField [category ] [BlogsController.show] (2.21) %v_13[2.20] 
+110:[BlogsController.show] (2.22) %v_12[2.19] %v_14[2.21]  %v_12 -> where
+111:[BlogsController.show] (2.23) %v_15[2.22]  %v_15 -> count
+112:[BlogsController.show] (2.24) 
+113:COPY <user>[BlogsController.show] (2.25) 
+114:HashField [partial ] [BlogsController.show] (2.26) %v_17[2.25] 
+115:[BlogsController.show] (2.27) %self[2.15] %v_18[2.26]  %self -> render
+116:[BlogsController.show] (2.28) 
+117:GETFIELD [BlogsController.show] (2.29) %self[2.27]  %self -> users
+118:[BlogsController.show] (2.30) %v_20[2.29] %self[2.27]  %v_20 -> each
+119:[BlogsController.show] (1.0) 
+120:[BlogsController.show] (2.0) 
+121:[BlogsController.show] (2.1) 
+122:RECEIVEARG [BlogsController.show] (2.2) 
+123:COPY [BlogsController.show] (2.3) 
+124:COPY [BlogsController.show] (2.4) 
+125:[BlogsController.show] (3.0) 
+126:[BlogsController.show] (3.1) user[2.2]  user -> name
+127:[BlogsController.show] (3.2) 
+128:[BlogsController.show] (3.3) user[2.2]  user -> nickname
+129:[BlogsController.show] (3.4) 
+130:[BlogsController.show] (3.5) user[2.2]  user -> address
+131:[BlogsController.show] (3.6) 
+132:[BlogsController.show] (3.7) user[2.2]  user -> created_at
+133:RETURN [BlogsController.show] (3.8) %cl_2_6[3.7] %self[2.0] 
+134:[BlogsController.show] (4.0) 
+135:[BlogsController.show] (4.1) %cl_2_7[4.0] 
+136:RETURN [BlogsController.show] (4.2) %cl_2_8[4.1] %self[2.0] 
+137:[BlogsController.show] (6.0) 
+138:[BlogsController.show] (2.31) 
+139:COPY <blogs/blog>[BlogsController.show] (2.32) 
+140:HashField [partial ] [BlogsController.show] (2.33) %v_22[2.32] 
+141:[BlogsController.show] (2.34) %self[2.27] %v_23[2.33]  %self -> render
+142:[BlogsController.show] (2.35) 
+143:GETFIELD [BlogsController.show] (2.36) %self[2.34]  %self -> blogs
+144:[BlogsController.show] (2.37) 
+145:[BlogsController.show] (2.38) %v_25[2.36] %v_26[2.37]  %v_25 -> []
+146:[BlogsController.show] (2.39) %v_27[2.38] %self[2.34]  %v_27 -> each
+147:[BlogsController.show] (1.0) 
+148:[BlogsController.show] (2.0) 
+149:[BlogsController.show] (2.1) 
+150:RECEIVEARG [BlogsController.show] (2.2) 
+151:COPY [BlogsController.show] (2.3) 
+152:COPY [BlogsController.show] (2.4) 
+153:[BlogsController.show] (3.0) 
+154:[BlogsController.show] (3.1) blog[2.2]  blog -> title
+155:[BlogsController.show] (3.2) 
+156:[BlogsController.show] (3.3) blog[2.2]  blog -> created_at
+157:[BlogsController.show] (3.4) 
+158:[BlogsController.show] (3.5) blog[2.2]  blog -> text
+159:RETURN [BlogsController.show] (3.6) %cl_3_5[3.5] %self[2.0] 
+160:[BlogsController.show] (4.0) 
+161:[BlogsController.show] (4.1) %cl_3_6[4.0] 
+162:RETURN [BlogsController.show] (4.2) %cl_3_7[4.1] %self[2.0] 
+163:[BlogsController.show] (6.0) 
+164:[BlogsController.show] (2.40) 
+165:COPY <blogs/date>[BlogsController.show] (2.41) 
+166:HashField [partial ] [BlogsController.show] (2.42) %v_29[2.41] 
+167:[BlogsController.show] (2.43) %self[2.34] %v_30[2.42]  %self -> render
+168:[BlogsController.show] (2.44) 
+169:(Time)
+170:[BlogsController.show] (2.46) %v_32[2.45]  %v_32 -> zone
+171:[BlogsController.show] (2.47) %v_33[2.46]  %v_33 -> now
+172:RETURN [BlogsController.show] (2.48) %v_34[2.47] %self[2.43] 
+173:[BlogsController.show] (3.0) 

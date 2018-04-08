@@ -274,7 +274,6 @@ def handle_single_dataflow_file(item, class_name)
 												cur_instr.setFromUserInput
 										end
 										if cur_instr.getFuncname == "ruby_code_from_view" 
-												puts "cur_instr is : #{cur_instr.getFuncname}"
 												$view_ruby_code = true
 												$view_closure = true
 												$view_start = true
@@ -314,6 +313,11 @@ def handle_single_dataflow_file(item, class_name)
 											dep_string = single_attr[bracket_begin+1...bracket_end-1]
 											deps = dep_string.split(',')
 											v_name = single_attr[0...bracket_begin]
+											# if v_name == "\%self"
+											# 	next
+											# end
+											#puts "v_name #{v_name}"
+											cur_instr.addDatadep(deps[-1], v_name)
 											deps.each do |dep|
 												if dep.length > 0
 													#dep_str = dep.split('.')
@@ -327,7 +331,7 @@ def handle_single_dataflow_file(item, class_name)
 													#XXX:Here is some non-beautiful trick, attrassign don't use the class instance, it only assigns. So avoid defining the use of class instance
 													#if cur_instr.instance_of?AttrAssign_instr
 														#if v_name.include?('%')==true	
-															cur_instr.addDatadep(dep, v_name)
+															#cur_instr.addDatadep(dep, v_name)
 														#end
 													#else
 														#cur_instr.addDatadep(dep, v_name)

@@ -790,18 +790,30 @@ def compute_dataflow_stat(output_dir, start_class, start_function, build_node_li
 	$graph_file.puts("<\/stat>")
 	$graph_file.puts("")
 
+	commmon_subexpression_file = "#{$app_dir}/#{$results_dir}/commmon_subexpression.xml"
+	$commmon_subexpression_file = File.open(commmon_subexpression_file, "a+")
 	if $compute_partial_overlap
 		$graph_file.puts("<queryVariable>")
+		$commmon_subexpression_file.puts("<commonSubexpr>")
 		@query_on_variable.each do |k,v|
 			in_loop = 0
+			$commmon_subexpression_file.puts("<subexprs>")
+			$commmon_subexpression_file.puts("<subexpr>#{k}</subexpr>")
 			v.each do |n1|
 				if n1.getNonViewClosureStack.length > 0
 					in_loop += 1
 				end
+				re = getInstrLN(n1.getInstr)
+				$commmon_subexpression_file.puts("<node>")
+				$commmon_subexpression_file.puts("<filename>#{re[0]}</filename>")
+				$commmon_subexpression_file.puts("<loc>#{re[1]}</loc>")
+				$commmon_subexpression_file.puts("</node>")
 			end
+			$commmon_subexpression_file.puts("</subexprs>")
 			$graph_file.puts("\t<#{k.gsub("::","")} in_loop=\"#{in_loop}\">#{v.length}<\/#{k.gsub("::","")}>")
 		end
 		$graph_file.puts("<\/queryVariable>")
+		$commmon_subexpression_file.puts("</commonSubexpr>")
 	end
 
 	$graph_file.puts("<readFromInput in_loop=\"#{@temp_use_input_in_loop}\">#{@temp_use_input}<\/readFromInput>")
@@ -949,6 +961,7 @@ def compute_dataflow_stat(output_dir, start_class, start_function, build_node_li
 	# compute loop invariant and dead store query
 	loop_invariant_file = "#{$app_dir}/#{$results_dir}/loop_invariant.xml"
 	$loop_invariant_file = File.open(loop_invariant_file, "a+")
+	puts "COMPUTE LOOP INVARIANT"
 	compute_loop_invariant
 	$loop_invariant_file.close
 	
